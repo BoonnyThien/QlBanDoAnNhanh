@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apache-config
+data:
+  000-default.conf: |
+    <VirtualHost *:80>
+      ServerAdmin webmaster@localhost
+      ServerName localhost
+      DocumentRoot /var/www/html
+      
+      <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+      </Directory>
+      
+      <Directory /var/www/html>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+        Order allow,deny
+        Allow from all
+        DirectoryIndex index.php index.html
+      </Directory>
+      
+      <FilesMatch \.php$>
+        SetHandler application/x-httpd-php
+      </FilesMatch>
+      
+      ErrorLog ${APACHE_LOG_DIR}/error.log
+      CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>

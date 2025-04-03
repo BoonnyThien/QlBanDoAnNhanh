@@ -10,7 +10,9 @@ services:
     ports:
       - "8080:80"  # Ánh xạ cổng 8080 của máy host vào cổng 80 của container
     volumes:
-      - ../phpCode:/var/www/html  # Mount mã nguồn vào container
+      - ../phpCode:/var/www/html
+      - ../phpCode/admin:/var/www/html/admin
+      - ./docker/apache:/etc/apache2/sites-available
     depends_on:
       - mysql_db  # Đơn giản hóa phần depends_on
     networks:

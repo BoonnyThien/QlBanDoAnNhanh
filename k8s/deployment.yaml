@@ -1,31 +1,8 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: php-pv
-spec:
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: /home/thinboonny/doannhanh/phpCode
-  persistentVolumeReclaimPolicy: Retain
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: php-pvc
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: php-app
+  namespace: default
 spec:
   replicas: 2
   selector:
@@ -37,34 +14,18 @@ spec:
         app: php-app
     spec:
       containers:
-      - name: php-apache
-        image: buithienboo/qlbandoannhanh-php-app:1.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: php-code
-          mountPath: /var/www/html
-        - name: apache-config
-          mountPath: /etc/apache2/sites-available/000-default.conf
-          subPath: 000-default.conf
-        env:
+      - env:
         - name: DB_HOST
-          value: "mysql-service"
+          value: mysql-service
         - name: DB_USER
-          value: "app_user"
+          value: app_user
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
               key: user-password
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 10
-          periodSeconds: 10
-          timeoutSeconds: 5
+              name: mysql-secret
+        image: ${{ secrets.DOCKERHUB_USERNAME }}/doannhanh:latest
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /
@@ -72,13 +33,84 @@ spec:
           initialDelaySeconds: 20
           periodSeconds: 20
           timeoutSeconds: 5
-      volumes:
-      - name: php-code
-        configMap:
-          name: php-code
-      - name: apache-config
-        configMap:
+        name: php-apache
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: www-data
+        - mountPath: /etc/apache2/sites-available/000-default.conf
           name: apache-config
+          subPath: 000-default.conf
+      initContainers:
+      - name: init-php-code
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        args:
+        - |
+          echo "Creating directories...";
+          mkdir -p /var/www/html/admin/config;
+          mkdir -p /var/www/html/pages;
+          mkdir -p /var/www/html/assets;
+          mkdir -p /var/www/html/database;
+          mkdir -p /var/www/html/sessions;
+          mkdir -p /var/www/html/uploads;
+          
+          # Copy files from original ConfigMap
+          echo "Copying main files...";
+          cp -r /config/* /var/www/html/ 2>/dev/null || true;
+          
+          # Copy files from content ConfigMap 
+          echo "Copying admin/config/config.php...";
+          cat /config-content/config.php > /var/www/html/admin/config/config.php;
+          
+          echo "Copying pages files...";
+          cat /config-content/navtop.php > /var/www/html/pages/navtop.php;
+          cat /config-content/navmenu.php > /var/www/html/pages/navmenu.php;
+          cat /config-content/main.php > /var/www/html/pages/main.php;
+          cat /config-content/footer.php > /var/www/html/pages/footer.php;
+          
+          # Create index.php if it doesn't exist
+          if [ ! -f /var/www/html/index.php ]; then
+            echo "Creating index.php...";
+            echo "<?php require_once 'pages/main.php'; ?>" > /var/www/html/index.php;
+          fi
+          
+          chown -R 33:33 /var/www/html;
+          chmod -R 755 /var/www/html;
+          
+          echo "Contents of /var/www/html:";
+          ls -la /var/www/html;
+          ls -la /var/www/html/admin/config;
+          ls -la /var/www/html/pages;
+        volumeMounts:
+        - mountPath: /config
+          name: php-code
+        - mountPath: /config-content
+          name: php-code-content
+        - mountPath: /var/www/html
+          name: www-data
+      volumes:
+      - configMap:
+          name: php-code
+        name: php-code
+      - configMap:
+          name: php-code-content
+        name: php-code-content
+      - emptyDir: {}
+        name: www-data
+      - configMap:
+          name: apache-config
+        name: apache-config
 ---
 apiVersion: v1
 kind: Service

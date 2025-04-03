@@ -1,0 +1,125 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mysql-backup
+spec:
+  schedule: "0 0 * * *"  # Chạy mỗi ngày lúc 00:00
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mysql-backup
+            image: mysql:8.0
+            command:
+            - /bin/sh
+            - -c
+            - |
+              mysqldump -h mysql -u root -p$MYSQL_ROOT_PASSWORD --all-databases | gzip > /backup/mysql-backup-$(date +%Y%m%d).sql.gz
+            env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+            volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+          volumes:
+          - name: backup-volume
+            persistentVolumeClaim:
+              claimName: backup-pvc
+          restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backup-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mysql-restore
+spec:
+  template:
+    spec:
+      containers:
+      - name: mysql-restore
+        image: mysql:8.0
+        command:
+        - /bin/sh
+        - -c
+        - |
+          gunzip -c /backup/mysql-backup-20240301.sql.gz | mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: root-password
+        volumeMounts:
+        - name: backup-volume
+          mountPath: /backup
+      volumes:
+      - name: backup-volume
+        persistentVolumeClaim:
+          claimName: backup-pvc
+      restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-script
+data:
+  backup.sh: |
+    #!/bin/bash
+    BACKUP_DIR="/backup"
+    DATE=$(date +%Y%m%d)
+    
+    # Backup MySQL
+    mysqldump -h mysql -u root -p$MYSQL_ROOT_PASSWORD --all-databases | gzip > $BACKUP_DIR/mysql-$DATE.sql.gz
+    
+    # Backup persistent volumes
+    tar -czf $BACKUP_DIR/pv-$DATE.tar.gz /data
+    
+    # Upload to S3
+    aws s3 cp $BACKUP_DIR/mysql-$DATE.sql.gz s3://backup-bucket/mysql/
+    aws s3 cp $BACKUP_DIR/pv-$DATE.tar.gz s3://backup-bucket/pv/
+    
+    # Cleanup old backups
+    find $BACKUP_DIR -type f -mtime +7 -delete
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup-cronjob
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: amazon/aws-cli
+            command: ["/backup/backup.sh"]
+            volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+            - name: backup-script
+              mountPath: /backup/backup.sh
+              subPath: backup.sh
+          volumes:
+          - name: backup-volume
+            persistentVolumeClaim:
+              claimName: backup-pvc
+          - name: backup-script
+            configMap:
+              name: backup-script
+          restartPolicy: OnFailure 

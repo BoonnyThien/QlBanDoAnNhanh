@@ -1,11 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
-    
-    # Bảo vệ thư mục admin
-    RewriteRule ^admin - [L,NC]
-    
-    # Chuyển hướng tất cả request tới index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

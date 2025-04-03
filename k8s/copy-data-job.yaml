@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-php-code
+spec:
+  template:
+    spec:
+      containers:
+      - name: copy-files
+        image: busybox
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          mkdir -p /target;
+          cp -r /source/* /target/;
+          chown -R 33:33 /target;
+          chmod -R 755 /target;
+          ls -la /target;
+        volumeMounts:
+        - name: source
+          mountPath: /source
+        - name: target
+          mountPath: /target
+      volumes:
+      - name: source
+        hostPath:
+          path: /home/thinboonny/doannhanh/phpCode
+          type: Directory
+      - name: target
+        persistentVolumeClaim:
+          claimName: php-pvc
+      restartPolicy: Never 
