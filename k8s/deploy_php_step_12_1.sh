@@ -3,13 +3,6 @@
 # 12.1. Tạo deployment PHP và kiểm tra pod
 echo "🚀 [12.1] Tạo deployment PHP..."
 
-# Đảm bảo thư mục /phpCode tồn tại trên Minikube
-echo "🔍 Kiểm tra thư mục /phpCode trên Minikube..."
-minikube ssh -- "if [ -d /phpCode ]; then echo '/phpCode tồn tại.'; else echo '/phpCode không tồn tại.'; exit 1; fi" || {
-  echo "❌ Thư mục /phpCode không tồn tại trên Minikube. Vui lòng kiểm tra mount."
-  exit 1
-}
-
 # Đảm bảo ConfigMap php-config đã được tạo
 echo "🔍 Kiểm tra ConfigMap php-config..."
 kubectl get configmap php-config > /dev/null 2>&1 || {
@@ -17,7 +10,7 @@ kubectl get configmap php-config > /dev/null 2>&1 || {
   exit 1
 }
 
-# Tạo deployment PHP với image php:8.0-apache
+# Tạo deployment PHP với image buithienboo/qlbandoannhanh-php-app:1.1
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -37,14 +30,12 @@ spec:
     spec:
       containers:
       - name: php
-        image: php:8.0-apache
+        image: buithienboo/qlbandoannhanh-php-app:1.1
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: php-code
-          mountPath: /var/www/html
         - name: php-ini
-          mountPath: /tmp/php-config
+          mountPath: /usr/local/etc/php/conf.d/
         resources:
           limits:
             cpu: "500m"
@@ -65,10 +56,6 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 10
       volumes:
-      - name: php-code
-        hostPath:
-          path: /phpCode
-          type: Directory
       - name: php-ini
         configMap:
           name: php-config

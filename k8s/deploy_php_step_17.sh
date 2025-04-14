@@ -3,7 +3,7 @@
 # 17. Tạo và truy cập dịch vụ php-service
 echo "🚀 [17] Tạo và truy cập dịch vụ php-service..."
 
-# Đọc tên pod từ file tạm (để kiểm tra pod trước khi tạo dịch vụ)
+# Đọc tên pod từ file tạm
 php_pod=$(cat /tmp/php_pod_name.txt)
 if [ -z "$php_pod" ]; then
   echo "❌ Không tìm thấy tên pod PHP. Vui lòng chạy bước 12.1 trước."
@@ -28,7 +28,7 @@ fi
 # Kiểm tra xem dịch vụ php-service đã tồn tại chưa
 echo "🔍 Kiểm tra xem dịch vụ php-service đã tồn tại chưa..."
 kubectl get service php-service -n default >/dev/null 2>&1 || {
-  echo "🔍 Dịch vụ php-service chưa tồn tại. Tạo dịch vụ..."
+  echo "🔍 Dịch vụ php-service chưa tồn tại. Tạo dịch vụ với type NodePort..."
   cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
@@ -42,7 +42,8 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP
+      nodePort: 30080
+  type: NodePort
 EOF
 }
 
@@ -59,7 +60,7 @@ kubectl get service php-service -n default >/dev/null 2>&1 || {
   exit 1
 }
 
-# Truy cập dịch vụ bằng minikube service
+# Lấy URL của dịch vụ
 echo "🔍 Thông tin truy cập dịch vụ..."
 minikube service php-service -n default --url || {
   echo "❌ Không thể truy cập dịch vụ php-service."

@@ -1,3 +1,4 @@
+# Sử dụng image PHP 8.1 với Apache
 FROM php:8.1-apache
 
 # 1. Cài đặt các dependencies cần thiết
@@ -6,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
+    sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Cài extensions PHP
@@ -14,39 +16,35 @@ RUN docker-php-ext-install pdo pdo_mysql mysqli mbstring zip
 # 3. Bật mod_rewrite và mod_headers
 RUN a2enmod rewrite headers
 
-# 4. Cài Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && php -r "unlink('composer-setup.php');"
-
-# 5. Copy cấu hình Apache
-COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
+# 4. Copy cấu hình Apache
+COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite 000-default
 
-# 6. Cấu hình Apache để cho phép symbolic links
-RUN sed -i 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks SymLinksIfOwnerMatch/' /etc/apache2/apache2.conf
+# 5. Cấu hình Apache để cho phép symbolic links và thêm ServerName
+RUN sed -i 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks SymLinksIfOwnerMatch/' /etc/apache2/apache2.conf \
+    && echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# 7. Tạo thư mục cho ứng dụng
+# 6. Tạo thư mục cho ứng dụng
 WORKDIR /var/www/html
 
-# 8. Copy composer.json trước
-COPY composer.json .
-
-# 9. Cài đặt dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# 10. Copy source code
+# 7. Copy source code
 COPY phpCode/ .
 
-# 11. Cấu hình quyền truy cập
+# 8. Cấu hình quyền truy cập
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# 12. Cấu hình PHP cho encoding
-RUN echo "default_charset = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
+# 9. Cấu hình PHP cho encoding
+RUN echo "[mbstring]" > /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
+    && echo "default_charset = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
     && echo "mbstring.internal_encoding = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
     && echo "mbstring.http_input = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
     && echo "mbstring.http_output = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini
+
+# 10. Kiểm tra sự tồn tại của các file quan trọng
+RUN test -f /var/www/html/index.php || (echo "ERROR: index.php not found in /var/www/html" && exit 1) \
+    && test -d /var/www/html/database || (echo "ERROR: database directory not found in /var/www/html" && exit 1) \
+    && test -f /var/www/html/database/qlbandoannhanh.sql || (echo "ERROR: qlbandoannhanh.sql not found in /var/www/html/database" && exit 1)
 
 EXPOSE 80
 

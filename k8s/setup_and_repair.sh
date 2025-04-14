@@ -1,19 +1,14 @@
 #!/bin/bash
 
-set -e
-
-echo "🌟 Kubernetes complete setup and repair script"
-echo "==============================================="
-
 # 1. Kiểm tra trạng thái Minikube và khởi động lại nếu cần
-echo "🚀 Kiểm tra và khởi động Minikube..."
+echo "🚀 1.Kiểm tra và khởi động Minikube..."
 minikube_status=$(minikube status | grep host | awk '{print $2}' 2>/dev/null || echo "NotRunning")
 if [ "$minikube_status" != "Running" ]; then
     echo "Minikube không chạy, khởi động lại..."
     minikube stop 2>/dev/null || true
     minikube delete --purge 2>/dev/null || true
-    minikube start --driver=docker --memory=3072 --cpus=2 --addons=ingress \
-      --mount --mount-string="/home/thinboonny/doannhanh/phpCode:/phpCode"
+    minikube start --driver=docker --memory=3072 --cpus=2 --addons=ingress
+    # Không cần mount thư mục nữa vì mã nguồn đã nằm trong Docker image
     # Đảm bảo quyền cho thư mục minikube
     [ -d ~/.minikube ] && chmod -R 755 ~/.minikube
 else
@@ -25,7 +20,7 @@ sleep 10
 kubectl cluster-info
 
 # 2. Dọn dẹp tài nguyên cũ
-echo "🧹 Dọn dẹp tài nguyên cũ..."
+echo "🧹 2.Dọn dẹp tài nguyên cũ..."
 kubectl delete --all deployments,statefulsets,services,pods,pvc,pv,configmaps,secrets,jobs,ingresses --grace-period=0 --force --ignore-not-found=true
 
 echo "⏳ Đợi tài nguyên xóa hoàn tất..."
@@ -35,54 +30,52 @@ echo "🔍 Kiểm tra tài nguyên còn sót lại..."
 kubectl get services
 
 # 3. Tạo Secret cho MySQL
-echo "🔒 Tạo MySQL Secret..."
+echo "🔒 3.Tạo MySQL Secret..."
 kubectl create secret generic mysql-secret \
   --from-literal=root-password=rootpassword \
   --from-literal=user-password=userpass \
   --from-literal=username=app_user
 
-# 4. Kiểm tra thư mục phpCode trong Minikube
-echo "📂 Kiểm tra thư mục phpCode trong Minikube..."
-minikube ssh -- "ls -ld /phpCode" > /dev/null 2>&1
+# 4. Kiểm tra khả năng kéo Docker image từ Docker Hub
+echo "📦 4.Kiểm tra khả năng kéo Docker image từ Docker Hub..."
+docker pull buithienboo/qlbandoannhanh-php-app:1.1 || {
+    echo "❌ Không thể kéo image buithienboo/qlbandoannhanh-php-app:1.1 từ Docker Hub."
+    echo "🔍 Vui lòng kiểm tra kết nối mạng hoặc xác nhận image tồn tại trên Docker Hub."
+    exit 1
+}
+echo "✅ Đã kéo thành công image buithienboo/qlbandoannhanh-php-app:1.1"
+
+# 5. Kiểm tra nội dung image (tùy chọn, để đảm bảo image chứa mã nguồn)
+echo "🔍 5.Kiểm tra nội dung image buithienboo/qlbandoannhanh-php-app:1.1..."
+docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/index.php" > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    echo "📁 Đã tìm thấy thư mục phpCode trong Minikube tại /phpCode"
-    minikube ssh -- "ls -l /phpCode/index.php" > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        echo "✅ File index.php đã tồn tại trong /phpCode"
-    else
-        echo "❌ File index.php không tồn tại trong /phpCode"
-        minikube ssh -- "ls -la /phpCode"
-        exit 1
-    fi
+    echo "✅ File index.php tồn tại trong image tại /var/www/html/"
 else
-    echo "❌ Không tìm thấy thư mục phpCode tại /phpCode trong Minikube"
-    echo "Hãy đảm bảo bạn đã mount đúng thư mục WSL vào Minikube bằng lệnh:"
-    echo "minikube start --mount --mount-string=\"/home/thinboonny/doannhanh/phpCode:/phpCode\""
+    echo "❌ File index.php không tồn tại trong image tại /var/www/html/"
+    echo "🔍 Nội dung thư mục /var/www/html trong image:"
+    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/"
     exit 1
 fi
 
-# Đảm bảo quyền cho thư mục trong WSL trước khi mount
-echo "🔧 Thiết lập quyền đọc/ghi cho thư mục phpCode trong WSL..."
-chmod -R 755 /home/thinboonny/doannhanh/phpCode
-echo "✅ Đã thiết lập quyền cho thư mục phpCode"
-
-# 5. Kiểm tra file qlbandoannhanh.sql trong phpCode/database
-echo "🔍 Kiểm tra file SQL trong phpCode/database..."
-SQL_FILE="/home/thinboonny/doannhanh/phpCode/database/qlbandoannhanh.sql"
-if [ -f "$SQL_FILE" ]; then
-    echo "✅ Đã tìm thấy file $SQL_FILE trong WSL"
+# Kiểm tra file SQL trong image
+docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/database/qlbandoannhanh.sql" > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "✅ File qlbandoannhanh.sql tồn tại trong image tại /var/www/html/database/"
 else
-    echo "❌ Không tìm thấy file $SQL_FILE trong phpCode/database"
-    ls -la /home/thinboonny/doannhanh/phpCode/database/
+    echo "❌ File qlbandoannhanh.sql không tồn tại trong image tại /var/www/html/database/"
+    echo "🔍 Nội dung thư mục /var/www/html/database trong image:"
+    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/database/"
     exit 1
 fi
+
+echo "✅ Đã kiểm tra thành công nội dung image buithienboo/qlbandoannhanh-php-app:1.1"
 
 # 6. Tạo ConfigMap từ file qlbandoannhanh.sql trực tiếp từ WSL
-echo "📦 Tạo ConfigMap cho khởi tạo MySQL từ file trên WSL..."
+echo "📦 6.Tạo ConfigMap cho khởi tạo MySQL từ file trên WSL..."
 kubectl create configmap mysql-init --from-file=init.sql="$SQL_FILE"
 
 # 7. Tạo ConfigMap cho cấu hình MySQL (để sửa mã hóa)
-echo "🔧 Tạo ConfigMap cho cấu hình MySQL..."
+echo "🔧 7.Tạo ConfigMap cho cấu hình MySQL..."
 cat > mysql-config.yaml << EOF
 apiVersion: v1
 kind: ConfigMap
@@ -102,7 +95,7 @@ EOF
 kubectl apply -f mysql-config.yaml
 
 # 8. Tạo MySQL Deployment
-echo "🛢️ Tạo MySQL Deployment..."
+echo "🛢️ 8.Tạo MySQL Deployment..."
 cat > mysql-deployment.yaml << EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -189,7 +182,7 @@ EOF
 kubectl apply -f mysql-deployment.yaml
 
 # 9. Tạo MySQL Service
-echo "🔄 Tạo MySQL Service..."
+echo "🔄 9.Tạo MySQL Service..."
 cat > mysql-service.yaml << EOF
 apiVersion: v1
 kind: Service
@@ -206,7 +199,7 @@ EOF
 kubectl apply -f mysql-service.yaml
 
 # 10. Tạo ConfigMap cho cấu hình Apache
-echo "🔧 Tạo ConfigMap cho cấu hình Apache..."
+echo "🔧 10.Tạo ConfigMap cho cấu hình Apache..."
 cat > apache-config.yaml << EOF
 apiVersion: v1
 kind: ConfigMap
@@ -221,65 +214,124 @@ data:
     </Directory>
 EOF
 kubectl apply -f apache-config.yaml
+# 10.5. Tạo ConfigMap cho MySQL từ file trong image Docker
+echo "📜 10.5 Tạo ConfigMap mysql-init để khởi tạo dữ liệu MySQL từ image Docker..."
+
+# Kiểm tra docker đã được cài đặt chưa
+if ! command -v docker &> /dev/null; then
+    echo "❌ Docker không được cài đặt. Vui lòng cài đặt Docker để tiếp tục."
+    exit 1
+fi
+
+# Tải image từ Docker Hub
+echo "🔍 Tải image buithienboo/qlbandoannhanh-php-app:1.1 từ Docker Hub..."
+docker pull buithienboo/qlbandoannhanh-php-app:1.1 || {
+    echo "❌ Không thể tải image buithienboo/qlbandoannhanh-php-app:1.1."
+    exit 1
+}
+
+# Chạy container tạm thời để copy file
+echo "🔍 Chạy container tạm thời để lấy file qlbandoannhanh.sql..."
+docker run --rm -d --name temp-php-container buithienboo/qlbandoannhanh-php-app:1.1 tail -f /dev/null || {
+    echo "❌ Không thể chạy container từ image buithienboo/qlbandoannhanh-php-app:1.1."
+    exit 1
+}
+
+# Copy file từ container ra máy host
+echo "🔍 Copy file qlbandoannhanh.sql từ container..."
+docker cp temp-php-container:/var/www/html/database/qlbandoannhanh.sql /tmp/qlbandoannhanh.sql || {
+    echo "❌ Không thể copy file qlbandoannhanh.sql từ container."
+    docker stop temp-php-container
+    exit 1
+}
+
+# Dừng container
+echo "🔍 Dừng container tạm thời..."
+docker stop temp-php-container || {
+    echo "⚠️ Không thể dừng container, nhưng tiếp tục quy trình..."
+}
+
+# Tạo ConfigMap từ file copy
+echo "📜 Tạo ConfigMap mysql-init từ file copy..."
+if [ -f "/tmp/qlbandoannhanh.sql" ]; then
+    kubectl create configmap mysql-init --from-file=/tmp/qlbandoannhanh.sql || {
+        echo "❌ Không thể tạo ConfigMap mysql-init."
+        rm -f /tmp/qlbandoannhanh.sql
+        exit 1
+    }
+    # Xóa file tạm
+    rm -f /tmp/qlbandoannhanh.sql
+else
+    echo "❌ File /tmp/qlbandoannhanh.sql không tồn tại sau khi copy."
+    exit 1
+fi
+
+# Kiểm tra ConfigMap vừa tạo
+echo "🔍 Kiểm tra ConfigMap mysql-init..."
+kubectl get configmap mysql-init > /dev/null 2>&1 || {
+    echo "❌ ConfigMap mysql-init không được tạo thành công."
+    kubectl describe configmap mysql-init
+    exit 1
+}
+
+echo "✅ ConfigMap mysql-init đã được tạo thành công."
 
 # 11. Tạo PHP Deployment
-echo "🚀 Tạo PHP Deployment..."
+echo "🚀 11.1 Tạo PHP Deployment..."
 cat > php-deployment.yaml << EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php-app
+  name: php-deployment
+  labels:
+    app: php
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: php-app
+      app: php
   template:
     metadata:
       labels:
-        app: php-app
+        app: php
     spec:
       containers:
-      - name: php-app
-        image: php:8.0-apache
+      - name: php
+        image: buithienboo/qlbandoannhanh-php-app:1.1
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi"
-            cpu: "200m"
         volumeMounts:
-        - name: php-code-volume
-          mountPath: /var/www/html
-        - name: apache-config
-          mountPath: /etc/apache2/conf.d/custom.conf
-          subPath: apache.conf
-        command: ["/bin/sh", "-c"]
-        args:
-        - |
-          apt-get update && \
-          apt-get install -y libpq-dev && \
-          docker-php-ext-install pdo pdo_mysql && \
-          a2enmod rewrite && \
-          a2enmod headers && \
-          echo "Apache starting..." && \
-          apache2-foreground
+        - name: php-ini
+          mountPath: /usr/local/etc/php/conf.d/custom-php.ini
+          subPath: php.ini
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10
       volumes:
-      - name: php-code-volume
-        hostPath:
-          path: /phpCode
-          type: Directory
-      - name: apache-config
+      - name: php-ini
         configMap:
-          name: apache-config
+          name: php-config
 EOF
 kubectl apply -f php-deployment.yaml
 
 # 11. Tạo ConfigMap cho PHP
-echo "📜 Tạo ConfigMap cho PHP..."
+echo "📜 11.2 Tạo ConfigMap cho PHP..."
 cat > /tmp/php.ini << EOF
 [PHP]
 default_charset = "UTF-8"
@@ -311,13 +363,13 @@ echo "✅ ConfigMap php-config đã được tạo thành công."
 # 12. Tạo deployment PHP
 ./k8s/deploy_php_step_12_1.sh
 ./k8s/deploy_php_step_12_2.sh
-./k8s/deploy_php_step_12_3.sh
-./k8s/deploy_php_step_12_4.sh
+# ./k8s/deploy_php_step_12_3.sh
+# ./k8s/deploy_php_step_12_4.sh
 ./k8s/deploy_php_step_12_5.sh
 ./k8s/deploy_php_step_12_6.sh
 
 # 13. Tạo Ingress
-echo "🌐 Tạo Ingress cho PHP..."
+echo "🌐 13.Tạo Ingress cho PHP..."
 cat <<EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -354,8 +406,8 @@ echo "$minikube_ip doannhanh.local" | sudo tee -a /etc/hosts || {
 }
 
 # 14. Đợi các pod sẵn sàng với retry logic
-echo "⏳ Đợi các pod khởi động..."
-max_attempts=30
+echo "⏳ 14.Đợi các pod khởi động..."
+max_attempts=10
 attempt=1
 while [ $attempt -le $max_attempts ]; do
   echo "🔍 Kiểm tra trạng thái Pod (lần $attempt/$max_attempts)..."
@@ -407,7 +459,7 @@ while [ $attempt -le $max_attempts ]; do
 done
 
 # 15. Kiểm tra cơ sở dữ liệu MySQL
-echo "🔍 Kiểm tra cơ sở dữ liệu MySQL..."
+echo "🔍 15.Kiểm tra cơ sở dữ liệu MySQL..."
 mysql_pod=$(kubectl get pods -l app=mysql -o jsonpath='{.items[0].metadata.name}')
 
 # Đảm bảo pod MySQL sẵn sàng trước khi kiểm tra
@@ -494,7 +546,9 @@ echo "✅ Website PHP hoạt động bình thường."
 
 # 17. Kiểm tra URL truy cập
 
-./k8s/deploy_php_step_17.sh
+# ./k8s/deploy_php_step_17.sh
+
+#!/bin/bash
 
 #!/bin/bash
 
@@ -531,6 +585,19 @@ kubectl get service php-service -n default >/dev/null 2>&1 || {
   kubectl get service -n default
   exit 1
 }
+
+# Kiểm tra xem minikube tunnel có đang chạy không
+echo "🔍 Kiểm tra xem minikube tunnel có đang chạy không..."
+if ! pgrep -f "minikube tunnel" > /dev/null; then
+  echo "⚠️ minikube tunnel không chạy. Khởi động minikube tunnel..."
+  minikube tunnel > /dev/null 2>&1 &
+  sleep 5  # Đợi tunnel khởi động
+  if ! pgrep -f "minikube tunnel" > /dev/null; then
+    echo "❌ Không thể khởi động minikube tunnel. Hãy chạy 'minikube tunnel' trong một terminal riêng biệt."
+    exit 1
+  fi
+  echo "✅ minikube tunnel đã được khởi động."
+fi
 
 # Lấy URL của dịch vụ php-service
 echo "🔍 Lấy URL của dịch vụ php-service..."
@@ -583,12 +650,3 @@ curl --connect-timeout 5 "http://$custom_domain:$service_port" >/dev/null 2>&1 |
 
 echo "✅ [18] Đã thêm tên miền $custom_domain vào /etc/hosts."
 echo "🔗 Truy cập website PHP tại: http://$custom_domain:$service_port"
-
-# 19. Kiểm tra kết nối tunnel
-echo "🔍 Kiểm tra xem minikube tunnel có đang chạy không..."
-if pgrep -f "minikube tunnel" > /dev/null; then
-  echo "✅ minikube tunnel đang chạy"
-else
-  echo "⚠️ minikube tunnel không chạy. Hãy chạy lệnh sau trong một terminal riêng biệt:"
-  echo "minikube tunnel"
-fi
