@@ -49,7 +49,8 @@ docker compose up -d
 docker compose logs -f
 
 # Khởi động Minikube
-minikube start
+minikube delete
+minikube start --driver=docker
 
 # Áp dụng Kubernetes configurations
 cd ~/doannhanh && kubectl apply -f k8s/
@@ -65,7 +66,7 @@ kubectl get pods
 kubectl get services
 
 # Kiểm tra ứng dụng
-curl http://localhost:8080
+minikube service php-service --url
 ```
 
 ## Xử lý sự cố thường gặp

@@ -1,0 +1,1887 @@
+apiVersion: v1
+data:
+  Carbon-src-Carbon-Lang-aa_ER.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['Qunxa Garablu', 'Naharsi Kudo', 'Ciggilta Kudo', 'Agda Baxisso', 'Caxah Alsa', 'Qasa Dirri', 'Qado Dirri', 'Leqeeni', 'Waysu', 'Diteli', 'Ximoli', 'Kaxxa Garablu'],
+        'months_short' => ['Qun', 'Nah', 'Cig', 'Agd', 'Cax', 'Qas', 'Qad', 'Leq', 'Way', 'Dit', 'Xim', 'Kax'],
+        'weekdays' => ['Acaada', 'Etleeni', 'Talaata', 'Arbaqa', 'Kamiisi', 'Gumqata', 'Sabti'],
+        'weekdays_short' => ['Aca', 'Etl', 'Tal', 'Arb', 'Kam', 'Gum', 'Sab'],
+        'weekdays_min' => ['Aca', 'Etl', 'Tal', 'Arb', 'Kam', 'Gum', 'Sab'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['saaku', 'carra'],
+    ]);
+  Carbon-src-Carbon-Lang-aa_ET.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['Qunxa Garablu', 'Kudo', 'Ciggilta Kudo', 'Agda Baxisso', 'Caxah Alsa', 'Qasa Dirri', 'Qado Dirri', 'Liiqen', 'Waysu', 'Diteli', 'Ximoli', 'Kaxxa Garablu'],
+        'months_short' => ['Qun', 'Kud', 'Cig', 'Agd', 'Cax', 'Qas', 'Qad', 'Leq', 'Way', 'Dit', 'Xim', 'Kax'],
+        'weekdays' => ['Acaada', 'Etleeni', 'Talaata', 'Arbaqa', 'Kamiisi', 'Gumqata', 'Sabti'],
+        'weekdays_short' => ['Aca', 'Etl', 'Tal', 'Arb', 'Kam', 'Gum', 'Sab'],
+        'weekdays_min' => ['Aca', 'Etl', 'Tal', 'Arb', 'Kam', 'Gum', 'Sab'],
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['saaku', 'carra'],
+    ]);
+  Carbon-src-Carbon-Lang-agq.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['a.g', 'a.k'],
+        'weekdays' => ['tsuʔntsɨ', 'tsuʔukpà', 'tsuʔughɔe', 'tsuʔutɔ̀mlò', 'tsuʔumè', 'tsuʔughɨ̂m', 'tsuʔndzɨkɔʔɔ'],
+        'weekdays_short' => ['nts', 'kpa', 'ghɔ', 'tɔm', 'ume', 'ghɨ', 'dzk'],
+        'weekdays_min' => ['nts', 'kpa', 'ghɔ', 'tɔm', 'ume', 'ghɨ', 'dzk'],
+        'months' => ['ndzɔ̀ŋɔ̀nùm', 'ndzɔ̀ŋɔ̀kƗ̀zùʔ', 'ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà', 'ndzɔ̀ŋɔ̀tǎafʉ̄ghā', 'ndzɔ̀ŋèsèe', 'ndzɔ̀ŋɔ̀nzùghò', 'ndzɔ̀ŋɔ̀dùmlo', 'ndzɔ̀ŋɔ̀kwîfɔ̀e', 'ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù', 'ndzɔ̀ŋɔ̀ghǔuwelɔ̀m', 'ndzɔ̀ŋɔ̀chwaʔàkaa wo', 'ndzɔ̀ŋèfwòo'],
+        'months_short' => ['nùm', 'kɨz', 'tɨd', 'taa', 'see', 'nzu', 'dum', 'fɔe', 'dzu', 'lɔm', 'kaa', 'fwo'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'D/M/YYYY',
+            'LL' => 'D MMM, YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd D MMMM YYYY HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-ar.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Atef Ben Ali (atefBB)
+     * - Ibrahim AshShohail
+     * - MLTDev
+     * - Mohamed Sabil (mohamedsabil83)
+     * - Yazan Alnugnugh (yazan-alnugnugh)
+     */
+    $months = [
+        'يناير',
+        'فبراير',
+        'مارس',
+        'أبريل',
+        'مايو',
+        'يونيو',
+        'يوليو',
+        'أغسطس',
+        'سبتمبر',
+        'أكتوبر',
+        'نوفمبر',
+        'ديسمبر',
+    ];
+
+    return [
+        'year' => implode('|', ['{0}:count سنة', '{1}سنة', '{2}سنتين', ']2,11[:count سنوات', ']10,Inf[:count سنة']),
+        'a_year' => implode('|', ['{0}:count سنة', '{1}سنة', '{2}سنتين', ']2,11[:count سنوات', ']10,Inf[:count سنة']),
+        'month' => implode('|', ['{0}:count شهر', '{1}شهر', '{2}شهرين', ']2,11[:count أشهر', ']10,Inf[:count شهر']),
+        'a_month' => implode('|', ['{0}:count شهر', '{1}شهر', '{2}شهرين', ']2,11[:count أشهر', ']10,Inf[:count شهر']),
+        'week' => implode('|', ['{0}:count أسبوع', '{1}أسبوع', '{2}أسبوعين', ']2,11[:count أسابيع', ']10,Inf[:count أسبوع']),
+        'a_week' => implode('|', ['{0}:count أسبوع', '{1}أسبوع', '{2}أسبوعين', ']2,11[:count أسابيع', ']10,Inf[:count أسبوع']),
+        'day' => implode('|', ['{0}:count يوم', '{1}يوم', '{2}يومين', ']2,11[:count أيام', ']10,Inf[:count يوم']),
+        'a_day' => implode('|', ['{0}:count يوم', '{1}يوم', '{2}يومين', ']2,11[:count أيام', ']10,Inf[:count يوم']),
+        'hour' => implode('|', ['{0}:count ساعة', '{1}ساعة', '{2}ساعتين', ']2,11[:count ساعات', ']10,Inf[:count ساعة']),
+        'a_hour' => implode('|', ['{0}:count ساعة', '{1}ساعة', '{2}ساعتين', ']2,11[:count ساعات', ']10,Inf[:count ساعة']),
+        'minute' => implode('|', ['{0}:count دقيقة', '{1}دقيقة', '{2}دقيقتين', ']2,11[:count دقائق', ']10,Inf[:count دقيقة']),
+        'a_minute' => implode('|', ['{0}:count دقيقة', '{1}دقيقة', '{2}دقيقتين', ']2,11[:count دقائق', ']10,Inf[:count دقيقة']),
+        'second' => implode('|', ['{0}:count ثانية', '{1}ثانية', '{2}ثانيتين', ']2,11[:count ثواني', ']10,Inf[:count ثانية']),
+        'a_second' => implode('|', ['{0}:count ثانية', '{1}ثانية', '{2}ثانيتين', ']2,11[:count ثواني', ']10,Inf[:count ثانية']),
+        'ago' => 'منذ :time',
+        'from_now' => ':time من الآن',
+        'after' => 'بعد :time',
+        'before' => 'قبل :time',
+        'diff_now' => 'الآن',
+        'diff_today' => 'اليوم',
+        'diff_today_regexp' => 'اليوم(?:\\s+عند)?(?:\\s+الساعة)?',
+        'diff_yesterday' => 'أمس',
+        'diff_yesterday_regexp' => 'أمس(?:\\s+عند)?(?:\\s+الساعة)?',
+        'diff_tomorrow' => 'غداً',
+        'diff_tomorrow_regexp' => 'غدًا(?:\\s+عند)?(?:\\s+الساعة)?',
+        'diff_before_yesterday' => 'قبل الأمس',
+        'diff_after_tomorrow' => 'بعد غد',
+        'period_recurrences' => implode('|', ['{0}مرة', '{1}مرة', '{2}:count مرتين', ']2,11[:count مرات', ']10,Inf[:count مرة']),
+        'period_interval' => 'كل :interval',
+        'period_start_date' => 'من :date',
+        'period_end_date' => 'إلى :date',
+        'months' => $months,
+        'months_short' => $months,
+        'weekdays' => ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+        'weekdays_short' => ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
+        'weekdays_min' => ['ح', 'اث', 'ثل', 'أر', 'خم', 'ج', 'س'],
+        'list' => ['، ', ' و '],
+        'first_day_of_week' => 6,
+        'day_of_first_week_of_year' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'D/M/YYYY',
+            'LL' => 'D MMMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd D MMMM YYYY HH:mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[اليوم عند الساعة] LT',
+            'nextDay' => '[غدًا عند الساعة] LT',
+            'nextWeek' => 'dddd [عند الساعة] LT',
+            'lastDay' => '[أمس عند الساعة] LT',
+            'lastWeek' => 'dddd [عند الساعة] LT',
+            'sameElse' => 'L',
+        ],
+        'meridiem' => ['ص', 'م'],
+        'weekend' => [5, 6],
+    ];
+  Carbon-src-Carbon-Lang-ar_BH.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - IBM Globalization Center of Competency, Yamato Software Laboratory    bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/ar.php', [
+        'formats' => [
+            'L' => 'DD MMM, YYYY',
+        ],
+        'months' => ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+        'months_short' => ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'],
+        'weekdays' => ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+        'weekdays_short' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'weekdays_min' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'first_day_of_week' => 6,
+        'day_of_first_week_of_year' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-ar_OM.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - IBM Globalization Center of Competency, Yamato Software Laboratory    bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/ar.php', [
+        'formats' => [
+            'L' => 'DD MMM, YYYY',
+        ],
+        'months' => ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+        'months_short' => ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'],
+        'weekdays' => ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+        'weekdays_short' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'weekdays_min' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'first_day_of_week' => 6,
+        'day_of_first_week_of_year' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-ar_SY.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - IBM Globalization Center of Competency, Yamato Software Laboratory    bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/ar.php', [
+        'formats' => [
+            'L' => 'DD MMM, YYYY',
+        ],
+        'months' => ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'أيار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الأول', 'تشرين الثاني', 'كانون الأول'],
+        'months_short' => ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'أيار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الأول', 'تشرين الثاني', 'كانون الأول'],
+        'weekdays' => ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+        'weekdays_short' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'weekdays_min' => ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
+        'first_day_of_week' => 6,
+        'day_of_first_week_of_year' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-az_IR.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Mousa Moradi mousamk@gmail.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'OY/OM/OD',
+        ],
+        'months' => ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مئی', 'ژوئن', 'جولای', 'آقۇست', 'سپتامبر', 'اوْکتوْبر', 'نوْوامبر', 'دسامبر'],
+        'months_short' => ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مئی', 'ژوئن', 'جولای', 'آقۇست', 'سپتامبر', 'اوْکتوْبر', 'نوْوامبر', 'دسامبر'],
+        'weekdays' => ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چارشنبه', 'جۆمعه آخشامی', 'جۆمعه', 'شنبه'],
+        'weekdays_short' => ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چارشنبه', 'جۆمعه آخشامی', 'جۆمعه', 'شنبه'],
+        'weekdays_min' => ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چارشنبه', 'جۆمعه آخشامی', 'جۆمعه', 'شنبه'],
+        'first_day_of_week' => 6,
+        'alt_numbers' => ['۰۰', '۰۱', '۰۲', '۰۳', '۰۴', '۰۵', '۰۶', '۰۷', '۰۸', '۰۹', '۱۰', '۱۱', '۱۲', '۱۳', '۱۴', '۱۵', '۱۶', '۱۷', '۱۸', '۱۹', '۲۰', '۲۱', '۲۲', '۲۳', '۲۴', '۲۵', '۲۶', '۲۷', '۲۸', '۲۹', '۳۰', '۳۱', '۳۲', '۳۳', '۳۴', '۳۵', '۳۶', '۳۷', '۳۸', '۳۹', '۴۰', '۴۱', '۴۲', '۴۳', '۴۴', '۴۵', '۴۶', '۴۷', '۴۸', '۴۹', '۵۰', '۵۱', '۵۲', '۵۳', '۵۴', '۵۵', '۵۶', '۵۷', '۵۸', '۵۹', '۶۰', '۶۱', '۶۲', '۶۳', '۶۴', '۶۵', '۶۶', '۶۷', '۶۸', '۶۹', '۷۰', '۷۱', '۷۲', '۷۳', '۷۴', '۷۵', '۷۶', '۷۷', '۷۸', '۷۹', '۸۰', '۸۱', '۸۲', '۸۳', '۸۴', '۸۵', '۸۶', '۸۷', '۸۸', '۸۹', '۹۰', '۹۱', '۹۲', '۹۳', '۹۴', '۹۵', '۹۶', '۹۷', '۹۸', '۹۹'],
+    ]);
+  Carbon-src-Carbon-Lang-ca_ES_Valencia.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/ca.php', [
+    ]);
+  Carbon-src-Carbon-Lang-csb.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/csb_PL.php';
+  Carbon-src-Carbon-Lang-cu.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'months' => ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12'],
+        'months_short' => ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'YYYY-MM-DD',
+            'LL' => 'YYYY MMM D',
+            'LLL' => 'YYYY MMMM D HH:mm',
+            'LLLL' => 'YYYY MMMM D, dddd HH:mm',
+        ],
+
+        'year' => ':count лѣто',
+        'y' => ':count лѣто',
+        'a_year' => ':count лѣто',
+
+        'month' => ':count мѣсѧць',
+        'm' => ':count мѣсѧць',
+        'a_month' => ':count мѣсѧць',
+
+        'week' => ':count сєдмица',
+        'w' => ':count сєдмица',
+        'a_week' => ':count сєдмица',
+
+        'day' => ':count дьнь',
+        'd' => ':count дьнь',
+        'a_day' => ':count дьнь',
+
+        'hour' => ':count година',
+        'h' => ':count година',
+        'a_hour' => ':count година',
+
+        'minute' => ':count малъ', // less reliable
+        'min' => ':count малъ', // less reliable
+        'a_minute' => ':count малъ', // less reliable
+
+        'second' => ':count въторъ',
+        's' => ':count въторъ',
+        'a_second' => ':count въторъ',
+    ]);
+  Carbon-src-Carbon-Lang-dje.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['Subbaahi', 'Zaarikay b'],
+        'weekdays' => ['Alhadi', 'Atinni', 'Atalaata', 'Alarba', 'Alhamisi', 'Alzuma', 'Asibti'],
+        'weekdays_short' => ['Alh', 'Ati', 'Ata', 'Ala', 'Alm', 'Alz', 'Asi'],
+        'weekdays_min' => ['Alh', 'Ati', 'Ata', 'Ala', 'Alm', 'Alz', 'Asi'],
+        'months' => ['Žanwiye', 'Feewiriye', 'Marsi', 'Awiril', 'Me', 'Žuweŋ', 'Žuyye', 'Ut', 'Sektanbur', 'Oktoobur', 'Noowanbur', 'Deesanbur'],
+        'months_short' => ['Žan', 'Fee', 'Mar', 'Awi', 'Me', 'Žuw', 'Žuy', 'Ut', 'Sek', 'Okt', 'Noo', 'Dee'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'D/M/YYYY',
+            'LL' => 'D MMM, YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd D MMMM YYYY HH:mm',
+        ],
+
+        'year' => ':count hari', // less reliable
+        'y' => ':count hari', // less reliable
+        'a_year' => ':count hari', // less reliable
+
+        'week' => ':count alzuma', // less reliable
+        'w' => ':count alzuma', // less reliable
+        'a_week' => ':count alzuma', // less reliable
+
+        'second' => ':count atinni', // less reliable
+        's' => ':count atinni', // less reliable
+        'a_second' => ':count atinni', // less reliable
+    ]);
+  Carbon-src-Carbon-Lang-en_JE.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_NR.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_PH.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - IBM Globalization Center of Competency, Yamato Software Laboratory  bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'day_of_first_week_of_year' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-es.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Kunal Marwaha
+     * - kostas
+     * - François B
+     * - Tim Fish
+     * - Claire Coloma
+     * - Steven Heinrich
+     * - JD Isaacks
+     * - Raphael Amorim
+     * - Jorge Y. Castillo
+     * - Víctor Díaz
+     * - Diego
+     * - Sebastian Thierer
+     * - quinterocesar
+     * - Daniel Commesse Liévanos (danielcommesse)
+     * - Pete Scopes (pdscopes)
+     */
+
+    use Carbon\CarbonInterface;
+
+    return [
+        'year' => ':count año|:count años',
+        'a_year' => 'un año|:count años',
+        'y' => ':count año|:count años',
+        'month' => ':count mes|:count meses',
+        'a_month' => 'un mes|:count meses',
+        'm' => ':count mes|:count meses',
+        'week' => ':count semana|:count semanas',
+        'a_week' => 'una semana|:count semanas',
+        'w' => ':countsem',
+        'day' => ':count día|:count días',
+        'a_day' => 'un día|:count días',
+        'd' => ':countd',
+        'hour' => ':count hora|:count horas',
+        'a_hour' => 'una hora|:count horas',
+        'h' => ':counth',
+        'minute' => ':count minuto|:count minutos',
+        'a_minute' => 'un minuto|:count minutos',
+        'min' => ':countm',
+        'second' => ':count segundo|:count segundos',
+        'a_second' => 'unos segundos|:count segundos',
+        's' => ':counts',
+        'millisecond' => ':count milisegundo|:count milisegundos',
+        'a_millisecond' => 'un milisegundo|:count milisegundos',
+        'ms' => ':countms',
+        'microsecond' => ':count microsegundo|:count microsegundos',
+        'a_microsecond' => 'un microsegundo|:count microsegundos',
+        'µs' => ':countµs',
+        'ago' => 'hace :time',
+        'from_now' => 'en :time',
+        'after' => ':time después',
+        'before' => ':time antes',
+        'diff_now' => 'ahora mismo',
+        'diff_today' => 'hoy',
+        'diff_today_regexp' => 'hoy(?:\\s+a)?(?:\\s+las)?',
+        'diff_yesterday' => 'ayer',
+        'diff_yesterday_regexp' => 'ayer(?:\\s+a)?(?:\\s+las)?',
+        'diff_tomorrow' => 'mañana',
+        'diff_tomorrow_regexp' => 'mañana(?:\\s+a)?(?:\\s+las)?',
+        'diff_before_yesterday' => 'anteayer',
+        'diff_after_tomorrow' => 'pasado mañana',
+        'formats' => [
+            'LT' => 'H:mm',
+            'LTS' => 'H:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D [de] MMMM [de] YYYY',
+            'LLL' => 'D [de] MMMM [de] YYYY H:mm',
+            'LLLL' => 'dddd, D [de] MMMM [de] YYYY H:mm',
+        ],
+        'calendar' => [
+            'sameDay' => function (CarbonInterface $current) {
+                return '[hoy a la'.($current->hour !== 1 ? 's' : '').'] LT';
+            },
+            'nextDay' => function (CarbonInterface $current) {
+                return '[mañana a la'.($current->hour !== 1 ? 's' : '').'] LT';
+            },
+            'nextWeek' => function (CarbonInterface $current) {
+                return 'dddd [a la'.($current->hour !== 1 ? 's' : '').'] LT';
+            },
+            'lastDay' => function (CarbonInterface $current) {
+                return '[ayer a la'.($current->hour !== 1 ? 's' : '').'] LT';
+            },
+            'lastWeek' => function (CarbonInterface $current) {
+                return '[el] dddd [pasado a la'.($current->hour !== 1 ? 's' : '').'] LT';
+            },
+            'sameElse' => 'L',
+        ],
+        'months' => ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+        'months_short' => ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+        'mmm_suffix' => '.',
+        'ordinal' => ':numberº',
+        'weekdays' => ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+        'weekdays_short' => ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.'],
+        'weekdays_min' => ['do', 'lu', 'ma', 'mi', 'ju', 'vi', 'sá'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' y '],
+        'meridiem' => ['a. m.', 'p. m.'],
+    ];
+  Carbon-src-Carbon-Lang-ff_CM.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/ff.php';
+  Carbon-src-Carbon-Lang-fi.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Philippe Vaucher
+     * - Janne Warén
+     * - digitalfrost
+     * - Tsutomu Kuroda
+     * - Roope Salmi
+     * - tjku
+     * - Max Melentiev
+     * - Sami Haahtinen
+     * - Teemu Leisti
+     * - Artem Ignatyev
+     * - Akira Matsuda
+     * - Christopher Dell
+     * - Enrique Vidal
+     * - Simone Carletti
+     * - Robert Bjarnason
+     * - Aaron Patterson
+     * - Nicolás Hock Isaza
+     * - Tom Hughes
+     * - Sven Fuchs
+     * - Petri Kivikangas
+     * - Nizar Jouini
+     * - Marko Seppae
+     * - Tomi Mynttinen (Pikseli)
+     * - Petteri (powergrip)
+     */
+    return [
+        'year' => ':count vuosi|:count vuotta',
+        'y' => ':count v',
+        'month' => ':count kuukausi|:count kuukautta',
+        'm' => ':count kk',
+        'week' => ':count viikko|:count viikkoa',
+        'w' => ':count vk',
+        'day' => ':count päivä|:count päivää',
+        'd' => ':count pv',
+        'hour' => ':count tunti|:count tuntia',
+        'h' => ':count t',
+        'minute' => ':count minuutti|:count minuuttia',
+        'min' => ':count min',
+        'second' => ':count sekunti|:count sekuntia',
+        'a_second' => 'muutama sekunti|:count sekuntia',
+        's' => ':count s',
+        'ago' => ':time sitten',
+        'from_now' => ':time päästä',
+        'year_from_now' => ':count vuoden',
+        'month_from_now' => ':count kuukauden',
+        'week_from_now' => ':count viikon',
+        'day_from_now' => ':count päivän',
+        'hour_from_now' => ':count tunnin',
+        'minute_from_now' => ':count minuutin',
+        'second_from_now' => ':count sekunnin',
+        'after' => ':time sen jälkeen',
+        'before' => ':time ennen',
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' ja '],
+        'diff_now' => 'nyt',
+        'diff_yesterday' => 'eilen',
+        'diff_tomorrow' => 'huomenna',
+        'formats' => [
+            'LT' => 'HH.mm',
+            'LTS' => 'HH.mm:ss',
+            'L' => 'D.M.YYYY',
+            'LL' => 'dddd D. MMMM[ta] YYYY',
+            'LLL' => 'D.MM. HH.mm',
+            'LLLL' => 'D. MMMM[ta] YYYY HH.mm',
+        ],
+        'weekdays' => ['sunnuntai', 'maanantai', 'tiistai', 'keskiviikko', 'torstai', 'perjantai', 'lauantai'],
+        'weekdays_short' => ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'],
+        'weekdays_min' => ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'],
+        'months' => ['tammikuu', 'helmikuu', 'maaliskuu', 'huhtikuu', 'toukokuu', 'kesäkuu', 'heinäkuu', 'elokuu', 'syyskuu', 'lokakuu', 'marraskuu', 'joulukuu'],
+        'months_short' => ['tammi', 'helmi', 'maalis', 'huhti', 'touko', 'kesä', 'heinä', 'elo', 'syys', 'loka', 'marras', 'joulu'],
+        'meridiem' => ['aamupäivä', 'iltapäivä'],
+    ];
+  Carbon-src-Carbon-Lang-fr_SC.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/fr.php';
+  Carbon-src-Carbon-Lang-fr_TD.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/fr.php', [
+        'formats' => [
+            'LT' => 'h:mm a',
+            'LTS' => 'h:mm:ss a',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY h:mm a',
+            'LLLL' => 'dddd D MMMM YYYY h:mm a',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-fr_TN.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/fr.php', [
+        'weekend' => [5, 6],
+        'formats' => [
+            'LT' => 'h:mm a',
+            'LTS' => 'h:mm:ss a',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY h:mm a',
+            'LLLL' => 'dddd D MMMM YYYY h:mm a',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-fr_WF.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/fr.php';
+  Carbon-src-Carbon-Lang-fur_IT.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Pablo Saratxaga pablo@mandrakesoft.com
+     */
+    return [
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD. MM. YY',
+            'LL' => 'DD di MMMM dal YYYY',
+            'LLL' => 'DD di MMM HH:mm',
+            'LLLL' => 'DD di MMMM dal YYYY HH:mm',
+        ],
+        'months' => ['zenâr', 'fevrâr', 'març', 'avrîl', 'mai', 'jugn', 'lui', 'avost', 'setembar', 'otubar', 'novembar', 'dicembar'],
+        'months_short' => ['zen', 'fev', 'mar', 'avr', 'mai', 'jug', 'lui', 'avo', 'set', 'otu', 'nov', 'dic'],
+        'weekdays' => ['domenie', 'lunis', 'martars', 'miercus', 'joibe', 'vinars', 'sabide'],
+        'weekdays_short' => ['dom', 'lun', 'mar', 'mie', 'joi', 'vin', 'sab'],
+        'weekdays_min' => ['dom', 'lun', 'mar', 'mie', 'joi', 'vin', 'sab'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'year' => ':count an',
+        'month' => ':count mês',
+        'week' => ':count setemane',
+        'day' => ':count zornade',
+        'hour' => ':count ore',
+        'minute' => ':count minût',
+        'second' => ':count secont',
+    ];
+  Carbon-src-Carbon-Lang-hr_HR.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/hr.php';
+  Carbon-src-Carbon-Lang-hsb_DE.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Information from Michael Wolf Andrzej Krzysztofowicz ankry@mif.pg.gda.pl
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD.MM.YYYY',
+            'LL' => 'DD. MMMM YYYY',
+            'LLL' => 'DD. MMMM, HH:mm [hodź.]',
+            'LLLL' => 'dddd, DD. MMMM YYYY, HH:mm [hodź.]',
+        ],
+        'months' => ['januara', 'februara', 'měrca', 'apryla', 'meje', 'junija', 'julija', 'awgusta', 'septembra', 'oktobra', 'nowembra', 'decembra'],
+        'months_short' => ['Jan', 'Feb', 'Měr', 'Apr', 'Mej', 'Jun', 'Jul', 'Awg', 'Sep', 'Okt', 'Now', 'Dec'],
+        'weekdays' => ['Njedźela', 'Póndźela', 'Wutora', 'Srjeda', 'Štvórtk', 'Pjatk', 'Sobota'],
+        'weekdays_short' => ['Nj', 'Pó', 'Wu', 'Sr', 'Št', 'Pj', 'So'],
+        'weekdays_min' => ['Nj', 'Pó', 'Wu', 'Sr', 'Št', 'Pj', 'So'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+
+        'year' => ':count lěto',
+        'y' => ':count lěto',
+        'a_year' => ':count lěto',
+
+        'month' => ':count měsac',
+        'm' => ':count měsac',
+        'a_month' => ':count měsac',
+
+        'week' => ':count tydźeń',
+        'w' => ':count tydźeń',
+        'a_week' => ':count tydźeń',
+
+        'day' => ':count dźeń',
+        'd' => ':count dźeń',
+        'a_day' => ':count dźeń',
+
+        'hour' => ':count hodźina',
+        'h' => ':count hodźina',
+        'a_hour' => ':count hodźina',
+
+        'minute' => ':count chwila',
+        'min' => ':count chwila',
+        'a_minute' => ':count chwila',
+
+        'second' => ':count druhi',
+        's' => ':count druhi',
+        'a_second' => ':count druhi',
+    ]);
+  Carbon-src-Carbon-Lang-i18n.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'YYYY-MM-DD',
+        ],
+        'months' => ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+        'months_short' => ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+        'weekdays' => ['1', '2', '3', '4', '5', '6', '7'],
+        'weekdays_short' => ['1', '2', '3', '4', '5', '6', '7'],
+        'weekdays_min' => ['1', '2', '3', '4', '5', '6', '7'],
+        'first_day_of_week' => 0,
+        'day_of_first_week_of_year' => 4,
+    ]);
+  Carbon-src-Carbon-Lang-ik_CA.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - pablo@mandriva.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YY',
+        ],
+        'months' => ['Siqiññaatchiaq', 'Siqiññaasrugruk', 'Paniqsiqsiivik', 'Qilġich Tatqiat', 'Suppivik', 'Iġñivik', 'Itchavik', 'Tiññivik', 'Amiġaiqsivik', 'Sikkuvik', 'Nippivik', 'Siqiñġiḷaq'],
+        'months_short' => ['Sñt', 'Sñs', 'Pan', 'Qil', 'Sup', 'Iġñ', 'Itc', 'Tiñ', 'Ami', 'Sik', 'Nip', 'Siq'],
+        'weekdays' => ['Minġuiqsioiq', 'Savałłiq', 'Ilaqtchiioiq', 'Qitchiioiq', 'Sisamiioiq', 'Tallimmiioiq', 'Maqinġuoiq'],
+        'weekdays_short' => ['Min', 'Sav', 'Ila', 'Qit', 'Sis', 'Tal', 'Maq'],
+        'weekdays_min' => ['Min', 'Sav', 'Ila', 'Qit', 'Sis', 'Tal', 'Maq'],
+        'day_of_first_week_of_year' => 1,
+
+        'year' => ':count ukiuq',
+        'y' => ':count ukiuq',
+        'a_year' => ':count ukiuq',
+
+        'month' => ':count Tatqiat',
+        'm' => ':count Tatqiat',
+        'a_month' => ':count Tatqiat',
+
+        'week' => ':count tatqiat', // less reliable
+        'w' => ':count tatqiat', // less reliable
+        'a_week' => ':count tatqiat', // less reliable
+
+        'day' => ':count siqiñiq', // less reliable
+        'd' => ':count siqiñiq', // less reliable
+        'a_day' => ':count siqiñiq', // less reliable
+
+        'hour' => ':count Siḷa', // less reliable
+        'h' => ':count Siḷa', // less reliable
+        'a_hour' => ':count Siḷa', // less reliable
+
+        'second' => ':count iġñiq', // less reliable
+        's' => ':count iġñiq', // less reliable
+        'a_second' => ':count iġñiq', // less reliable
+    ]);
+  Carbon-src-Carbon-Lang-jmc.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['utuko', 'kyiukonyi'],
+        'weekdays' => ['Jumapilyi', 'Jumatatuu', 'Jumanne', 'Jumatanu', 'Alhamisi', 'Ijumaa', 'Jumamosi'],
+        'weekdays_short' => ['Jpi', 'Jtt', 'Jnn', 'Jtn', 'Alh', 'Iju', 'Jmo'],
+        'weekdays_min' => ['Jpi', 'Jtt', 'Jnn', 'Jtn', 'Alh', 'Iju', 'Jmo'],
+        'months' => ['Januari', 'Februari', 'Machi', 'Aprilyi', 'Mei', 'Junyi', 'Julyai', 'Agusti', 'Septemba', 'Oktoba', 'Novemba', 'Desemba'],
+        'months_short' => ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ago', 'Sep', 'Okt', 'Nov', 'Des'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-kl.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/kl_GL.php';
+  Carbon-src-Carbon-Lang-lb.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Philippe Vaucher
+     * - Tsutomu Kuroda
+     * - dan-nl
+     * - Simon Lelorrain (slelorrain)
+     */
+
+    use Carbon\CarbonInterface;
+
+    return [
+        'year' => ':count Joer',
+        'y' => ':countJ',
+        'month' => ':count Mount|:count Méint',
+        'm' => ':countMo',
+        'week' => ':count Woch|:count Wochen',
+        'w' => ':countWo|:countWo',
+        'day' => ':count Dag|:count Deeg',
+        'd' => ':countD',
+        'hour' => ':count Stonn|:count Stonnen',
+        'h' => ':countSto',
+        'minute' => ':count Minutt|:count Minutten',
+        'min' => ':countM',
+        'second' => ':count Sekonn|:count Sekonnen',
+        's' => ':countSek',
+
+        'ago' => 'virun :time',
+        'from_now' => 'an :time',
+        'before' => ':time virdrun',
+        'after' => ':time duerno',
+
+        'diff_today' => 'Haut',
+        'diff_yesterday' => 'Gëschter',
+        'diff_yesterday_regexp' => 'Gëschter(?:\\s+um)?',
+        'diff_tomorrow' => 'Muer',
+        'diff_tomorrow_regexp' => 'Muer(?:\\s+um)?',
+        'diff_today_regexp' => 'Haut(?:\\s+um)?',
+        'formats' => [
+            'LT' => 'H:mm [Auer]',
+            'LTS' => 'H:mm:ss [Auer]',
+            'L' => 'DD.MM.YYYY',
+            'LL' => 'D. MMMM YYYY',
+            'LLL' => 'D. MMMM YYYY H:mm [Auer]',
+            'LLLL' => 'dddd, D. MMMM YYYY H:mm [Auer]',
+        ],
+
+        'calendar' => [
+            'sameDay' => '[Haut um] LT',
+            'nextDay' => '[Muer um] LT',
+            'nextWeek' => 'dddd [um] LT',
+            'lastDay' => '[Gëschter um] LT',
+            'lastWeek' => function (CarbonInterface $date) {
+                // Different date string for 'Dënschdeg' (Tuesday) and 'Donneschdeg' (Thursday) due to phonological rule
+                switch ($date->dayOfWeek) {
+                    case 2:
+                    case 4:
+                        return '[Leschten] dddd [um] LT';
+                    default:
+                        return '[Leschte] dddd [um] LT';
+                }
+            },
+            'sameElse' => 'L',
+        ],
+
+        'months' => ['Januar', 'Februar', 'Mäerz', 'Abrëll', 'Mee', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        'months_short' => ['Jan.', 'Febr.', 'Mrz.', 'Abr.', 'Mee', 'Jun.', 'Jul.', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'],
+        'weekdays' => ['Sonndeg', 'Méindeg', 'Dënschdeg', 'Mëttwoch', 'Donneschdeg', 'Freideg', 'Samschdeg'],
+        'weekdays_short' => ['So.', 'Mé.', 'Dë.', 'Më.', 'Do.', 'Fr.', 'Sa.'],
+        'weekdays_min' => ['So', 'Mé', 'Dë', 'Më', 'Do', 'Fr', 'Sa'],
+        'ordinal' => ':number.',
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' an '],
+        'meridiem' => ['moies', 'mëttes'],
+        'weekdays_short_standalone' => ['Son', 'Méi', 'Dën', 'Mët', 'Don', 'Fre', 'Sam'],
+        'months_short_standalone' => ['Jan', 'Feb', 'Mäe', 'Abr', 'Mee', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+    ];
+  Carbon-src-Carbon-Lang-luy.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'weekdays' => ['Jumapiri', 'Jumatatu', 'Jumanne', 'Jumatano', 'Murwa wa Kanne', 'Murwa wa Katano', 'Jumamosi'],
+        'weekdays_short' => ['J2', 'J3', 'J4', 'J5', 'Al', 'Ij', 'J1'],
+        'weekdays_min' => ['J2', 'J3', 'J4', 'J5', 'Al', 'Ij', 'J1'],
+        'months' => ['Januari', 'Februari', 'Machi', 'Aprili', 'Mei', 'Juni', 'Julai', 'Agosti', 'Septemba', 'Oktoba', 'Novemba', 'Desemba'],
+        'months_short' => ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ago', 'Sep', 'Okt', 'Nov', 'Des'],
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY HH:mm',
+        ],
+
+        // Too unreliable
+        /*
+        'year' => ':count liliino', // less reliable
+        'y' => ':count liliino', // less reliable
+        'a_year' => ':count liliino', // less reliable
+
+        'month' => ':count kumwesi', // less reliable
+        'm' => ':count kumwesi', // less reliable
+        'a_month' => ':count kumwesi', // less reliable
+
+        'week' => ':count olutambi', // less reliable
+        'w' => ':count olutambi', // less reliable
+        'a_week' => ':count olutambi', // less reliable
+
+        'day' => ':count luno', // less reliable
+        'd' => ':count luno', // less reliable
+        'a_day' => ':count luno', // less reliable
+
+        'hour' => ':count ekengele', // less reliable
+        'h' => ':count ekengele', // less reliable
+        'a_hour' => ':count ekengele', // less reliable
+
+        'minute' => ':count omundu', // less reliable
+        'min' => ':count omundu', // less reliable
+        'a_minute' => ':count omundu', // less reliable
+
+        'second' => ':count liliino', // less reliable
+        's' => ':count liliino', // less reliable
+        'a_second' => ':count liliino', // less reliable
+        */
+    ]);
+  Carbon-src-Carbon-Lang-mfe_MU.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Samsung Electronics Co., Ltd.    akhilesh.k@samsung.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YY',
+        ],
+        'months' => ['zanvie', 'fevriye', 'mars', 'avril', 'me', 'zin', 'zilye', 'out', 'septam', 'oktob', 'novam', 'desam'],
+        'months_short' => ['zan', 'fev', 'mar', 'avr', 'me', 'zin', 'zil', 'out', 'sep', 'okt', 'nov', 'des'],
+        'weekdays' => ['dimans', 'lindi', 'mardi', 'merkredi', 'zedi', 'vandredi', 'samdi'],
+        'weekdays_short' => ['dim', 'lin', 'mar', 'mer', 'ze', 'van', 'sam'],
+        'weekdays_min' => ['dim', 'lin', 'mar', 'mer', 'ze', 'van', 'sam'],
+
+        'year' => ':count banané',
+        'y' => ':count banané',
+        'a_year' => ':count banané',
+
+        'month' => ':count mwa',
+        'm' => ':count mwa',
+        'a_month' => ':count mwa',
+
+        'week' => ':count sémenn',
+        'w' => ':count sémenn',
+        'a_week' => ':count sémenn',
+
+        'day' => ':count zour',
+        'd' => ':count zour',
+        'a_day' => ':count zour',
+
+        'hour' => ':count -er-tan',
+        'h' => ':count -er-tan',
+        'a_hour' => ':count -er-tan',
+
+        'minute' => ':count minitt',
+        'min' => ':count minitt',
+        'a_minute' => ':count minitt',
+
+        'second' => ':count déziém',
+        's' => ':count déziém',
+        'a_second' => ':count déziém',
+    ]);
+  Carbon-src-Carbon-Lang-ms.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Josh Soref
+     * - Azri Jamil
+     * - JD Isaacks
+     * - Josh Soref
+     * - Azri Jamil
+     * - Hariadi Hinta
+     * - Ashraf Kamarudin
+     */
+    return [
+        'year' => ':count tahun',
+        'a_year' => '{1}setahun|]1,Inf[:count tahun',
+        'y' => ':count tahun',
+        'month' => ':count bulan',
+        'a_month' => '{1}sebulan|]1,Inf[:count bulan',
+        'm' => ':count bulan',
+        'week' => ':count minggu',
+        'a_week' => '{1}seminggu|]1,Inf[:count minggu',
+        'w' => ':count minggu',
+        'day' => ':count hari',
+        'a_day' => '{1}sehari|]1,Inf[:count hari',
+        'd' => ':count hari',
+        'hour' => ':count jam',
+        'a_hour' => '{1}sejam|]1,Inf[:count jam',
+        'h' => ':count jam',
+        'minute' => ':count minit',
+        'a_minute' => '{1}seminit|]1,Inf[:count minit',
+        'min' => ':count minit',
+        'second' => ':count saat',
+        'a_second' => '{1}beberapa saat|]1,Inf[:count saat',
+        'millisecond' => ':count milisaat',
+        'a_millisecond' => '{1}semilisaat|]1,Inf[:count milliseconds',
+        'microsecond' => ':count mikrodetik',
+        'a_microsecond' => '{1}semikrodetik|]1,Inf[:count mikrodetik',
+        's' => ':count saat',
+        'ago' => ':time yang lepas',
+        'from_now' => ':time dari sekarang',
+        'after' => ':time kemudian',
+        'before' => ':time lepas',
+        'diff_now' => 'sekarang',
+        'diff_today' => 'Hari',
+        'diff_today_regexp' => 'Hari(?:\\s+ini)?(?:\\s+pukul)?',
+        'diff_yesterday' => 'semalam',
+        'diff_yesterday_regexp' => 'Semalam(?:\\s+pukul)?',
+        'diff_tomorrow' => 'esok',
+        'diff_tomorrow_regexp' => 'Esok(?:\\s+pukul)?',
+        'diff_before_yesterday' => 'kelmarin',
+        'diff_after_tomorrow' => 'lusa',
+        'formats' => [
+            'LT' => 'HH.mm',
+            'LTS' => 'HH.mm.ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMMM YYYY',
+            'LLL' => 'D MMMM YYYY [pukul] HH.mm',
+            'LLLL' => 'dddd, D MMMM YYYY [pukul] HH.mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[Hari ini pukul] LT',
+            'nextDay' => '[Esok pukul] LT',
+            'nextWeek' => 'dddd [pukul] LT',
+            'lastDay' => '[Kelmarin pukul] LT',
+            'lastWeek' => 'dddd [lepas pukul] LT',
+            'sameElse' => 'L',
+        ],
+        'meridiem' => function ($hour) {
+            if ($hour < 1) {
+                return 'tengah malam';
+            }
+
+            if ($hour < 12) {
+                return 'pagi';
+            }
+
+            if ($hour < 13) {
+                return 'tengah hari';
+            }
+
+            if ($hour < 19) {
+                return 'petang';
+            }
+
+            return 'malam';
+        },
+        'months' => ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
+        'months_short' => ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogs', 'Sep', 'Okt', 'Nov', 'Dis'],
+        'weekdays' => ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'],
+        'weekdays_short' => ['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'],
+        'weekdays_min' => ['Ah', 'Is', 'Sl', 'Rb', 'Km', 'Jm', 'Sb'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+        'list' => [', ', ' dan '],
+    ];
+  Carbon-src-Carbon-Lang-nds_NL.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - information from Kenneth Christiansen Kenneth Christiansen, Pablo Saratxaga kenneth@gnu.org, pablo@mandrakesoft.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD.MM.YYYY',
+        ],
+        'months' => ['Jaunuwoa', 'Februwoa', 'Moaz', 'Aprell', 'Mai', 'Juni', 'Juli', 'August', 'Septamba', 'Oktoba', 'Nowamba', 'Dezamba'],
+        'months_short' => ['Jan', 'Feb', 'Moz', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Now', 'Dez'],
+        'weekdays' => ['Sinndag', 'Mondag', 'Dingsdag', 'Meddwäakj', 'Donnadag', 'Friedag', 'Sinnowend'],
+        'weekdays_short' => ['Sdg', 'Mdg', 'Dsg', 'Mwk', 'Ddg', 'Fdg', 'Swd'],
+        'weekdays_min' => ['Sdg', 'Mdg', 'Dsg', 'Mwk', 'Ddg', 'Fdg', 'Swd'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+    ]);
+  Carbon-src-Carbon-Lang-nl_CW.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/nl.php';
+  Carbon-src-Carbon-Lang-nmg.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['maná', 'kugú'],
+        'weekdays' => ['sɔ́ndɔ', 'mɔ́ndɔ', 'sɔ́ndɔ mafú mába', 'sɔ́ndɔ mafú málal', 'sɔ́ndɔ mafú mána', 'mabágá má sukul', 'sásadi'],
+        'weekdays_short' => ['sɔ́n', 'mɔ́n', 'smb', 'sml', 'smn', 'mbs', 'sas'],
+        'weekdays_min' => ['sɔ́n', 'mɔ́n', 'smb', 'sml', 'smn', 'mbs', 'sas'],
+        'months' => ['ngwɛn matáhra', 'ngwɛn ńmba', 'ngwɛn ńlal', 'ngwɛn ńna', 'ngwɛn ńtan', 'ngwɛn ńtuó', 'ngwɛn hɛmbuɛrí', 'ngwɛn lɔmbi', 'ngwɛn rɛbvuâ', 'ngwɛn wum', 'ngwɛn wum navǔr', 'krísimin'],
+        'months_short' => ['ng1', 'ng2', 'ng3', 'ng4', 'ng5', 'ng6', 'ng7', 'ng8', 'ng9', 'ng10', 'ng11', 'kris'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'D/M/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd D MMMM YYYY HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-om_KE.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/om.php', [
+        'day_of_first_week_of_year' => 0,
+    ]);
+  Carbon-src-Carbon-Lang-pt_LU.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/pt.php';
+  Carbon-src-Carbon-Lang-pt_PT.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - RAP    bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/pt.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+        'months_short' => ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
+        'weekdays' => ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'],
+        'weekdays_short' => ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'],
+        'weekdays_min' => ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+    ]);
+  Carbon-src-Carbon-Lang-ro_MD.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/ro.php', [
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD.MM.YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY, HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY, HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-shn_MM.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - ubuntu Myanmar LoCo Team https://ubuntu-mm.net Bone Pyae Sone bone.burma@mail.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'OY MMM OD dddd',
+        ],
+        'months' => ['လိူၼ်ၵမ်', 'လိူၼ်သၢမ်', 'လိူၼ်သီ', 'လိူၼ်ႁႃႈ', 'လိူၼ်ႁူၵ်း', 'လိူၼ်ၸဵတ်း', 'လိူၼ်ပႅတ်ႇ', 'လိူၼ်ၵဝ်ႈ', 'လိူၼ်သိပ်း', 'လိူၼ်သိပ်းဢိတ်း', 'လိူၼ်သိပ်းဢိတ်းသွင်', 'လိူၼ်ၸဵင်'],
+        'months_short' => ['လိူၼ်ၵမ်', 'လိူၼ်သၢမ်', 'လိူၼ်သီ', 'လိူၼ်ႁႃႈ', 'လိူၼ်ႁူၵ်း', 'လိူၼ်ၸဵတ်း', 'လိူၼ်ပႅတ်ႇ', 'လိူၼ်ၵဝ်ႈ', 'လိူၼ်သိပ်း', 'လိူၼ်သိပ်းဢိတ်း', 'လိူၼ်သိပ်းဢိတ်းသွင်', 'လိူၼ်ၸဵင်'],
+        'weekdays' => ['ဝၼ်းဢႃးတိတ်ႉ', 'ဝၼ်းၸၼ်', 'ဝၼ်း​ဢၢင်း​ၵၢၼ်း', 'ဝၼ်းပူတ်ႉ', 'ဝၼ်းၽတ်း', 'ဝၼ်းသုၵ်း', 'ဝၼ်းသဝ်'],
+        'weekdays_short' => ['တိတ့်', 'ၸၼ်', 'ၵၢၼ်း', 'ပုတ့်', 'ၽတ်း', 'သုၵ်း', 'သဝ်'],
+        'weekdays_min' => ['တိတ့်', 'ၸၼ်', 'ၵၢၼ်း', 'ပုတ့်', 'ၽတ်း', 'သုၵ်း', 'သဝ်'],
+        'alt_numbers' => ['႐႐', '႐႑', '႐႒', '႐႓', '႐႔', '႐႕', '႐႖', '႐႗', '႐႘', '႐႙', '႑႐', '႑႑', '႑႒', '႑႓', '႑႔', '႑႕', '႑႖', '႑႗', '႑႘', '႑႙', '႒႐', '႒႑', '႒႒', '႒႓', '႒႔', '႒႕', '႒႖', '႒႗', '႒႘', '႒႙', '႓႐', '႓႑', '႓႒', '႓႓', '႓႔', '႓႕', '႓႖', '႓႗', '႓႘', '႓႙', '႔႐', '႔႑', '႔႒', '႔႓', '႔႔', '႔႕', '႔႖', '႔႗', '႔႘', '႔႙', '႕႐', '႕႑', '႕႒', '႕႓', '႕႔', '႕႕', '႕႖', '႕႗', '႕႘', '႕႙', '႖႐', '႖႑', '႖႒', '႖႓', '႖႔', '႖႕', '႖႖', '႖႗', '႖႘', '႖႙', '႗႐', '႗႑', '႗႒', '႗႓', '႗႔', '႗႕', '႗႖', '႗႗', '႗႘', '႗႙', '႘႐', '႘႑', '႘႒', '႘႓', '႘႔', '႘႕', '႘႖', '႘႗', '႘႘', '႘႙', '႙႐', '႙႑', '႙႒', '႙႓', '႙႔', '႙႕', '႙႖', '႙႗', '႙႘', '႙႙'],
+        'meridiem' => ['ၵၢင်ၼႂ်', 'တၢမ်းၶမ်ႈ'],
+
+        'month' => ':count လိူၼ်', // less reliable
+        'm' => ':count လိူၼ်', // less reliable
+        'a_month' => ':count လိူၼ်', // less reliable
+
+        'week' => ':count ဝၼ်း', // less reliable
+        'w' => ':count ဝၼ်း', // less reliable
+        'a_week' => ':count ဝၼ်း', // less reliable
+
+        'hour' => ':count ຕີ', // less reliable
+        'h' => ':count ຕີ', // less reliable
+        'a_hour' => ':count ຕີ', // less reliable
+
+        'minute' => ':count ເດັກ', // less reliable
+        'min' => ':count ເດັກ', // less reliable
+        'a_minute' => ':count ເດັກ', // less reliable
+
+        'second' => ':count ဢိုၼ်ႇ', // less reliable
+        's' => ':count ဢိုၼ်ႇ', // less reliable
+        'a_second' => ':count ဢိုၼ်ႇ', // less reliable
+
+        'year' => ':count ပီ',
+        'y' => ':count ပီ',
+        'a_year' => ':count ပီ',
+
+        'day' => ':count ກາງວັນ',
+        'd' => ':count ກາງວັນ',
+        'a_day' => ':count ກາງວັນ',
+    ]);
+  Carbon-src-Carbon-Lang-sid.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/sid_ET.php';
+  Carbon-src-Carbon-Lang-ta.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Josh Soref
+     * - François B
+     * - JD Isaacks
+     * - Satheez
+     */
+    return [
+        'year' => ':count வருடம்|:count ஆண்டுகள்',
+        'a_year' => 'ஒரு வருடம்|:count ஆண்டுகள்',
+        'y' => ':count வருட.|:count ஆண்.',
+        'month' => ':count மாதம்|:count மாதங்கள்',
+        'a_month' => 'ஒரு மாதம்|:count மாதங்கள்',
+        'm' => ':count மாத.',
+        'week' => ':count வாரம்|:count வாரங்கள்',
+        'a_week' => 'ஒரு வாரம்|:count வாரங்கள்',
+        'w' => ':count வார.',
+        'day' => ':count நாள்|:count நாட்கள்',
+        'a_day' => 'ஒரு நாள்|:count நாட்கள்',
+        'd' => ':count நாள்|:count நாட்.',
+        'hour' => ':count மணி நேரம்|:count மணி நேரம்',
+        'a_hour' => 'ஒரு மணி நேரம்|:count மணி நேரம்',
+        'h' => ':count மணி.',
+        'minute' => ':count நிமிடம்|:count நிமிடங்கள்',
+        'a_minute' => 'ஒரு நிமிடம்|:count நிமிடங்கள்',
+        'min' => ':count நிமி.',
+        'second' => ':count சில விநாடிகள்|:count விநாடிகள்',
+        'a_second' => 'ஒரு சில விநாடிகள்|:count விநாடிகள்',
+        's' => ':count விநா.',
+        'ago' => ':time முன்',
+        'from_now' => ':time இல்',
+        'before' => ':time முன்',
+        'after' => ':time பின்',
+        'diff_now' => 'இப்போது',
+        'diff_today' => 'இன்று',
+        'diff_yesterday' => 'நேற்று',
+        'diff_tomorrow' => 'நாளை',
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMMM YYYY',
+            'LLL' => 'D MMMM YYYY, HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY, HH:mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[இன்று] LT',
+            'nextDay' => '[நாளை] LT',
+            'nextWeek' => 'dddd, LT',
+            'lastDay' => '[நேற்று] LT',
+            'lastWeek' => '[கடந்த வாரம்] dddd, LT',
+            'sameElse' => 'L',
+        ],
+        'ordinal' => ':numberவது',
+        'meridiem' => function ($hour) {
+            if ($hour < 2) {
+                return ' யாமம்';
+            }
+            if ($hour < 6) {
+                return ' வைகறை';
+            }
+            if ($hour < 10) {
+                return ' காலை';
+            }
+            if ($hour < 14) {
+                return ' நண்பகல்';
+            }
+            if ($hour < 18) {
+                return ' எற்பாடு';
+            }
+            if ($hour < 22) {
+                return ' மாலை';
+            }
+
+            return ' யாமம்';
+        },
+        'months' => ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டெம்பர்', 'அக்டோபர்', 'நவம்பர்', 'டிசம்பர்'],
+        'months_short' => ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டெம்பர்', 'அக்டோபர்', 'நவம்பர்', 'டிசம்பர்'],
+        'weekdays' => ['ஞாயிற்றுக்கிழமை', 'திங்கட்கிழமை', 'செவ்வாய்கிழமை', 'புதன்கிழமை', 'வியாழக்கிழமை', 'வெள்ளிக்கிழமை', 'சனிக்கிழமை'],
+        'weekdays_short' => ['ஞாயிறு', 'திங்கள்', 'செவ்வாய்', 'புதன்', 'வியாழன்', 'வெள்ளி', 'சனி'],
+        'weekdays_min' => ['ஞா', 'தி', 'செ', 'பு', 'வி', 'வெ', 'ச'],
+        'first_day_of_week' => 0,
+        'day_of_first_week_of_year' => 1,
+        'list' => [', ', ' மற்றும் '],
+        'weekend' => [0, 0],
+    ];
+  Carbon-src-Carbon-Lang-ti.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/ti_ER.php';
+  Carbon-src-Carbon-Lang-ti_ET.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['ጃንዩወሪ', 'ፌብሩወሪ', 'ማርች', 'ኤፕረል', 'ሜይ', 'ጁን', 'ጁላይ', 'ኦገስት', 'ሴፕቴምበር', 'ኦክተውበር', 'ኖቬምበር', 'ዲሴምበር'],
+        'months_short' => ['ጃንዩ', 'ፌብሩ', 'ማርች', 'ኤፕረ', 'ሜይ ', 'ጁን ', 'ጁላይ', 'ኦገስ', 'ሴፕቴ', 'ኦክተ', 'ኖቬም', 'ዲሴም'],
+        'weekdays' => ['ሰንበት', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'],
+        'weekdays_short' => ['ሰንበ', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'],
+        'weekdays_min' => ['ሰንበ', 'ሰኑይ', 'ሰሉስ', 'ረቡዕ', 'ሓሙስ', 'ዓርቢ', 'ቀዳም'],
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['ንጉሆ ሰዓተ', 'ድሕር ሰዓት'],
+    ]);
+  Carbon-src-Carbon-Lang-ur_PK.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/ur.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
+        'months_short' => ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
+        'weekdays' => ['اتوار', 'پير', 'منگل', 'بدھ', 'جمعرات', 'جمعه', 'هفته'],
+        'weekdays_short' => ['اتوار', 'پير', 'منگل', 'بدھ', 'جمعرات', 'جمعه', 'هفته'],
+        'weekdays_min' => ['اتوار', 'پير', 'منگل', 'بدھ', 'جمعرات', 'جمعه', 'هفته'],
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['ص', 'ش'],
+    ]);
+  Carbon-src-Carbon-Lang-uz_Cyrl.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/uz.php', [
+        'formats' => [
+            'L' => 'DD/MM/yy',
+            'LL' => 'D MMM, YYYY',
+            'LLL' => 'D MMMM, YYYY HH:mm',
+            'LLLL' => 'dddd, DD MMMM, YYYY HH:mm',
+        ],
+        'meridiem' => ['ТО', 'ТК'],
+    ]);
+  Carbon-src-Carbon-Lang-wa_BE.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Djan SACRE Pablo Saratxaga pablo@mandrakesoft.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['di djanvî', 'di fevrî', 'di måss', 'd’ avri', 'di may', 'di djun', 'di djulete', 'd’ awousse', 'di setimbe', 'd’ octôbe', 'di nôvimbe', 'di decimbe'],
+        'months_short' => ['dja', 'fev', 'mås', 'avr', 'may', 'djn', 'djl', 'awo', 'set', 'oct', 'nôv', 'dec'],
+        'weekdays' => ['dimegne', 'londi', 'mårdi', 'mierkidi', 'djudi', 'vénrdi', 'semdi'],
+        'weekdays_short' => ['dim', 'lon', 'mår', 'mie', 'dju', 'vén', 'sem'],
+        'weekdays_min' => ['dim', 'lon', 'mår', 'mie', 'dju', 'vén', 'sem'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+
+        'year' => ':count anêye',
+        'y' => ':count anêye',
+        'a_year' => ':count anêye',
+
+        'month' => ':count meûs',
+        'm' => ':count meûs',
+        'a_month' => ':count meûs',
+
+        'week' => ':count samwinne',
+        'w' => ':count samwinne',
+        'a_week' => ':count samwinne',
+
+        'day' => ':count djoû',
+        'd' => ':count djoû',
+        'a_day' => ':count djoû',
+
+        'hour' => ':count eure',
+        'h' => ':count eure',
+        'a_hour' => ':count eure',
+
+        'minute' => ':count munute',
+        'min' => ':count munute',
+        'a_minute' => ':count munute',
+
+        'second' => ':count Sigonde',
+        's' => ':count Sigonde',
+        'a_second' => ':count Sigonde',
+    ]);
+  Carbon-src-Carbon-Lang-xh.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/xh_ZA.php';
+  Carbon-src-Carbon-Lang-zh_Hans.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - monkeycon
+     * - François B
+     * - Jason Katz-Brown
+     * - Konstantin Konev
+     * - Chris Lam
+     * - Serhan Apaydın
+     * - Gary Lo
+     * - JD Isaacks
+     * - Chris Hemp
+     * - shankesgk2
+     * - Daniel Cheung (danvim)
+     */
+    return [
+        'year' => ':count:optional-space年',
+        'y' => ':count:optional-space年',
+        'month' => ':count:optional-space个月',
+        'm' => ':count:optional-space个月',
+        'week' => ':count:optional-space周',
+        'w' => ':count:optional-space周',
+        'day' => ':count:optional-space天',
+        'd' => ':count:optional-space天',
+        'hour' => ':count:optional-space小时',
+        'h' => ':count:optional-space小时',
+        'minute' => ':count:optional-space分钟',
+        'min' => ':count:optional-space分钟',
+        'second' => ':count:optional-space秒',
+        'a_second' => '{1}几秒|]1,Inf[:count:optional-space秒',
+        's' => ':count:optional-space秒',
+        'ago' => ':time前',
+        'from_now' => ':time后',
+        'after' => ':time后',
+        'before' => ':time前',
+        'diff_now' => '现在',
+        'diff_today' => '今天',
+        'diff_yesterday' => '昨天',
+        'diff_tomorrow' => '明天',
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'YYYY/MM/DD',
+            'LL' => 'YYYY年M月D日',
+            'LLL' => 'YYYY年M月D日 HH:mm',
+            'LLLL' => 'YYYY年M月D日dddd HH:mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[今天]LT',
+            'nextDay' => '[明天]LT',
+            'nextWeek' => '[下]ddddLT',
+            'lastDay' => '[昨天]LT',
+            'lastWeek' => '[上]ddddLT',
+            'sameElse' => 'L',
+        ],
+        'ordinal' => function ($number, $period) {
+            switch ($period) {
+                case 'd':
+                case 'D':
+                case 'DDD':
+                    return $number.'日';
+                case 'M':
+                    return $number.'月';
+                case 'w':
+                case 'W':
+                    return $number.'周';
+                default:
+                    return $number;
+            }
+        },
+        'meridiem' => function ($hour, $minute) {
+            $time = $hour * 100 + $minute;
+            if ($time < 600) {
+                return '凌晨';
+            }
+            if ($time < 900) {
+                return '早上';
+            }
+            if ($time < 1130) {
+                return '上午';
+            }
+            if ($time < 1230) {
+                return '中午';
+            }
+            if ($time < 1800) {
+                return '下午';
+            }
+
+            return '晚上';
+        },
+        'months' => ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+        'months_short' => ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        'weekdays' => ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        'weekdays_short' => ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+        'weekdays_min' => ['日', '一', '二', '三', '四', '五', '六'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => '',
+    ];
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: php-code-content-57

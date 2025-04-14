@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: php:8.0-apache
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        volumeMounts:
+        - name: php-code-volume
+          mountPath: /var/www/html
+        - name: apache-config
+          mountPath: /etc/apache2/sites-available/000-default.conf
+          subPath: 000-default.conf
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          set -e
+          echo "🔄 Cập nhật gói và cài đặt các phụ thuộc..." &&           apt-get update &&           apt-get install -y libpq-dev locales &&           echo "🔧 Cài đặt PHP extensions..." &&           docker-php-ext-install pdo pdo_mysql &&           echo "🌐 Cấu hình UTF-8..." &&           sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&           sed -i 's/# vi_VN.UTF-8 UTF-8/vi_VN.UTF-8 UTF-8/' /etc/locale.gen &&           locale-gen &&           echo "🔧 Bật các module Apache..." &&           a2enmod rewrite headers &&           echo "📋 Thiết lập PHP.ini với UTF-8..." &&           {             echo 'default_charset = "UTF-8"';             echo 'mbstring.internal_encoding = UTF-8';           } > /usr/local/etc/php/conf.d/charset.ini &&           echo "📋 Kiểm tra quyền thư mục /var/www/html:" &&           ls -la /var/www/html &&           echo "🚀 Khởi động Apache..." &&           apache2-foreground
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      volumes:
+      - name: php-code-volume
+        hostPath:
+          path: /home/thinboonny/doannhanh/phpCode
+          type: Directory
+      - name: apache-config
+        configMap:
+          name: apache-config

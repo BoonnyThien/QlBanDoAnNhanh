@@ -56,7 +56,24 @@ spec:
         - /bin/sh
         - -c
         - |
-          gunzip -c /backup/mysql-backup-20240301.sql.gz | mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD
+          echo "Waiting for MySQL to be ready...";
+          while ! mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD -e "SELECT 1"; do
+            echo "MySQL is not ready yet. Waiting...";
+            sleep 5;
+          done;
+          
+          echo "Looking for latest backup...";
+          LATEST_BACKUP=$(ls -t /backup/mysql-backup-*.sql.gz | head -n1);
+          if [ -n "$LATEST_BACKUP" ]; then
+            echo "Found backup: $LATEST_BACKUP";
+            echo "Starting restore process...";
+            gunzip -c $LATEST_BACKUP | mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD;
+            echo "Restore completed successfully.";
+          else
+            echo "No backup file found. Creating initial database...";
+            mysql -h mysql -u root -p$MYSQL_ROOT_PASSWORD -e "CREATE DATABASE IF NOT EXISTS app_db;";
+            echo "Initial database created.";
+          fi
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:

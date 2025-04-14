@@ -150,4 +150,31 @@ data:
         target_label: kubernetes_namespace
       - source_labels: [__meta_kubernetes_pod_name]
         action: replace
-        target_label: kubernetes_pod_name 
+        target_label: kubernetes_pod_name
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
+  nfs:
+    server: nfs-server.default.svc.cluster.local
+    path: "/exports/prometheus"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard 

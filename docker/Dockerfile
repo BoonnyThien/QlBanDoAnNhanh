@@ -42,6 +42,12 @@ COPY phpCode/ .
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# 12. Cấu hình PHP cho encoding
+RUN echo "default_charset = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
+    && echo "mbstring.internal_encoding = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
+    && echo "mbstring.http_input = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
+    && echo "mbstring.http_output = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini
+
 EXPOSE 80
 
 CMD ["apache2-foreground"]

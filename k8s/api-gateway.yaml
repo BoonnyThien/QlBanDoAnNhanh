@@ -59,9 +59,10 @@ spec:
       serviceAccountName: php-app-sa
       containers:
       - name: auth-service
-        image: your-auth-service-image:latest
+        image: buithienboo/qlbandoannhanh-php-app:1.0
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: JWT_SECRET
           valueFrom:
@@ -72,4 +73,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: api-gateway-secrets
-              key: API_KEY 
+              key: API_KEY
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: www-data
+        - mountPath: /etc/apache2/sites-available/000-default.conf
+          name: apache-config
+          subPath: 000-default.conf
+      volumes:
+      - persistentVolumeClaim:
+          claimName: php-pvc
+        name: www-data
+      - configMap:
+          name: apache-config
+        name: apache-config 

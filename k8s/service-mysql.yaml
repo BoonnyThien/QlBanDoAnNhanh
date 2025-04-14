@@ -6,6 +6,7 @@ spec:
   selector:
     app: mysql
   ports:
-    - port: 3306
+    - protocol: TCP
+      port: 3306
       targetPort: 3306
-  clusterIP: None  # Headless Service cho StatefulSet
+  type: ClusterIP

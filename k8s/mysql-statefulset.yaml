@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: mysql
 spec:
-  serviceName: mysql
+  serviceName: mysql-service
   replicas: 1
   selector:
     matchLabels:
@@ -15,7 +15,9 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:5.7
+        image: mysql:8.0
+        ports:
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
@@ -23,57 +25,42 @@ spec:
               name: mysql-secret
               key: root-password
         - name: MYSQL_DATABASE
-          value: "qlbandoannhanh"
+          value: qlbandoannhanh
         - name: MYSQL_USER
-          value: "app_user"
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: username
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mysql-secret
-              key: user-password
-        ports:
-        - containerPort: 3306
-          name: mysql
+              key: password
+        - name: MYSQL_CHARACTER_SET_SERVER
+          value: utf8mb4
+        - name: MYSQL_COLLATION_SERVER
+          value: utf8mb4_unicode_ci
+        command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
         volumeMounts:
-        - name: mysql-persistent-storage
+        - name: mysql-data
           mountPath: /var/lib/mysql
-        - name: mysql-init-script
-          mountPath: /docker-entrypoint-initdb.d
-        command:
-        - bash
-        - -c
-        - |
-          # Clean up any existing data
-          rm -rf /var/lib/mysql/*
-          # Start MySQL
-          exec docker-entrypoint.sh mysqld
-        readinessProbe:
-          exec:
-            command:
-            - mysql
-            - -uapp_user
-            - -pdXNlcnBhc3M
-            - -e
-            - "SELECT 1"
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          exec:
-            command:
-            - mysql
-            - -uapp_user
-            - -pdXNlcnBhc3M
-            - -e
-            - "SELECT 1"
-          initialDelaySeconds: 30
-          periodSeconds: 10
+        - name: backup-volume
+          mountPath: /backup
       volumes:
-      - name: mysql-persistent-storage
+      - name: mysql-data
         persistentVolumeClaim:
           claimName: mysql-pvc
-      - name: mysql-init-script
-        configMap:
-          name: mysql-init-script
+      - name: backup-volume
+        persistentVolumeClaim:
+          claimName: backup-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
 ---
 apiVersion: v1
 kind: Service

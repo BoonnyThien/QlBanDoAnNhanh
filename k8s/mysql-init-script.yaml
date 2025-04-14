@@ -4,7 +4,17 @@ metadata:
   name: mysql-init-script
 data:
   init.sql: |
-    CREATE DATABASE IF NOT EXISTS qlbandoannhanh;
+    SET NAMES utf8mb4;
+    SET CHARACTER SET utf8mb4;
+    SET character_set_connection=utf8mb4;
+    SET character_set_database=utf8mb4;
+    SET character_set_results=utf8mb4;
+    SET character_set_server=utf8mb4;
+    SET collation_connection=utf8mb4_unicode_ci;
+    SET collation_database=utf8mb4_unicode_ci;
+    SET collation_server=utf8mb4_unicode_ci;
+    
+    CREATE DATABASE IF NOT EXISTS qlbandoannhanh CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
     USE qlbandoannhanh;
     
     -- Tạo user và cấp quyền
@@ -19,7 +29,7 @@ data:
         password VARCHAR(255) NOT NULL,
         email VARCHAR(100) NOT NULL UNIQUE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+    ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
     
     -- Tạo bảng restaurants
     CREATE TABLE IF NOT EXISTS restaurants (
@@ -28,7 +38,7 @@ data:
         address TEXT NOT NULL,
         phone VARCHAR(20),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+    ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
     
     -- Tạo bảng orders
     CREATE TABLE IF NOT EXISTS orders (
@@ -40,4 +50,4 @@ data:
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
-    ); 
+    ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 

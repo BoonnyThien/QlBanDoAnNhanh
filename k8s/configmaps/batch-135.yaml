@@ -1,0 +1,125 @@
+apiVersion: v1
+data:
+  index.php: "<?php\r\n    ob_start();\r\n    session_start();\r\n?>\r\n<!DOCTYPE
+    html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\" />\r\n
+    \   <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta name=\"viewport\"
+    content=\"width=device-width, initial-scale=1.0\" />\r\n    <!-- favicon -->\r\n
+    \   <link rel=\"shortcut icon\" href=\"./assets/img/icon.png\" type=\"image/x-icon\"
+    />\r\n    <!-- link font awesome -->\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css\">\r\n
+    \   <!-- link bootstrap -->\r\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\">\r\n
+    \   <title>Website bán đồ ăn nhanh</title>\r\n    <link rel=\"stylesheet\" href=\"./assets/style/base/reset.css\">\r\n
+    \   <!-- link slick slider -->\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css\"\r\n
+    \       integrity=\"sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n    <link
+    rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css\"\r\n
+    \       integrity=\"sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n    <link
+    rel=\"stylesheet\" href=\"./assets/style/index.css\">\r\n    <link rel=\"stylesheet\"
+    href=\"./assets/style/respronsive.css\">\r\n</head>\r\n\r\n<body>\r\n    <div
+    id=\"wrapper\">\r\n        <?php \r\n            include(\"admin/config/config.php\");\r\n
+    \           include(\"pages/navtop.php\");\r\n            include(\"pages/navmenu.php\");\r\n
+    \           include(\"pages/main.php\");\r\n            include(\"pages/footer.php\");\r\n
+    \       ?>\r\n    </div>\r\n\r\n\r\n    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\r\n
+    \   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\"></script>\r\n
+    \   <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\"></script>\r\n
+    \   <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n\r\n
+    \   <script src=\"./assets/js/index.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js\"\r\n
+    \       integrity=\"sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>\r\n
+    \   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js\"\r\n
+    \       integrity=\"sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>\r\n
+    \   <script src=\"./assets/JS/app.js\"></script>\r\n</body>\r\n\r\n</html>"
+  uploads-assets-JS-app.js: "// todo slick slider pro sale\r\n$(\".container-product-sales-slider\").slick({\r\n
+    \   dots: false,\r\n    infinite: false,\r\n    speed: 400,\r\n    slidesToShow:
+    5,\r\n    slidesToScroll: 2,\r\n    autoplay: true,\r\n    autoplaySpeed: 3000,\r\n
+    \   prevArrow:\r\n        '<button class=\"slick-prev slick-arrow\"><i class=\"fa-solid
+    fa-angle-left\" aria-hidden=\"true\"></i></button>',\r\n    nextArrow:\r\n        '<button
+    class=\"slick-next slick-arrow\"><i class=\"fa-solid fa-angle-right\" aria-hidden=\"true\"></fa-solid></button>',\r\n
+    \   responsive: [\r\n        {\r\n            breakpoint: 1024,\r\n            settings:
+    {\r\n                slidesToShow: 3,\r\n                slidesToScroll: 3,\r\n
+    \           },\r\n        },\r\n        {\r\n            breakpoint: 600,\r\n
+    \           settings: {\r\n                slidesToShow: 2,\r\n                slidesToScroll:
+    2,\r\n            },\r\n        },\r\n        {\r\n            breakpoint: 480,\r\n
+    \           settings: {\r\n                slidesToShow: 1,\r\n                slidesToScroll:
+    1,\r\n            },\r\n        },\r\n        // You can unslick at a given breakpoint
+    now by adding:\r\n        // settings: \"unslick\"\r\n        // instead of a
+    settings object\r\n    ],\r\n});\r\n// todo slick slider pro iphone\r\n$(\".container-product-iphone-slider\").slick({\r\n
+    \   dots: false,\r\n    infinite: false,\r\n    slidesToShow: 5,\r\n    slidesToScroll:
+    2,\r\n    autoplay: true,\r\n    autoplaySpeed: 3000,\r\n    prevArrow:\r\n        '<button
+    class=\"slick-prev slick-arrow\"><i class=\"fa-solid fa-angle-left\" aria-hidden=\"true\"></i></button>',\r\n
+    \   nextArrow:\r\n        '<button class=\"slick-next slick-arrow\"><i class=\"fa-solid
+    fa-angle-right\" aria-hidden=\"true\"></fa-solid></button>',\r\n    responsive:
+    [\r\n        {\r\n            breakpoint: 1024,\r\n            settings: {\r\n
+    \               slidesToShow: 3,\r\n                slidesToScroll: 3,\r\n                infinite:
+    true,\r\n                dots: true,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 600,\r\n            settings: {\r\n                slidesToShow:
+    2,\r\n                slidesToScroll: 2,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 480,\r\n            settings: {\r\n                slidesToShow:
+    1,\r\n                slidesToScroll: 1,\r\n            },\r\n        },\r\n        //
+    You can unslick at a given breakpoint now by adding:\r\n        // settings: \"unslick\"\r\n
+    \       // instead of a settings object\r\n    ],\r\n});\r\n// todo slick slider
+    pro ipad\r\n$(\".container-product-ipad-slider\").slick({\r\n    dots: false,\r\n
+    \   infinite: false,\r\n    slidesToShow: 5,\r\n    slidesToScroll: 2,\r\n    autoplay:
+    true,\r\n    autoplaySpeed: 3000,\r\n    prevArrow:\r\n        '<button class=\"slick-prev
+    slick-arrow\"><i class=\"fa-solid fa-angle-left\" aria-hidden=\"true\"></i></button>',\r\n
+    \   nextArrow:\r\n        '<button class=\"slick-next slick-arrow\"><i class=\"fa-solid
+    fa-angle-right\" aria-hidden=\"true\"></fa-solid></button>',\r\n    responsive:
+    [\r\n        {\r\n            breakpoint: 1024,\r\n            settings: {\r\n
+    \               slidesToShow: 3,\r\n                slidesToScroll: 3,\r\n                infinite:
+    true,\r\n                dots: true,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 600,\r\n            settings: {\r\n                slidesToShow:
+    2,\r\n                slidesToScroll: 2,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 480,\r\n            settings: {\r\n                slidesToShow:
+    1,\r\n                slidesToScroll: 1,\r\n            },\r\n        },\r\n        //
+    You can unslick at a given breakpoint now by adding:\r\n        // settings: \"unslick\"\r\n
+    \       // instead of a settings object\r\n    ],\r\n});\r\n// todo slick slider
+    blogs\r\n$(\".container-blogs-slider\").slick({\r\n    dots: false,\r\n    infinite:
+    false,\r\n    slidesToShow: 3,\r\n    slidesToScroll: 2,\r\n    autoplay: true,\r\n
+    \   autoplaySpeed: 3000,\r\n    prevArrow:\r\n        '<button class=\"slick-prev
+    slick-arrow\"><i class=\"fa-solid fa-angle-left\" aria-hidden=\"true\"></i></button>',\r\n
+    \   nextArrow:\r\n        '<button class=\"slick-next slick-arrow\"><i class=\"fa-solid
+    fa-angle-right\" aria-hidden=\"true\"></fa-solid></button>',\r\n    responsive:
+    [\r\n        {\r\n            breakpoint: 1024,\r\n            settings: {\r\n
+    \               slidesToShow: 3,\r\n                slidesToScroll: 3,\r\n                infinite:
+    true,\r\n                dots: true,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 600,\r\n            settings: {\r\n                slidesToShow:
+    2,\r\n                slidesToScroll: 2,\r\n            },\r\n        },\r\n        {\r\n
+    \           breakpoint: 480,\r\n            settings: {\r\n                slidesToShow:
+    1,\r\n                slidesToScroll: 1,\r\n            },\r\n        },\r\n        //
+    You can unslick at a given breakpoint now by adding:\r\n        // settings: \"unslick\"\r\n
+    \       // instead of a settings object\r\n    ],\r\n});\r\n"
+  uploads-index.php: "<?php\r\n    ob_start();\r\n    session_start();\r\n?>\r\n<!DOCTYPE
+    html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\" />\r\n
+    \   <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta name=\"viewport\"
+    content=\"width=device-width, initial-scale=1.0\" />\r\n    <!-- favicon -->\r\n
+    \   <link rel=\"shortcut icon\" href=\"./assets/img/icon.png\" type=\"image/x-icon\"
+    />\r\n    <!-- link font awesome -->\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css\">\r\n
+    \   <!-- link bootstrap -->\r\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\">\r\n
+    \   <title>Website bán đồ ăn nhanh</title>\r\n    <link rel=\"stylesheet\" href=\"./assets/style/base/reset.css\">\r\n
+    \   <!-- link slick slider -->\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css\"\r\n
+    \       integrity=\"sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n    <link
+    rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css\"\r\n
+    \       integrity=\"sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n    <link
+    rel=\"stylesheet\" href=\"./assets/style/index.css\">\r\n    <link rel=\"stylesheet\"
+    href=\"./assets/style/respronsive.css\">\r\n</head>\r\n\r\n<body>\r\n    <div
+    id=\"wrapper\">\r\n        <?php \r\n            include(\"admin/config/config.php\");\r\n
+    \           include(\"pages/navtop.php\");\r\n            include(\"pages/navmenu.php\");\r\n
+    \           include(\"pages/main.php\");\r\n            include(\"pages/footer.php\");\r\n
+    \       ?>\r\n    </div>\r\n\r\n\r\n    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\r\n
+    \   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\"></script>\r\n
+    \   <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\"></script>\r\n
+    \   <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n\r\n
+    \   <script src=\"./assets/js/index.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js\"\r\n
+    \       integrity=\"sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>\r\n
+    \   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js\"\r\n
+    \       integrity=\"sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==\"\r\n
+    \       crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>\r\n
+    \   <script src=\"./assets/JS/app.js\"></script>\r\n</body>\r\n\r\n</html>"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: php-code-content-135

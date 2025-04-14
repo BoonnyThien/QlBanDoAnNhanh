@@ -13,6 +13,9 @@ services:
       - ../phpCode:/var/www/html
       - ../phpCode/admin:/var/www/html/admin
       - ./docker/apache:/etc/apache2/sites-available
+    environment:
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
     depends_on:
       - mysql_db  # Đơn giản hóa phần depends_on
     networks:
@@ -28,10 +31,15 @@ services:
       MYSQL_DATABASE: qlbandoannhanh
       MYSQL_USER: app_user
       MYSQL_PASSWORD: userpass
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "3306:3306"  # Ánh xạ cổng MySQL
     volumes:
-      - mysql-data:/var/lib/mysql  # Lưu trữ dữ liệu MySQL
+      - mysql_data:/var/lib/mysql  # Lưu trữ dữ liệu MySQL
       - ../phpCode/database:/docker-entrypoint-initdb.d  # Script khởi tạo database
     networks:
       - app_network
@@ -39,7 +47,7 @@ services:
 
 # Định nghĩa volumes
 volumes:
-  mysql-data:  # Volume lưu trữ dữ liệu MySQL
+  mysql_data:  # Volume lưu trữ dữ liệu MySQL
 
 # Định nghĩa networks
 networks:

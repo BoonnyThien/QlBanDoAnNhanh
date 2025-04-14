@@ -1,0 +1,3535 @@
+apiVersion: v1
+data:
+  Carbon-src-Carbon-Lang-am_ET.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['ጃንዩወሪ', 'ፌብሩወሪ', 'ማርች', 'ኤፕሪል', 'ሜይ', 'ጁን', 'ጁላይ', 'ኦገስት', 'ሴፕቴምበር', 'ኦክቶበር', 'ኖቬምበር', 'ዲሴምበር'],
+        'months_short' => ['ጃንዩ', 'ፌብሩ', 'ማርች', 'ኤፕረ', 'ሜይ ', 'ጁን ', 'ጁላይ', 'ኦገስ', 'ሴፕቴ', 'ኦክተ', 'ኖቬም', 'ዲሴም'],
+        'weekdays' => ['እሑድ', 'ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ'],
+        'weekdays_short' => ['እሑድ', 'ሰኞ ', 'ማክሰ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ'],
+        'weekdays_min' => ['እሑድ', 'ሰኞ ', 'ማክሰ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ'],
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['ጡዋት', 'ከሰዓት'],
+
+        'year' => ':count አመት',
+        'y' => ':count አመት',
+        'a_year' => ':count አመት',
+
+        'month' => ':count ወር',
+        'm' => ':count ወር',
+        'a_month' => ':count ወር',
+
+        'week' => ':count ሳምንት',
+        'w' => ':count ሳምንት',
+        'a_week' => ':count ሳምንት',
+
+        'day' => ':count ቀን',
+        'd' => ':count ቀን',
+        'a_day' => ':count ቀን',
+
+        'hour' => ':count ሰዓት',
+        'h' => ':count ሰዓት',
+        'a_hour' => ':count ሰዓት',
+
+        'minute' => ':count ደቂቃ',
+        'min' => ':count ደቂቃ',
+        'a_minute' => ':count ደቂቃ',
+
+        'second' => ':count ሴኮንድ',
+        's' => ':count ሴኮንድ',
+        'a_second' => ':count ሴኮንድ',
+
+        'ago' => 'ከ:time በፊት',
+        'from_now' => 'በ:time ውስጥ',
+    ]);
+  Carbon-src-Carbon-Lang-anp.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/anp_IN.php';
+  Carbon-src-Carbon-Lang-br_FR.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/br.php';
+  Carbon-src-Carbon-Lang-bs_Latn.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/bs.php', [
+    ]);
+  Carbon-src-Carbon-Lang-ccp.php: "<?php\n\n/**\n * This file is part of the Carbon
+    package.\n *\n * (c) Brian Nesbitt <brian@nesbot.com>\n *\n * For the full copyright
+    and license information, please view the LICENSE\n * file that was distributed
+    with this source code.\n */\n\nreturn array_replace_recursive(require __DIR__.'/en.php',
+    [\n    'weekdays' => ['\U00011122\U00011127\U0001111D\U00011128\U0001111D\U00011122\U00011134',
+    '\U00011125\U00011127\U0001111F\U00011134\U0001111D\U00011122\U00011134', '\U0001111F\U00011127\U00011101\U00011109\U00011127\U00011123\U00011134\U0001111D\U00011122\U00011134',
+    '\U0001111D\U0001112A\U00011116\U00011134\U0001111D\U00011122\U00011134', '\U0001111D\U00011133\U00011122\U00011128\U00011125\U0001112A\U0001111B\U00011134\U0001111D\U00011122\U00011134',
+    '\U00011125\U0001112A\U00011107\U00011134\U00011107\U0001112E\U00011122\U00011134\U0001111D\U00011122\U00011134',
+    '\U00011125\U00011127\U0001111A\U00011128\U0001111D\U00011122\U00011134'],\n    'weekdays_short'
+    => ['\U00011122\U00011127\U0001111D\U00011128', '\U00011125\U00011127\U0001111F\U00011134',
+    '\U0001111F\U00011127\U00011101\U00011109\U00011127\U00011123\U00011134', '\U0001111D\U0001112A\U00011116\U00011134',
+    '\U0001111D\U00011133\U00011122\U00011128\U00011125\U0001112A\U0001111B\U00011134',
+    '\U00011125\U0001112A\U00011107\U00011134\U00011107\U0001112E\U00011122\U00011134',
+    '\U00011125\U00011127\U0001111A\U00011128'],\n    'weekdays_min' => ['\U00011122\U00011127\U0001111D\U00011128',
+    '\U00011125\U00011127\U0001111F\U00011134', '\U0001111F\U00011127\U00011101\U00011109\U00011127\U00011123\U00011134',
+    '\U0001111D\U0001112A\U00011116\U00011134', '\U0001111D\U00011133\U00011122\U00011128\U00011125\U0001112A\U0001111B\U00011134',
+    '\U00011125\U0001112A\U00011107\U00011134\U00011107\U0001112E\U00011122\U00011134',
+    '\U00011125\U00011127\U0001111A\U00011128'],\n    'months' => ['\U0001110E\U0001111A\U0001112A\U00011120\U00011122\U00011128',
+    '\U0001111C\U0001112C\U0001111B\U00011134\U0001111D\U00011133\U00011122\U0001112A\U00011120\U00011122\U00011128',
+    '\U0001111F\U00011122\U00011134\U0001110C\U00011127', '\U00011103\U0001112C\U0001111B\U00011133\U00011122\U00011128\U00011123\U00011134',
+    '\U0001111F\U0001112C', '\U0001110E\U0001112A\U0001111A\U00011134', '\U0001110E\U0001112A\U00011123\U0001112D',
+    '\U00011103\U00011109\U00011127\U0001110C\U00011134\U00011111\U00011134', '\U00011125\U0001112C\U0001111B\U00011134\U00011111\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011103\U00011127\U00011107\U00011134\U00011111\U0001112C\U0001111D\U00011127\U00011122\U00011134',
+    '\U0001111A\U00011127\U0001111E\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011113\U00011128\U00011125\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134'],\n
+    \   'months_short' => ['\U0001110E\U0001111A\U0001112A', '\U0001111C\U0001112C\U0001111B\U00011134',
+    '\U0001111F\U00011122\U00011134\U0001110C\U00011127', '\U00011103\U0001112C\U0001111B\U00011133\U00011122\U00011128\U00011123\U00011134',
+    '\U0001111F\U0001112C', '\U0001110E\U0001112A\U0001111A\U00011134', '\U0001110E\U0001112A\U00011123\U0001112D',
+    '\U00011103\U00011109\U00011127\U0001110C\U00011134\U00011111\U00011134', '\U00011125\U0001112C\U0001111B\U00011134\U00011111\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011103\U00011127\U00011107\U00011134\U00011111\U0001112E\U0001111D\U00011127\U00011122\U00011134',
+    '\U0001111A\U00011127\U0001111E\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011113\U00011128\U00011125\U0001112C\U0001111F\U00011134\U0001111D\U00011122\U00011134'],\n
+    \   'months_short_standalone' => ['\U0001110E\U0001111A\U0001112A\U00011120\U00011122\U00011128',
+    '\U0001111C\U0001112C\U0001111B\U00011134\U0001111D\U00011133\U00011122\U0001112A\U00011120\U00011122\U00011128',
+    '\U0001111F\U00011122\U00011134\U0001110C\U00011127', '\U00011103\U0001112C\U0001111B\U00011133\U00011122\U00011128\U00011123\U00011134',
+    '\U0001111F\U0001112C', '\U0001110E\U0001112A\U0001111A\U00011134', '\U0001110E\U0001112A\U00011123\U0001112D',
+    '\U00011103\U00011109\U00011127\U0001110C\U00011134\U00011111\U00011134', '\U00011125\U0001112C\U0001111B\U00011134\U00011111\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011103\U00011127\U00011107\U00011134\U00011111\U0001112E\U0001111D\U00011127\U00011122\U00011134',
+    '\U0001111A\U00011127\U0001111E\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134',
+    '\U00011113\U00011128\U00011125\U0001112C\U0001111F\U00011134\U0001111D\U00011127\U00011122\U00011134'],\n
+    \   'formats' => [\n        'LT' => 'h:mm a',\n        'LTS' => 'h:mm:ss a',\n
+    \       'L' => 'D/M/YYYY',\n        'LL' => 'D MMM, YYYY',\n        'LLL' => 'D
+    MMMM, YYYY h:mm a',\n        'LLLL' => 'dddd, D MMMM, YYYY h:mm a',\n    ],\n]);\n"
+  Carbon-src-Carbon-Lang-da_GL.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/da.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D. MMM YYYY',
+            'LLL' => 'D. MMMM YYYY HH.mm',
+            'LLLL' => 'dddd [den] D. MMMM YYYY HH.mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-de.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Michael Hohl
+     * - sheriffmarley
+     * - dennisoderwald
+     * - Timo
+     * - Karag2006
+     * - Pete Scopes (pdscopes)
+     */
+    return [
+        'year' => ':count Jahr|:count Jahre',
+        'a_year' => 'ein Jahr|:count Jahre',
+        'y' => ':count J.',
+        'month' => ':count Monat|:count Monate',
+        'a_month' => 'ein Monat|:count Monate',
+        'm' => ':count Mon.',
+        'week' => ':count Woche|:count Wochen',
+        'a_week' => 'eine Woche|:count Wochen',
+        'w' => ':count Wo.',
+        'day' => ':count Tag|:count Tage',
+        'a_day' => 'ein Tag|:count Tage',
+        'd' => ':count Tg.',
+        'hour' => ':count Stunde|:count Stunden',
+        'a_hour' => 'eine Stunde|:count Stunden',
+        'h' => ':count Std.',
+        'minute' => ':count Minute|:count Minuten',
+        'a_minute' => 'eine Minute|:count Minuten',
+        'min' => ':count Min.',
+        'second' => ':count Sekunde|:count Sekunden',
+        'a_second' => 'ein paar Sekunden|:count Sekunden',
+        's' => ':count Sek.',
+        'millisecond' => ':count Millisekunde|:count Millisekunden',
+        'a_millisecond' => 'eine Millisekunde|:count Millisekunden',
+        'ms' => ':countms',
+        'microsecond' => ':count Mikrosekunde|:count Mikrosekunden',
+        'a_microsecond' => 'eine Mikrosekunde|:count Mikrosekunden',
+        'µs' => ':countµs',
+        'ago' => 'vor :time',
+        'from_now' => 'in :time',
+        'after' => ':time später',
+        'before' => ':time zuvor',
+
+        'year_from_now' => ':count Jahr|:count Jahren',
+        'month_from_now' => ':count Monat|:count Monaten',
+        'week_from_now' => ':count Woche|:count Wochen',
+        'day_from_now' => ':count Tag|:count Tagen',
+        'year_ago' => ':count Jahr|:count Jahren',
+        'month_ago' => ':count Monat|:count Monaten',
+        'week_ago' => ':count Woche|:count Wochen',
+        'day_ago' => ':count Tag|:count Tagen',
+        'a_year_from_now' => 'ein Jahr|:count Jahren',
+        'a_month_from_now' => 'ein Monat|:count Monaten',
+        'a_week_from_now' => 'eine Woche|:count Wochen',
+        'a_day_from_now' => 'ein Tag|:count Tagen',
+        'a_year_ago' => 'ein Jahr|:count Jahren',
+        'a_month_ago' => 'ein Monat|:count Monaten',
+        'a_week_ago' => 'eine Woche|:count Wochen',
+        'a_day_ago' => 'ein Tag|:count Tagen',
+
+        'diff_now' => 'Gerade eben',
+        'diff_today' => 'heute',
+        'diff_today_regexp' => 'heute(?:\\s+um)?',
+        'diff_yesterday' => 'Gestern',
+        'diff_yesterday_regexp' => 'gestern(?:\\s+um)?',
+        'diff_tomorrow' => 'Morgen',
+        'diff_tomorrow_regexp' => 'morgen(?:\\s+um)?',
+        'diff_before_yesterday' => 'Vorgestern',
+        'diff_after_tomorrow' => 'Übermorgen',
+
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD.MM.YYYY',
+            'LL' => 'D. MMMM YYYY',
+            'LLL' => 'D. MMMM YYYY HH:mm',
+            'LLLL' => 'dddd, D. MMMM YYYY HH:mm',
+        ],
+
+        'calendar' => [
+            'sameDay' => '[heute um] LT [Uhr]',
+            'nextDay' => '[morgen um] LT [Uhr]',
+            'nextWeek' => 'dddd [um] LT [Uhr]',
+            'lastDay' => '[gestern um] LT [Uhr]',
+            'lastWeek' => '[letzten] dddd [um] LT [Uhr]',
+            'sameElse' => 'L',
+        ],
+
+        'months' => ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        'months_short' => ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        'weekdays' => ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        'weekdays_short' => ['So.', 'Mo.', 'Di.', 'Mi.', 'Do.', 'Fr.', 'Sa.'],
+        'weekdays_min' => ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        'ordinal' => ':number.',
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' und '],
+    ];
+  Carbon-src-Carbon-Lang-dz.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/dz_BT.php';
+  Carbon-src-Carbon-Lang-en_BM.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_DK.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Danish Standards Association  bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'YYYY-MM-DD',
+        ],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+    ]);
+  Carbon-src-Carbon-Lang-en_FK.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_GH.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_IO.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_ISO.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'YYYY-MM-dd',
+            'LL' => 'YYYY MMM D',
+            'LLL' => 'YYYY MMMM D HH:mm',
+            'LLLL' => 'dddd, YYYY MMMM DD HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-en_TO.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-en_TZ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-fr_CF.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/fr.php';
+  Carbon-src-Carbon-Lang-fr_GN.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/fr.php';
+  Carbon-src-Carbon-Lang-fr_RE.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/fr.php';
+  Carbon-src-Carbon-Lang-gom.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/gom_Latn.php';
+  Carbon-src-Carbon-Lang-hu.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Adam Brunner
+     * - Brett Johnson
+     * - balping
+     */
+
+    use Carbon\CarbonInterface;
+
+    $huWeekEndings = ['vasárnap', 'hétfőn', 'kedden', 'szerdán', 'csütörtökön', 'pénteken', 'szombaton'];
+
+    return [
+        'year' => ':count év',
+        'y' => ':count év',
+        'month' => ':count hónap',
+        'm' => ':count hónap',
+        'week' => ':count hét',
+        'w' => ':count hét',
+        'day' => ':count nap',
+        'd' => ':count nap',
+        'hour' => ':count óra',
+        'h' => ':count óra',
+        'minute' => ':count perc',
+        'min' => ':count perc',
+        'second' => ':count másodperc',
+        's' => ':count másodperc',
+        'ago' => ':time',
+        'from_now' => ':time múlva',
+        'after' => ':time később',
+        'before' => ':time korábban',
+        'year_ago' => ':count éve',
+        'y_ago' => ':count éve',
+        'month_ago' => ':count hónapja',
+        'm_ago' => ':count hónapja',
+        'week_ago' => ':count hete',
+        'w_ago' => ':count hete',
+        'day_ago' => ':count napja',
+        'd_ago' => ':count napja',
+        'hour_ago' => ':count órája',
+        'h_ago' => ':count órája',
+        'minute_ago' => ':count perce',
+        'min_ago' => ':count perce',
+        'second_ago' => ':count másodperce',
+        's_ago' => ':count másodperce',
+        'year_after' => ':count évvel',
+        'y_after' => ':count évvel',
+        'month_after' => ':count hónappal',
+        'm_after' => ':count hónappal',
+        'week_after' => ':count héttel',
+        'w_after' => ':count héttel',
+        'day_after' => ':count nappal',
+        'd_after' => ':count nappal',
+        'hour_after' => ':count órával',
+        'h_after' => ':count órával',
+        'minute_after' => ':count perccel',
+        'min_after' => ':count perccel',
+        'second_after' => ':count másodperccel',
+        's_after' => ':count másodperccel',
+        'year_before' => ':count évvel',
+        'y_before' => ':count évvel',
+        'month_before' => ':count hónappal',
+        'm_before' => ':count hónappal',
+        'week_before' => ':count héttel',
+        'w_before' => ':count héttel',
+        'day_before' => ':count nappal',
+        'd_before' => ':count nappal',
+        'hour_before' => ':count órával',
+        'h_before' => ':count órával',
+        'minute_before' => ':count perccel',
+        'min_before' => ':count perccel',
+        'second_before' => ':count másodperccel',
+        's_before' => ':count másodperccel',
+        'months' => ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'],
+        'months_short' => ['jan.', 'feb.', 'márc.', 'ápr.', 'máj.', 'jún.', 'júl.', 'aug.', 'szept.', 'okt.', 'nov.', 'dec.'],
+        'weekdays' => ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'],
+        'weekdays_short' => ['vas', 'hét', 'kedd', 'sze', 'csüt', 'pén', 'szo'],
+        'weekdays_min' => ['v', 'h', 'k', 'sze', 'cs', 'p', 'sz'],
+        'ordinal' => ':number.',
+        'diff_now' => 'most',
+        'diff_today' => 'ma',
+        'diff_yesterday' => 'tegnap',
+        'diff_tomorrow' => 'holnap',
+        'formats' => [
+            'LT' => 'H:mm',
+            'LTS' => 'H:mm:ss',
+            'L' => 'YYYY.MM.DD.',
+            'LL' => 'YYYY. MMMM D.',
+            'LLL' => 'YYYY. MMMM D. H:mm',
+            'LLLL' => 'YYYY. MMMM D., dddd H:mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[ma] LT[-kor]',
+            'nextDay' => '[holnap] LT[-kor]',
+            'nextWeek' => function (CarbonInterface $date) use ($huWeekEndings) {
+                return '['.$huWeekEndings[$date->dayOfWeek].'] LT[-kor]';
+            },
+            'lastDay' => '[tegnap] LT[-kor]',
+            'lastWeek' => function (CarbonInterface $date) use ($huWeekEndings) {
+                return '[múlt '.$huWeekEndings[$date->dayOfWeek].'] LT[-kor]';
+            },
+            'sameElse' => 'L',
+        ],
+        'meridiem' => ['DE', 'DU'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' és '],
+    ];
+  Carbon-src-Carbon-Lang-ii.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['ꎸꄑ', 'ꁯꋒ'],
+        'weekdays' => ['ꑭꆏꑍ', 'ꆏꊂꋍ', 'ꆏꊂꑍ', 'ꆏꊂꌕ', 'ꆏꊂꇖ', 'ꆏꊂꉬ', 'ꆏꊂꃘ'],
+        'weekdays_short' => ['ꑭꆏ', 'ꆏꋍ', 'ꆏꑍ', 'ꆏꌕ', 'ꆏꇖ', 'ꆏꉬ', 'ꆏꃘ'],
+        'weekdays_min' => ['ꑭꆏ', 'ꆏꋍ', 'ꆏꑍ', 'ꆏꌕ', 'ꆏꇖ', 'ꆏꉬ', 'ꆏꃘ'],
+        'months' => null,
+        'months_short' => ['ꋍꆪ', 'ꑍꆪ', 'ꌕꆪ', 'ꇖꆪ', 'ꉬꆪ', 'ꃘꆪ', 'ꏃꆪ', 'ꉆꆪ', 'ꈬꆪ', 'ꊰꆪ', 'ꊰꊪꆪ', 'ꊰꑋꆪ'],
+        'formats' => [
+            'LT' => 'h:mm a',
+            'LTS' => 'h:mm:ss a',
+            'L' => 'YYYY-MM-dd',
+            'LL' => 'YYYY MMM D',
+            'LLL' => 'YYYY MMMM D h:mm a',
+            'LLLL' => 'YYYY MMMM D, dddd h:mm a',
+        ],
+
+        'year' => ':count ꒉ', // less reliable
+        'y' => ':count ꒉ', // less reliable
+        'a_year' => ':count ꒉ', // less reliable
+
+        'month' => ':count ꆪ',
+        'm' => ':count ꆪ',
+        'a_month' => ':count ꆪ',
+
+        'week' => ':count ꏃ', // less reliable
+        'w' => ':count ꏃ', // less reliable
+        'a_week' => ':count ꏃ', // less reliable
+
+        'day' => ':count ꏜ', // less reliable
+        'd' => ':count ꏜ', // less reliable
+        'a_day' => ':count ꏜ', // less reliable
+
+        'hour' => ':count ꄮꈉ',
+        'h' => ':count ꄮꈉ',
+        'a_hour' => ':count ꄮꈉ',
+
+        'minute' => ':count ꀄꊭ', // less reliable
+        'min' => ':count ꀄꊭ', // less reliable
+        'a_minute' => ':count ꀄꊭ', // less reliable
+
+        'second' => ':count ꇅ', // less reliable
+        's' => ':count ꇅ', // less reliable
+        'a_second' => ':count ꇅ', // less reliable
+    ]);
+  Carbon-src-Carbon-Lang-jgo.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+    ]);
+  Carbon-src-Carbon-Lang-ln.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ubuntu René Manassé GALEKWA renemanasse@gmail.com
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'D/M/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd D MMMM YYYY HH:mm',
+        ],
+        'months' => ['sánzá ya yambo', 'sánzá ya míbalé', 'sánzá ya mísáto', 'sánzá ya mínei', 'sánzá ya mítáno', 'sánzá ya motóbá', 'sánzá ya nsambo', 'sánzá ya mwambe', 'sánzá ya libwa', 'sánzá ya zómi', 'sánzá ya zómi na mɔ̌kɔ́', 'sánzá ya zómi na míbalé'],
+        'months_short' => ['yan', 'fbl', 'msi', 'apl', 'mai', 'yun', 'yul', 'agt', 'stb', 'ɔtb', 'nvb', 'dsb'],
+        'weekdays' => ['Lomíngo', 'Mosálá mɔ̌kɔ́', 'Misálá míbalé', 'Misálá mísáto', 'Misálá mínei', 'Misálá mítáno', 'Mpɔ́sɔ'],
+        'weekdays_short' => ['m1.', 'm2.', 'm3.', 'm4.', 'm5.', 'm6.', 'm7.'],
+        'weekdays_min' => ['m1.', 'm2.', 'm3.', 'm4.', 'm5.', 'm6.', 'm7.'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+
+        'year' => 'mbula :count',
+        'y' => 'mbula :count',
+        'a_year' => 'mbula :count',
+
+        'month' => 'sánzá :count',
+        'm' => 'sánzá :count',
+        'a_month' => 'sánzá :count',
+
+        'week' => 'mpɔ́sɔ :count',
+        'w' => 'mpɔ́sɔ :count',
+        'a_week' => 'mpɔ́sɔ :count',
+
+        'day' => 'mokɔlɔ :count',
+        'd' => 'mokɔlɔ :count',
+        'a_day' => 'mokɔlɔ :count',
+
+        'hour' => 'ngonga :count',
+        'h' => 'ngonga :count',
+        'a_hour' => 'ngonga :count',
+
+        'minute' => 'miniti :count',
+        'min' => 'miniti :count',
+        'a_minute' => 'miniti :count',
+
+        'second' => 'segɔnde :count',
+        's' => 'segɔnde :count',
+        'a_second' => 'segɔnde :count',
+    ]);
+  Carbon-src-Carbon-Lang-mag.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/mag_IN.php';
+  Carbon-src-Carbon-Lang-mas_TZ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/mas.php', [
+        'first_day_of_week' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-mgh.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['wichishu', 'mchochil’l'],
+        'weekdays' => ['Sabato', 'Jumatatu', 'Jumanne', 'Jumatano', 'Arahamisi', 'Ijumaa', 'Jumamosi'],
+        'weekdays_short' => ['Sab', 'Jtt', 'Jnn', 'Jtn', 'Ara', 'Iju', 'Jmo'],
+        'weekdays_min' => ['Sab', 'Jtt', 'Jnn', 'Jtn', 'Ara', 'Iju', 'Jmo'],
+        'months' => ['Mweri wo kwanza', 'Mweri wo unayeli', 'Mweri wo uneraru', 'Mweri wo unecheshe', 'Mweri wo unethanu', 'Mweri wo thanu na mocha', 'Mweri wo saba', 'Mweri wo nane', 'Mweri wo tisa', 'Mweri wo kumi', 'Mweri wo kumi na moja', 'Mweri wo kumi na yel’li'],
+        'months_short' => ['Kwa', 'Una', 'Rar', 'Che', 'Tha', 'Moc', 'Sab', 'Nan', 'Tis', 'Kum', 'Moj', 'Yel'],
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY HH:mm',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-mn.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Philippe Vaucher
+     * - Tsutomu Kuroda
+     * - tjku
+     * - Max Melentiev
+     * - Zolzaya Erdenebaatar
+     * - Tom Hughes
+     * - Akira Matsuda
+     * - Christopher Dell
+     * - Michael Kessler
+     * - Enrique Vidal
+     * - Simone Carletti
+     * - Aaron Patterson
+     * - Nicolás Hock Isaza
+     * - Ochirkhuyag
+     * - Batmandakh
+     */
+    return [
+        'year' => ':count жил',
+        'y' => ':count жил',
+        'month' => ':count сар',
+        'm' => ':count сар',
+        'week' => ':count долоо хоног',
+        'w' => ':count долоо хоног',
+        'day' => ':count өдөр',
+        'd' => ':count өдөр',
+        'hour' => ':count цаг',
+        'h' => ':countц',
+        'minute' => ':count минут',
+        'min' => ':countм',
+        'second' => ':count секунд',
+        's' => ':countс',
+
+        'ago' => ':timeн өмнө',
+        'year_ago' => ':count жилий',
+        'month_ago' => ':count сары',
+        'day_ago' => ':count хоногий',
+        'hour_ago' => ':count цагий',
+        'minute_ago' => ':count минуты',
+        'second_ago' => ':count секунды',
+
+        'from_now' => 'одоогоос :time',
+        'year_from_now' => ':count жилийн дараа',
+        'month_from_now' => ':count сарын дараа',
+        'day_from_now' => ':count хоногийн дараа',
+        'hour_from_now' => ':count цагийн дараа',
+        'minute_from_now' => ':count минутын дараа',
+        'second_from_now' => ':count секундын дараа',
+
+        // Does it required to make translation for before, after as follows? hmm, I think we've made it with ago and from now keywords already. Anyway, I've included it just in case of undesired action...
+        'after' => ':timeн дараа',
+        'year_after' => ':count жилий',
+        'month_after' => ':count сары',
+        'day_after' => ':count хоногий',
+        'hour_after' => ':count цагий',
+        'minute_after' => ':count минуты',
+        'second_after' => ':count секунды',
+
+        'before' => ':timeн өмнө',
+        'year_before' => ':count жилий',
+        'month_before' => ':count сары',
+        'day_before' => ':count хоногий',
+        'hour_before' => ':count цагий',
+        'minute_before' => ':count минуты',
+        'second_before' => ':count секунды',
+
+        'list' => ', ',
+        'diff_now' => 'одоо',
+        'diff_yesterday' => 'өчигдөр',
+        'diff_tomorrow' => 'маргааш',
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'YYYY-MM-DD',
+            'LL' => 'YYYY MMMM DD',
+            'LLL' => 'YY-MM-DD, HH:mm',
+            'LLLL' => 'YYYY MMMM DD, HH:mm',
+        ],
+        'weekdays' => ['Ням', 'Даваа', 'Мягмар', 'Лхагва', 'Пүрэв', 'Баасан', 'Бямба'],
+        'weekdays_short' => ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'],
+        'weekdays_min' => ['Ня', 'Да', 'Мя', 'Лх', 'Пү', 'Ба', 'Бя'],
+        'months' => ['1 сар', '2 сар', '3 сар', '4 сар', '5 сар', '6 сар', '7 сар', '8 сар', '9 сар', '10 сар', '11 сар', '12 сар'],
+        'months_short' => ['1 сар', '2 сар', '3 сар', '4 сар', '5 сар', '6 сар', '7 сар', '8 сар', '9 сар', '10 сар', '11 сар', '12 сар'],
+        'meridiem' => ['өглөө', 'орой'],
+        'first_day_of_week' => 1,
+    ];
+  Carbon-src-Carbon-Lang-my_MM.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/my.php';
+  Carbon-src-Carbon-Lang-nso_ZA.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Zuza Software Foundation (Translate.org.za) Dwayne Bailey dwayne@translate.org.za
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['Janaware', 'Febereware', 'Matšhe', 'Aprele', 'Mei', 'June', 'Julae', 'Agostose', 'Setemere', 'Oktobere', 'Nofemere', 'Disemere'],
+        'months_short' => ['Jan', 'Feb', 'Mat', 'Apr', 'Mei', 'Jun', 'Jul', 'Ago', 'Set', 'Okt', 'Nof', 'Dis'],
+        'weekdays' => ['LaMorena', 'Mošupologo', 'Labobedi', 'Laboraro', 'Labone', 'Labohlano', 'Mokibelo'],
+        'weekdays_short' => ['Son', 'Moš', 'Bed', 'Rar', 'Ne', 'Hla', 'Mok'],
+        'weekdays_min' => ['Son', 'Moš', 'Bed', 'Rar', 'Ne', 'Hla', 'Mok'],
+        'day_of_first_week_of_year' => 1,
+
+        'year' => ':count ngwaga',
+        'y' => ':count ngwaga',
+        'a_year' => ':count ngwaga',
+
+        'month' => ':count Kgwedi',
+        'm' => ':count Kgwedi',
+        'a_month' => ':count Kgwedi',
+
+        'week' => ':count Beke',
+        'w' => ':count Beke',
+        'a_week' => ':count Beke',
+
+        'day' => ':count Letšatši',
+        'd' => ':count Letšatši',
+        'a_day' => ':count Letšatši',
+
+        'hour' => ':count Iri',
+        'h' => ':count Iri',
+        'a_hour' => ':count Iri',
+
+        'minute' => ':count Motsotso',
+        'min' => ':count Motsotso',
+        'a_minute' => ':count Motsotso',
+
+        'second' => ':count motsotswana',
+        's' => ':count motsotswana',
+        'a_second' => ':count motsotswana',
+    ]);
+  Carbon-src-Carbon-Lang-pt_GQ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/pt.php';
+  Carbon-src-Carbon-Lang-pt_MO.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/pt.php', [
+        'formats' => [
+            'LT' => 'h:mm a',
+            'LTS' => 'h:mm:ss a',
+            'LLL' => 'D [de] MMMM [de] YYYY, h:mm a',
+            'LLLL' => 'dddd, D [de] MMMM [de] YYYY, h:mm a',
+        ],
+        'first_day_of_week' => 0,
+    ]);
+  Carbon-src-Carbon-Lang-shs_CA.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Neskie Manuel    bug-glibc-locales@gnu.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YY',
+        ],
+        'months' => ['Pellkwet̓min', 'Pelctsipwen̓ten', 'Pellsqépts', 'Peslléwten', 'Pell7ell7é7llqten', 'Pelltspéntsk', 'Pelltqwelq̓wél̓t', 'Pellct̓éxel̓cten', 'Pesqelqlélten', 'Pesllwélsten', 'Pellc7ell7é7llcwten̓', 'Pelltetétq̓em'],
+        'months_short' => ['Kwe', 'Tsi', 'Sqe', 'Éwt', 'Ell', 'Tsp', 'Tqw', 'Ct̓é', 'Qel', 'Wél', 'U7l', 'Tet'],
+        'weekdays' => ['Sxetspesq̓t', 'Spetkesq̓t', 'Selesq̓t', 'Skellesq̓t', 'Smesesq̓t', 'Stselkstesq̓t', 'Stqmekstesq̓t'],
+        'weekdays_short' => ['Sxe', 'Spe', 'Sel', 'Ske', 'Sme', 'Sts', 'Stq'],
+        'weekdays_min' => ['Sxe', 'Spe', 'Sel', 'Ske', 'Sme', 'Sts', 'Stq'],
+        'day_of_first_week_of_year' => 1,
+
+        'year' => ':count sqlélten', // less reliable
+        'y' => ':count sqlélten', // less reliable
+        'a_year' => ':count sqlélten', // less reliable
+
+        'month' => ':count swewll', // less reliable
+        'm' => ':count swewll', // less reliable
+        'a_month' => ':count swewll', // less reliable
+
+        'hour' => ':count seqwlút', // less reliable
+        'h' => ':count seqwlút', // less reliable
+        'a_hour' => ':count seqwlút', // less reliable
+    ]);
+  Carbon-src-Carbon-Lang-smn.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'meridiem' => ['ip.', 'ep.'],
+        'weekdays' => ['pasepeeivi', 'vuossaargâ', 'majebaargâ', 'koskoho', 'tuorâstuv', 'vástuppeeivi', 'lávurduv'],
+        'weekdays_short' => ['pas', 'vuo', 'maj', 'kos', 'tuo', 'vás', 'láv'],
+        'weekdays_min' => ['pa', 'vu', 'ma', 'ko', 'tu', 'vá', 'lá'],
+        'weekdays_standalone' => ['pasepeivi', 'vuossargâ', 'majebargâ', 'koskokko', 'tuorâstâh', 'vástuppeivi', 'lávurdâh'],
+        'months' => ['uđđâivemáánu', 'kuovâmáánu', 'njuhčâmáánu', 'cuáŋuimáánu', 'vyesimáánu', 'kesimáánu', 'syeinimáánu', 'porgemáánu', 'čohčâmáánu', 'roovvâdmáánu', 'skammâmáánu', 'juovlâmáánu'],
+        'months_short' => ['uđiv', 'kuovâ', 'njuhčâ', 'cuáŋui', 'vyesi', 'kesi', 'syeini', 'porge', 'čohčâ', 'roovvâd', 'skammâ', 'juovlâ'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'H.mm',
+            'LTS' => 'H.mm.ss',
+            'L' => 'D.M.YYYY',
+            'LL' => 'MMM D. YYYY',
+            'LLL' => 'MMMM D. YYYY H.mm',
+            'LLLL' => 'dddd, MMMM D. YYYY H.mm',
+        ],
+
+        'hour' => ':count äigi', // less reliable
+        'h' => ':count äigi', // less reliable
+        'a_hour' => ':count äigi', // less reliable
+
+        'year' => ':count ihe',
+        'y' => ':count ihe',
+        'a_year' => ':count ihe',
+
+        'month' => ':count mánuppaje',
+        'm' => ':count mánuppaje',
+        'a_month' => ':count mánuppaje',
+
+        'week' => ':count okko',
+        'w' => ':count okko',
+        'a_week' => ':count okko',
+
+        'day' => ':count peivi',
+        'd' => ':count peivi',
+        'a_day' => ':count peivi',
+
+        'minute' => ':count miinut',
+        'min' => ':count miinut',
+        'a_minute' => ':count miinut',
+
+        'second' => ':count nubbe',
+        's' => ':count nubbe',
+        'a_second' => ':count nubbe',
+    ]);
+  Carbon-src-Carbon-Lang-so_DJ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/so.php', [
+        'formats' => [
+            'L' => 'DD.MM.YYYY',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-sq.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - François B
+     * - JD Isaacks
+     * - Fadion Dashi
+     */
+    return [
+        'year' => ':count vit|:count vjet',
+        'a_year' => 'një vit|:count vite',
+        'y' => ':count v.',
+        'month' => ':count muaj',
+        'a_month' => 'një muaj|:count muaj',
+        'm' => ':count muaj',
+        'week' => ':count javë',
+        'a_week' => ':count javë|:count javë',
+        'w' => ':count j.',
+        'day' => ':count ditë',
+        'a_day' => 'një ditë|:count ditë',
+        'd' => ':count d.',
+        'hour' => ':count orë',
+        'a_hour' => 'një orë|:count orë',
+        'h' => ':count o.',
+        'minute' => ':count minutë|:count minuta',
+        'a_minute' => 'një minutë|:count minuta',
+        'min' => ':count min.',
+        'second' => ':count sekondë|:count sekonda',
+        'a_second' => 'disa sekonda|:count sekonda',
+        's' => ':count s.',
+        'ago' => ':time më parë',
+        'from_now' => 'në :time',
+        'after' => ':time pas',
+        'before' => ':time para',
+        'diff_now' => 'tani',
+        'diff_today' => 'Sot',
+        'diff_today_regexp' => 'Sot(?:\\s+në)?',
+        'diff_yesterday' => 'dje',
+        'diff_yesterday_regexp' => 'Dje(?:\\s+në)?',
+        'diff_tomorrow' => 'nesër',
+        'diff_tomorrow_regexp' => 'Nesër(?:\\s+në)?',
+        'diff_before_yesterday' => 'pardje',
+        'diff_after_tomorrow' => 'pasnesër',
+        'formats' => [
+            'LT' => 'HH:mm',
+            'LTS' => 'HH:mm:ss',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMMM YYYY',
+            'LLL' => 'D MMMM YYYY HH:mm',
+            'LLLL' => 'dddd, D MMMM YYYY HH:mm',
+        ],
+        'calendar' => [
+            'sameDay' => '[Sot në] LT',
+            'nextDay' => '[Nesër në] LT',
+            'nextWeek' => 'dddd [në] LT',
+            'lastDay' => '[Dje në] LT',
+            'lastWeek' => 'dddd [e kaluar në] LT',
+            'sameElse' => 'L',
+        ],
+        'ordinal' => ':number.',
+        'meridiem' => ['PD', 'MD'],
+        'months' => ['janar', 'shkurt', 'mars', 'prill', 'maj', 'qershor', 'korrik', 'gusht', 'shtator', 'tetor', 'nëntor', 'dhjetor'],
+        'months_short' => ['jan', 'shk', 'mar', 'pri', 'maj', 'qer', 'kor', 'gus', 'sht', 'tet', 'nën', 'dhj'],
+        'weekdays' => ['e diel', 'e hënë', 'e martë', 'e mërkurë', 'e enjte', 'e premte', 'e shtunë'],
+        'weekdays_short' => ['die', 'hën', 'mar', 'mër', 'enj', 'pre', 'sht'],
+        'weekdays_min' => ['d', 'h', 'ma', 'më', 'e', 'p', 'sh'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 4,
+        'list' => [', ', ' dhe '],
+    ];
+  Carbon-src-Carbon-Lang-sr_Latn_XK.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/sr_Latn_BA.php', [
+        'weekdays' => ['nedelja', 'ponedeljak', 'utorak', 'sreda', 'četvrtak', 'petak', 'subota'],
+    ]);
+  Carbon-src-Carbon-Lang-sw_TZ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Kamusi Project Martin Benjamin locales@kamusi.org
+     */
+    return array_replace_recursive(require __DIR__.'/sw.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['Januari', 'Februari', 'Machi', 'Aprili', 'Mei', 'Juni', 'Julai', 'Agosti', 'Septemba', 'Oktoba', 'Novemba', 'Desemba'],
+        'months_short' => ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ago', 'Sep', 'Okt', 'Nov', 'Des'],
+        'weekdays' => ['Jumapili', 'Jumatatu', 'Jumanne', 'Jumatano', 'Alhamisi', 'Ijumaa', 'Jumamosi'],
+        'weekdays_short' => ['J2', 'J3', 'J4', 'J5', 'Alh', 'Ij', 'J1'],
+        'weekdays_min' => ['J2', 'J3', 'J4', 'J5', 'Alh', 'Ij', 'J1'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['asubuhi', 'alasiri'],
+    ]);
+  Carbon-src-Carbon-Lang-tig.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Unknown default region, use the first alphabetically.
+     */
+    return require __DIR__.'/tig_ER.php';
+  Carbon-src-Carbon-Lang-tig_ER.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Ge'ez Frontier Foundation    locales@geez.org
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['ጥሪ', 'ለካቲት', 'መጋቢት', 'ሚያዝያ', 'ግንቦት', 'ሰነ', 'ሓምለ', 'ነሓሰ', 'መስከረም', 'ጥቅምቲ', 'ሕዳር', 'ታሕሳስ'],
+        'months_short' => ['ጥሪ ', 'ለካቲ', 'መጋቢ', 'ሚያዝ', 'ግንቦ', 'ሰነ ', 'ሓምለ', 'ነሓሰ', 'መስከ', 'ጥቅም', 'ሕዳር', 'ታሕሳ'],
+        'weekdays' => ['ሰንበት ዓባይ', 'ሰኖ', 'ታላሸኖ', 'ኣረርባዓ', 'ከሚሽ', 'ጅምዓት', 'ሰንበት ንኢሽ'],
+        'weekdays_short' => ['ሰ//ዓ', 'ሰኖ ', 'ታላሸ', 'ኣረር', 'ከሚሽ', 'ጅምዓ', 'ሰ//ን'],
+        'weekdays_min' => ['ሰ//ዓ', 'ሰኖ ', 'ታላሸ', 'ኣረር', 'ከሚሽ', 'ጅምዓ', 'ሰ//ን'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+        'meridiem' => ['ቀደም ሰር ምዕል', 'ሓቆ ሰር ምዕል'],
+
+        'year' => ':count ማይ', // less reliable
+        'y' => ':count ማይ', // less reliable
+        'a_year' => ':count ማይ', // less reliable
+
+        'month' => ':count ሸምሽ', // less reliable
+        'm' => ':count ሸምሽ', // less reliable
+        'a_month' => ':count ሸምሽ', // less reliable
+
+        'week' => ':count ሰቡዕ', // less reliable
+        'w' => ':count ሰቡዕ', // less reliable
+        'a_week' => ':count ሰቡዕ', // less reliable
+
+        'day' => ':count ዎሮ', // less reliable
+        'd' => ':count ዎሮ', // less reliable
+        'a_day' => ':count ዎሮ', // less reliable
+
+        'hour' => ':count ሰዓት', // less reliable
+        'h' => ':count ሰዓት', // less reliable
+        'a_hour' => ':count ሰዓት', // less reliable
+
+        'minute' => ':count ካልኣይት', // less reliable
+        'min' => ':count ካልኣይት', // less reliable
+        'a_minute' => ':count ካልኣይት', // less reliable
+
+        'second' => ':count ካልኣይ',
+        's' => ':count ካልኣይ',
+        'a_second' => ':count ካልኣይ',
+    ]);
+  Carbon-src-Carbon-Lang-uz_UZ.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Bobir Ismailov Bobir Ismailov, Pablo Saratxaga, Mashrab Kuvatov bobir_is@yahoo.com, pablo@mandrakesoft.com, kmashrab@uni-bremen.de
+     */
+    return array_replace_recursive(require __DIR__.'/uz_Latn.php', [
+        'formats' => [
+            'L' => 'DD/MM/YY',
+        ],
+        'months' => ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'Iyun', 'Iyul', 'Avgust', 'Sentabr', 'Oktabr', 'Noyabr', 'Dekabr'],
+        'months_short' => ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'Iyn', 'Iyl', 'Avg', 'Sen', 'Okt', 'Noy', 'Dek'],
+        'weekdays' => ['Yakshanba', 'Dushanba', 'Seshanba', 'Chorshanba', 'Payshanba', 'Juma', 'Shanba'],
+        'weekdays_short' => ['Yak', 'Du', 'Se', 'Cho', 'Pay', 'Ju', 'Sha'],
+        'weekdays_min' => ['Yak', 'Du', 'Se', 'Cho', 'Pay', 'Ju', 'Sha'],
+        'first_day_of_week' => 1,
+        'day_of_first_week_of_year' => 1,
+    ]);
+  Carbon-src-Carbon-Lang-vai_Latn.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'weekdays' => ['lahadi', 'tɛɛnɛɛ', 'talata', 'alaba', 'aimisa', 'aijima', 'siɓiti'],
+        'weekdays_short' => ['lahadi', 'tɛɛnɛɛ', 'talata', 'alaba', 'aimisa', 'aijima', 'siɓiti'],
+        'weekdays_min' => ['lahadi', 'tɛɛnɛɛ', 'talata', 'alaba', 'aimisa', 'aijima', 'siɓiti'],
+        'months' => ['luukao kemã', 'ɓandaɓu', 'vɔɔ', 'fulu', 'goo', '6', '7', 'kɔnde', 'saah', 'galo', 'kenpkato ɓololɔ', 'luukao lɔma'],
+        'months_short' => ['luukao kemã', 'ɓandaɓu', 'vɔɔ', 'fulu', 'goo', '6', '7', 'kɔnde', 'saah', 'galo', 'kenpkato ɓololɔ', 'luukao lɔma'],
+        'first_day_of_week' => 1,
+        'formats' => [
+            'LT' => 'h:mm a',
+            'LTS' => 'h:mm:ss a',
+            'L' => 'DD/MM/YYYY',
+            'LL' => 'D MMM YYYY',
+            'LLL' => 'D MMMM YYYY h:mm a',
+            'LLLL' => 'dddd, D MMMM YYYY h:mm a',
+        ],
+    ]);
+  Carbon-src-Carbon-Lang-xh_ZA.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    /*
+     * Authors:
+     * - Zuza Software Foundation (Translate.org.za) Dwayne Bailey dwayne@translate.org.za
+     */
+    return array_replace_recursive(require __DIR__.'/en.php', [
+        'formats' => [
+            'L' => 'DD/MM/YYYY',
+        ],
+        'months' => ['eyoMqungu', 'eyoMdumba', 'eyoKwindla', 'uTshazimpuzi', 'uCanzibe', 'eyeSilimela', 'eyeKhala', 'eyeThupa', 'eyoMsintsi', 'eyeDwarha', 'eyeNkanga', 'eyoMnga'],
+        'months_short' => ['Mqu', 'Mdu', 'Kwi', 'Tsh', 'Can', 'Sil', 'Kha', 'Thu', 'Msi', 'Dwa', 'Nka', 'Mng'],
+        'weekdays' => ['iCawa', 'uMvulo', 'lwesiBini', 'lwesiThathu', 'ulweSine', 'lwesiHlanu', 'uMgqibelo'],
+        'weekdays_short' => ['Caw', 'Mvu', 'Bin', 'Tha', 'Sin', 'Hla', 'Mgq'],
+        'weekdays_min' => ['Caw', 'Mvu', 'Bin', 'Tha', 'Sin', 'Hla', 'Mgq'],
+        'day_of_first_week_of_year' => 1,
+
+        'year' => ':count ihlobo', // less reliable
+        'y' => ':count ihlobo', // less reliable
+        'a_year' => ':count ihlobo', // less reliable
+
+        'hour' => ':count iwotshi', // less reliable
+        'h' => ':count iwotshi', // less reliable
+        'a_hour' => ':count iwotshi', // less reliable
+
+        'minute' => ':count ingqalelo', // less reliable
+        'min' => ':count ingqalelo', // less reliable
+        'a_minute' => ':count ingqalelo', // less reliable
+
+        'second' => ':count nceda', // less reliable
+        's' => ':count nceda', // less reliable
+        'a_second' => ':count nceda', // less reliable
+
+        'month' => ':count inyanga',
+        'm' => ':count inyanga',
+        'a_month' => ':count inyanga',
+
+        'week' => ':count veki',
+        'w' => ':count veki',
+        'a_week' => ':count veki',
+
+        'day' => ':count imini',
+        'd' => ':count imini',
+        'a_day' => ':count imini',
+    ]);
+  Carbon-src-Carbon-Lang-zh_Hant_TW.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    return require __DIR__.'/zh_Hant.php';
+  Carbon-src-Carbon-Traits-Comparison.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    use BadMethodCallException;
+    use Carbon\CarbonInterface;
+    use Carbon\Exceptions\BadComparisonUnitException;
+    use InvalidArgumentException;
+
+    /**
+     * Trait Comparison.
+     *
+     * Comparison utils and testers. All the following methods return booleans.
+     * nowWithSameTz
+     *
+     * Depends on the following methods:
+     *
+     * @method static        resolveCarbon($date)
+     * @method static        copy()
+     * @method static        nowWithSameTz()
+     * @method static static yesterday($timezone = null)
+     * @method static static tomorrow($timezone = null)
+     */
+    trait Comparison
+    {
+        /** @var bool */
+        protected $endOfTime = false;
+
+        /** @var bool */
+        protected $startOfTime = false;
+
+        /**
+         * Determines if the instance is equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->eq('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->eq(Carbon::parse('2018-07-25 12:45:16')); // true
+         * Carbon::parse('2018-07-25 12:45:16')->eq('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see equalTo()
+         *
+         * @return bool
+         */
+        public function eq($date): bool
+        {
+            return $this->equalTo($date);
+        }
+
+        /**
+         * Determines if the instance is equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->equalTo('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->equalTo(Carbon::parse('2018-07-25 12:45:16')); // true
+         * Carbon::parse('2018-07-25 12:45:16')->equalTo('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function equalTo($date): bool
+        {
+            return $this == $date;
+        }
+
+        /**
+         * Determines if the instance is not equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->ne('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->ne(Carbon::parse('2018-07-25 12:45:16')); // false
+         * Carbon::parse('2018-07-25 12:45:16')->ne('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see notEqualTo()
+         *
+         * @return bool
+         */
+        public function ne($date): bool
+        {
+            return $this->notEqualTo($date);
+        }
+
+        /**
+         * Determines if the instance is not equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->notEqualTo('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->notEqualTo(Carbon::parse('2018-07-25 12:45:16')); // false
+         * Carbon::parse('2018-07-25 12:45:16')->notEqualTo('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function notEqualTo($date): bool
+        {
+            return !$this->equalTo($date);
+        }
+
+        /**
+         * Determines if the instance is greater (after) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->gt('2018-07-25 12:45:15'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->gt('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->gt('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see greaterThan()
+         *
+         * @return bool
+         */
+        public function gt($date): bool
+        {
+            return $this->greaterThan($date);
+        }
+
+        /**
+         * Determines if the instance is greater (after) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThan('2018-07-25 12:45:15'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThan('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThan('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function greaterThan($date): bool
+        {
+            return $this > $date;
+        }
+
+        /**
+         * Determines if the instance is greater (after) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->isAfter('2018-07-25 12:45:15'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->isAfter('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->isAfter('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see greaterThan()
+         *
+         * @return bool
+         */
+        public function isAfter($date): bool
+        {
+            return $this->greaterThan($date);
+        }
+
+        /**
+         * Determines if the instance is greater (after) than or equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->gte('2018-07-25 12:45:15'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->gte('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->gte('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see greaterThanOrEqualTo()
+         *
+         * @return bool
+         */
+        public function gte($date): bool
+        {
+            return $this->greaterThanOrEqualTo($date);
+        }
+
+        /**
+         * Determines if the instance is greater (after) than or equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThanOrEqualTo('2018-07-25 12:45:15'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThanOrEqualTo('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->greaterThanOrEqualTo('2018-07-25 12:45:17'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function greaterThanOrEqualTo($date): bool
+        {
+            return $this >= $date;
+        }
+
+        /**
+         * Determines if the instance is less (before) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->lt('2018-07-25 12:45:15'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lt('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lt('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see lessThan()
+         *
+         * @return bool
+         */
+        public function lt($date): bool
+        {
+            return $this->lessThan($date);
+        }
+
+        /**
+         * Determines if the instance is less (before) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->lessThan('2018-07-25 12:45:15'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lessThan('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lessThan('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function lessThan($date): bool
+        {
+            return $this < $date;
+        }
+
+        /**
+         * Determines if the instance is less (before) than another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->isBefore('2018-07-25 12:45:15'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->isBefore('2018-07-25 12:45:16'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->isBefore('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see lessThan()
+         *
+         * @return bool
+         */
+        public function isBefore($date): bool
+        {
+            return $this->lessThan($date);
+        }
+
+        /**
+         * Determines if the instance is less (before) or equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->lte('2018-07-25 12:45:15'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lte('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->lte('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @see lessThanOrEqualTo()
+         *
+         * @return bool
+         */
+        public function lte($date): bool
+        {
+            return $this->lessThanOrEqualTo($date);
+        }
+
+        /**
+         * Determines if the instance is less (before) or equal to another
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25 12:45:16')->lessThanOrEqualTo('2018-07-25 12:45:15'); // false
+         * Carbon::parse('2018-07-25 12:45:16')->lessThanOrEqualTo('2018-07-25 12:45:16'); // true
+         * Carbon::parse('2018-07-25 12:45:16')->lessThanOrEqualTo('2018-07-25 12:45:17'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date
+         *
+         * @return bool
+         */
+        public function lessThanOrEqualTo($date): bool
+        {
+            return $this <= $date;
+        }
+
+        /**
+         * Determines if the instance is between two others.
+         *
+         * The third argument allow you to specify if bounds are included or not (true by default)
+         * but for when you including/excluding bounds may produce different results in your application,
+         * we recommend to use the explicit methods ->betweenIncluded() or ->betweenExcluded() instead.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25')->between('2018-07-14', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->between('2018-08-01', '2018-08-20'); // false
+         * Carbon::parse('2018-07-25')->between('2018-07-25', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->between('2018-07-25', '2018-08-01', false); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date1
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date2
+         * @param bool                                    $equal Indicates if an equal to comparison should be done
+         *
+         * @return bool
+         */
+        public function between($date1, $date2, $equal = true): bool
+        {
+            $date1 = $this->resolveCarbon($date1);
+            $date2 = $this->resolveCarbon($date2);
+
+            if ($date1->greaterThan($date2)) {
+                [$date1, $date2] = [$date2, $date1];
+            }
+
+            if ($equal) {
+                return $this->greaterThanOrEqualTo($date1) && $this->lessThanOrEqualTo($date2);
+            }
+
+            return $this->greaterThan($date1) && $this->lessThan($date2);
+        }
+
+        /**
+         * Determines if the instance is between two others, bounds included.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25')->betweenIncluded('2018-07-14', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->betweenIncluded('2018-08-01', '2018-08-20'); // false
+         * Carbon::parse('2018-07-25')->betweenIncluded('2018-07-25', '2018-08-01'); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date1
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date2
+         *
+         * @return bool
+         */
+        public function betweenIncluded($date1, $date2): bool
+        {
+            return $this->between($date1, $date2, true);
+        }
+
+        /**
+         * Determines if the instance is between two others, bounds excluded.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25')->betweenExcluded('2018-07-14', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->betweenExcluded('2018-08-01', '2018-08-20'); // false
+         * Carbon::parse('2018-07-25')->betweenExcluded('2018-07-25', '2018-08-01'); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date1
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date2
+         *
+         * @return bool
+         */
+        public function betweenExcluded($date1, $date2): bool
+        {
+            return $this->between($date1, $date2, false);
+        }
+
+        /**
+         * Determines if the instance is between two others
+         *
+         * @example
+         * ```
+         * Carbon::parse('2018-07-25')->isBetween('2018-07-14', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->isBetween('2018-08-01', '2018-08-20'); // false
+         * Carbon::parse('2018-07-25')->isBetween('2018-07-25', '2018-08-01'); // true
+         * Carbon::parse('2018-07-25')->isBetween('2018-07-25', '2018-08-01', false); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date1
+         * @param \Carbon\Carbon|\DateTimeInterface|mixed $date2
+         * @param bool                                    $equal Indicates if an equal to comparison should be done
+         *
+         * @return bool
+         */
+        public function isBetween($date1, $date2, $equal = true): bool
+        {
+            return $this->between($date1, $date2, $equal);
+        }
+
+        /**
+         * Determines if the instance is a weekday.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-07-14')->isWeekday(); // false
+         * Carbon::parse('2019-07-15')->isWeekday(); // true
+         * ```
+         *
+         * @return bool
+         */
+        public function isWeekday()
+        {
+            return !$this->isWeekend();
+        }
+
+        /**
+         * Determines if the instance is a weekend day.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-07-14')->isWeekend(); // true
+         * Carbon::parse('2019-07-15')->isWeekend(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isWeekend()
+        {
+            return \in_array($this->dayOfWeek, static::$weekendDays);
+        }
+
+        /**
+         * Determines if the instance is yesterday.
+         *
+         * @example
+         * ```
+         * Carbon::yesterday()->isYesterday(); // true
+         * Carbon::tomorrow()->isYesterday(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isYesterday()
+        {
+            return $this->toDateString() === static::yesterday($this->getTimezone())->toDateString();
+        }
+
+        /**
+         * Determines if the instance is today.
+         *
+         * @example
+         * ```
+         * Carbon::today()->isToday(); // true
+         * Carbon::tomorrow()->isToday(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isToday()
+        {
+            return $this->toDateString() === $this->nowWithSameTz()->toDateString();
+        }
+
+        /**
+         * Determines if the instance is tomorrow.
+         *
+         * @example
+         * ```
+         * Carbon::tomorrow()->isTomorrow(); // true
+         * Carbon::yesterday()->isTomorrow(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isTomorrow()
+        {
+            return $this->toDateString() === static::tomorrow($this->getTimezone())->toDateString();
+        }
+
+        /**
+         * Determines if the instance is in the future, ie. greater (after) than now.
+         *
+         * @example
+         * ```
+         * Carbon::now()->addHours(5)->isFuture(); // true
+         * Carbon::now()->subHours(5)->isFuture(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isFuture()
+        {
+            return $this->greaterThan($this->nowWithSameTz());
+        }
+
+        /**
+         * Determines if the instance is in the past, ie. less (before) than now.
+         *
+         * @example
+         * ```
+         * Carbon::now()->subHours(5)->isPast(); // true
+         * Carbon::now()->addHours(5)->isPast(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isPast()
+        {
+            return $this->lessThan($this->nowWithSameTz());
+        }
+
+        /**
+         * Determines if the instance is a leap year.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2020-01-01')->isLeapYear(); // true
+         * Carbon::parse('2019-01-01')->isLeapYear(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isLeapYear()
+        {
+            return $this->rawFormat('L') === '1';
+        }
+
+        /**
+         * Determines if the instance is a long year
+         *
+         * @example
+         * ```
+         * Carbon::parse('2015-01-01')->isLongYear(); // true
+         * Carbon::parse('2016-01-01')->isLongYear(); // false
+         * ```
+         *
+         * @see https://en.wikipedia.org/wiki/ISO_8601#Week_dates
+         *
+         * @return bool
+         */
+        public function isLongYear()
+        {
+            return static::create($this->year, 12, 28, 0, 0, 0, $this->tz)->weekOfYear === 53;
+        }
+
+        /**
+         * Compares the formatted values of the two dates.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-06-13')->isSameAs('Y-d', Carbon::parse('2019-12-13')); // true
+         * Carbon::parse('2019-06-13')->isSameAs('Y-d', Carbon::parse('2019-06-14')); // false
+         * ```
+         *
+         * @param string                                        $format date formats to compare.
+         * @param \Carbon\Carbon|\DateTimeInterface|string|null $date   instance to compare with or null to use current day.
+         *
+         * @return bool
+         */
+        public function isSameAs($format, $date = null)
+        {
+            return $this->rawFormat($format) === $this->resolveCarbon($date)->rawFormat($format);
+        }
+
+        /**
+         * Determines if the instance is in the current unit given.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-01-13')->isSameUnit('year', Carbon::parse('2019-12-25')); // true
+         * Carbon::parse('2018-12-13')->isSameUnit('year', Carbon::parse('2019-12-25')); // false
+         * ```
+         *
+         * @param string                                 $unit singular unit string
+         * @param \Carbon\Carbon|\DateTimeInterface|null $date instance to compare with or null to use current day.
+         *
+         * @throws BadComparisonUnitException
+         *
+         * @return bool
+         */
+        public function isSameUnit($unit, $date = null)
+        {
+            $units = [
+                // @call isSameUnit
+                'year' => 'Y',
+                // @call isSameUnit
+                'week' => 'o-W',
+                // @call isSameUnit
+                'day' => 'Y-m-d',
+                // @call isSameUnit
+                'hour' => 'Y-m-d H',
+                // @call isSameUnit
+                'minute' => 'Y-m-d H:i',
+                // @call isSameUnit
+                'second' => 'Y-m-d H:i:s',
+                // @call isSameUnit
+                'micro' => 'Y-m-d H:i:s.u',
+                // @call isSameUnit
+                'microsecond' => 'Y-m-d H:i:s.u',
+            ];
+
+            if (!isset($units[$unit])) {
+                if (isset($this->$unit)) {
+                    return $this->resolveCarbon($date)->$unit === $this->$unit;
+                }
+
+                if ($this->localStrictModeEnabled ?? static::isStrictModeEnabled()) {
+                    throw new BadComparisonUnitException($unit);
+                }
+
+                return false;
+            }
+
+            return $this->isSameAs($units[$unit], $date);
+        }
+
+        /**
+         * Determines if the instance is in the current unit given.
+         *
+         * @example
+         * ```
+         * Carbon::now()->isCurrentUnit('hour'); // true
+         * Carbon::now()->subHours(2)->isCurrentUnit('hour'); // false
+         * ```
+         *
+         * @param string $unit The unit to test.
+         *
+         * @throws BadMethodCallException
+         *
+         * @return bool
+         */
+        public function isCurrentUnit($unit)
+        {
+            return $this->{'isSame'.ucfirst($unit)}();
+        }
+
+        /**
+         * Checks if the passed in date is in the same quarter as the instance quarter (and year if needed).
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-01-12')->isSameQuarter(Carbon::parse('2019-03-01')); // true
+         * Carbon::parse('2019-01-12')->isSameQuarter(Carbon::parse('2019-04-01')); // false
+         * Carbon::parse('2019-01-12')->isSameQuarter(Carbon::parse('2018-03-01')); // false
+         * Carbon::parse('2019-01-12')->isSameQuarter(Carbon::parse('2018-03-01'), false); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|string|null $date       The instance to compare with or null to use current day.
+         * @param bool                                          $ofSameYear Check if it is the same month in the same year.
+         *
+         * @return bool
+         */
+        public function isSameQuarter($date = null, $ofSameYear = true)
+        {
+            $date = $this->resolveCarbon($date);
+
+            return $this->quarter === $date->quarter && (!$ofSameYear || $this->isSameYear($date));
+        }
+
+        /**
+         * Checks if the passed in date is in the same month as the instance´s month.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-01-12')->isSameMonth(Carbon::parse('2019-01-01')); // true
+         * Carbon::parse('2019-01-12')->isSameMonth(Carbon::parse('2019-02-01')); // false
+         * Carbon::parse('2019-01-12')->isSameMonth(Carbon::parse('2018-01-01')); // false
+         * Carbon::parse('2019-01-12')->isSameMonth(Carbon::parse('2018-01-01'), false); // true
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|null $date       The instance to compare with or null to use the current date.
+         * @param bool                                   $ofSameYear Check if it is the same month in the same year.
+         *
+         * @return bool
+         */
+        public function isSameMonth($date = null, $ofSameYear = true)
+        {
+            return $this->isSameAs($ofSameYear ? 'Y-m' : 'm', $date);
+        }
+
+        /**
+         * Checks if this day is a specific day of the week.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-07-17')->isDayOfWeek(Carbon::WEDNESDAY); // true
+         * Carbon::parse('2019-07-17')->isDayOfWeek(Carbon::FRIDAY); // false
+         * Carbon::parse('2019-07-17')->isDayOfWeek('Wednesday'); // true
+         * Carbon::parse('2019-07-17')->isDayOfWeek('Friday'); // false
+         * ```
+         *
+         * @param int $dayOfWeek
+         *
+         * @return bool
+         */
+        public function isDayOfWeek($dayOfWeek)
+        {
+            if (\is_string($dayOfWeek) && \defined($constant = static::class.'::'.strtoupper($dayOfWeek))) {
+                $dayOfWeek = \constant($constant);
+            }
+
+            return $this->dayOfWeek === $dayOfWeek;
+        }
+
+        /**
+         * Check if its the birthday. Compares the date/month values of the two dates.
+         *
+         * @example
+         * ```
+         * Carbon::now()->subYears(5)->isBirthday(); // true
+         * Carbon::now()->subYears(5)->subDay()->isBirthday(); // false
+         * Carbon::parse('2019-06-05')->isBirthday(Carbon::parse('2001-06-05')); // true
+         * Carbon::parse('2019-06-05')->isBirthday(Carbon::parse('2001-06-06')); // false
+         * ```
+         *
+         * @param \Carbon\Carbon|\DateTimeInterface|null $date The instance to compare with or null to use current day.
+         *
+         * @return bool
+         */
+        public function isBirthday($date = null)
+        {
+            return $this->isSameAs('md', $date);
+        }
+
+        /**
+         * Check if today is the last day of the Month
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-02-28')->isLastOfMonth(); // true
+         * Carbon::parse('2019-03-28')->isLastOfMonth(); // false
+         * Carbon::parse('2019-03-30')->isLastOfMonth(); // false
+         * Carbon::parse('2019-03-31')->isLastOfMonth(); // true
+         * Carbon::parse('2019-04-30')->isLastOfMonth(); // true
+         * ```
+         *
+         * @return bool
+         */
+        public function isLastOfMonth()
+        {
+            return $this->day === $this->daysInMonth;
+        }
+
+        /**
+         * Check if the instance is start of day / midnight.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-02-28 00:00:00')->isStartOfDay(); // true
+         * Carbon::parse('2019-02-28 00:00:00.999999')->isStartOfDay(); // true
+         * Carbon::parse('2019-02-28 00:00:01')->isStartOfDay(); // false
+         * Carbon::parse('2019-02-28 00:00:00.000000')->isStartOfDay(true); // true
+         * Carbon::parse('2019-02-28 00:00:00.000012')->isStartOfDay(true); // false
+         * ```
+         *
+         * @param bool $checkMicroseconds check time at microseconds precision
+         *
+         * @return bool
+         */
+        public function isStartOfDay($checkMicroseconds = false)
+        {
+            /* @var CarbonInterface $this */
+            return $checkMicroseconds
+                ? $this->rawFormat('H:i:s.u') === '00:00:00.000000'
+                : $this->rawFormat('H:i:s') === '00:00:00';
+        }
+
+        /**
+         * Check if the instance is end of day.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-02-28 23:59:59.999999')->isEndOfDay(); // true
+         * Carbon::parse('2019-02-28 23:59:59.123456')->isEndOfDay(); // true
+         * Carbon::parse('2019-02-28 23:59:59')->isEndOfDay(); // true
+         * Carbon::parse('2019-02-28 23:59:58.999999')->isEndOfDay(); // false
+         * Carbon::parse('2019-02-28 23:59:59.999999')->isEndOfDay(true); // true
+         * Carbon::parse('2019-02-28 23:59:59.123456')->isEndOfDay(true); // false
+         * Carbon::parse('2019-02-28 23:59:59')->isEndOfDay(true); // false
+         * ```
+         *
+         * @param bool $checkMicroseconds check time at microseconds precision
+         *
+         * @return bool
+         */
+        public function isEndOfDay($checkMicroseconds = false)
+        {
+            /* @var CarbonInterface $this */
+            return $checkMicroseconds
+                ? $this->rawFormat('H:i:s.u') === '23:59:59.999999'
+                : $this->rawFormat('H:i:s') === '23:59:59';
+        }
+
+        /**
+         * Check if the instance is start of day / midnight.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-02-28 00:00:00')->isMidnight(); // true
+         * Carbon::parse('2019-02-28 00:00:00.999999')->isMidnight(); // true
+         * Carbon::parse('2019-02-28 00:00:01')->isMidnight(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isMidnight()
+        {
+            return $this->isStartOfDay();
+        }
+
+        /**
+         * Check if the instance is midday.
+         *
+         * @example
+         * ```
+         * Carbon::parse('2019-02-28 11:59:59.999999')->isMidday(); // false
+         * Carbon::parse('2019-02-28 12:00:00')->isMidday(); // true
+         * Carbon::parse('2019-02-28 12:00:00.999999')->isMidday(); // true
+         * Carbon::parse('2019-02-28 12:00:01')->isMidday(); // false
+         * ```
+         *
+         * @return bool
+         */
+        public function isMidday()
+        {
+            /* @var CarbonInterface $this */
+            return $this->rawFormat('G:i:s') === static::$midDayAt.':00:00';
+        }
+
+        /**
+         * Checks if the (date)time string is in a given format.
+         *
+         * @example
+         * ```
+         * Carbon::hasFormat('11:12:45', 'h:i:s'); // true
+         * Carbon::hasFormat('13:12:45', 'h:i:s'); // false
+         * ```
+         *
+         * @param string $date
+         * @param string $format
+         *
+         * @return bool
+         */
+        public static function hasFormat($date, $format)
+        {
+            // createFromFormat() is known to handle edge cases silently.
+            // E.g. "1975-5-1" (Y-n-j) will still be parsed correctly when "Y-m-d" is supplied as the format.
+            // To ensure we're really testing against our desired format, perform an additional regex validation.
+
+            return self::matchFormatPattern((string) $date, preg_quote((string) $format, '/'), static::$regexFormats);
+        }
+
+        /**
+         * Checks if the (date)time string is in a given format.
+         *
+         * @example
+         * ```
+         * Carbon::hasFormatWithModifiers('31/08/2015', 'd#m#Y'); // true
+         * Carbon::hasFormatWithModifiers('31/08/2015', 'm#d#Y'); // false
+         * ```
+         *
+         * @param string $date
+         * @param string $format
+         *
+         * @return bool
+         */
+        public static function hasFormatWithModifiers($date, $format): bool
+        {
+            return self::matchFormatPattern((string) $date, (string) $format, array_merge(static::$regexFormats, static::$regexFormatModifiers));
+        }
+
+        /**
+         * Checks if the (date)time string is in a given format and valid to create a
+         * new instance.
+         *
+         * @example
+         * ```
+         * Carbon::canBeCreatedFromFormat('11:12:45', 'h:i:s'); // true
+         * Carbon::canBeCreatedFromFormat('13:12:45', 'h:i:s'); // false
+         * ```
+         *
+         * @param string $date
+         * @param string $format
+         *
+         * @return bool
+         */
+        public static function canBeCreatedFromFormat($date, $format)
+        {
+            try {
+                // Try to create a DateTime object. Throws an InvalidArgumentException if the provided time string
+                // doesn't match the format in any way.
+                if (!static::rawCreateFromFormat($format, $date)) {
+                    return false;
+                }
+            } catch (InvalidArgumentException $e) {
+                return false;
+            }
+
+            return static::hasFormatWithModifiers($date, $format);
+        }
+
+        /**
+         * Returns true if the current date matches the given string.
+         *
+         * @example
+         * ```
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('2019')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('2018')); // false
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('2019-06')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('06-02')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('2019-06-02')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('Sunday')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('June')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('12:23')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('12:23:45')); // true
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('12:23:00')); // false
+         * var_dump(Carbon::parse('2019-06-02 12:23:45')->is('12h')); // true
+         * var_dump(Carbon::parse('2019-06-02 15:23:45')->is('3pm')); // true
+         * var_dump(Carbon::parse('2019-06-02 15:23:45')->is('3am')); // false
+         * ```
+         *
+         * @param string $tester day name, month name, hour, date, etc. as string
+         *
+         * @return bool
+         */
+        public function is(string $tester)
+        {
+            $tester = trim($tester);
+
+            if (preg_match('/^\d+$/', $tester)) {
+                return $this->year === (int) $tester;
+            }
+
+            if (preg_match('/^\d{3,}-\d{1,2}$/', $tester)) {
+                return $this->isSameMonth(static::parse($tester));
+            }
+
+            if (preg_match('/^\d{1,2}-\d{1,2}$/', $tester)) {
+                return $this->isSameDay(static::parse($this->year.'-'.$tester));
+            }
+
+            $modifier = preg_replace('/(\d)h$/i', '$1:00', $tester);
+
+            /* @var CarbonInterface $max */
+            $median = static::parse('5555-06-15 12:30:30.555555')->modify($modifier);
+            $current = $this->avoidMutation();
+            /* @var CarbonInterface $other */
+            $other = $this->avoidMutation()->modify($modifier);
+
+            if ($current->eq($other)) {
+                return true;
+            }
+
+            if (preg_match('/\d:\d{1,2}:\d{1,2}$/', $tester)) {
+                return $current->startOfSecond()->eq($other);
+            }
+
+            if (preg_match('/\d:\d{1,2}$/', $tester)) {
+                return $current->startOfMinute()->eq($other);
+            }
+
+            if (preg_match('/\d(h|am|pm)$/', $tester)) {
+                return $current->startOfHour()->eq($other);
+            }
+
+            if (preg_match(
+                '/^(january|february|march|april|may|june|july|august|september|october|november|december)\s+\d+$/i',
+                $tester
+            )) {
+                return $current->startOfMonth()->eq($other->startOfMonth());
+            }
+
+            $units = [
+                'month' => [1, 'year'],
+                'day' => [1, 'month'],
+                'hour' => [0, 'day'],
+                'minute' => [0, 'hour'],
+                'second' => [0, 'minute'],
+                'microsecond' => [0, 'second'],
+            ];
+
+            foreach ($units as $unit => [$minimum, $startUnit]) {
+                if ($minimum === $median->$unit) {
+                    $current = $current->startOf($startUnit);
+
+                    break;
+                }
+            }
+
+            return $current->eq($other);
+        }
+
+        /**
+         * Checks if the (date)time string is in a given format with
+         * given list of pattern replacements.
+         *
+         * @example
+         * ```
+         * Carbon::hasFormat('11:12:45', 'h:i:s'); // true
+         * Carbon::hasFormat('13:12:45', 'h:i:s'); // false
+         * ```
+         *
+         * @param string $date
+         * @param string $format
+         * @param array  $replacements
+         *
+         * @return bool
+         */
+        private static function matchFormatPattern(string $date, string $format, array $replacements): bool
+        {
+            // Preg quote, but remove escaped backslashes since we'll deal with escaped characters in the format string.
+            $regex = str_replace('\\\\', '\\', $format);
+            // Replace not-escaped letters
+            $regex = preg_replace_callback(
+                '/(?<!\\\\)((?:\\\\{2})*)(['.implode('', array_keys($replacements)).'])/',
+                function ($match) use ($replacements) {
+                    return $match[1].strtr($match[2], $replacements);
+                },
+                $regex
+            );
+            // Replace escaped letters by the letter itself
+            $regex = preg_replace('/(?<!\\\\)((?:\\\\{2})*)\\\\(\w)/', '$1$2', $regex);
+            // Escape not escaped slashes
+            $regex = preg_replace('#(?<!\\\\)((?:\\\\{2})*)/#', '$1\\/', $regex);
+
+            return (bool) @preg_match('/^'.$regex.'$/', $date);
+        }
+
+        /**
+         * Returns true if the date was created using CarbonImmutable::startOfTime()
+         *
+         * @return bool
+         */
+        public function isStartOfTime(): bool
+        {
+            return $this->startOfTime ?? false;
+        }
+
+        /**
+         * Returns true if the date was created using CarbonImmutable::endOfTime()
+         *
+         * @return bool
+         */
+        public function isEndOfTime(): bool
+        {
+            return $this->endOfTime ?? false;
+        }
+    }
+  Carbon-src-Carbon-Traits-IntervalStep.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    use Carbon\Carbon;
+    use Carbon\CarbonImmutable;
+    use Carbon\CarbonInterface;
+    use Closure;
+    use DateTimeImmutable;
+    use DateTimeInterface;
+
+    trait IntervalStep
+    {
+        /**
+         * Step to apply instead of a fixed interval to get the new date.
+         *
+         * @var Closure|null
+         */
+        protected $step;
+
+        /**
+         * Get the dynamic step in use.
+         *
+         * @return Closure
+         */
+        public function getStep(): ?Closure
+        {
+            return $this->step;
+        }
+
+        /**
+         * Set a step to apply instead of a fixed interval to get the new date.
+         *
+         * Or pass null to switch to fixed interval.
+         *
+         * @param Closure|null $step
+         */
+        public function setStep(?Closure $step): void
+        {
+            $this->step = $step;
+        }
+
+        /**
+         * Take a date and apply either the step if set, or the current interval else.
+         *
+         * The interval/step is applied negatively (typically subtraction instead of addition) if $negated is true.
+         *
+         * @param DateTimeInterface $dateTime
+         * @param bool              $negated
+         *
+         * @return CarbonInterface
+         */
+        public function convertDate(DateTimeInterface $dateTime, bool $negated = false): CarbonInterface
+        {
+            /** @var CarbonInterface $carbonDate */
+            $carbonDate = $dateTime instanceof CarbonInterface ? $dateTime : $this->resolveCarbon($dateTime);
+
+            if ($this->step) {
+                return $carbonDate->setDateTimeFrom(($this->step)($carbonDate->avoidMutation(), $negated));
+            }
+
+            if ($negated) {
+                return $carbonDate->rawSub($this);
+            }
+
+            return $carbonDate->rawAdd($this);
+        }
+
+        /**
+         * Convert DateTimeImmutable instance to CarbonImmutable instance and DateTime instance to Carbon instance.
+         *
+         * @param DateTimeInterface $dateTime
+         *
+         * @return Carbon|CarbonImmutable
+         */
+        private function resolveCarbon(DateTimeInterface $dateTime)
+        {
+            if ($dateTime instanceof DateTimeImmutable) {
+                return CarbonImmutable::instance($dateTime);
+            }
+
+            return Carbon::instance($dateTime);
+        }
+    }
+  Carbon-src-Carbon-Traits-ObjectInitialisation.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    trait ObjectInitialisation
+    {
+        /**
+         * True when parent::__construct has been called.
+         *
+         * @var string
+         */
+        protected $constructedObjectId;
+    }
+  Carbon-src-Carbon-Traits-Options.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    use Carbon\CarbonInterface;
+    use DateTimeInterface;
+    use Throwable;
+
+    /**
+     * Trait Options.
+     *
+     * Embed base methods to change settings of Carbon classes.
+     *
+     * Depends on the following methods:
+     *
+     * @method \Carbon\Carbon|\Carbon\CarbonImmutable shiftTimezone($timezone) Set the timezone
+     */
+    trait Options
+    {
+        use Localization;
+
+        /**
+         * Customizable PHP_INT_SIZE override.
+         *
+         * @var int
+         */
+        public static $PHPIntSize = PHP_INT_SIZE;
+
+        /**
+         * First day of week.
+         *
+         * @var int|string
+         */
+        protected static $weekStartsAt = CarbonInterface::MONDAY;
+
+        /**
+         * Last day of week.
+         *
+         * @var int|string
+         */
+        protected static $weekEndsAt = CarbonInterface::SUNDAY;
+
+        /**
+         * Days of weekend.
+         *
+         * @var array
+         */
+        protected static $weekendDays = [
+            CarbonInterface::SATURDAY,
+            CarbonInterface::SUNDAY,
+        ];
+
+        /**
+         * Format regex patterns.
+         *
+         * @var array<string, string>
+         */
+        protected static $regexFormats = [
+            'd' => '(3[01]|[12][0-9]|0[1-9])',
+            'D' => '(Sun|Mon|Tue|Wed|Thu|Fri|Sat)',
+            'j' => '([123][0-9]|[1-9])',
+            'l' => '([a-zA-Z]{2,})',
+            'N' => '([1-7])',
+            'S' => '(st|nd|rd|th)',
+            'w' => '([0-6])',
+            'z' => '(36[0-5]|3[0-5][0-9]|[12][0-9]{2}|[1-9]?[0-9])',
+            'W' => '(5[012]|[1-4][0-9]|0?[1-9])',
+            'F' => '([a-zA-Z]{2,})',
+            'm' => '(1[012]|0[1-9])',
+            'M' => '([a-zA-Z]{3})',
+            'n' => '(1[012]|[1-9])',
+            't' => '(2[89]|3[01])',
+            'L' => '(0|1)',
+            'o' => '([1-9][0-9]{0,4})',
+            'Y' => '([1-9]?[0-9]{4})',
+            'y' => '([0-9]{2})',
+            'a' => '(am|pm)',
+            'A' => '(AM|PM)',
+            'B' => '([0-9]{3})',
+            'g' => '(1[012]|[1-9])',
+            'G' => '(2[0-3]|1?[0-9])',
+            'h' => '(1[012]|0[1-9])',
+            'H' => '(2[0-3]|[01][0-9])',
+            'i' => '([0-5][0-9])',
+            's' => '([0-5][0-9])',
+            'u' => '([0-9]{1,6})',
+            'v' => '([0-9]{1,3})',
+            'e' => '([a-zA-Z]{1,5})|([a-zA-Z]*\\/[a-zA-Z]*)',
+            'I' => '(0|1)',
+            'O' => '([+-](1[012]|0[0-9])[0134][05])',
+            'P' => '([+-](1[012]|0[0-9]):[0134][05])',
+            'p' => '(Z|[+-](1[012]|0[0-9]):[0134][05])',
+            'T' => '([a-zA-Z]{1,5})',
+            'Z' => '(-?[1-5]?[0-9]{1,4})',
+            'U' => '([0-9]*)',
+
+            // The formats below are combinations of the above formats.
+            'c' => '(([1-9]?[0-9]{4})-(1[012]|0[1-9])-(3[01]|[12][0-9]|0[1-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])[+-](1[012]|0[0-9]):([0134][05]))', // Y-m-dTH:i:sP
+            'r' => '(([a-zA-Z]{3}), ([123][0-9]|0[1-9]) ([a-zA-Z]{3}) ([1-9]?[0-9]{4}) (2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9]) [+-](1[012]|0[0-9])([0134][05]))', // D, d M Y H:i:s O
+        ];
+
+        /**
+         * Format modifiers (such as available in createFromFormat) regex patterns.
+         *
+         * @var array
+         */
+        protected static $regexFormatModifiers = [
+            '*' => '.+',
+            ' ' => '[   ]',
+            '#' => '[;:\\/.,()-]',
+            '?' => '([^a]|[a])',
+            '!' => '',
+            '|' => '',
+            '+' => '',
+        ];
+
+        /**
+         * Indicates if months should be calculated with overflow.
+         * Global setting.
+         *
+         * @var bool
+         */
+        protected static $monthsOverflow = true;
+
+        /**
+         * Indicates if years should be calculated with overflow.
+         * Global setting.
+         *
+         * @var bool
+         */
+        protected static $yearsOverflow = true;
+
+        /**
+         * Indicates if the strict mode is in use.
+         * Global setting.
+         *
+         * @var bool
+         */
+        protected static $strictModeEnabled = true;
+
+        /**
+         * Function to call instead of format.
+         *
+         * @var string|callable|null
+         */
+        protected static $formatFunction;
+
+        /**
+         * Function to call instead of createFromFormat.
+         *
+         * @var string|callable|null
+         */
+        protected static $createFromFormatFunction;
+
+        /**
+         * Function to call instead of parse.
+         *
+         * @var string|callable|null
+         */
+        protected static $parseFunction;
+
+        /**
+         * Indicates if months should be calculated with overflow.
+         * Specific setting.
+         *
+         * @var bool|null
+         */
+        protected $localMonthsOverflow;
+
+        /**
+         * Indicates if years should be calculated with overflow.
+         * Specific setting.
+         *
+         * @var bool|null
+         */
+        protected $localYearsOverflow;
+
+        /**
+         * Indicates if the strict mode is in use.
+         * Specific setting.
+         *
+         * @var bool|null
+         */
+        protected $localStrictModeEnabled;
+
+        /**
+         * Options for diffForHumans and forHumans methods.
+         *
+         * @var bool|null
+         */
+        protected $localHumanDiffOptions;
+
+        /**
+         * Format to use on string cast.
+         *
+         * @var string|null
+         */
+        protected $localToStringFormat;
+
+        /**
+         * Format to use on JSON serialization.
+         *
+         * @var string|null
+         */
+        protected $localSerializer;
+
+        /**
+         * Instance-specific macros.
+         *
+         * @var array|null
+         */
+        protected $localMacros;
+
+        /**
+         * Instance-specific generic macros.
+         *
+         * @var array|null
+         */
+        protected $localGenericMacros;
+
+        /**
+         * Function to call instead of format.
+         *
+         * @var string|callable|null
+         */
+        protected $localFormatFunction;
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather use the ->settings() method.
+         * @see settings
+         *
+         * Enable the strict mode (or disable with passing false).
+         *
+         * @param bool $strictModeEnabled
+         */
+        public static function useStrictMode($strictModeEnabled = true)
+        {
+            static::$strictModeEnabled = $strictModeEnabled;
+        }
+
+        /**
+         * Returns true if the strict mode is globally in use, false else.
+         * (It can be overridden in specific instances.)
+         *
+         * @return bool
+         */
+        public static function isStrictModeEnabled()
+        {
+            return static::$strictModeEnabled;
+        }
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather use the ->settings() method.
+         *             Or you can use method variants: addMonthsWithOverflow/addMonthsNoOverflow, same variants
+         *             are available for quarters, years, decade, centuries, millennia (singular and plural forms).
+         * @see settings
+         *
+         * Indicates if months should be calculated with overflow.
+         *
+         * @param bool $monthsOverflow
+         *
+         * @return void
+         */
+        public static function useMonthsOverflow($monthsOverflow = true)
+        {
+            static::$monthsOverflow = $monthsOverflow;
+        }
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather use the ->settings() method.
+         *             Or you can use method variants: addMonthsWithOverflow/addMonthsNoOverflow, same variants
+         *             are available for quarters, years, decade, centuries, millennia (singular and plural forms).
+         * @see settings
+         *
+         * Reset the month overflow behavior.
+         *
+         * @return void
+         */
+        public static function resetMonthsOverflow()
+        {
+            static::$monthsOverflow = true;
+        }
+
+        /**
+         * Get the month overflow global behavior (can be overridden in specific instances).
+         *
+         * @return bool
+         */
+        public static function shouldOverflowMonths()
+        {
+            return static::$monthsOverflow;
+        }
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather use the ->settings() method.
+         *             Or you can use method variants: addYearsWithOverflow/addYearsNoOverflow, same variants
+         *             are available for quarters, years, decade, centuries, millennia (singular and plural forms).
+         * @see settings
+         *
+         * Indicates if years should be calculated with overflow.
+         *
+         * @param bool $yearsOverflow
+         *
+         * @return void
+         */
+        public static function useYearsOverflow($yearsOverflow = true)
+        {
+            static::$yearsOverflow = $yearsOverflow;
+        }
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather use the ->settings() method.
+         *             Or you can use method variants: addYearsWithOverflow/addYearsNoOverflow, same variants
+         *             are available for quarters, years, decade, centuries, millennia (singular and plural forms).
+         * @see settings
+         *
+         * Reset the month overflow behavior.
+         *
+         * @return void
+         */
+        public static function resetYearsOverflow()
+        {
+            static::$yearsOverflow = true;
+        }
+
+        /**
+         * Get the month overflow global behavior (can be overridden in specific instances).
+         *
+         * @return bool
+         */
+        public static function shouldOverflowYears()
+        {
+            return static::$yearsOverflow;
+        }
+
+        /**
+         * Set specific options.
+         *  - strictMode: true|false|null
+         *  - monthOverflow: true|false|null
+         *  - yearOverflow: true|false|null
+         *  - humanDiffOptions: int|null
+         *  - toStringFormat: string|Closure|null
+         *  - toJsonFormat: string|Closure|null
+         *  - locale: string|null
+         *  - timezone: \DateTimeZone|string|int|null
+         *  - macros: array|null
+         *  - genericMacros: array|null
+         *
+         * @param array $settings
+         *
+         * @return $this|static
+         */
+        public function settings(array $settings)
+        {
+            $this->localStrictModeEnabled = $settings['strictMode'] ?? null;
+            $this->localMonthsOverflow = $settings['monthOverflow'] ?? null;
+            $this->localYearsOverflow = $settings['yearOverflow'] ?? null;
+            $this->localHumanDiffOptions = $settings['humanDiffOptions'] ?? null;
+            $this->localToStringFormat = $settings['toStringFormat'] ?? null;
+            $this->localSerializer = $settings['toJsonFormat'] ?? null;
+            $this->localMacros = $settings['macros'] ?? null;
+            $this->localGenericMacros = $settings['genericMacros'] ?? null;
+            $this->localFormatFunction = $settings['formatFunction'] ?? null;
+
+            if (isset($settings['locale'])) {
+                $locales = $settings['locale'];
+
+                if (!\is_array($locales)) {
+                    $locales = [$locales];
+                }
+
+                $this->locale(...$locales);
+            }
+
+            if (isset($settings['innerTimezone'])) {
+                return $this->setTimezone($settings['innerTimezone']);
+            }
+
+            if (isset($settings['timezone'])) {
+                return $this->shiftTimezone($settings['timezone']);
+            }
+
+            return $this;
+        }
+
+        /**
+         * Returns current local settings.
+         *
+         * @return array
+         */
+        public function getSettings()
+        {
+            $settings = [];
+            $map = [
+                'localStrictModeEnabled' => 'strictMode',
+                'localMonthsOverflow' => 'monthOverflow',
+                'localYearsOverflow' => 'yearOverflow',
+                'localHumanDiffOptions' => 'humanDiffOptions',
+                'localToStringFormat' => 'toStringFormat',
+                'localSerializer' => 'toJsonFormat',
+                'localMacros' => 'macros',
+                'localGenericMacros' => 'genericMacros',
+                'locale' => 'locale',
+                'tzName' => 'timezone',
+                'localFormatFunction' => 'formatFunction',
+            ];
+
+            foreach ($map as $property => $key) {
+                $value = $this->$property ?? null;
+
+                if ($value !== null) {
+                    $settings[$key] = $value;
+                }
+            }
+
+            return $settings;
+        }
+
+        /**
+         * Show truthy properties on var_dump().
+         *
+         * @return array
+         */
+        public function __debugInfo()
+        {
+            $infos = array_filter(get_object_vars($this), function ($var) {
+                return $var;
+            });
+
+            foreach (['dumpProperties', 'constructedObjectId'] as $property) {
+                if (isset($infos[$property])) {
+                    unset($infos[$property]);
+                }
+            }
+
+            $this->addExtraDebugInfos($infos);
+
+            return $infos;
+        }
+
+        protected function addExtraDebugInfos(&$infos): void
+        {
+            if ($this instanceof DateTimeInterface) {
+                try {
+                    if (!isset($infos['date'])) {
+                        $infos['date'] = $this->format(CarbonInterface::MOCK_DATETIME_FORMAT);
+                    }
+
+                    if (!isset($infos['timezone'])) {
+                        $infos['timezone'] = $this->tzName;
+                    }
+                } catch (Throwable $exception) {
+                    // noop
+                }
+            }
+        }
+    }
+  Carbon-src-Carbon-Traits-Serialization.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    use Carbon\Exceptions\InvalidFormatException;
+    use ReturnTypeWillChange;
+    use Throwable;
+
+    /**
+     * Trait Serialization.
+     *
+     * Serialization and JSON stuff.
+     *
+     * Depends on the following properties:
+     *
+     * @property int $year
+     * @property int $month
+     * @property int $daysInMonth
+     * @property int $quarter
+     *
+     * Depends on the following methods:
+     *
+     * @method string|static locale(string $locale = null, string ...$fallbackLocales)
+     * @method string        toJSON()
+     */
+    trait Serialization
+    {
+        use ObjectInitialisation;
+
+        /**
+         * The custom Carbon JSON serializer.
+         *
+         * @var callable|null
+         */
+        protected static $serializer;
+
+        /**
+         * List of key to use for dump/serialization.
+         *
+         * @var string[]
+         */
+        protected $dumpProperties = ['date', 'timezone_type', 'timezone'];
+
+        /**
+         * Locale to dump comes here before serialization.
+         *
+         * @var string|null
+         */
+        protected $dumpLocale;
+
+        /**
+         * Embed date properties to dump in a dedicated variables so it won't overlap native
+         * DateTime ones.
+         *
+         * @var array|null
+         */
+        protected $dumpDateProperties;
+
+        /**
+         * Return a serialized string of the instance.
+         *
+         * @return string
+         */
+        public function serialize()
+        {
+            return serialize($this);
+        }
+
+        /**
+         * Create an instance from a serialized string.
+         *
+         * @param string $value
+         *
+         * @throws InvalidFormatException
+         *
+         * @return static
+         */
+        public static function fromSerialized($value)
+        {
+            $instance = @unserialize((string) $value);
+
+            if (!$instance instanceof static) {
+                throw new InvalidFormatException("Invalid serialized value: $value");
+            }
+
+            return $instance;
+        }
+
+        /**
+         * The __set_state handler.
+         *
+         * @param string|array $dump
+         *
+         * @return static
+         */
+        #[ReturnTypeWillChange]
+        public static function __set_state($dump)
+        {
+            if (\is_string($dump)) {
+                return static::parse($dump);
+            }
+
+            /** @var \DateTimeInterface $date */
+            $date = get_parent_class(static::class) && method_exists(parent::class, '__set_state')
+                ? parent::__set_state((array) $dump)
+                : (object) $dump;
+
+            return static::instance($date);
+        }
+
+        /**
+         * Returns the list of properties to dump on serialize() called on.
+         *
+         * @return array
+         */
+        public function __sleep()
+        {
+            $properties = $this->getSleepProperties();
+
+            if ($this->localTranslator ?? null) {
+                $properties[] = 'dumpLocale';
+                $this->dumpLocale = $this->locale ?? null;
+            }
+
+            return $properties;
+        }
+
+        /**
+         * Set locale if specified on unserialize() called.
+         *
+         * @return void
+         */
+        #[ReturnTypeWillChange]
+        public function __wakeup()
+        {
+            if (get_parent_class() && method_exists(parent::class, '__wakeup')) {
+                // @codeCoverageIgnoreStart
+                try {
+                    parent::__wakeup();
+                } catch (Throwable $exception) {
+                    // FatalError occurs when calling msgpack_unpack() in PHP 7.4 or later.
+                    ['date' => $date, 'timezone' => $timezone] = $this->dumpDateProperties;
+                    parent::__construct($date, unserialize($timezone));
+                }
+                // @codeCoverageIgnoreEnd
+            }
+
+            $this->constructedObjectId = spl_object_hash($this);
+
+            if (isset($this->dumpLocale)) {
+                $this->locale($this->dumpLocale);
+                $this->dumpLocale = null;
+            }
+
+            $this->cleanupDumpProperties();
+        }
+
+        /**
+         * Prepare the object for JSON serialization.
+         *
+         * @return array|string
+         */
+        #[ReturnTypeWillChange]
+        public function jsonSerialize()
+        {
+            $serializer = $this->localSerializer ?? static::$serializer;
+
+            if ($serializer) {
+                return \is_string($serializer)
+                    ? $this->rawFormat($serializer)
+                    : $serializer($this);
+            }
+
+            return $this->toJSON();
+        }
+
+        /**
+         * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
+         *             You should rather transform Carbon object before the serialization.
+         *
+         * JSON serialize all Carbon instances using the given callback.
+         *
+         * @param callable $callback
+         *
+         * @return void
+         */
+        public static function serializeUsing($callback)
+        {
+            static::$serializer = $callback;
+        }
+
+        /**
+         * Cleanup properties attached to the public scope of DateTime when a dump of the date is requested.
+         * foreach ($date as $_) {}
+         * serializer($date)
+         * var_export($date)
+         * get_object_vars($date)
+         */
+        public function cleanupDumpProperties()
+        {
+            foreach ($this->dumpProperties as $property) {
+                if (isset($this->$property)) {
+                    unset($this->$property);
+                }
+            }
+
+            return $this;
+        }
+
+        private function getSleepProperties(): array
+        {
+            $properties = $this->dumpProperties;
+
+            // @codeCoverageIgnoreStart
+            if (!\extension_loaded('msgpack')) {
+                return $properties;
+            }
+
+            if (isset($this->constructedObjectId)) {
+                $this->dumpDateProperties = [
+                    'date' => $this->format('Y-m-d H:i:s.u'),
+                    'timezone' => serialize($this->timezone ?? null),
+                ];
+
+                $properties[] = 'dumpDateProperties';
+            }
+
+            return $properties;
+            // @codeCoverageIgnoreEnd
+        }
+    }
+  Carbon-src-Carbon-Traits-Timestamp.php: |
+    <?php
+
+    /**
+     * This file is part of the Carbon package.
+     *
+     * (c) Brian Nesbitt <brian@nesbot.com>
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+
+    namespace Carbon\Traits;
+
+    /**
+     * Trait Timestamp.
+     */
+    trait Timestamp
+    {
+        /**
+         * Create a Carbon instance from a timestamp and set the timezone (use default one if not specified).
+         *
+         * Timestamp input can be given as int, float or a string containing one or more numbers.
+         *
+         * @param float|int|string          $timestamp
+         * @param \DateTimeZone|string|null $tz
+         *
+         * @return static
+         */
+        public static function createFromTimestamp($timestamp, $tz = null)
+        {
+            return static::createFromTimestampUTC($timestamp)->setTimezone($tz);
+        }
+
+        /**
+         * Create a Carbon instance from an timestamp keeping the timezone to UTC.
+         *
+         * Timestamp input can be given as int, float or a string containing one or more numbers.
+         *
+         * @param float|int|string $timestamp
+         *
+         * @return static
+         */
+        public static function createFromTimestampUTC($timestamp)
+        {
+            [$integer, $decimal] = self::getIntegerAndDecimalParts($timestamp);
+            $delta = floor($decimal / static::MICROSECONDS_PER_SECOND);
+            $integer += $delta;
+            $decimal -= $delta * static::MICROSECONDS_PER_SECOND;
+            $decimal = str_pad((string) $decimal, 6, '0', STR_PAD_LEFT);
+
+            return static::rawCreateFromFormat('U u', "$integer $decimal");
+        }
+
+        /**
+         * Create a Carbon instance from a timestamp in milliseconds.
+         *
+         * Timestamp input can be given as int, float or a string containing one or more numbers.
+         *
+         * @param float|int|string $timestamp
+         *
+         * @return static
+         */
+        public static function createFromTimestampMsUTC($timestamp)
+        {
+            [$milliseconds, $microseconds] = self::getIntegerAndDecimalParts($timestamp, 3);
+            $sign = $milliseconds < 0 || $milliseconds === 0.0 && $microseconds < 0 ? -1 : 1;
+            $milliseconds = abs($milliseconds);
+            $microseconds = $sign * abs($microseconds) + static::MICROSECONDS_PER_MILLISECOND * ($milliseconds % static::MILLISECONDS_PER_SECOND);
+            $seconds = $sign * floor($milliseconds / static::MILLISECONDS_PER_SECOND);
+            $delta = floor($microseconds / static::MICROSECONDS_PER_SECOND);
+            $seconds += $delta;
+            $microseconds -= $delta * static::MICROSECONDS_PER_SECOND;
+            $microseconds = str_pad($microseconds, 6, '0', STR_PAD_LEFT);
+
+            return static::rawCreateFromFormat('U u', "$seconds $microseconds");
+        }
+
+        /**
+         * Create a Carbon instance from a timestamp in milliseconds.
+         *
+         * Timestamp input can be given as int, float or a string containing one or more numbers.
+         *
+         * @param float|int|string          $timestamp
+         * @param \DateTimeZone|string|null $tz
+         *
+         * @return static
+         */
+        public static function createFromTimestampMs($timestamp, $tz = null)
+        {
+            return static::createFromTimestampMsUTC($timestamp)
+                ->setTimezone($tz);
+        }
+
+        /**
+         * Set the instance's timestamp.
+         *
+         * Timestamp input can be given as int, float or a string containing one or more numbers.
+         *
+         * @param float|int|string $unixTimestamp
+         *
+         * @return static
+         */
+        public function timestamp($unixTimestamp)
+        {
+            return $this->setTimestamp($unixTimestamp);
+        }
+
+        /**
+         * Returns a timestamp rounded with the given precision (6 by default).
+         *
+         * @example getPreciseTimestamp()   1532087464437474 (microsecond maximum precision)
+         * @example getPreciseTimestamp(6)  1532087464437474
+         * @example getPreciseTimestamp(5)  153208746443747  (1/100000 second precision)
+         * @example getPreciseTimestamp(4)  15320874644375   (1/10000 second precision)
+         * @example getPreciseTimestamp(3)  1532087464437    (millisecond precision)
+         * @example getPreciseTimestamp(2)  153208746444     (1/100 second precision)
+         * @example getPreciseTimestamp(1)  15320874644      (1/10 second precision)
+         * @example getPreciseTimestamp(0)  1532087464       (second precision)
+         * @example getPreciseTimestamp(-1) 153208746        (10 second precision)
+         * @example getPreciseTimestamp(-2) 15320875         (100 second precision)
+         *
+         * @param int $precision
+         *
+         * @return float
+         */
+        public function getPreciseTimestamp($precision = 6)
+        {
+            return round($this->rawFormat('Uu') / pow(10, 6 - $precision));
+        }
+
+        /**
+         * Returns the milliseconds timestamps used amongst other by Date javascript objects.
+         *
+         * @return float
+         */
+        public function valueOf()
+        {
+            return $this->getPreciseTimestamp(3);
+        }
+
+        /**
+         * Returns the timestamp with millisecond precision.
+         *
+         * @return int
+         */
+        public function getTimestampMs()
+        {
+            return (int) $this->getPreciseTimestamp(3);
+        }
+
+        /**
+         * @alias getTimestamp
+         *
+         * Returns the UNIX timestamp for the current date.
+         *
+         * @return int
+         */
+        public function unix()
+        {
+            return $this->getTimestamp();
+        }
+
+        /**
+         * Return an array with integer part digits and decimals digits split from one or more positive numbers
+         * (such as timestamps) as string with the given number of decimals (6 by default).
+         *
+         * By splitting integer and decimal, this method obtain a better precision than
+         * number_format when the input is a string.
+         *
+         * @param float|int|string $numbers  one or more numbers
+         * @param int              $decimals number of decimals precision (6 by default)
+         *
+         * @return array 0-index is integer part, 1-index is decimal part digits
+         */
+        private static function getIntegerAndDecimalParts($numbers, $decimals = 6)
+        {
+            if (\is_int($numbers) || \is_float($numbers)) {
+                $numbers = number_format($numbers, $decimals, '.', '');
+            }
+
+            $sign = str_starts_with($numbers, '-') ? -1 : 1;
+            $integer = 0;
+            $decimal = 0;
+
+            foreach (preg_split('`[^0-9.]+`', $numbers) as $chunk) {
+                [$integerPart, $decimalPart] = explode('.', "$chunk.");
+
+                $integer += (int) $integerPart;
+                $decimal += (float) ("0.$decimalPart");
+            }
+
+            $overflow = floor($decimal);
+            $integer += $overflow;
+            $decimal -= $overflow;
+
+            return [$sign * $integer, $decimal === 0.0 ? 0.0 : $sign * round($decimal * pow(10, $decimals))];
+        }
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: php-code-content-48

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: php:8.0-apache
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        volumeMounts:
+        - name: php-code-volume
+          mountPath: /var/www/html
+        - name: apache-config
+          mountPath: /etc/apache2/conf.d/custom.conf
+          subPath: apache.conf
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          apt-get update &&           apt-get install -y libpq-dev &&           docker-php-ext-install pdo pdo_mysql &&           a2enmod rewrite &&           a2enmod headers &&           echo "Apache starting..." &&           apache2-foreground
+      volumes:
+      - name: php-code-volume
+        hostPath:
+          path: /phpCode
+          type: Directory
+      - name: apache-config
+        configMap:
+          name: apache-config

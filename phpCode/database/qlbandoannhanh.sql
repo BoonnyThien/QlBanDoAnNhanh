@@ -295,12 +295,12 @@ INSERT INTO `tbl_phanhoi` (`id_ph`, `hoten`, `email`, `noidung`, `status`) VALUE
 
 CREATE TABLE `tbl_sanpham` (
   `id_sp` int(11) NOT NULL,
-  `tensp` nvarchar(200) NOT NULL,
+  `tensp` varchar(1200) NOT NULL,
   `masp` varchar(50) NOT NULL,
   `giasp` varchar(100) NOT NULL,
   `gia_sale` varchar(100) NOT NULL,
   `hinhanh` varchar(100) NOT NULL,
-  `mota` nvarchar(1000) NOT NULL,
+  `mota` varchar(1000) NOT NULL,
   `tinhtrang` int(11) NOT NULL,
   `id_danhmuc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,559 @@
+apiVersion: v1
+data:
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ar.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: AR (Arabic; العربية)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"هذا الحقل إلزامي\",\n\tremote:
+    \"يرجى تصحيح هذا الحقل للمتابعة\",\n\temail: \"رجاء إدخال عنوان بريد إلكتروني
+    صحيح\",\n\turl: \"رجاء إدخال عنوان موقع إلكتروني صحيح\",\n\tdate: \"رجاء إدخال
+    تاريخ صحيح\",\n\tdateISO: \"رجاء إدخال تاريخ صحيح (ISO)\",\n\tnumber: \"رجاء إدخال
+    عدد بطريقة صحيحة\",\n\tdigits: \"رجاء إدخال أرقام فقط\",\n\tcreditcard: \"رجاء
+    إدخال رقم بطاقة ائتمان صحيح\",\n\tequalTo: \"رجاء إدخال نفس القيمة\",\n\textension:
+    \"رجاء إدخال ملف بامتداد موافق عليه\",\n\tmaxlength: $.validator.format( \"الحد
+    الأقصى لعدد الحروف هو {0}\" ),\n\tminlength: $.validator.format( \"الحد الأدنى
+    لعدد الحروف هو {0}\" ),\n\trangelength: $.validator.format( \"عدد الحروف يجب أن
+    يكون بين {0} و {1}\" ),\n\trange: $.validator.format( \"رجاء إدخال عدد قيمته بين
+    {0} و {1}\" ),\n\tmax: $.validator.format( \"رجاء إدخال عدد أقل من أو يساوي {0}\"
+    ),\n\tmin: $.validator.format( \"رجاء إدخال عدد أكبر من أو يساوي {0}\" )\n} );\nreturn
+    $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_az.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: Az (Azeri; azərbaycan
+    dili)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Bu xana mütləq doldurulmalıdır.\",\n\tremote:
+    \"Zəhmət olmasa, düzgün məna daxil edin.\",\n\temail: \"Zəhmət olmasa, düzgün
+    elektron poçt daxil edin.\",\n\turl: \"Zəhmət olmasa, düzgün URL daxil edin.\",\n\tdate:
+    \"Zəhmət olmasa, düzgün tarix daxil edin.\",\n\tdateISO: \"Zəhmət olmasa, düzgün
+    ISO formatlı tarix daxil edin.\",\n\tnumber: \"Zəhmət olmasa, düzgün rəqəm daxil
+    edin.\",\n\tdigits: \"Zəhmət olmasa, yalnız rəqəm daxil edin.\",\n\tcreditcard:
+    \"Zəhmət olmasa, düzgün kredit kart nömrəsini daxil edin.\",\n\tequalTo: \"Zəhmət
+    olmasa, eyni mənanı bir daha daxil edin.\",\n\textension: \"Zəhmət olmasa, düzgün
+    genişlənməyə malik faylı seçin.\",\n\tmaxlength: $.validator.format( \"Zəhmət
+    olmasa, {0} simvoldan çox olmayaraq daxil edin.\" ),\n\tminlength: $.validator.format(
+    \"Zəhmət olmasa, {0} simvoldan az olmayaraq daxil edin.\" ),\n\trangelength: $.validator.format(
+    \"Zəhmət olmasa, {0} - {1} aralığında uzunluğa malik simvol daxil edin.\" ),\n\trange:
+    $.validator.format( \"Zəhmət olmasa, {0} - {1} aralığında rəqəm daxil edin.\"
+    ),\n\tmax: $.validator.format( \"Zəhmət olmasa, {0} və ondan kiçik rəqəm daxil
+    edin.\" ),\n\tmin: $.validator.format( \"Zəhmət olmasa, {0} və ondan böyük rəqəm
+    daxil edin\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_bg.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: BG (Bulgarian;
+    български език)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Полето
+    е задължително.\",\n\tremote: \"Моля, въведете правилната стойност.\",\n\temail:
+    \"Моля, въведете валиден email.\",\n\turl: \"Моля, въведете валидно URL.\",\n\tdate:
+    \"Моля, въведете валидна дата.\",\n\tdateISO: \"Моля, въведете валидна дата (ISO).\",\n\tnumber:
+    \"Моля, въведете валиден номер.\",\n\tdigits: \"Моля, въведете само цифри.\",\n\tcreditcard:
+    \"Моля, въведете валиден номер на кредитна карта.\",\n\tequalTo: \"Моля, въведете
+    същата стойност отново.\",\n\textension: \"Моля, въведете стойност с валидно разширение.\",\n\tmaxlength:
+    $.validator.format( \"Моля, въведете не повече от {0} символа.\" ),\n\tminlength:
+    $.validator.format( \"Моля, въведете поне {0} символа.\" ),\n\trangelength: $.validator.format(
+    \"Моля, въведете стойност с дължина между {0} и {1} символа.\" ),\n\trange: $.validator.format(
+    \"Моля, въведете стойност между {0} и {1}.\" ),\n\tmax: $.validator.format( \"Моля,
+    въведете стойност по-малка или равна на {0}.\" ),\n\tmin: $.validator.format(
+    \"Моля, въведете стойност по-голяма или равна на {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_bn_BD.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"এই তথ্যটি আবশ্যক।",remote:"এই তথ্যটি ঠিক করুন।",email:"অনুগ্রহ করে একটি সঠিক মেইল ঠিকানা লিখুন।",url:"অনুগ্রহ করে একটি সঠিক লিঙ্ক দিন।",date:"তারিখ সঠিক নয়।",dateISO:"অনুগ্রহ করে একটি সঠিক (ISO) তারিখ লিখুন।",number:"অনুগ্রহ করে একটি সঠিক নম্বর লিখুন।",digits:"এখানে শুধু সংখ্যা ব্যবহার করা যাবে।",creditcard:"অনুগ্রহ করে একটি ক্রেডিট কার্ডের সঠিক নম্বর লিখুন।",equalTo:"একই মান আবার লিখুন।",extension:"সঠিক ধরনের ফাইল আপলোড করুন।",maxlength:a.validator.format("{0}টির বেশি অক্ষর লেখা যাবে না।"),minlength:a.validator.format("{0}টির কম অক্ষর লেখা যাবে না।"),rangelength:a.validator.format("{0} থেকে {1} টি অক্ষর সম্বলিত মান লিখুন।"),range:a.validator.format("{0} থেকে {1} এর মধ্যে একটি মান ব্যবহার করুন।"),max:a.validator.format("অনুগ্রহ করে {0} বা তার চাইতে কম মান ব্যবহার করুন।"),min:a.validator.format("অনুগ্রহ করে {0} বা তার চাইতে বেশি মান ব্যবহার করুন।")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ca.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: CA (Catalan; català)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"Aquest camp és obligatori.\",\n\tremote:
+    \"Si us plau, omple aquest camp.\",\n\temail: \"Si us plau, escriu una adreça
+    de correu-e vàlida\",\n\turl: \"Si us plau, escriu una URL vàlida.\",\n\tdate:
+    \"Si us plau, escriu una data vàlida.\",\n\tdateISO: \"Si us plau, escriu una
+    data (ISO) vàlida.\",\n\tnumber: \"Si us plau, escriu un número enter vàlid.\",\n\tdigits:
+    \"Si us plau, escriu només dígits.\",\n\tcreditcard: \"Si us plau, escriu un número
+    de tarjeta vàlid.\",\n\tequalTo: \"Si us plau, escriu el mateix valor de nou.\",\n\textension:
+    \"Si us plau, escriu un valor amb una extensió acceptada.\",\n\tmaxlength: $.validator.format(
+    \"Si us plau, no escriguis més de {0} caracters.\" ),\n\tminlength: $.validator.format(
+    \"Si us plau, no escriguis menys de {0} caracters.\" ),\n\trangelength: $.validator.format(
+    \"Si us plau, escriu un valor entre {0} i {1} caracters.\" ),\n\trange: $.validator.format(
+    \"Si us plau, escriu un valor entre {0} i {1}.\" ),\n\tmax: $.validator.format(
+    \"Si us plau, escriu un valor menor o igual a {0}.\" ),\n\tmin: $.validator.format(
+    \"Si us plau, escriu un valor major o igual a {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ca.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Aquest camp és obligatori.",remote:"Si us plau, omple aquest camp.",email:"Si us plau, escriu una adreça de correu-e vàlida",url:"Si us plau, escriu una URL vàlida.",date:"Si us plau, escriu una data vàlida.",dateISO:"Si us plau, escriu una data (ISO) vàlida.",number:"Si us plau, escriu un número enter vàlid.",digits:"Si us plau, escriu només dígits.",creditcard:"Si us plau, escriu un número de tarjeta vàlid.",equalTo:"Si us plau, escriu el mateix valor de nou.",extension:"Si us plau, escriu un valor amb una extensió acceptada.",maxlength:a.validator.format("Si us plau, no escriguis més de {0} caracters."),minlength:a.validator.format("Si us plau, no escriguis menys de {0} caracters."),rangelength:a.validator.format("Si us plau, escriu un valor entre {0} i {1} caracters."),range:a.validator.format("Si us plau, escriu un valor entre {0} i {1}."),max:a.validator.format("Si us plau, escriu un valor menor o igual a {0}."),min:a.validator.format("Si us plau, escriu un valor major o igual a {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_cs.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: CS (Czech; čeština,
+    český jazyk)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Tento údaj
+    je povinný.\",\n\tremote: \"Prosím, opravte tento údaj.\",\n\temail: \"Prosím,
+    zadejte platný e-mail.\",\n\turl: \"Prosím, zadejte platné URL.\",\n\tdate: \"Prosím,
+    zadejte platné datum.\",\n\tdateISO: \"Prosím, zadejte platné datum (ISO).\",\n\tnumber:
+    \"Prosím, zadejte číslo.\",\n\tdigits: \"Prosím, zadávejte pouze číslice.\",\n\tcreditcard:
+    \"Prosím, zadejte číslo kreditní karty.\",\n\tequalTo: \"Prosím, zadejte znovu
+    stejnou hodnotu.\",\n\textension: \"Prosím, zadejte soubor se správnou příponou.\",\n\tmaxlength:
+    $.validator.format( \"Prosím, zadejte nejvíce {0} znaků.\" ),\n\tminlength: $.validator.format(
+    \"Prosím, zadejte nejméně {0} znaků.\" ),\n\trangelength: $.validator.format(
+    \"Prosím, zadejte od {0} do {1} znaků.\" ),\n\trange: $.validator.format( \"Prosím,
+    zadejte hodnotu od {0} do {1}.\" ),\n\tmax: $.validator.format( \"Prosím, zadejte
+    hodnotu menší nebo rovnu {0}.\" ),\n\tmin: $.validator.format( \"Prosím, zadejte
+    hodnotu větší nebo rovnu {0}.\" ),\n\tstep: $.validator.format( \"Musí být násobkem
+    čísla {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_de.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Dieses Feld ist ein Pflichtfeld.",maxlength:a.validator.format("Geben Sie bitte maximal {0} Zeichen ein."),minlength:a.validator.format("Geben Sie bitte mindestens {0} Zeichen ein."),rangelength:a.validator.format("Geben Sie bitte mindestens {0} und maximal {1} Zeichen ein."),email:"Geben Sie bitte eine gültige E-Mail-Adresse ein.",url:"Geben Sie bitte eine gültige URL ein.",date:"Geben Sie bitte ein gültiges Datum ein.",number:"Geben Sie bitte eine Nummer ein.",digits:"Geben Sie bitte nur Ziffern ein.",equalTo:"Wiederholen Sie bitte denselben Wert.",range:a.validator.format("Geben Sie bitte einen Wert zwischen {0} und {1} ein."),max:a.validator.format("Geben Sie bitte einen Wert kleiner oder gleich {0} ein."),min:a.validator.format("Geben Sie bitte einen Wert größer oder gleich {0} ein."),creditcard:"Geben Sie bitte eine gültige Kreditkarten-Nummer ein.",remote:"Korrigieren Sie bitte dieses Feld.",dateISO:"Geben Sie bitte ein gültiges Datum ein (ISO-Format).",step:a.validator.format("Geben Sie bitte ein Vielfaches von {0} ein."),maxWords:a.validator.format("Geben Sie bitte {0} Wörter oder weniger ein."),minWords:a.validator.format("Geben Sie bitte mindestens {0} Wörter ein."),rangeWords:a.validator.format("Geben Sie bitte zwischen {0} und {1} Wörtern ein."),accept:"Geben Sie bitte einen Wert mit einem gültigen MIME-Typ ein.",alphanumeric:"Geben Sie bitte nur Buchstaben (keine Umlaute), Zahlen oder Unterstriche ein.",bankaccountNL:"Geben Sie bitte eine gültige Kontonummer ein.",bankorgiroaccountNL:"Geben Sie bitte eine gültige Bank- oder Girokontonummer ein.",bic:"Geben Sie bitte einen gültigen BIC-Code ein.",cifES:"Geben Sie bitte eine gültige CIF-Nummer ein.",cpfBR:"Geben Sie bitte eine gültige CPF-Nummer ein.",creditcardtypes:"Geben Sie bitte eine gültige Kreditkarten-Nummer ein.",currency:"Geben Sie bitte eine gültige Währung ein.",extension:"Geben Sie bitte einen Wert mit einer gültigen Erweiterung ein.",giroaccountNL:"Geben Sie bitte eine gültige Girokontonummer ein.",iban:"Geben Sie bitte eine gültige IBAN ein.",integer:"Geben Sie bitte eine positive oder negative Nicht-Dezimalzahl ein.",ipv4:"Geben Sie bitte eine gültige IPv4-Adresse ein.",ipv6:"Geben Sie bitte eine gültige IPv6-Adresse ein.",lettersonly:"Geben Sie bitte nur Buchstaben ein.",letterswithbasicpunc:"Geben Sie bitte nur Buchstaben oder Interpunktion ein.",mobileNL:"Geben Sie bitte eine gültige Handynummer ein.",mobileUK:"Geben Sie bitte eine gültige Handynummer ein.",netmask:"Geben Sie bitte eine gültige Netzmaske ein.",nieES:"Geben Sie bitte eine gültige NIE-Nummer ein.",nifES:"Geben Sie bitte eine gültige NIF-Nummer ein.",nipPL:"Geben Sie bitte eine gültige NIP-Nummer ein.",notEqualTo:"Geben Sie bitte einen anderen Wert ein. Die Werte dürfen nicht gleich sein.",nowhitespace:"Kein Leerzeichen bitte.",pattern:"Ungültiges Format.",phoneNL:"Geben Sie bitte eine gültige Telefonnummer ein.",phonesUK:"Geben Sie bitte eine gültige britische Telefonnummer ein.",phoneUK:"Geben Sie bitte eine gültige Telefonnummer ein.",phoneUS:"Geben Sie bitte eine gültige Telefonnummer ein.",postalcodeBR:"Geben Sie bitte eine gültige brasilianische Postleitzahl ein.",postalCodeCA:"Geben Sie bitte eine gültige kanadische Postleitzahl ein.",postalcodeIT:"Geben Sie bitte eine gültige italienische Postleitzahl ein.",postalcodeNL:"Geben Sie bitte eine gültige niederländische Postleitzahl ein.",postcodeUK:"Geben Sie bitte eine gültige britische Postleitzahl ein.",require_from_group:a.validator.format("Füllen Sie bitte mindestens {0} dieser Felder aus."),skip_or_fill_minimum:a.validator.format("Überspringen Sie bitte diese Felder oder füllen Sie mindestens {0} von ihnen aus."),stateUS:"Geben Sie bitte einen gültigen US-Bundesstaat ein.",strippedminlength:a.validator.format("Geben Sie bitte mindestens {0} Zeichen ein."),time:"Geben Sie bitte eine gültige Uhrzeit zwischen 00:00 und 23:59 ein.",time12h:"Geben Sie bitte eine gültige Uhrzeit im 12-Stunden-Format ein.",vinUS:"Die angegebene Fahrzeugidentifikationsnummer (VIN) ist ungültig.",zipcodeUS:"Die angegebene US-Postleitzahl ist ungültig.",ziprange:"Ihre Postleitzahl muss im Bereich 902xx-xxxx bis 905xx-xxxx liegen."}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_es.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: ES (Spanish; Español)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"Este campo es obligatorio.\",\n\tremote:
+    \"Por favor, rellena este campo.\",\n\temail: \"Por favor, escribe una dirección
+    de correo válida.\",\n\turl: \"Por favor, escribe una URL válida.\",\n\tdate:
+    \"Por favor, escribe una fecha válida.\",\n\tdateISO: \"Por favor, escribe una
+    fecha (ISO) válida.\",\n\tnumber: \"Por favor, escribe un número válido.\",\n\tdigits:
+    \"Por favor, escribe sólo dígitos.\",\n\tcreditcard: \"Por favor, escribe un número
+    de tarjeta válido.\",\n\tequalTo: \"Por favor, escribe el mismo valor de nuevo.\",\n\textension:
+    \"Por favor, escribe un valor con una extensión aceptada.\",\n\tmaxlength: $.validator.format(
+    \"Por favor, no escribas más de {0} caracteres.\" ),\n\tminlength: $.validator.format(
+    \"Por favor, no escribas menos de {0} caracteres.\" ),\n\trangelength: $.validator.format(
+    \"Por favor, escribe un valor entre {0} y {1} caracteres.\" ),\n\trange: $.validator.format(
+    \"Por favor, escribe un valor entre {0} y {1}.\" ),\n\tmax: $.validator.format(
+    \"Por favor, escribe un valor menor o igual a {0}.\" ),\n\tmin: $.validator.format(
+    \"Por favor, escribe un valor mayor o igual a {0}.\" ),\n\tnifES: \"Por favor,
+    escribe un NIF válido.\",\n\tnieES: \"Por favor, escribe un NIE válido.\",\n\tcifES:
+    \"Por favor, escribe un CIF válido.\"\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_es_AR.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Este campo es obligatorio.",remote:"Por favor, completá este campo.",email:"Por favor, escribí una dirección de correo válida.",url:"Por favor, escribí una URL válida.",date:"Por favor, escribí una fecha válida.",dateISO:"Por favor, escribí una fecha (ISO) válida.",number:"Por favor, escribí un número entero válido.",digits:"Por favor, escribí sólo dígitos.",creditcard:"Por favor, escribí un número de tarjeta válido.",equalTo:"Por favor, escribí el mismo valor de nuevo.",extension:"Por favor, escribí un valor con una extensión aceptada.",maxlength:a.validator.format("Por favor, no escribas más de {0} caracteres."),minlength:a.validator.format("Por favor, no escribas menos de {0} caracteres."),rangelength:a.validator.format("Por favor, escribí un valor entre {0} y {1} caracteres."),range:a.validator.format("Por favor, escribí un valor entre {0} y {1}."),max:a.validator.format("Por favor, escribí un valor menor o igual a {0}."),min:a.validator.format("Por favor, escribí un valor mayor o igual a {0}."),nifES:"Por favor, escribí un NIF válido.",nieES:"Por favor, escribí un NIE válido.",cifES:"Por favor, escribí un CIF válido."}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_fa.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"تکمیل این فیلد اجباری است.",remote:"لطفا این فیلد را تصحیح کنید.",email:"لطفا یک ایمیل صحیح وارد کنید.",url:"لطفا آدرس صحیح وارد کنید.",date:"لطفا تاریخ صحیح وارد کنید.",dateFA:"لطفا یک تاریخ صحیح وارد کنید.",dateISO:"لطفا تاریخ صحیح وارد کنید (ISO).",number:"لطفا عدد صحیح وارد کنید.",digits:"لطفا تنها رقم وارد کنید.",creditcard:"لطفا کریدیت کارت صحیح وارد کنید.",equalTo:"لطفا مقدار برابری وارد کنید.",extension:"لطفا مقداری وارد کنید که",alphanumeric:"لطفا مقدار را عدد (انگلیسی) وارد کنید.",maxlength:a.validator.format("لطفا بیشتر از {0} حرف وارد نکنید."),minlength:a.validator.format("لطفا کمتر از {0} حرف وارد نکنید."),rangelength:a.validator.format("لطفا مقداری بین {0} تا {1} حرف وارد کنید."),range:a.validator.format("لطفا مقداری بین {0} تا {1} حرف وارد کنید."),max:a.validator.format("لطفا مقداری کمتر از {0} وارد کنید."),min:a.validator.format("لطفا مقداری بیشتر از {0} وارد کنید."),minWords:a.validator.format("لطفا حداقل {0} کلمه وارد کنید."),maxWords:a.validator.format("لطفا حداکثر {0} کلمه وارد کنید.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_fi.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: FI (Finnish; suomi,
+    suomen kieli)\n */\n$.extend( $.validator.messages, {\n\trequired: \"T&auml;m&auml;
+    kentt&auml; on pakollinen.\",\n\temail: \"Sy&ouml;t&auml; oikea s&auml;hk&ouml;postiosoite.\",\n\turl:
+    \"Sy&ouml;t&auml; oikea URL-osoite.\",\n\tdate: \"Sy&ouml;t&auml; oikea p&auml;iv&auml;m&auml;&auml;r&auml;.\",\n\tdateISO:
+    \"Sy&ouml;t&auml; oikea p&auml;iv&auml;m&auml;&auml;r&auml; muodossa VVVV-KK-PP.\",\n\tnumber:
+    \"Sy&ouml;t&auml; luku.\",\n\tcreditcard: \"Sy&ouml;t&auml; voimassa oleva luottokorttinumero.\",\n\tdigits:
+    \"Sy&ouml;t&auml; pelk&auml;st&auml;&auml;n numeroita.\",\n\tequalTo: \"Sy&ouml;t&auml;
+    sama arvo uudestaan.\",\n\tmaxlength: $.validator.format( \"Voit sy&ouml;tt&auml;&auml;
+    enint&auml;&auml;n {0} merkki&auml;.\" ),\n\tminlength: $.validator.format( \"V&auml;hint&auml;&auml;n
+    {0} merkki&auml;.\" ),\n\trangelength: $.validator.format( \"Sy&ouml;t&auml; v&auml;hint&auml;&auml;n
+    {0} ja enint&auml;&auml;n {1} merkki&auml;.\" ),\n\trange: $.validator.format(
+    \"Sy&ouml;t&auml; arvo v&auml;lilt&auml; {0}&ndash;{1}.\" ),\n\tmax: $.validator.format(
+    \"Sy&ouml;t&auml; arvo, joka on enint&auml;&auml;n {0}.\" ),\n\tmin: $.validator.format(
+    \"Sy&ouml;t&auml; arvo, joka on v&auml;hint&auml;&auml;n {0}.\" )\n} );\nreturn
+    $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_fi.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"T&auml;m&auml; kentt&auml; on pakollinen.",email:"Sy&ouml;t&auml; oikea s&auml;hk&ouml;postiosoite.",url:"Sy&ouml;t&auml; oikea URL-osoite.",date:"Sy&ouml;t&auml; oikea p&auml;iv&auml;m&auml;&auml;r&auml;.",dateISO:"Sy&ouml;t&auml; oikea p&auml;iv&auml;m&auml;&auml;r&auml; muodossa VVVV-KK-PP.",number:"Sy&ouml;t&auml; luku.",creditcard:"Sy&ouml;t&auml; voimassa oleva luottokorttinumero.",digits:"Sy&ouml;t&auml; pelk&auml;st&auml;&auml;n numeroita.",equalTo:"Sy&ouml;t&auml; sama arvo uudestaan.",maxlength:a.validator.format("Voit sy&ouml;tt&auml;&auml; enint&auml;&auml;n {0} merkki&auml;."),minlength:a.validator.format("V&auml;hint&auml;&auml;n {0} merkki&auml;."),rangelength:a.validator.format("Sy&ouml;t&auml; v&auml;hint&auml;&auml;n {0} ja enint&auml;&auml;n {1} merkki&auml;."),range:a.validator.format("Sy&ouml;t&auml; arvo v&auml;lilt&auml; {0}&ndash;{1}."),max:a.validator.format("Sy&ouml;t&auml; arvo, joka on enint&auml;&auml;n {0}."),min:a.validator.format("Sy&ouml;t&auml; arvo, joka on v&auml;hint&auml;&auml;n {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_gl.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return function(a){a.extend(a.validator.messages,{required:"Este campo é obrigatorio.",remote:"Por favor, cubre este campo.",email:"Por favor, escribe unha dirección de correo válida.",url:"Por favor, escribe unha URL válida.",date:"Por favor, escribe unha data válida.",dateISO:"Por favor, escribe unha data (ISO) válida.",number:"Por favor, escribe un número válido.",digits:"Por favor, escribe só díxitos.",creditcard:"Por favor, escribe un número de tarxeta válido.",equalTo:"Por favor, escribe o mesmo valor de novo.",extension:"Por favor, escribe un valor cunha extensión aceptada.",maxlength:a.validator.format("Por favor, non escribas máis de {0} caracteres."),minlength:a.validator.format("Por favor, non escribas menos de {0} caracteres."),rangelength:a.validator.format("Por favor, escribe un valor entre {0} e {1} caracteres."),range:a.validator.format("Por favor, escribe un valor entre {0} e {1}."),max:a.validator.format("Por favor, escribe un valor menor ou igual a {0}."),min:a.validator.format("Por favor, escribe un valor maior ou igual a {0}."),nifES:"Por favor, escribe un NIF válido.",nieES:"Por favor, escribe un NIE válido.",cifES:"Por favor, escribe un CIF válido."})}(jQuery),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_he.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"השדה הזה הינו שדה חובה",remote:"נא לתקן שדה זה",email:'נא למלא כתובת דוא"ל חוקית',url:"נא למלא כתובת אינטרנט חוקית",date:"נא למלא תאריך חוקי",dateISO:"נא למלא תאריך חוקי (ISO)",number:"נא למלא מספר",digits:"נא למלא רק מספרים",creditcard:"נא למלא מספר כרטיס אשראי חוקי",equalTo:"נא למלא את אותו ערך שוב",extension:"נא למלא ערך עם סיומת חוקית",maxlength:a.validator.format(".נא לא למלא יותר מ- {0} תווים"),minlength:a.validator.format("נא למלא לפחות {0} תווים"),rangelength:a.validator.format("נא למלא ערך בין {0} ל- {1} תווים"),range:a.validator.format("נא למלא ערך בין {0} ל- {1}"),max:a.validator.format("נא למלא ערך קטן או שווה ל- {0}"),min:a.validator.format("נא למלא ערך גדול או שווה ל- {0}")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_hr.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: HR (Croatia; hrvatski
+    jezik)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Ovo polje je obavezno.\",\n\tremote:
+    \"Ovo polje treba popraviti.\",\n\temail: \"Unesite ispravnu e-mail adresu.\",\n\turl:
+    \"Unesite ispravan URL.\",\n\tdate: \"Unesite ispravan datum.\",\n\tdateISO: \"Unesite
+    ispravan datum (ISO).\",\n\tnumber: \"Unesite ispravan broj.\",\n\tdigits: \"Unesite
+    samo brojeve.\",\n\tcreditcard: \"Unesite ispravan broj kreditne kartice.\",\n\tequalTo:
+    \"Unesite ponovo istu vrijednost.\",\n\textension: \"Unesite vrijednost sa ispravnom
+    ekstenzijom.\",\n\tmaxlength: $.validator.format( \"Maksimalni broj znakova je
+    {0} .\" ),\n\tminlength: $.validator.format( \"Minimalni broj znakova je {0} .\"
+    ),\n\trangelength: $.validator.format( \"Unesite vrijednost između {0} i {1} znakova.\"
+    ),\n\trange: $.validator.format( \"Unesite vrijednost između {0} i {1}.\" ),\n\tmax:
+    $.validator.format( \"Unesite vrijednost manju ili jednaku {0}.\" ),\n\tmin: $.validator.format(
+    \"Unesite vrijednost veću ili jednaku {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_hr.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Ovo polje je obavezno.",remote:"Ovo polje treba popraviti.",email:"Unesite ispravnu e-mail adresu.",url:"Unesite ispravan URL.",date:"Unesite ispravan datum.",dateISO:"Unesite ispravan datum (ISO).",number:"Unesite ispravan broj.",digits:"Unesite samo brojeve.",creditcard:"Unesite ispravan broj kreditne kartice.",equalTo:"Unesite ponovo istu vrijednost.",extension:"Unesite vrijednost sa ispravnom ekstenzijom.",maxlength:a.validator.format("Maksimalni broj znakova je {0} ."),minlength:a.validator.format("Minimalni broj znakova je {0} ."),rangelength:a.validator.format("Unesite vrijednost između {0} i {1} znakova."),range:a.validator.format("Unesite vrijednost između {0} i {1}."),max:a.validator.format("Unesite vrijednost manju ili jednaku {0}."),min:a.validator.format("Unesite vrijednost veću ili jednaku {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_hu.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Kötelező megadni.",maxlength:a.validator.format("Legfeljebb {0} karakter hosszú legyen."),minlength:a.validator.format("Legalább {0} karakter hosszú legyen."),rangelength:a.validator.format("Legalább {0} és legfeljebb {1} karakter hosszú legyen."),email:"Érvényes e-mail címnek kell lennie.",url:"Érvényes URL-nek kell lennie.",date:"Dátumnak kell lennie.",number:"Számnak kell lennie.",digits:"Csak számjegyek lehetnek.",equalTo:"Meg kell egyeznie a két értéknek.",range:a.validator.format("{0} és {1} közé kell esnie."),max:a.validator.format("Nem lehet nagyobb, mint {0}."),min:a.validator.format("Nem lehet kisebb, mint {0}."),creditcard:"Érvényes hitelkártyaszámnak kell lennie.",remote:"Kérem javítsa ki ezt a mezőt.",dateISO:"Kérem írjon be egy érvényes dátumot (ISO).",step:a.validator.format("A {0} egyik többszörösét adja meg.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_id.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: ID (Indonesia;
+    Indonesian)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Kolom ini diperlukan.\",\n\tremote:
+    \"Harap benarkan kolom ini.\",\n\temail: \"Silakan masukkan format email yang
+    benar.\",\n\turl: \"Silakan masukkan format URL yang benar.\",\n\tdate: \"Silakan
+    masukkan format tanggal yang benar.\",\n\tdateISO: \"Silakan masukkan format tanggal(ISO)
+    yang benar.\",\n\tnumber: \"Silakan masukkan angka yang benar.\",\n\tdigits: \"Harap
+    masukan angka saja.\",\n\tcreditcard: \"Harap masukkan format kartu kredit yang
+    benar.\",\n\tequalTo: \"Harap masukkan nilai yg sama dengan sebelumnya.\",\n\tmaxlength:
+    $.validator.format( \"Input dibatasi hanya {0} karakter.\" ),\n\tminlength: $.validator.format(
+    \"Input tidak kurang dari {0} karakter.\" ),\n\trangelength: $.validator.format(
+    \"Panjang karakter yg diizinkan antara {0} dan {1} karakter.\" ),\n\trange: $.validator.format(
+    \"Harap masukkan nilai antara {0} dan {1}.\" ),\n\tmax: $.validator.format( \"Harap
+    masukkan nilai lebih kecil atau sama dengan {0}.\" ),\n\tmin: $.validator.format(
+    \"Harap masukkan nilai lebih besar atau sama dengan {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_id.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Kolom ini diperlukan.",remote:"Harap benarkan kolom ini.",email:"Silakan masukkan format email yang benar.",url:"Silakan masukkan format URL yang benar.",date:"Silakan masukkan format tanggal yang benar.",dateISO:"Silakan masukkan format tanggal(ISO) yang benar.",number:"Silakan masukkan angka yang benar.",digits:"Harap masukan angka saja.",creditcard:"Harap masukkan format kartu kredit yang benar.",equalTo:"Harap masukkan nilai yg sama dengan sebelumnya.",maxlength:a.validator.format("Input dibatasi hanya {0} karakter."),minlength:a.validator.format("Input tidak kurang dari {0} karakter."),rangelength:a.validator.format("Panjang karakter yg diizinkan antara {0} dan {1} karakter."),range:a.validator.format("Harap masukkan nilai antara {0} dan {1}."),max:a.validator.format("Harap masukkan nilai lebih kecil atau sama dengan {0}."),min:a.validator.format("Harap masukkan nilai lebih besar atau sama dengan {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_is.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Þessi reitur er nauðsynlegur.",remote:"Lagaðu þennan reit.",maxlength:a.validator.format("Sláðu inn mest {0} stafi."),minlength:a.validator.format("Sláðu inn minnst {0} stafi."),rangelength:a.validator.format("Sláðu inn minnst {0} og mest {1} stafi."),email:"Sláðu inn gilt netfang.",url:"Sláðu inn gilda vefslóð.",date:"Sláðu inn gilda dagsetningu.",number:"Sláðu inn tölu.",digits:"Sláðu inn tölustafi eingöngu.",equalTo:"Sláðu sama gildi inn aftur.",range:a.validator.format("Sláðu inn gildi milli {0} og {1}."),max:a.validator.format("Sláðu inn gildi sem er minna en eða jafnt og {0}."),min:a.validator.format("Sláðu inn gildi sem er stærra en eða jafnt og {0}."),creditcard:"Sláðu inn gilt greiðslukortanúmer."}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_it.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Campo obbligatorio",remote:"Controlla questo campo",email:"Inserisci un indirizzo email valido",url:"Inserisci un indirizzo web valido",date:"Inserisci una data valida",dateISO:"Inserisci una data valida (ISO)",number:"Inserisci un numero valido",digits:"Inserisci solo numeri",creditcard:"Inserisci un numero di carta di credito valido",equalTo:"Il valore non corrisponde",extension:"Inserisci un valore con un&apos;estensione valida",maxlength:a.validator.format("Non inserire pi&ugrave; di {0} caratteri"),minlength:a.validator.format("Inserisci almeno {0} caratteri"),rangelength:a.validator.format("Inserisci un valore compreso tra {0} e {1} caratteri"),range:a.validator.format("Inserisci un valore compreso tra {0} e {1}"),max:a.validator.format("Inserisci un valore minore o uguale a {0}"),min:a.validator.format("Inserisci un valore maggiore o uguale a {0}"),nifES:"Inserisci un NIF valido",nieES:"Inserisci un NIE valido",cifES:"Inserisci un CIF valido",currency:"Inserisci una valuta valida"}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ja.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"このフィールドは必須です。",remote:"このフィールドを修正してください。",email:"有効なEメールアドレスを入力してください。",url:"有効なURLを入力してください。",date:"有効な日付を入力してください。",dateISO:"有効な日付（ISO）を入力してください。",number:"有効な数字を入力してください。",digits:"数字のみを入力してください。",creditcard:"有効なクレジットカード番号を入力してください。",equalTo:"同じ値をもう一度入力してください。",extension:"有効な拡張子を含む値を入力してください。",maxlength:a.validator.format("{0} 文字以内で入力してください。"),minlength:a.validator.format("{0} 文字以上で入力してください。"),rangelength:a.validator.format("{0} 文字から {1} 文字までの値を入力してください。"),range:a.validator.format("{0} から {1} までの値を入力してください。"),step:a.validator.format("{0} の倍数を入力してください。"),max:a.validator.format("{0} 以下の値を入力してください。"),min:a.validator.format("{0} 以上の値を入力してください。")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ka.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: KA (Georgian; ქართული)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"ამ ველის შევსება აუცილებელია.\",\n\tremote:
+    \"გთხოვთ მიუთითოთ სწორი მნიშვნელობა.\",\n\temail: \"გთხოვთ მიუთითოთ ელ-ფოსტის
+    კორექტული მისამართი.\",\n\turl: \"გთხოვთ მიუთითოთ კორექტული URL.\",\n\tdate: \"გთხოვთ
+    მიუთითოთ კორექტული თარიღი.\",\n\tdateISO: \"გთხოვთ მიუთითოთ კორექტული თარიღი ISO
+    ფორმატში.\",\n\tnumber: \"გთხოვთ მიუთითოთ ციფრი.\",\n\tdigits: \"გთხოვთ მიუთითოთ
+    მხოლოდ ციფრები.\",\n\tcreditcard: \"გთხოვთ მიუთითოთ საკრედიტო ბარათის კორექტული
+    ნომერი.\",\n\tequalTo: \"გთხოვთ მიუთითოთ ასეთივე მნიშვნელობა კიდევ ერთხელ.\",\n\textension:
+    \"გთხოვთ აირჩიოთ ფაილი კორექტული გაფართოებით.\",\n\tmaxlength: $.validator.format(
+    \"დასაშვებია არაუმეტეს {0} სიმბოლო.\" ),\n\tminlength: $.validator.format( \"აუცილებელია
+    შეიყვანოთ მინიმუმ {0} სიმბოლო.\" ),\n\trangelength: $.validator.format( \"ტექსტში
+    სიმბოლოების რაოდენობა უნდა იყოს {0}-დან {1}-მდე.\" ),\n\trange: $.validator.format(
+    \"გთხოვთ შეიყვანოთ ციფრი {0}-დან {1}-მდე.\" ),\n\tmax: $.validator.format( \"გთხოვთ
+    შეიყვანოთ ციფრი რომელიც ნაკლებია ან უდრის {0}-ს.\" ),\n\tmin: $.validator.format(
+    \"გთხოვთ შეიყვანოთ ციფრი რომელიც მეტია ან უდრის {0}-ს.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_kk.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: KK (Kazakh; қазақ
+    тілі)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Бұл өрісті міндетті
+    түрде толтырыңыз.\",\n\tremote: \"Дұрыс мағына енгізуіңізді сұраймыз.\",\n\temail:
+    \"Нақты электронды поштаңызды енгізуіңізді сұраймыз.\",\n\turl: \"Нақты URL-ды
+    енгізуіңізді сұраймыз.\",\n\tdate: \"Нақты URL-ды енгізуіңізді сұраймыз.\",\n\tdateISO:
+    \"Нақты ISO форматымен сәйкес датасын енгізуіңізді сұраймыз.\",\n\tnumber: \"Күнді
+    енгізуіңізді сұраймыз.\",\n\tdigits: \"Тек қана сандарды енгізуіңізді сұраймыз.\",\n\tcreditcard:
+    \"Несие картасының нөмірін дұрыс енгізуіңізді сұраймыз.\",\n\tequalTo: \"Осы мәнді
+    қайта енгізуіңізді сұраймыз.\",\n\textension: \"Файлдың кеңейтуін дұрыс таңдаңыз.\",\n\tmaxlength:
+    $.validator.format( \"Ұзындығы {0} символдан көр болмасын.\" ),\n\tminlength:
+    $.validator.format( \"Ұзындығы {0} символдан аз болмасын.\" ),\n\trangelength:
+    $.validator.format( \"Ұзындығы {0}-{1} дейін мән енгізуіңізді сұраймыз.\" ),\n\trange:
+    $.validator.format( \"Пожалуйста, введите число от {0} до {1}. - {0} - {1} санын
+    енгізуіңізді сұраймыз.\" ),\n\tmax: $.validator.format( \"{0} аз немесе тең санын
+    енгізуіңіді сұраймыз.\" ),\n\tmin: $.validator.format( \"{0} көп немесе тең санын
+    енгізуіңізді сұраймыз.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ko.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: KO (Korean; 한국어)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"필수 항목입니다.\",\n\tremote: \"항목을
+    수정하세요.\",\n\temail: \"유효하지 않은 E-Mail주소입니다.\",\n\turl: \"유효하지 않은 URL입니다.\",\n\tdate:
+    \"올바른 날짜를 입력하세요.\",\n\tdateISO: \"올바른 날짜(ISO)를 입력하세요.\",\n\tnumber: \"유효한 숫자가
+    아닙니다.\",\n\tdigits: \"숫자만 입력 가능합니다.\",\n\tcreditcard: \"신용카드 번호가 바르지 않습니다.\",\n\tequalTo:
+    \"같은 값을 다시 입력하세요.\",\n\textension: \"올바른 확장자가 아닙니다.\",\n\tmaxlength: $.validator.format(
+    \"{0}자를 넘을 수 없습니다. \" ),\n\tminlength: $.validator.format( \"{0}자 이상 입력하세요.\"
+    ),\n\trangelength: $.validator.format( \"문자 길이가 {0} 에서 {1} 사이의 값을 입력하세요.\" ),\n\trange:
+    $.validator.format( \"{0} 에서 {1} 사이의 값을 입력하세요.\" ),\n\tmax: $.validator.format(
+    \"{0} 이하의 값을 입력하세요.\" ),\n\tmin: $.validator.format( \"{0} 이상의 값을 입력하세요.\" )\n}
+    );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ko.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"필수 항목입니다.",remote:"항목을 수정하세요.",email:"유효하지 않은 E-Mail주소입니다.",url:"유효하지 않은 URL입니다.",date:"올바른 날짜를 입력하세요.",dateISO:"올바른 날짜(ISO)를 입력하세요.",number:"유효한 숫자가 아닙니다.",digits:"숫자만 입력 가능합니다.",creditcard:"신용카드 번호가 바르지 않습니다.",equalTo:"같은 값을 다시 입력하세요.",extension:"올바른 확장자가 아닙니다.",maxlength:a.validator.format("{0}자를 넘을 수 없습니다. "),minlength:a.validator.format("{0}자 이상 입력하세요."),rangelength:a.validator.format("문자 길이가 {0} 에서 {1} 사이의 값을 입력하세요."),range:a.validator.format("{0} 에서 {1} 사이의 값을 입력하세요."),max:a.validator.format("{0} 이하의 값을 입력하세요."),min:a.validator.format("{0} 이상의 값을 입력하세요.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_lt.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Šis laukas yra privalomas.",remote:"Prašau pataisyti šį lauką.",email:"Prašau įvesti teisingą elektroninio pašto adresą.",url:"Prašau įvesti teisingą URL.",date:"Prašau įvesti teisingą datą.",dateISO:"Prašau įvesti teisingą datą (ISO).",number:"Prašau įvesti teisingą skaičių.",digits:"Prašau naudoti tik skaitmenis.",creditcard:"Prašau įvesti teisingą kreditinės kortelės numerį.",equalTo:"Prašau įvestį tą pačią reikšmę dar kartą.",extension:"Prašau įvesti reikšmę su teisingu plėtiniu.",maxlength:a.validator.format("Prašau įvesti ne daugiau kaip {0} simbolių."),minlength:a.validator.format("Prašau įvesti bent {0} simbolius."),rangelength:a.validator.format("Prašau įvesti reikšmes, kurių ilgis nuo {0} iki {1} simbolių."),range:a.validator.format("Prašau įvesti reikšmę intervale nuo {0} iki {1}."),max:a.validator.format("Prašau įvesti reikšmę mažesnę arba lygią {0}."),min:a.validator.format("Prašau įvesti reikšmę didesnę arba lygią {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_lv.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Šis lauks ir obligāts.",remote:"Lūdzu, pārbaudiet šo lauku.",email:"Lūdzu, ievadiet derīgu e-pasta adresi.",url:"Lūdzu, ievadiet derīgu URL adresi.",date:"Lūdzu, ievadiet derīgu datumu.",dateISO:"Lūdzu, ievadiet derīgu datumu (ISO).",number:"Lūdzu, ievadiet derīgu numuru.",digits:"Lūdzu, ievadiet tikai ciparus.",creditcard:"Lūdzu, ievadiet derīgu kredītkartes numuru.",equalTo:"Lūdzu, ievadiet to pašu vēlreiz.",extension:"Lūdzu, ievadiet vērtību ar derīgu paplašinājumu.",maxlength:a.validator.format("Lūdzu, ievadiet ne vairāk kā {0} rakstzīmes."),minlength:a.validator.format("Lūdzu, ievadiet vismaz {0} rakstzīmes."),rangelength:a.validator.format("Lūdzu ievadiet {0} līdz {1} rakstzīmes."),range:a.validator.format("Lūdzu, ievadiet skaitli no {0} līdz {1}."),max:a.validator.format("Lūdzu, ievadiet skaitli, kurš ir mazāks vai vienāds ar {0}."),min:a.validator.format("Lūdzu, ievadiet skaitli, kurš ir lielāks vai vienāds ar {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_mk.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: MK (Macedonian;
+    македонски јазик)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Полето
+    е задолжително.\",\n\tremote: \"Поправете го ова поле\",\n\temail: \"Внесете правилна
+    e-mail адреса\",\n\turl: \"Внесете правилен URL.\",\n\tdate: \"Внесете правилен
+    датум\",\n\tdateISO: \"Внесете правилен датум (ISO).\",\n\tnumber: \"Внесете правилен
+    број.\",\n\tdigits: \"Внесете само бројки.\",\n\tcreditcard: \"Внесете правилен
+    број на кредитната картичка.\",\n\tequalTo: \"Внесете ја истата вредност повторно.\",\n\textension:
+    \"Внесете вредност со соодветна екстензија.\",\n\tmaxlength: $.validator.format(
+    \"Внесете максимално {0} знаци.\" ),\n\tminlength: $.validator.format( \"Внесете
+    барем {0} знаци.\" ),\n\trangelength: $.validator.format( \"Внесете вредност со
+    должина помеѓу {0} и {1} знаци.\" ),\n\trange: $.validator.format( \"Внесете вредност
+    помеѓу {0} и {1}.\" ),\n\tmax: $.validator.format( \"Внесете вредност помала или
+    еднаква на {0}.\" ),\n\tmin: $.validator.format( \"Внесете вредност поголема или
+    еднаква на {0}\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_mk.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Полето е задолжително.",remote:"Поправете го ова поле",email:"Внесете правилна e-mail адреса",url:"Внесете правилен URL.",date:"Внесете правилен датум",dateISO:"Внесете правилен датум (ISO).",number:"Внесете правилен број.",digits:"Внесете само бројки.",creditcard:"Внесете правилен број на кредитната картичка.",equalTo:"Внесете ја истата вредност повторно.",extension:"Внесете вредност со соодветна екстензија.",maxlength:a.validator.format("Внесете максимално {0} знаци."),minlength:a.validator.format("Внесете барем {0} знаци."),rangelength:a.validator.format("Внесете вредност со должина помеѓу {0} и {1} знаци."),range:a.validator.format("Внесете вредност помеѓу {0} и {1}."),max:a.validator.format("Внесете вредност помала или еднаква на {0}."),min:a.validator.format("Внесете вредност поголема или еднаква на {0}")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ro.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: RO (Romanian, limba
+    română)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Acest câmp este
+    obligatoriu.\",\n\tremote: \"Te rugăm să completezi acest câmp.\",\n\temail: \"Te
+    rugăm să introduci o adresă de email validă\",\n\turl: \"Te rugăm sa introduci
+    o adresă URL validă.\",\n\tdate: \"Te rugăm să introduci o dată corectă.\",\n\tdateISO:
+    \"Te rugăm să introduci o dată (ISO) corectă.\",\n\tnumber: \"Te rugăm să introduci
+    un număr întreg valid.\",\n\tdigits: \"Te rugăm să introduci doar cifre.\",\n\tcreditcard:
+    \"Te rugăm să introduci un numar de carte de credit valid.\",\n\tequalTo: \"Te
+    rugăm să reintroduci valoarea.\",\n\textension: \"Te rugăm să introduci o valoare
+    cu o extensie validă.\",\n\tmaxlength: $.validator.format( \"Te rugăm să nu introduci
+    mai mult de {0} caractere.\" ),\n\tminlength: $.validator.format( \"Te rugăm să
+    introduci cel puțin {0} caractere.\" ),\n\trangelength: $.validator.format( \"Te
+    rugăm să introduci o valoare între {0} și {1} caractere.\" ),\n\trange: $.validator.format(
+    \"Te rugăm să introduci o valoare între {0} și {1}.\" ),\n\tmax: $.validator.format(
+    \"Te rugăm să introduci o valoare egal sau mai mică decât {0}.\" ),\n\tmin: $.validator.format(
+    \"Te rugăm să introduci o valoare egal sau mai mare decât {0}.\" )\n} );\nreturn
+    $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_ru.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: RU (Russian; русский
+    язык)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Это поле необходимо
+    заполнить.\",\n\tremote: \"Пожалуйста, введите правильное значение.\",\n\temail:
+    \"Пожалуйста, введите корректный адрес электронной почты.\",\n\turl: \"Пожалуйста,
+    введите корректный URL.\",\n\tdate: \"Пожалуйста, введите корректную дату.\",\n\tdateISO:
+    \"Пожалуйста, введите корректную дату в формате ISO.\",\n\tnumber: \"Пожалуйста,
+    введите число.\",\n\tdigits: \"Пожалуйста, вводите только цифры.\",\n\tcreditcard:
+    \"Пожалуйста, введите правильный номер кредитной карты.\",\n\tequalTo: \"Пожалуйста,
+    введите такое же значение ещё раз.\",\n\textension: \"Пожалуйста, выберите файл
+    с правильным расширением.\",\n\tmaxlength: $.validator.format( \"Пожалуйста, введите
+    не больше {0} символов.\" ),\n\tminlength: $.validator.format( \"Пожалуйста, введите
+    не меньше {0} символов.\" ),\n\trangelength: $.validator.format( \"Пожалуйста,
+    введите значение длиной от {0} до {1} символов.\" ),\n\trange: $.validator.format(
+    \"Пожалуйста, введите число от {0} до {1}.\" ),\n\tmax: $.validator.format( \"Пожалуйста,
+    введите число, меньшее или равное {0}.\" ),\n\tmin: $.validator.format( \"Пожалуйста,
+    введите число, большее или равное {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_si.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"To polje je obvezno.",remote:"Vpis v tem polju ni v pravi obliki.",email:"Prosimo, vnesite pravi email naslov.",url:"Prosimo, vnesite pravi URL.",date:"Prosimo, vnesite pravi datum.",dateISO:"Prosimo, vnesite pravi datum (ISO).",number:"Prosimo, vnesite pravo številko.",digits:"Prosimo, vnesite samo številke.",creditcard:"Prosimo, vnesite pravo številko kreditne kartice.",equalTo:"Prosimo, ponovno vnesite enako vsebino.",extension:"Prosimo, vnesite vsebino z pravo končnico.",maxlength:a.validator.format("Prosimo, da ne vnašate več kot {0} znakov."),minlength:a.validator.format("Prosimo, vnesite vsaj {0} znakov."),rangelength:a.validator.format("Prosimo, vnesite od {0} do {1} znakov."),range:a.validator.format("Prosimo, vnesite vrednost med {0} in {1}."),max:a.validator.format("Prosimo, vnesite vrednost manjšo ali enako {0}."),min:a.validator.format("Prosimo, vnesite vrednost večjo ali enako {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_sl.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Language: SL (Slovenian;
+    slovenski jezik)\n */\n$.extend( $.validator.messages, {\n\trequired: \"To polje
+    je obvezno.\",\n\tremote: \"Prosimo popravite to polje.\",\n\temail: \"Prosimo
+    vnesite veljaven email naslov.\",\n\turl: \"Prosimo vnesite veljaven URL naslov.\",\n\tdate:
+    \"Prosimo vnesite veljaven datum.\",\n\tdateISO: \"Prosimo vnesite veljaven ISO
+    datum.\",\n\tnumber: \"Prosimo vnesite veljavno število.\",\n\tdigits: \"Prosimo
+    vnesite samo števila.\",\n\tcreditcard: \"Prosimo vnesite veljavno številko kreditne
+    kartice.\",\n\tequalTo: \"Prosimo ponovno vnesite vrednost.\",\n\textension: \"Prosimo
+    vnesite vrednost z veljavno končnico.\",\n\tmaxlength: $.validator.format( \"Prosimo
+    vnesite največ {0} znakov.\" ),\n\tminlength: $.validator.format( \"Prosimo vnesite
+    najmanj {0} znakov.\" ),\n\trangelength: $.validator.format( \"Prosimo vnesite
+    najmanj {0} in največ {1} znakov.\" ),\n\trange: $.validator.format( \"Prosimo
+    vnesite vrednost med {0} in {1}.\" ),\n\tmax: $.validator.format( \"Prosimo vnesite
+    vrednost manjše ali enako {0}.\" ),\n\tmin: $.validator.format( \"Prosimo vnesite
+    vrednost večje ali enako {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_sl.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"To polje je obvezno.",remote:"Prosimo popravite to polje.",email:"Prosimo vnesite veljaven email naslov.",url:"Prosimo vnesite veljaven URL naslov.",date:"Prosimo vnesite veljaven datum.",dateISO:"Prosimo vnesite veljaven ISO datum.",number:"Prosimo vnesite veljavno število.",digits:"Prosimo vnesite samo števila.",creditcard:"Prosimo vnesite veljavno številko kreditne kartice.",equalTo:"Prosimo ponovno vnesite vrednost.",extension:"Prosimo vnesite vrednost z veljavno končnico.",maxlength:a.validator.format("Prosimo vnesite največ {0} znakov."),minlength:a.validator.format("Prosimo vnesite najmanj {0} znakov."),rangelength:a.validator.format("Prosimo vnesite najmanj {0} in največ {1} znakov."),range:a.validator.format("Prosimo vnesite vrednost med {0} in {1}."),max:a.validator.format("Prosimo vnesite vrednost manjše ali enako {0}."),min:a.validator.format("Prosimo vnesite vrednost večje ali enako {0}.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_sr_lat.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: SR (Serbian - Latin
+    alphabet; srpski jezik - latinica)\n */\n$.extend( $.validator.messages, {\n\trequired:
+    \"Polje je obavezno.\",\n\tremote: \"Sredite ovo polje.\",\n\temail: \"Unesite
+    ispravnu e-mail adresu\",\n\turl: \"Unesite ispravan URL.\",\n\tdate: \"Unesite
+    ispravan datum.\",\n\tdateISO: \"Unesite ispravan datum (ISO).\",\n\tnumber: \"Unesite
+    ispravan broj.\",\n\tdigits: \"Unesite samo cifre.\",\n\tcreditcard: \"Unesite
+    ispravan broj kreditne kartice.\",\n\tequalTo: \"Unesite istu vrednost ponovo.\",\n\textension:
+    \"Unesite vrednost sa odgovarajućom ekstenzijom.\",\n\tmaxlength: $.validator.format(
+    \"Unesite manje od {0} karaktera.\" ),\n\tminlength: $.validator.format( \"Unesite
+    barem {0} karaktera.\" ),\n\trangelength: $.validator.format( \"Unesite vrednost
+    dugačku između {0} i {1} karaktera.\" ),\n\trange: $.validator.format( \"Unesite
+    vrednost između {0} i {1}.\" ),\n\tmax: $.validator.format( \"Unesite vrednost
+    manju ili jednaku {0}.\" ),\n\tmin: $.validator.format( \"Unesite vrednost veću
+    ili jednaku {0}.\" ),\n\tstep: $.validator.format( \"Unesite vrednost koja je
+    umnožak broja {0}.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_sv.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Detta f&auml;lt &auml;r obligatoriskt.",remote:"Var snäll och åtgärda detta fält.",maxlength:a.validator.format("Du f&aring;r ange h&ouml;gst {0} tecken."),minlength:a.validator.format("Du m&aring;ste ange minst {0} tecken."),rangelength:a.validator.format("Ange minst {0} och max {1} tecken."),email:"Ange en korrekt e-postadress.",url:"Ange en korrekt URL.",date:"Ange ett korrekt datum.",dateISO:"Ange ett korrekt datum (&Aring;&Aring;&Aring;&Aring;-MM-DD).",number:"Ange ett korrekt nummer.",digits:"Ange endast siffror.",equalTo:"Ange samma v&auml;rde igen.",range:a.validator.format("Ange ett v&auml;rde mellan {0} och {1}."),max:a.validator.format("Ange ett v&auml;rde som &auml;r mindre eller lika med {0}."),min:a.validator.format("Ange ett v&auml;rde som &auml;r st&ouml;rre eller lika med {0}."),creditcard:"Ange ett korrekt kreditkortsnummer.",pattern:"Ogiltigt format."}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_th.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: TH (Thai; ไทย)\n
+    */\n$.extend( $.validator.messages, {\n\trequired: \"โปรดระบุ\",\n\tremote: \"โปรดแก้ไขให้ถูกต้อง\",\n\temail:
+    \"โปรดระบุที่อยู่อีเมล์ที่ถูกต้อง\",\n\turl: \"โปรดระบุ URL ที่ถูกต้อง\",\n\tdate:
+    \"โปรดระบุวันที่ ที่ถูกต้อง\",\n\tdateISO: \"โปรดระบุวันที่ ที่ถูกต้อง (ระบบ ISO).\",\n\tnumber:
+    \"โปรดระบุทศนิยมที่ถูกต้อง\",\n\tdigits: \"โปรดระบุจำนวนเต็มที่ถูกต้อง\",\n\tcreditcard:
+    \"โปรดระบุรหัสบัตรเครดิตที่ถูกต้อง\",\n\tequalTo: \"โปรดระบุค่าเดิมอีกครั้ง\",\n\textension:
+    \"โปรดระบุค่าที่มีส่วนขยายที่ถูกต้อง\",\n\tmaxlength: $.validator.format( \"โปรดอย่าระบุค่าที่ยาวกว่า
+    {0} อักขระ\" ),\n\tminlength: $.validator.format( \"โปรดอย่าระบุค่าที่สั้นกว่า
+    {0} อักขระ\" ),\n\trangelength: $.validator.format( \"โปรดอย่าระบุค่าความยาวระหว่าง
+    {0} ถึง {1} อักขระ\" ),\n\trange: $.validator.format( \"โปรดระบุค่าระหว่าง {0}
+    และ {1}\" ),\n\tmax: $.validator.format( \"โปรดระบุค่าน้อยกว่าหรือเท่ากับ {0}\"
+    ),\n\tmin: $.validator.format( \"โปรดระบุค่ามากกว่าหรือเท่ากับ {0}\" )\n} );\nreturn
+    $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_tj.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Ворид кардани ин филд маҷбури аст.",remote:"Илтимос, маълумоти саҳеҳ ворид кунед.",email:"Илтимос, почтаи электронии саҳеҳ ворид кунед.",url:"Илтимос, URL адреси саҳеҳ ворид кунед.",date:"Илтимос, таърихи саҳеҳ ворид кунед.",dateISO:"Илтимос, таърихи саҳеҳи (ISO)ӣ ворид кунед.",number:"Илтимос, рақамҳои саҳеҳ ворид кунед.",digits:"Илтимос, танҳо рақам ворид кунед.",creditcard:"Илтимос, кредит карди саҳеҳ ворид кунед.",equalTo:"Илтимос, миқдори баробар ворид кунед.",extension:"Илтимос, қофияи файлро дуруст интихоб кунед",maxlength:a.validator.format("Илтимос, бештар аз {0} рамз ворид накунед."),minlength:a.validator.format("Илтимос, камтар аз {0} рамз ворид накунед."),rangelength:a.validator.format("Илтимос, камтар аз {0} ва зиёда аз {1} рамз ворид кунед."),range:a.validator.format("Илтимос, аз {0} то {1} рақам зиёд ворид кунед."),max:a.validator.format("Илтимос, бештар аз {0} рақам ворид накунед."),min:a.validator.format("Илтимос, камтар аз {0} рақам ворид накунед.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_tr.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.messages,{required:"Bu alanın doldurulması zorunludur.",remote:"Lütfen bu alanı düzeltin.",email:"Lütfen geçerli bir e-posta adresi giriniz.",url:"Lütfen geçerli bir web adresi (URL) giriniz.",date:"Lütfen geçerli bir tarih giriniz.",dateISO:"Lütfen geçerli bir tarih giriniz(ISO formatında)",number:"Lütfen geçerli bir sayı giriniz.",digits:"Lütfen sadece sayısal karakterler giriniz.",creditcard:"Lütfen geçerli bir kredi kartı giriniz.",equalTo:"Lütfen aynı değeri tekrar giriniz.",extension:"Lütfen geçerli uzantıya sahip bir değer giriniz.",phone:"Lütfen geçerli bir telefon numarası giriniz.",maxlength:a.validator.format("Lütfen en fazla {0} karakter uzunluğunda bir değer giriniz."),minlength:a.validator.format("Lütfen en az {0} karakter uzunluğunda bir değer giriniz."),rangelength:a.validator.format("Lütfen en az {0} ve en fazla {1} uzunluğunda bir değer giriniz."),range:a.validator.format("Lütfen {0} ile {1} arasında bir değer giriniz."),max:a.validator.format("Lütfen {0} değerine eşit ya da daha küçük bir değer giriniz."),min:a.validator.format("Lütfen {0} değerine eşit ya da daha büyük bir değer giriniz."),require_from_group:a.validator.format("Lütfen bu alanların en az {0} tanesini doldurunuz.")}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_vi.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: VI (Vietnamese;
+    Tiếng Việt)\n */\n$.extend( $.validator.messages, {\n\trequired: \"Hãy nhập.\",\n\tremote:
+    \"Hãy sửa cho đúng.\",\n\temail: \"Hãy nhập email.\",\n\turl: \"Hãy nhập URL.\",\n\tdate:
+    \"Hãy nhập ngày.\",\n\tdateISO: \"Hãy nhập ngày (ISO).\",\n\tnumber: \"Hãy nhập
+    số.\",\n\tdigits: \"Hãy nhập chữ số.\",\n\tcreditcard: \"Hãy nhập số thẻ tín dụng.\",\n\tequalTo:
+    \"Hãy nhập thêm lần nữa.\",\n\textension: \"Phần mở rộng không đúng.\",\n\tmaxlength:
+    $.validator.format( \"Hãy nhập từ {0} kí tự trở xuống.\" ),\n\tminlength: $.validator.format(
+    \"Hãy nhập từ {0} kí tự trở lên.\" ),\n\trangelength: $.validator.format( \"Hãy
+    nhập từ {0} đến {1} kí tự.\" ),\n\trange: $.validator.format( \"Hãy nhập từ {0}
+    đến {1}.\" ),\n\tmax: $.validator.format( \"Hãy nhập từ {0} trở xuống.\" ),\n\tmin:
+    $.validator.format( \"Hãy nhập từ {0} trở lên.\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-messages_zh.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Translated
+    default messages for the jQuery validation plugin.\n * Locale: ZH (Chinese, 中文
+    (Zhōngwén), 汉语, 漢語)\n */\n$.extend( $.validator.messages, {\n\trequired: \"这是必填字段\",\n\tremote:
+    \"请修正此字段\",\n\temail: \"请输入有效的电子邮件地址\",\n\turl: \"请输入有效的网址\",\n\tdate: \"请输入有效的日期\",\n\tdateISO:
+    \"请输入有效的日期 (YYYY-MM-DD)\",\n\tnumber: \"请输入有效的数字\",\n\tdigits: \"只能输入数字\",\n\tcreditcard:
+    \"请输入有效的信用卡号码\",\n\tequalTo: \"你的输入不相同\",\n\textension: \"请输入有效的后缀\",\n\tmaxlength:
+    $.validator.format( \"最多可以输入 {0} 个字符\" ),\n\tminlength: $.validator.format( \"最少要输入
+    {0} 个字符\" ),\n\trangelength: $.validator.format( \"请输入长度在 {0} 到 {1} 之间的字符串\" ),\n\trange:
+    $.validator.format( \"请输入范围在 {0} 到 {1} 之间的数值\" ),\n\tstep: $.validator.format(
+    \"请输入 {0} 的整数倍值\" ),\n\tmax: $.validator.format( \"请输入不大于 {0} 的数值\" ),\n\tmin:
+    $.validator.format( \"请输入不小于 {0} 的数值\" )\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_de.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Localized
+    default methods for the jQuery validation plugin.\n * Locale: DE\n */\n$.extend(
+    $.validator.methods, {\n\tdate: function( value, element ) {\n\t\treturn this.optional(
+    element ) || /^\\d\\d?\\.\\d\\d?\\.\\d\\d\\d?\\d?$/.test( value );\n\t},\n\tnumber:
+    function( value, element ) {\n\t\treturn this.optional( element ) || /^-?(?:\\d+|\\d{1,3}(?:\\.\\d{3})+)(?:,\\d+)?$/.test(
+    value );\n\t}\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_de.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.methods,{date:function(a,b){return this.optional(b)||/^\d\d?\.\d\d?\.\d\d\d?\d?$/.test(a)},number:function(a,b){return this.optional(b)||/^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(a)}}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_fi.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Localized
+    default methods for the jQuery validation plugin.\n * Locale: FI\n */\n$.extend(
+    $.validator.methods, {\n\tdate: function( value, element ) {\n\t\treturn this.optional(
+    element ) || /^\\d{1,2}\\.\\d{1,2}\\.\\d{4}$/.test( value );\n\t},\n\tnumber:
+    function( value, element ) {\n\t\treturn this.optional( element ) || /^-?(?:\\d+)(?:,\\d+)?$/.test(
+    value );\n\t}\n} );\nreturn $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_fi.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.methods,{date:function(a,b){return this.optional(b)||/^\d{1,2}\.\d{1,2}\.\d{4}$/.test(a)},number:function(a,b){return this.optional(b)||/^-?(?:\d+)(?:,\d+)?$/.test(a)}}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_it.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.methods,{date:function(a,b){return this.optional(b)||/^\d\d?\-\d\d?\-\d\d\d?\d?$/.test(a)},number:function(a,b){return this.optional(b)||/^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(a)}}),a});
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_nl.js: "(function(
+    factory ) {\n\tif ( typeof define === \"function\" && define.amd ) {\n\t\tdefine(
+    [\"jquery\", \"../jquery.validate\"], factory );\n\t} else if (typeof module ===
+    \"object\" && module.exports) {\n\t\tmodule.exports = factory( require( \"jquery\"
+    ) );\n\t} else {\n\t\tfactory( jQuery );\n\t}\n}(function( $ ) {\n\n/*\n * Localized
+    default methods for the jQuery validation plugin.\n * Locale: NL\n */\n$.extend(
+    $.validator.methods, {\n\tdate: function( value, element ) {\n\t\treturn this.optional(
+    element ) || /^\\d\\d?[\\.\\/\\-]\\d\\d?[\\.\\/\\-]\\d\\d\\d?\\d?$/.test( value
+    );\n\t},\n\tnumber: function( value, element ) {\n\t\treturn this.optional( element
+    ) || /^-?(?:\\d+|\\d{1,3}(?:\\.\\d{3})+)(?:,\\d+)?$/.test( value );\n\t}\n} );\nreturn
+    $;\n}));"
+  admin-Public-Admin-plugins-jquery-validation-localization-methods_nl.min.js: |-
+    /*! jQuery Validation Plugin - v1.19.3 - 1/9/2021
+     * https://jqueryvalidation.org/
+     * Copyright (c) 2021 Jörn Zaefferer; Licensed MIT */
+    !function(a){"function"==typeof define&&define.amd?define(["jquery","../jquery.validate.min"],a):"object"==typeof module&&module.exports?module.exports=a(require("jquery")):a(jQuery)}(function(a){return a.extend(a.validator.methods,{date:function(a,b){return this.optional(b)||/^\d\d?[\.\/\-]\d\d?[\.\/\-]\d\d\d?\d?$/.test(a)},number:function(a,b){return this.optional(b)||/^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(a)}}),a});
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: php-code-content-4

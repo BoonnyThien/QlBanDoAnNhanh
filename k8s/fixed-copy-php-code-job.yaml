@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-php-code
+spec:
+  template:
+    spec:
+      containers:
+      - name: copy-code
+        image: busybox
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          echo "Copying PHP code to persistent volume..."
+          mkdir -p /mnt/php-data
+          echo '<?php echo "<h1>Ứng dụng Đồ Ăn Nhanh</h1>"; ?>' > /mnt/php-data/index.php
+          cat /config-php/index.php > /mnt/php-data/index.php
+          echo "Code copied successfully"
+        volumeMounts:
+        - name: php-data
+          mountPath: /mnt/php-data
+        - name: php-code
+          mountPath: /config-php
+      restartPolicy: Never
+      volumes:
+      - name: php-data
+        persistentVolumeClaim:
+          claimName: php-pvc
+      - name: php-code
+        configMap:
+          name: php-code-content
+  backoffLimit: 2
