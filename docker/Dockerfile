@@ -17,7 +17,7 @@ RUN docker-php-ext-install pdo pdo_mysql mysqli mbstring zip
 RUN a2enmod rewrite headers
 
 # 4. Copy cấu hình Apache
-COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
+COPY ./config/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite 000-default
 
 # 5. Cấu hình Apache để cho phép symbolic links và thêm ServerName
