@@ -17,15 +17,15 @@ services:
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
     depends_on:
-      - mysql_db  # Đơn giản hóa phần depends_on
+      - mysql-service  # Đơn giản hóa phần depends_on
     networks:
       - app_network
     restart: always  # Tự động khởi động lại nếu có lỗi
   
   # Dịch vụ MySQL
-  mysql_db:
+  mysql-service:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: mysql-service
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: qlbandoannhanh

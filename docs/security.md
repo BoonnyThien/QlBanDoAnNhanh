@@ -1,174 +1,189 @@
-# Hướng dẫn Bảo mật
+# Hướng dẫn Bảo mật Hệ thống
 
-## 1. Bảo mật Container
+## Tổng quan
+Tài liệu này mô tả các lớp bảo mật được triển khai trong hệ thống, bao gồm:
+- RBAC (Role-Based Access Control)
+- Network Policies
+- Secrets Management
+- Container Security
+- Data Protection
+- Monitoring & Backup
 
-### Quét bảo mật container
-```bash
-# Sử dụng Trivy để quét images
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-    aquasec/trivy image registry.example.com/app:latest
+## 1. RBAC (Role-Based Access Control)
+### Mục đích
+- Kiểm soát quyền truy cập trong cluster
+- Phân quyền chi tiết cho từng service
+- Giảm thiểu rủi ro từ việc lạm dụng đặc quyền
 
-# Sử dụng Docker Bench để kiểm tra cấu hình
-docker run --rm --net host --pid host --userns host --cap-add audit_control \
-    -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
-    -v /etc:/etc:ro \
-    -v /usr/bin/docker-containerd:/usr/bin/docker-containerd:ro \
-    -v /usr/bin/docker-runc:/usr/bin/docker-runc:ro \
-    -v /usr/lib/systemd:/usr/lib/systemd:ro \
-    -v /var/lib:/var/lib:ro \
-    --label docker_bench_security \
-    docker/docker-bench-security
+### Cấu hình
+```yaml
+# k8s/rbac.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: php-app-sa
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mysql-sa
 ```
 
-### Best Practices
-- Sử dụng non-root user trong container
-- Cập nhật base images thường xuyên
-- Giới hạn quyền truy cập mạng
-- Sử dụng multi-stage builds
-- Không lưu trữ secrets trong images
+### Áp dụng
+```bash
+kubectl apply -f k8s/rbac.yaml
+```
 
-## 2. Bảo mật Kubernetes
+## 2. Network Policies
+### Mục đích
+- Kiểm soát luồng traffic giữa các pods
+- Cô lập các services
+- Bảo vệ database khỏi truy cập trái phép
 
-### Network Policies
+### Cấu hình chính
 ```yaml
+# k8s/network-policies.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: default-deny
+  name: allow-php-to-mysql
 spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
-```
-
-### RBAC Configuration
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  namespace: default
-  name: pod-reader
-rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "watch", "list"]
-```
-
-### Secrets Management
-```bash
-# Tạo Kubernetes secret
-kubectl create secret generic db-secret \
-  --from-literal=username=admin \
-  --from-literal=password=secret
-
-# Sử dụng trong deployment
-env:
-- name: DB_USERNAME
-  valueFrom:
-    secretKeyRef:
-      name: db-secret
-      key: username
-```
-
-## 3. Bảo mật API Gateway
-
-### Rate Limiting
-```yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: EnvoyFilter
-metadata:
-  name: ratelimit
-spec:
-  workloadSelector:
-    labels:
-      app: api-gateway
-  configPatches:
-  - applyTo: HTTP_FILTER
-    match:
-      context: GATEWAY
-      listener:
-        filterChain:
-          filter:
-            name: "envoy.http_connection_manager"
-    patch:
-      operation: INSERT_BEFORE
-      value:
-        name: envoy.rate_limit
-        typed_config:
-          "@type": type.googleapis.com/envoy.config.filter.http.rate_limit.v2.RateLimit
-          domain: apigateway
-          timeout: 0.25s
-```
-
-### JWT Authentication
-```yaml
-apiVersion: security.istio.io/v1beta1
-kind: RequestAuthentication
-metadata:
-  name: jwt-auth
-spec:
-  selector:
+  podSelector:
     matchLabels:
-      app: api-gateway
-  jwtRules:
-  - issuer: "https://auth.example.com"
-    jwksUri: "https://auth.example.com/.well-known/jwks.json"
+      app: mysql
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: php
 ```
 
-## 4. Bảo mật Dữ liệu
+## 3. Secrets Management
+### Mục đích
+- Bảo vệ thông tin nhạy cảm
+- Quản lý credentials an toàn
+- Rotation keys định kỳ
 
-### Encryption at Rest
+### Triển khai
 ```yaml
+# k8s/secrets.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: encryption-key
+  name: app-secrets
 type: Opaque
 data:
-  key: <base64-encoded-encryption-key>
+  db-password: <base64-encoded>
+  api-key: <base64-encoded>
 ```
 
-### Data Masking
-```sql
--- Ví dụ về data masking trong MySQL
-CREATE VIEW masked_users AS
-SELECT 
-    id,
-    CONCAT(LEFT(email, 3), '***', '@', SUBSTRING_INDEX(email, '@', -1)) as email,
-    CONCAT('***', RIGHT(phone, 4)) as phone
-FROM users;
-```
+## 4. Container Security
+### Mục đích
+- Quét lỗ hổng bảo mật container
+- Non-root user execution
+- Giới hạn capabilities
 
-## 5. Monitoring và Audit
+### Best Practices
+- Sử dụng official base images
+- Regular security scanning
+- Minimal container images
 
-### Security Scanning
-```bash
-# Quét vulnerabilities với kube-bench
-docker run --rm -v `pwd`:/host aquasec/kube-bench:latest install
-./kube-bench
+## 5. Data Protection
+### Mục đích
+- Mã hóa dữ liệu at-rest
+- Backup tự động
+- Data masking cho thông tin nhạy cảm
 
-# Quét với kube-hunter
-docker run --rm -it aquasec/kube-hunter:latest --remote <cluster-ip>
-```
-
-### Logging và Monitoring
+### Cấu hình
 ```yaml
+# k8s/data-protection.yaml
 apiVersion: v1
-kind: ConfigMap
+kind: PersistentVolumeClaim
 metadata:
-  name: fluentd-config
-data:
-  fluent.conf: |
-    <source>
-      @type tail
-      path /var/log/containers/*.log
-      pos_file /var/log/fluentd-containers.log.pos
-      tag kubernetes.*
-      read_from_head true
-      <parse>
-        @type json
-        time_format %Y-%m-%dT%H:%M:%S.%NZ
-      </parse>
-    </source>
-``` 
+  name: encrypted-storage
+spec:
+  storageClassName: encrypted-storage
+```
+
+## 6. Monitoring & Backup
+### Mục đích
+- Giám sát bảo mật realtime
+- Phát hiện xâm nhập
+- Backup tự động và khôi phục
+
+### Triển khai
+```yaml
+# k8s/monitoring.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: security-monitor
+```
+
+## Script Triển khai Bảo mật
+Tạo file `k8s/deploy-security.sh`:
+
+```bash
+#!/bin/bash
+
+echo "🔒 Triển khai các cấu hình bảo mật..."
+
+# 1. RBAC
+echo "1️⃣ Áp dụng RBAC..."
+kubectl apply -f k8s/rbac.yaml
+
+# 2. Network Policies
+echo "2️⃣ Áp dụng Network Policies..."
+kubectl apply -f k8s/network-policies.yaml
+
+# 3. Secrets
+echo "3️⃣ Tạo Secrets..."
+kubectl apply -f k8s/secrets.yaml
+
+# 4. Container Security
+echo "4️⃣ Quét bảo mật container..."
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image your-app-image:latest
+
+# 5. Data Protection
+echo "5️⃣ Áp dụng Data Protection..."
+kubectl apply -f k8s/data-protection.yaml
+
+# 6. Monitoring
+echo "6️⃣ Thiết lập Monitoring..."
+kubectl apply -f k8s/monitoring.yaml
+
+echo "✅ Hoàn tất triển khai bảo mật!"
+```
+
+## Kiểm tra Bảo mật
+```bash
+# Kiểm tra RBAC
+kubectl auth can-i --as system:serviceaccount:default:php-app-sa get pods
+
+# Kiểm tra Network Policies
+kubectl describe networkpolicies
+
+# Kiểm tra Secrets
+kubectl get secrets
+
+# Kiểm tra Monitoring
+kubectl get servicemonitors
+```
+
+## Lưu ý Quan trọng
+1. Cập nhật secrets định kỳ
+2. Quét bảo mật container thường xuyên
+3. Kiểm tra logs bảo mật hàng ngày
+4. Backup dữ liệu định kỳ
+5. Cập nhật patches bảo mật kịp thời
+
+## Cấp quyền thực thi cho script
+```bash
+chmod +x k8s/deploy-security.sh
+./k8s/deploy-security.sh
+
+
+```
+
+## Cập nhật tài liệu bảo mật
+Tôi đã cập nhật tài liệu để bao gồm các thông tin chi tiết hơn về mục đích và cách triển khai của từng component bảo mật. Người dùng có thể dễ dàng hiểu và áp dụng các biện pháp bảo mật này vào hệ thống của họ. 

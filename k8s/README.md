@@ -21,7 +21,6 @@ Script này sẽ:
 ## 📁 Danh sách Script
 
 - `setup-and-repair.sh`: Script toàn diện để thiết lập và sửa tất cả các vấn đề
-- `fix-all-issues.sh`: Script để khắc phục các vấn đề triển khai
 - `install-monitoring.sh`: Script để cài đặt hệ thống giám sát Prometheus
 
 ## 🛠️ Thành phần triển khai

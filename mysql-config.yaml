@@ -5,9 +5,10 @@ metadata:
 data:
   my.cnf: |
     [mysqld]
-    # Tạm thời bỏ cấu hình mã hóa để tránh xung đột
-    # character-set-server=utf8mb4
-    # collation-server=utf8mb4_unicode_ci
+    # Tối ưu hóa InnoDB để khởi động nhanh hơn
+    innodb_buffer_pool_size=512M
+    innodb_log_file_size=128M
+    innodb_doublewrite=0  # Tắt doublewrite buffer (chỉ dùng trong môi trường phát triển)
     [client]
     # default-character-set=utf8mb4
     [mysql]

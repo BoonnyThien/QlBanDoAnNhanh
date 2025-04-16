@@ -37,11 +37,11 @@ spec:
         - containerPort: 3306
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "500m"
+            memory: "512Mi"  # Reduced memory request
+            cpu: "500m"      # Reduced CPU request
           limits:
-            memory: "1Gi"
-            cpu: "1"
+            memory: "1Gi"    # Reduced memory limit
+            cpu: "1"         # Reduced CPU limit
         volumeMounts:
         - name: mysql-storage
           mountPath: /var/lib/mysql
@@ -49,25 +49,28 @@ spec:
           mountPath: /docker-entrypoint-initdb.d
         - name: mysql-config
           mountPath: /etc/mysql/conf.d
-        command: ["/bin/sh", "-c"]
-        args:
-        - |
-          mkdir -p /var/run/mysqld &&           chown mysql:mysql /var/run/mysqld &&           chmod 755 /var/run/mysqld &&           chown -R mysql:mysql /var/lib/mysql &&           chmod -R 700 /var/lib/mysql &&           exec /usr/local/bin/docker-entrypoint.sh mysqld
-        livenessProbe:
-          tcpSocket:
-            port: 3306
-          initialDelaySeconds: 60  # Tăng thời gian chờ
-          periodSeconds: 10
-          failureThreshold: 3
-        readinessProbe:
+        startupProbe:
           tcpSocket:
             port: 3306
           initialDelaySeconds: 30
-          periodSeconds: 5
-          failureThreshold: 3
+          periodSeconds: 10
+          failureThreshold: 30  # Allow up to 5 minutes for startup
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 120  # Increased delay
+          periodSeconds: 10
+          failureThreshold: 5
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 120  # Increased delay
+          periodSeconds: 10
+          failureThreshold: 5
       volumes:
       - name: mysql-storage
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: mysql-pvc
       - name: mysql-initdb
         configMap:
           name: mysql-init

@@ -1,3 +1,9 @@
+#!/bin/bash
+
+echo "🔧 Creating ConfigMap for MySQL connection settings..."
+
+# Create a temporary file with correct config
+cat > /tmp/db_connection.php << 'EOF'
 <?php
 // Hiển thị tất cả lỗi
 ini_set('display_errors', 1);
@@ -20,11 +26,11 @@ if (function_exists('mb_http_input')) {
 }
 
 try {
-    // Kết nối MySQL
+    // Kết nối MySQL - Updated to use the correct service name
     $mysqli = new mysqli(
-        "mysql-service",     // Tên service từ docker-compose.yml
-        "app_user",     // User đã khai báo
-        "userpass",     // Mật khẩu đã khai báo
+        "mysql",     // Updated service name in Kubernetes
+        "app_user",  // User đã khai báo
+        "userpass",  // Mật khẩu đã khai báo
         "qlbandoannhanh" // Database đã khai báo
     );
 
@@ -45,3 +51,13 @@ try {
     echo "<div style='color:red'>Lỗi: " . $e->getMessage() . "</div>";
 }
 ?>
+EOF
+
+# Create ConfigMap from file
+kubectl delete configmap php-db-config --ignore-not-found
+kubectl create configmap php-db-config --from-file=config.php=/tmp/db_connection.php
+
+echo "✅ Created ConfigMap php-db-config with correct MySQL connection settings"
+
+# Clean up
+rm /tmp/db_connection.php 
