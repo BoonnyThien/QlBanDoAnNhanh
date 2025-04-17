@@ -1,96 +1,152 @@
-# Triển khai Ứng dụng PHP và MySQL trên Kubernetes
+# 🚀 Hướng Dẫn Triển Khai Kubernetes
 
-Thư mục này chứa các tệp cấu hình Kubernetes và script để triển khai và quản lý ứng dụng PHP và MySQL trên cluster Kubernetes (Minikube).
+## 📋 Các File Quan Trọng
 
-## 🚀 Bắt đầu nhanh
+### 1. File Triển Khai Chính
+- `setup_and_repair.sh`: Script chính để cài đặt và sửa lỗi tự động
+- `setup-minikube.sh`: Cấu hình Minikube ban đầu
 
-Để triển khai ứng dụng với tất cả các vấn đề đã được sửa chữa, chạy:
+### 2. File Cấu Hình Cốt Lõi
+- `mysql-deployment.yaml`: Triển khai MySQL
+- `mysql-service.yaml`: Service cho MySQL
+- `php-deployment.yaml`: Triển khai PHP
+- `php-service.yaml`: Service cho PHP
+- `ingress.yaml`: Cấu hình Ingress
 
+### 3. File Bảo Mật
+- `rbac.yaml`: Phân quyền RBAC
+- `network-policies.yaml`: Chính sách mạng
+- `secrets.yaml`: Quản lý secrets
+
+### 4. File Lưu Trữ
+- `pv.yaml`: Persistent Volume
+- `pvc.yaml`: Persistent Volume Claim
+- `storageclass.yaml`: Storage Class
+
+### 5. File Giám Sát
+- `monitoring.yaml`: Cấu hình giám sát
+- `prometheus-operator.yaml`: Cài đặt Prometheus
+
+## 🛠️ Hướng Dẫn Sử Dụng
+
+### 1. Triển Khai Ban Đầu
 ```bash
-chmod +x k8s/setup-and-repair.sh
-./k8s/setup-and-repair.sh
+# Cấp quyền thực thi cho script
+chmod +x k8s/setup_and_repair.sh
+
+# Chạy script cài đặt
+./k8s/setup_and_repair.sh
 ```
 
-Script này sẽ:
-1. Kiểm tra và khởi động Minikube với giới hạn tài nguyên phù hợp (2 CPUs, 2GB RAM)
-2. Dọn dẹp các tài nguyên cũ
-3. Tạo tất cả các tài nguyên Kubernetes cần thiết
-4. Triển khai ứng dụng
-5. Cung cấp thông tin truy cập khi hoàn tất
+Script này sẽ tự động:
+- ✅ Kiểm tra và khởi động Minikube
+- ✅ Xóa tài nguyên cũ (nếu có)
+- ✅ Tạo Secret và ConfigMap
+- ✅ Triển khai MySQL và PHP
+- ✅ Cấu hình Ingress
 
-## 📁 Danh sách Script
+### 2. Kiểm Tra Trạng Thái
+```bash
+# Xem trạng thái pods
+kubectl get pods
 
-- `setup-and-repair.sh`: Script toàn diện để thiết lập và sửa tất cả các vấn đề
-- `install-monitoring.sh`: Script để cài đặt hệ thống giám sát Prometheus
+# Xem logs
+kubectl logs -l app=php
+kubectl logs -l app=mysql
+```
 
-## 🛠️ Thành phần triển khai
+### 3. Truy Cập Ứng Dụng
+```bash
+# Lấy URL ứng dụng
+minikube service php-service --url
+```
 
-- **Ứng dụng PHP**: Ứng dụng PHP đơn giản kết nối tới MySQL
-- **Cơ sở dữ liệu MySQL**: MySQL 8.0 với dữ liệu mẫu
-- **Dịch vụ**: ClusterIP cho MySQL và NodePort cho PHP
-- **Lưu trữ**: EmptyDir cho lưu trữ dữ liệu (đơn giản hóa so với PV/PVC)
-- **ConfigMaps**: Cho mã PHP và khởi tạo MySQL
-- **Secrets**: Cho thông tin đăng nhập MySQL
+## 🔒 Thiết Lập Bảo Mật
 
-## ⚠️ Các vấn đề đã sửa
+### 1. Áp Dụng RBAC
+```bash
+kubectl apply -f k8s/rbac.yaml
+```
 
-Script thiết lập đã sửa một số vấn đề trong triển khai ban đầu:
+### 2. Áp Dụng Network Policies
+```bash
+kubectl apply -f k8s/network-policies.yaml
+```
 
-1. **Cài đặt PDO MySQL**: Cài đặt trực tiếp extension PDO MySQL trong container PHP
-2. **Lưu trữ đơn giản hóa**: Sử dụng emptyDir thay vì PVC để tránh các vấn đề về PV/PVC
-3. **Deployment thay vì StatefulSet**: Đơn giản hóa triển khai MySQL
-4. **Kiểm tra trạng thái Minikube**: Đảm bảo Minikube hoạt động trước khi triển khai
-5. **Logs chi tiết**: Hiển thị logs khi có lỗi để dễ dàng khắc phục
+### 3. Quản Lý Secrets
+```bash
+kubectl apply -f k8s/secrets.yaml
+```
 
-## 📊 Giám sát
+## 📊 Cài Đặt Giám Sát
 
-Để triển khai các thành phần giám sát:
-
+### 1. Triển Khai Prometheus & Grafana
 ```bash
 chmod +x k8s/install-monitoring.sh
 ./k8s/install-monitoring.sh
 ```
 
-Việc này sẽ cài đặt:
-- Prometheus Operator CRDs
-- Máy chủ Prometheus với giới hạn tài nguyên phù hợp
-- Giao diện Prometheus
-
-## 📋 Các bước kiểm tra thủ công
-
-Sau khi triển khai, kiểm tra cài đặt:
-
+### 2. Truy Cập Dashboard
 ```bash
-# Kiểm tra tất cả tài nguyên
-kubectl get all
-
-# Kiểm tra trạng thái pod
-kubectl get pods
-
-# Truy cập ứng dụng PHP
-minikube service php-service
-
-# Kết nối tới MySQL
-kubectl exec -it $(kubectl get pods -l app=mysql -o jsonpath='{.items[0].metadata.name}') -- mysql -uroot -prootpassword
+# Mở Grafana dashboard
+kubectl port-forward svc/grafana 3000:3000
 ```
 
-## 🔄 Xử lý sự cố
+## 🔍 Xử Lý Sự Cố
+
+### 1. Pod Không Khởi Động
+```bash
+# Kiểm tra chi tiết pod
+kubectl describe pod <tên-pod>
+
+# Xem logs
+kubectl logs <tên-pod>
+```
+
+### 2. Lỗi Kết Nối MySQL
+```bash
+# Kiểm tra service
+kubectl get svc mysql-service
+
+# Kiểm tra endpoints
+kubectl get endpoints mysql-service
+```
+
+### 3. Lỗi Persistent Volume
+```bash
+# Kiểm tra trạng thái PV/PVC
+kubectl get pv,pvc
+```
+
+## 📝 Lưu Ý Quan Trọng
+
+1. **Yêu Cầu Hệ Thống**
+   - Minikube v1.20+
+   - Kubectl v1.20+
+   - Docker 20.10+
+
+2. **Tài Nguyên Tối Thiểu**
+   - CPU: 2 cores
+   - RAM: 4GB
+   - Disk: 20GB
+
+3. **Ports Sử Dụng**
+   - 80: HTTP
+   - 3306: MySQL
+   - 9090: Prometheus
+   - 3000: Grafana
+
+## 🆘 Hỗ Trợ
 
 Nếu gặp vấn đề:
+1. Chạy script sửa lỗi: `./k8s/fix-all.sh`
+2. Kiểm tra logs: `kubectl logs -l app=<tên-app>`
+3. Xem events: `kubectl get events --sort-by=.metadata.creationTimestamp`
 
-1. Kiểm tra trạng thái pod: `kubectl get pods`
-2. Xem chi tiết pod: `kubectl describe pod <tên-pod>`
-3. Xem logs: `kubectl logs <tên-pod>`
-4. Khởi động lại triển khai: `./k8s/fix-all-issues.sh`
+## 🔄 Quy Trình Khôi Phục
 
-## 🧪 Kiểm tra ứng dụng
-
-Ứng dụng PHP sẽ hiển thị:
-- Thông điệp chào mừng
-- Trạng thái kết nối MySQL
-- Danh mục sản phẩm từ cơ sở dữ liệu
-- Thông tin cấu hình PHP
-
-Cơ sở dữ liệu MySQL bao gồm:
-- Bảng mẫu (categories, products)
-- Dữ liệu mẫu cho kiểm thử 
+Nếu hệ thống gặp sự cố:
+1. Sao lưu dữ liệu: `./k8s/backup-restore.sh backup`
+2. Xóa triển khai hiện tại: `kubectl delete -f k8s/`
+3. Chạy lại script cài đặt: `./k8s/setup_and_repair.sh`
+4. Khôi phục dữ liệu: `./k8s/backup-restore.sh restore` 

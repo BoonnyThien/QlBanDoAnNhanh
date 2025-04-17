@@ -22,7 +22,7 @@ if (function_exists('mb_http_input')) {
 try {
     // Kết nối MySQL
     $mysqli = new mysqli(
-        "mysql_db",     // Tên service từ docker-compose.yml
+        "mysql-service",     // Tên service từ docker-compose.yml
         "app_user",     // User đã khai báo
         "userpass",     // Mật khẩu đã khai báo
         "qlbandoannhanh" // Database đã khai báo

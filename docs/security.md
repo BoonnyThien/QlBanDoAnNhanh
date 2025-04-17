@@ -157,6 +157,9 @@ echo "✅ Hoàn tất triển khai bảo mật!"
 
 ## Kiểm tra Bảo mật
 ```bash
+#Kiểm trả các bảo mật
+chmod +x k8s/container-security.sh
+./k8s/container-security.sh
 # Kiểm tra RBAC
 kubectl auth can-i --as system:serviceaccount:default:php-app-sa get pods
 
