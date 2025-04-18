@@ -167,7 +167,7 @@ kubectl get configmap mysql-init > /dev/null 2>&1 || {
 }
 echo "✅ ConfigMap mysql-init đã được tạo thành công."
 
-# Bước 7: Tạo ConfigMap cho cấu hình MySQL (tối ưu hóa)
+# Bước 7: Tạo ConfigMap cho cấu hình MySQL (tối ưu hóa) ,,
 echo "🔧 7. Tạo ConfigMap cho cấu hình MySQL..."
 if kubectl get configmap mysql-config -n default > /dev/null 2>&1; then
   if [ "$FORCE_RECREATE" = "true" ]; then
