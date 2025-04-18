@@ -87,7 +87,7 @@ kubectl create secret generic mysql-secret \
 echo "✅ Secret mysql-secret đã được tạo."
 
 # 4. Kiểm tra khả năng kéo Docker image từ Docker Hub
-echo "📦 4.Kiểm tra khả năng kéo Docker image từ Docker Hub..."
+echo "📦 4. Kiểm tra khả năng kéo Docker image từ Docker Hub..."
 docker pull buithienboo/qlbandoannhanh-php-app:1.1 || {
     echo "❌ Không thể kéo image buithienboo/qlbandoannhanh-php-app:1.1 từ Docker Hub."
     echo "🔍 Vui lòng kiểm tra kết nối mạng hoặc xác nhận image tồn tại trên Docker Hub."
@@ -95,8 +95,8 @@ docker pull buithienboo/qlbandoannhanh-php-app:1.1 || {
 }
 echo "✅ Đã kéo thành công image buithienboo/qlbandoannhanh-php-app:1.1"
 
-# 5. Kiểm tra nội dung image (tùy chọn, để đảm bảo image chứa mã nguồn)
-echo "🔍 5.Kiểm tra nội dung image buithienboo/qlbandoannhanh-php-app:1.1..."
+# 5. Kiểm tra nội dung image
+echo "🔍 5. Kiểm tra nội dung image buithienboo/qlbandoannhanh-php-app:1.1..."
 docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/index.php" > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "✅ File index.php tồn tại trong image tại /var/www/html/"
@@ -107,7 +107,6 @@ else
     exit 1
 fi
 
-# Kiểm tra file SQL trong image
 docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/database/qlbandoannhanh.sql" > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "✅ File qlbandoannhanh.sql tồn tại trong image tại /var/www/html/database/"
@@ -117,28 +116,47 @@ else
     docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/database/"
     exit 1
 fi
-
 echo "✅ Đã kiểm tra thành công nội dung image buithienboo/qlbandoannhanh-php-app:1.1"
 
-# 6. Tạo ConfigMap cho khởi tạo MySQL từ file trên WSL
-echo "📦 6. Tạo ConfigMap cho khởi tạo MySQL từ file trên WSL..."
+# 6. Tạo ConfigMap cho khởi tạo MySQL từ file trong image Docker Hub
+echo "📦 6. Tạo ConfigMap cho khởi tạo MySQL từ file trong image..."
+echo "🔍 Trích xuất file qlbandoannhanh.sql từ image buithienboo/qlbandoannhanh-php-app:1.1..."
 
-# Kiểm tra file qlbandoannhanh.sql có tồn tại không
-sql_file_path="phpCode/database/qlbandoannhanh.sql"
+# Tạo thư mục tạm để lưu file .sql
+temp_dir=$(mktemp -d)
+sql_file_path="$temp_dir/qlbandoannhanh.sql"
+
+# Trích xuất file .sql từ image
+docker run --rm buithienboo/qlbandoannhanh-php-app:1.1 cat /var/www/html/database/qlbandoannhanh.sql > "$sql_file_path" || {
+    echo "❌ Không thể trích xuất file qlbandoannhanh.sql từ image."
+    rm -rf "$temp_dir"
+    exit 1
+}
+
+# Kiểm tra file .sql đã trích xuất
 if [ -f "$sql_file_path" ]; then
-    echo "🔍 File $sql_file_path tồn tại, đang tạo ConfigMap..."
-    # Xóa ConfigMap cũ nếu tồn tại
-    kubectl delete configmap mysql-init --ignore-not-found || {
-        echo "⚠️ Không thể xóa ConfigMap mysql-init cũ, nhưng tiếp tục..."
-    }
-    kubectl create configmap mysql-init --from-file=qlbandoannhanh.sql=$sql_file_path || {
-        echo "❌ Không thể tạo ConfigMap mysql-init."
-        exit 1
-    }
+    echo "✅ File qlbandoannhanh.sql đã được trích xuất thành công tại $sql_file_path"
 else
-    echo "❌ File $sql_file_path không tồn tại."
+    echo "❌ File qlbandoannhanh.sql không được trích xuất."
+    rm -rf "$temp_dir"
     exit 1
 fi
+
+# Xóa ConfigMap cũ nếu tồn tại
+kubectl delete configmap mysql-init --ignore-not-found || {
+    echo "⚠️ Không thể xóa ConfigMap mysql-init cũ, nhưng tiếp tục..."
+}
+
+# Tạo ConfigMap từ file .sql đã trích xuất
+kubectl create configmap mysql-init --from-file=qlbandoannhanh.sql="$sql_file_path" || {
+    echo "❌ Không thể tạo ConfigMap mysql-init."
+    rm -rf "$temp_dir"
+    exit 1
+}
+
+# Xóa thư mục tạm
+rm -rf "$temp_dir"
+echo "✅ Đã xóa file tạm và thư mục $temp_dir"
 
 # Kiểm tra ConfigMap vừa tạo
 echo "🔍 Kiểm tra ConfigMap mysql-init..."
@@ -147,7 +165,6 @@ kubectl get configmap mysql-init > /dev/null 2>&1 || {
     kubectl describe configmap mysql-init
     exit 1
 }
-
 echo "✅ ConfigMap mysql-init đã được tạo thành công."
 
 # Bước 7: Tạo ConfigMap cho cấu hình MySQL (tối ưu hóa)
