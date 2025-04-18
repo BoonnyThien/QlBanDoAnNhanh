@@ -7,8 +7,9 @@ Thư mục này chứa các tệp cấu hình Kubernetes và script để triể
 Để triển khai ứng dụng với tất cả các vấn đề đã được sửa chữa, chạy:
 
 ```bash
-chmod +x k8s/setup-and-repair.sh
-./k8s/setup-and-repair.sh
+sudo apt-get install dos2unix  # Nếu chưa có
+chmod +x k8s/setup_and_repair.sh
+./k8s/setup_and_repair.sh
 ```
 
 Script này sẽ:
@@ -20,7 +21,7 @@ Script này sẽ:
 
 ## 📁 Danh sách Script
 
-- `setup-and-repair.sh`: Script toàn diện để thiết lập và sửa tất cả các vấn đề
+- `setup_and_repair.sh`: Script toàn diện để thiết lập và sửa tất cả các vấn đề
 - `install-monitoring.sh`: Script để cài đặt hệ thống giám sát Prometheus
 
 ## 🛠️ Thành phần triển khai

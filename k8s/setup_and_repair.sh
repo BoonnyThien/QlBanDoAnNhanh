@@ -8,7 +8,7 @@ if [ "$minikube_status" != "Running" ]; then
     echo "Minikube không chạy, khởi động lại..."
     minikube stop 2>/dev/null || true
     minikube delete --purge 2>/dev/null || true
-    minikube start --driver=docker --memory=8192 --cpus=4 --addons=ingress
+    minikube start --driver=docker --memory=2200 --cpus=4 --addons=ingress
     # Không cần mount thư mục nữa vì mã nguồn đã nằm trong Docker image
     # Đảm bảo quyền cho thư mục minikube
     [ -d ~/.minikube ] && chmod -R 755 ~/.minikube
@@ -74,16 +74,40 @@ while [ $attempt -le $max_attempts ]; do
 done
 
 # 3. Tạo Secret cho MySQL
-echo "🔒 3.Tạo MySQL Secret..."
-echo "🔐 Kiểm tra và cập nhật Secret mysql-secret..."
+echo "🔒 3. Tạo MySQL Secret..."
+
+# Xóa Secret cũ nếu tồn tại
 kubectl delete secret mysql-secret -n default --ignore-not-found
-kubectl create secret generic mysql-secret \
-  --from-literal=root-password='your-root-password' \
-  --from-literal=username='app_user' \
-  --from-literal=user-password='userpass' -n default || {
-    echo "❌ Không thể tạo Secret mysql-secret."
-    exit 1
-  }
+
+# Tạo file YAML tạm thời
+cat <<EOF > mysql-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: default
+type: Opaque
+data:
+  root-password: $(echo -n 'rootpass' | base64)
+  user-password: $(echo -n 'userpass' | base64)
+EOF
+
+# Áp dụng Secret
+kubectl apply -f mysql-secret.yaml || {
+  echo "❌ Không thể tạo Secret mysql-secret."
+  exit 1
+}
+
+# Xóa file tạm
+rm mysql-secret.yaml
+
+# Kiểm tra Secret
+echo "🔍 Kiểm tra Secret mysql-secret..."
+kubectl get secret mysql-secret -o yaml || {
+  echo "❌ Không thể lấy thông tin Secret mysql-secret."
+  exit 1
+}
+
 echo "✅ Secret mysql-secret đã được tạo."
 
 # 4. Kiểm tra khả năng kéo Docker image từ Docker Hub
