@@ -8,6 +8,8 @@ Thư mục này chứa các tệp cấu hình Kubernetes và script để triể
 
 ```bash
 sudo apt-get install dos2unix  # Nếu chưa có
+find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
+
 chmod +x k8s/setup_and_repair.sh
 ./k8s/setup_and_repair.sh
 ```
@@ -72,7 +74,13 @@ kubectl get pods
 minikube service php-service
 
 # Kết nối tới MySQL
-kubectl exec -it $(kubectl get pods -l app=mysql -o jsonpath='{.items[0].metadata.name}') -- mysql -uroot -prootpassword
+kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -p
+```
+Nhập mật khẩu root (mặc định: rootpass, từ Secret mysql-secret).
+VD
+```
+USE qlbandoannhanh;
+SHOW TABLES;
 ```
 
 ## 🔄 Xử lý sự cố
@@ -83,6 +91,28 @@ Nếu gặp vấn đề:
 2. Xem chi tiết pod: `kubectl describe pod <tên-pod>`
 3. Xem logs: `kubectl logs <tên-pod>`
 4. Khởi động lại triển khai: `./k8s/fix-all-issues.sh`
+5. Thiếu dữ liệu database : 
+ `kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -prootpass qlbandoannhanh < qlbandoannhanh.sql`
+6 Check đủ bảng :
+ `kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -prootpass -e "USE qlbandoannhanh; SHOW TABLES;"`
+```bash
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------------------+
+| Tables_in_qlbandoannhanh |
++--------------------------+
+| tbl_admin                |
+| tbl_baiviet              |
+| tbl_cart_details         |
+| tbl_cart_registered      |
+| tbl_cart_unregistered    |
+| tbl_comments             |
+| tbl_dangky               |
+| tbl_danhmuc              |
+| tbl_phanhoi              |
+| tbl_sanpham              |
+| tbl_thongke              |
++--------------------------+
+```
 
 ## 🧪 Kiểm tra ứng dụng
 

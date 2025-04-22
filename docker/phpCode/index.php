@@ -31,7 +31,8 @@
 <body>
     <div id="wrapper">
         <?php 
-            include("admin/config/config.php");
+            require_once __DIR__ . '/admin/config/config.php';
+            // include("admin/config/config.php");
             include("pages/navtop.php");
             include("pages/navmenu.php");
             include("pages/main.php");

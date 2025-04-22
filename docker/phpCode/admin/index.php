@@ -47,7 +47,7 @@ $admin_base = $base_url . '/admin/';
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <?php
-        include("config/config.php");
+        require_once __DIR__ . '/config/config.php';
         include("modules/header.php");
         include("modules/main.php");
         ?>

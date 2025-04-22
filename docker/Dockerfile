@@ -46,6 +46,9 @@ RUN test -f /var/www/html/index.php || (echo "ERROR: index.php not found in /var
     && test -d /var/www/html/database || (echo "ERROR: database directory not found in /var/www/html" && exit 1) \
     && test -f /var/www/html/database/qlbandoannhanh.sql || (echo "ERROR: qlbandoannhanh.sql not found in /var/www/html/database" && exit 1)
 
+# 11.Copy cấu hình charset
+COPY utf8.cnf /etc/mysql/conf.d/utf8.cnf
+
 EXPOSE 80
 
 CMD ["apache2-foreground"]

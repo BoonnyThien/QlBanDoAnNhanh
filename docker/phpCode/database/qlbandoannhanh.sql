@@ -6,8 +6,8 @@ GRANT ALL PRIVILEGES ON qlbandoannhanh.* TO 'app_user'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 -- Tạo cơ sở dữ liệu với mã hóa UTF-8 để hỗ trợ tiếng Việt
-CREATE DATABASE IF NOT EXISTS qlbandoannhanh 
-CHARACTER SET utf8mb4 
+CREATE DATABASE IF NOT EXISTS qlbandoannhanh
+CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
 -- Sử dụng cơ sở dữ liệu
@@ -16,7 +16,8 @@ USE qlbandoannhanh;
 -- Kiểm tra quyền của user (tùy chọn, để debug)
 SHOW GRANTS FOR 'app_user'@'%';
 
-CREATE TABLE `tbl_admin` (
+-- Tạo các bảng không có khóa ngoại trước
+CREATE TABLE IF NOT EXISTS`tbl_admin` (
   `id_admin` int(11) NOT NULL AUTO_INCREMENT,
   `nameadmin` varchar(200) NOT NULL,
   `username` varchar(100) NOT NULL,
@@ -30,7 +31,7 @@ INSERT INTO `tbl_admin` (`id_admin`, `nameadmin`, `username`, `password`, `admin
 (2, 'Thái Văn Hà', 'vanha', '$2y$10$W4gZ5hX9xJ9eXz5gX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5e', 1),
 (3, 'Đặng Phương Dung', 'pdung', '$2y$10$W4gZ5hX9xJ9eXz5gX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5e', 1);
 
-CREATE TABLE `tbl_baiviet` (
+CREATE TABLE IF NOT EXISTS`tbl_baiviet` (
   `id_baiviet` int(11) NOT NULL AUTO_INCREMENT,
   `tieude` varchar(250) NOT NULL,
   `img_baiviet` varchar(100) NOT NULL,
@@ -40,78 +41,7 @@ CREATE TABLE `tbl_baiviet` (
   PRIMARY KEY (`id_baiviet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `tbl_cart_details` (
-  `id_cart_details` int(11) NOT NULL AUTO_INCREMENT,
-  `code_cart` varchar(20) NOT NULL,
-  `id_sp` int(11) NOT NULL,
-  `soluongmua` int(11) NOT NULL,
-  PRIMARY KEY (`id_cart_details`),
-  KEY `id_sp` (`id_sp`),
-  CONSTRAINT `tbl_cart_details_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `tbl_cart_details` (`id_cart_details`, `code_cart`, `id_sp`, `soluongmua`) VALUES
-(1, '2366', 1, 1),
-(2, '7877', 2, 1),
-(3, '8851', 3, 1),
-(4, '8851', 1, 1),
-(5, '3959', 2, 2),
-(6, '3959', 1, 1),
-(7, '6223', 2, 1),
-(8, '6375', 3, 1),
-(9, '4459', 4, 1),
-(10, '9665', 2, 1),
-(11, '2477', 19, 1),
-(12, '4749', 9, 1),
-(13, '7138', 1, 1),
-(14, '4515', 1, 1),
-(15, '2520', 1, 1),
-(16, '1610', 9, 1),
-(17, '7777', 3, 1),
-(18, '59', 4, 1),
-(19, '3011', 2, 1),
-(20, '3011', 3, 1),
-(21, '3011', 12, 1),
-(22, '4481', 9, 1),
-(23, '4481', 10, 1),
-(24, '4481', 11, 1),
-(25, '6933', 20, 1),
-(26, '6933', 23, 1),
-(27, '3809', 4, 1),
-(28, '6219', 2, 1),
-(29, '8610', 1, 1),
-(30, '3333', 2, 1),
-(31, '3333', 3, 1),
-(32, '3333', 11, 1),
-(33, '1853', 38, 2),
-(34, '1853', 22, 1);
-
-CREATE TABLE `tbl_cart_registered` (
-  `id_cart_registered` int(11) NOT NULL AUTO_INCREMENT,
-  `id_khachhang` int(11) NOT NULL,
-  `code_cart` varchar(20) NOT NULL,
-  `cart_status` int(11) NOT NULL,
-  `cart_date` DATETIME,
-  PRIMARY KEY (`id_cart_registered`),
-  KEY `id_khachhang` (`id_khachhang`),
-  CONSTRAINT `tbl_cart_registered_ibfk_1` FOREIGN KEY (`id_khachhang`) REFERENCES `tbl_dangky` (`id_khachhang`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `tbl_cart_registered` (`id_cart_registered`, `id_khachhang`, `code_cart`, `cart_status`, `cart_date`) VALUES
-(7, 4, '2366', 0, NULL),
-(9, 5, '7877', 0, NULL),
-(12, 8, '6223', 0, '2021-12-05 09:53:22'),
-(13, 8, '6375', 0, '2021-12-05 09:53:58'),
-(18, 9, '2477', 0, '2021-12-07 07:58:44'),
-(19, 9, '4749', 0, '2021-12-07 08:02:32'),
-(20, 9, '7138', 0, '2021-12-07 08:11:12'),
-(21, 9, '4515', 0, '2021-12-07 08:16:10'),
-(22, 9, '2520', 0, '2021-12-07 08:17:13'),
-(23, 10, '3011', 0, '2021-12-15 00:00:00'),
-(24, 10, '4481', 0, '2021-12-15 00:00:00'),
-(25, 10, '6933', 0, '2021-12-15 00:00:00');
-
-CREATE TABLE `tbl_cart_unregistered` (
+CREATE TABLE IF NOT EXISTS`tbl_cart_unregistered` (
   `id_cart_unregistered` int(11) NOT NULL AUTO_INCREMENT,
   `tenkh` varchar(250) NOT NULL,
   `diachi` varchar(250) NOT NULL,
@@ -137,32 +67,46 @@ INSERT INTO `tbl_cart_unregistered` (`id_cart_unregistered`, `tenkh`, `diachi`, 
 (15, 'Thái Văn Hà', 'NA', '0372216266', 'thaivanha739@gmail.com', 'sioufgbws', '9964', 0, '2021-12-07 08:22:39'),
 (16, 'fsfsdf', 'sdfsdfdsf', 'fsdf', 'sdfsdfdsf', 'sdfsdfdsfsd', '7777', 0, '2021-12-15 00:00:00'),
 (17, 'Đặng Phương Dung', 'NA', '0213544684', 'pdung@gmail.com', 'ship nhanh nha shop', '59', 0, '2021-12-15 00:00:00'),
-(18, 'tesst', 'test', 'test', 'test', 'test\nDòng thứ hai\nDòng thứ ba', '3809', 0, '2021-12-15 00:00:00'),
+(18, 'tesst', 'test', 'test', 'tesst', 'test\nDòng thứ hai\nDòng thứ ba', '3809', 0, '2021-12-15 00:00:00'),
 (19, 'test', 'test', 'test', 'test', 'ship nhanh nhé shop', '6219', 0, '2021-12-16 00:00:00'),
 (20, 'tesst', 'tesst', 'test', 'tesst', '', '8610', 0, '2021-12-16 00:00:00'),
 (21, 'Lưu Công Lộc', 'Nam Định', '02464126545', 'locluu@gmail.com', 'Ship nhanh nhé shop', '3333', 0, '2021-12-18 00:00:00'),
 (22, 'test11', 'qn', '012424141', 'gj@gmail.com', 'Nhanh cần ăn gấp', '1853', 1, '2024-10-30 00:00:00');
 
-CREATE TABLE `tbl_comments` (
-  `id_cmt` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) NOT NULL,
-  `name_email` varchar(250) NOT NULL,
-  `noidung` longtext NOT NULL,
-  `id_sp` int(11) NOT NULL,
-  PRIMARY KEY (`id_cmt`),
-  KEY `id_sp` (`id_sp`),
-  CONSTRAINT `tbl_comments_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE IF NOT EXISTS`tbl_danhmuc` (
+  `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT,
+  `tendanhmuc` varchar(200) NOT NULL,
+  `thutu` int(10) NOT NULL,
+  PRIMARY KEY (`id_danhmuc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `tbl_comments` (`id_cmt`, `name`, `name_email`, `noidung`, `id_sp`) VALUES
-(2, 'Dino', 'dino@gmail.com', 'Hàng rất là ngon nha Shop. Ship hàng nhanh gọn', 2),
-(3, 'Văn Hà', 'hangu@gmail.com', 'Sản phẩm rất tốt', 1),
-(5, 'locdz', 'locdz@gmail.com', 'hàng rất tốt', 2),
-(6, 'binhdz', 'binhdz@gmail.com', 'hàng ship nhanh', 2),
-(7, 'Hà dz', 'hadz@gmail.com', 'sản phẩm rất tốt nha shop <3', 1),
-(11, 'huy', 'huy@gmail.com', 'hàng tuyệt vời', 1);
+INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `tendanhmuc`, `thutu`) VALUES
+(1, 'Burger & Sandwiches', 1),
+(2, 'Pizza', 2),
+(3, 'Fried Chicken & Nuggets', 3),
+(4, 'Drinks & Desserts', 4),
+(5, 'Combo Meal', 5);
 
-CREATE TABLE `tbl_dangky` (
+CREATE TABLE IF NOT EXISTS`tbl_phanhoi` (
+  `id_ph` int(11) NOT NULL AUTO_INCREMENT,
+  `hoten` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `noidung` longtext NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id_ph`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `tbl_phanhoi` (`id_ph`, `hoten`, `email`, `noidung`, `status`) VALUES
+(2, 'test', 'test@gmail.com', 'test', 0),
+(3, 'test', 'test@gmail.com', 'test', 0),
+(4, 'test', 'test@gmail.com', 'test', 0),
+(5, 'hello', 'hello@gmail.com', 'hello', 0),
+(6, 'test', 'test@gmail.com', 'test', 0),
+(7, 'Hiep', 'a@gmail.com', 'Đồ ăn ngon', 0),
+(8, 'test0001', 'a@gmail.com', 'do an ngon', 1),
+(9, 'Hiep1111', 'a@gmail.com', 'Ngon ', 1);
+
+CREATE TABLE IF NOT EXISTS`tbl_dangky` (
   `id_khachhang` int(11) NOT NULL AUTO_INCREMENT,
   `tenkhachhang` varchar(250) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -186,40 +130,23 @@ INSERT INTO `tbl_dangky` (`id_khachhang`, `tenkhachhang`, `email`, `diachi`, `ma
 (14, 'admin', 'admin@gmail.com', 'QN', '$2y$10$W4gZ5hX9xJ9eXz5gX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5e', '195713985'),
 (15, 'thai anh', 'thaianh@gmail.com', 'Ha Noi', '$2y$10$W4gZ5hX9xJ9eXz5gX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5eX5e', '12323');
 
-CREATE TABLE `tbl_danhmuc` (
-  `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT,
-  `tendanhmuc` varchar(200) NOT NULL,
-  `thutu` int(10) NOT NULL,
-  PRIMARY KEY (`id_danhmuc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS`tbl_thongke` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ngaydat` DATE NOT NULL,
+  `donhang` int(11) NOT NULL,
+  `doanhthu` varchar(100) NOT NULL,
+  `soluongban` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `tendanhmuc`, `thutu`) VALUES
-(1, 'Burger & Sandwiches', 1),
-(2, 'Pizza', 2),
-(3, 'Fried Chicken & Nuggets', 3),
-(4, 'Drinks & Desserts', 4),
-(5, 'Combo Meal', 5);
+INSERT INTO `tbl_thongke` (`id`, `ngaydat`, `donhang`, `doanhthu`, `soluongban`) VALUES
+(2, '2024-11-06', 30, '2000', 30),
+(4, '2024-11-06', 9, '5000', 3),
+(6, '2024-11-06', 6, '25100', 11),
+(7, '2024-11-06', 2, '9000', 2);
 
-CREATE TABLE `tbl_phanhoi` (
-  `id_ph` int(11) NOT NULL AUTO_INCREMENT,
-  `hoten` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `noidung` longtext NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id_ph`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `tbl_phanhoi` (`id_ph`, `hoten`, `email`, `noidung`, `status`) VALUES
-(2, 'test', 'test@gmail.com', 'test', 0),
-(3, 'test', 'test@gmail.com', 'test', 0),
-(4, 'test', 'test@gmail.com', 'test', 0),
-(5, 'hello', 'hello@gmail.com', 'hello', 0),
-(6, 'test', 'test@gmail.com', 'test', 0),
-(7, 'Hiep', 'a@gmail.com', 'Đồ ăn ngon', 0),
-(8, 'test0001', 'a@gmail.com', 'do an ngon', 1),
-(9, 'Hiep1111', 'a@gmail.com', 'Ngon ', 1);
-
-CREATE TABLE `tbl_sanpham` (
+-- Tạo các bảng có khóa ngoại
+CREATE TABLE IF NOT EXISTS`tbl_sanpham` (
   `id_sp` int(11) NOT NULL AUTO_INCREMENT,
   `tensp` varchar(1200) NOT NULL,
   `masp` varchar(50) NOT NULL,
@@ -276,19 +203,94 @@ INSERT INTO `tbl_sanpham` (`id_sp`, `tensp`, `masp`, `giasp`, `gia_sale`, `hinha
 (40, 'Combo Food 2', 'spk07', '3000', '0', '1730276271_food2.jpg', 'Combo 2 là một phần ăn nhanh tiện lợi, thường bao gồm các món cơ bản và phổ biến như:\n\nMón chính: Một burger bò hoặc gà với phô mai, xà lách, cà chua và sốt đặc trưng.\nMón phụ: Khoai tây chiên giòn, kèm sốt cà chua hoặc sốt phô mai.\nĐồ uống: Một ly nước ngọt hoặc nước lọc.', 1, 5),
 (41, 'Combo FastFood 1', 'spk08', '3000', '1000', '1730276282_food1.jpg', 'Combo 1 là một phần ăn nhanh tiện lợi, thường bao gồm các món cơ bản và phổ biến như:\n\nMón chính: Một burger bò hoặc gà với phô mai, xà lách, cà chua và sốt đặc trưng.\nMón phụ: Khoai tây chiên giòn, kèm sốt cà chua hoặc sốt phô mai.\nĐồ uống: Một ly nước ngọt hoặc nước lọc.', 1, 5);
 
-CREATE TABLE `tbl_thongke` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ngaydat` DATE NOT NULL,
-  `donhang` int(11) NOT NULL,
-  `doanhthu` varchar(100) NOT NULL,
-  `soluongban` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE IF NOT EXISTS`tbl_cart_details` (
+  `id_cart_details` int(11) NOT NULL AUTO_INCREMENT,
+  `code_cart` varchar(20) NOT NULL,
+  `id_sp` int(11) NOT NULL,
+  `soluongmua` int(11) NOT NULL,
+  PRIMARY KEY (`id_cart_details`),
+  KEY `id_sp` (`id_sp`),
+  CONSTRAINT `tbl_cart_details_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `tbl_thongke` (`id`, `ngaydat`, `donhang`, `doanhthu`, `soluongban`) VALUES
-(2, '2024-11-06', 30, '2000', 30),
-(4, '2024-11-06', 9, '5000', 3),
-(6, '2024-11-06', 6, '25100', 11),
-(7, '2024-11-06', 2, '9000', 2);
+INSERT INTO `tbl_cart_details` (`id_cart_details`, `code_cart`, `id_sp`, `soluongmua`) VALUES
+(1, '2366', 1, 1),
+(2, '7877', 2, 1),
+(3, '8851', 3, 1),
+(4, '8851', 1, 1),
+(5, '3959', 2, 2),
+(6, '3959', 1, 1),
+(7, '6223', 2, 1),
+(8, '6375', 3, 1),
+(9, '4459', 4, 1),
+(10, '9665', 2, 1),
+(11, '2477', 19, 1),
+(12, '4749', 9, 1),
+(13, '7138', 1, 1),
+(14, '4515', 1, 1),
+(15, '2520', 1, 1),
+(16, '1610', 9, 1),
+(17, '7777', 3, 1),
+(18, '59', 4, 1),
+(19, '3011', 2, 1),
+(20, '3011', 3, 1),
+(21, '3011', 12, 1),
+(22, '4481', 9, 1),
+(23, '4481', 10, 1),
+(24, '4481', 11, 1),
+(25, '6933', 20, 1),
+(26, '6933', 23, 1),
+(27, '3809', 4, 1),
+(28, '6219', 2, 1),
+(29, '8610', 1, 1),
+(30, '3333', 2, 1),
+(31, '3333', 3, 1),
+(32, '3333', 11, 1),
+(33, '1853', 38, 2),
+(34, '1853', 22, 1);
+
+CREATE TABLE IF NOT EXISTS`tbl_comments` (
+  `id_cmt` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `name_email` varchar(250) NOT NULL,
+  `noidung` longtext NOT NULL,
+  `id_sp` int(11) NOT NULL,
+  PRIMARY KEY (`id_cmt`),
+  KEY `id_sp` (`id_sp`),
+  CONSTRAINT `tbl_comments_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `tbl_comments` (`id_cmt`, `name`, `name_email`, `noidung`, `id_sp`) VALUES
+(2, 'Dino', 'dino@gmail.com', 'Hàng rất là ngon nha Shop. Ship hàng nhanh gọn', 2),
+(3, 'Văn Hà', 'hangu@gmail.com', 'Sản phẩm rất tốt', 1),
+(5, 'locdz', 'locdz@gmail.com', 'hàng rất tốt', 2),
+(6, 'binhdz', 'binhdz@gmail.com', 'hàng ship nhanh', 2),
+(7, 'Hà dz', 'hadz@gmail.com', 'sản phẩm rất tốt nha shop <3', 1),
+(11, 'huy', 'huy@gmail.com', 'hàng tuyệt vời', 1);
+
+CREATE TABLE IF NOT EXISTS`tbl_cart_registered` (
+  `id_cart_registered` int(11) NOT NULL AUTO_INCREMENT,
+  `id_khachhang` int(11) NOT NULL,
+  `code_cart` varchar(20) NOT NULL,
+  `cart_status` int(11) NOT NULL,
+  `cart_date` DATETIME,
+  PRIMARY KEY (`id_cart_registered`),
+  KEY `id_khachhang` (`id_khachhang`),
+  CONSTRAINT `tbl_cart_registered_ibfk_1` FOREIGN KEY (`id_khachhang`) REFERENCES `tbl_dangky` (`id_khachhang`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `tbl_cart_registered` (`id_cart_registered`, `id_khachhang`, `code_cart`, `cart_status`, `cart_date`) VALUES
+(7, 4, '2366', 0, NULL),
+(9, 5, '7877', 0, NULL),
+(12, 8, '6223', 0, '2021-12-05 09:53:22'),
+(13, 8, '6375', 0, '2021-12-05 09:53:58'),
+(18, 9, '2477', 0, '2021-12-07 07:58:44'),
+(19, 9, '4749', 0, '2021-12-07 08:02:32'),
+(20, 9, '7138', 0, '2021-12-07 08:11:12'),
+(21, 9, '4515', 0, '2021-12-07 08:16:10'),
+(22, 9, '2520', 0, '2021-12-07 08:17:13'),
+(23, 10, '3011', 0, '2021-12-15 00:00:00'),
+(24, 10, '4481', 0, '2021-12-15 00:00:00'),
+(25, 10, '6933', 0, '2021-12-15 00:00:00');
 
 COMMIT;
