@@ -6,6 +6,7 @@ GRANT ALL PRIVILEGES ON qlbandoannhanh.* TO 'app_user'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 -- Tạo cơ sở dữ liệu với mã hóa UTF-8 để hỗ trợ tiếng Việt
+DROP DATABASE IF EXISTS qlbandoannhanh;
 CREATE DATABASE IF NOT EXISTS qlbandoannhanh
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;

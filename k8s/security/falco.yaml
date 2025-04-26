@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: falco
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: falco-config
+  namespace: falco
+data:
+  falco.yaml: |
+    json_output: true
+    http_output:
+      enabled: false  # Đổi thành true và thêm URL webhook nếu cần
+      url: https://your-webhook-url
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: falco
+  namespace: falco
+  labels:
+    app: falco
+spec:
+  selector:
+    matchLabels:
+      app: falco
+  template:
+    metadata:
+      labels:
+        app: falco
+    spec:
+      hostPID: true
+      hostIPC: true
+      containers:
+      - name: falco
+        image: falcosecurity/falco:latest
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /host
+          readOnly: true
+          name: host-root
+        - mountPath: /etc/falco
+          name: falco-config
+      volumes:
+      - name: host-root
+        hostPath:
+          path: /
+      - name: falco-config
+        configMap:
+          name: falco-config

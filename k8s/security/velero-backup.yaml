@@ -1,0 +1,15 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: mysql-backup
+  namespace: velero
+spec:
+  includedNamespaces:
+  - default
+  includedResources:
+  - pods
+  - persistentvolumeclaims
+  labelSelector:
+    matchLabels:
+      app: mysql
+  storageLocation: default

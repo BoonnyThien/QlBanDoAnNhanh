@@ -28,7 +28,9 @@ RUN sed -i 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks SymL
 WORKDIR /var/www/html
 
 # 7. Copy source code
-COPY phpCode/ .
+# COPY phpCode/ .
+COPY phpCode/ /var/www/html/user/
+COPY phpCode/admin/ /var/www/html/admin/
 
 # 8. Cấu hình quyền truy cập
 RUN chown -R www-data:www-data /var/www/html \
@@ -42,9 +44,10 @@ RUN echo "[mbstring]" > /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini \
     && echo "mbstring.http_output = UTF-8" >> /usr/local/etc/php/conf.d/docker-php-ext-mbstring.ini
 
 # 10. Kiểm tra sự tồn tại của các file quan trọng
-RUN test -f /var/www/html/index.php || (echo "ERROR: index.php not found in /var/www/html" && exit 1) \
-    && test -d /var/www/html/database || (echo "ERROR: database directory not found in /var/www/html" && exit 1) \
-    && test -f /var/www/html/database/qlbandoannhanh.sql || (echo "ERROR: qlbandoannhanh.sql not found in /var/www/html/database" && exit 1)
+# Kiểm tra file trong thư mục user
+RUN test -f /var/www/html/user/index.php || (echo "ERROR: index.php not found in /var/www/html/user" && exit 1) \
+    && test -d /var/www/html/user/database || (echo "ERROR: database directory not found in /var/www/html/user" && exit 1) \
+    && test -f /var/www/html/user/database/qlbandoannhanh.sql || (echo "ERROR: qlbandoannhanh.sql not found in /var/www/html/user/database" && exit 1)
 
 # 11.Copy cấu hình charset
 COPY utf8.cnf /etc/mysql/conf.d/utf8.cnf

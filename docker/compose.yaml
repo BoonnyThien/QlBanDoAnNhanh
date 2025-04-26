@@ -1,26 +1,48 @@
+version: "3.8"
 
 services:
-  # Dịch vụ PHP và Apache
+  # FRONTEND - Người dùng
   php-app:
     build:
-      context: ..
-      dockerfile: ../Dockerfile
+      context: .               # Dockerfile nằm cùng cấp
+      dockerfile: Dockerfile
     container_name: php_app
     ports:
-      - "8080:80"  # Ánh xạ cổng 8080 của máy host vào cổng 80 của container
+      - "8080:80"
     volumes:
-      - ../phpCode:/var/www/html
-      - ../phpCode/admin:/var/www/html/admin
-      - ./docker/apache:/etc/apache2/sites-available
+      - ./phpCode:/var/www/html
     environment:
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
+    command: >
+      sh -c "chown -R www-data:www-data /var/www/html && apache2-foreground"
     depends_on:
-      - mysql-service  # Đơn giản hóa phần depends_on
+      - mysql-service
     networks:
       - app_network
-    restart: always  # Tự động khởi động lại nếu có lỗi
-  
+    restart: always
+
+  # ADMIN - Quản trị
+  php-admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_admin
+    ports:
+      - "8081:80"
+    volumes:
+      - ./phpCode/admin:/var/www/html
+    environment:
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
+    command: >
+      sh -c "chown -R www-data:www-data /var/www/html && apache2-foreground"
+    depends_on:
+      - mysql-service
+    networks:
+      - app_network
+    restart: always
+
   # Dịch vụ MySQL
   mysql-service:
     image: mysql:8.0
@@ -36,19 +58,17 @@ services:
       LC_ALL: C.UTF-8
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
-      - "3306:3306"  # Ánh xạ cổng MySQL
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql  # Lưu trữ dữ liệu MySQL
-      - ../phpCode/database:/docker-entrypoint-initdb.d  # Script khởi tạo database
+      - mysql_data:/var/lib/mysql
+      - ./phpCode/database:/docker-entrypoint-initdb.d
     networks:
       - app_network
-    restart: always  # Tự động khởi động lại nếu có lỗi
+    restart: always
 
-# Định nghĩa volumes
 volumes:
-  mysql_data:  # Volume lưu trữ dữ liệu MySQL
+  mysql_data:
 
-# Định nghĩa networks
 networks:
   app_network:
-    driver: bridge  # Sử dụng bridge network để kết nối các container
+    driver: bridge

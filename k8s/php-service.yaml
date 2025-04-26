@@ -4,9 +4,8 @@ metadata:
   name: php-service
 spec:
   selector:
-    app: php-app
+    app: php
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30965
-  type: NodePort
+  type: ClusterIP

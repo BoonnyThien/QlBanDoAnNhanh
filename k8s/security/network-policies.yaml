@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-php-to-mysql
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: mysql
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: php-app
+    - podSelector:
+        matchLabels:
+          app: php-admin
+    ports:
+    - protocol: TCP
+      port: 3306
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-http-ingress-php-app
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: php-app
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 173.245.48.0/20  # CIDR của Cloudflare (thêm các CIDR khác nếu cần)
+    ports:
+    - protocol: TCP
+      port: 8080  # Cloudflare Tunnel
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-http-ingress-php-admin
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: php-admin
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 173.245.48.0/20  # CIDR của Cloudflare
+    ports:
+    - protocol: TCP
+      port: 8081  # Cloudflare Tunnel

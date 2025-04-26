@@ -1,0 +1,21 @@
+[mysqld]
+# Bảo mật cơ bản
+bind-address = 0.0.0.0
+skip-symbolic-links
+secure-file-priv=/var/lib/mysql-files
+
+# Mã hóa kết nối
+require_secure_transport = ON
+ssl-cert=/etc/mysql/ssl/server-cert.pem
+ssl-key=/etc/mysql/ssl/server-key.pem
+
+# Giới hạn truy cập
+max_connect_errors = 10
+max_connections = 100
+
+# Logging
+log_error = /var/log/mysql/error.log
+general_log = 0
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2

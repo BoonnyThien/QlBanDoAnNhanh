@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: key-rotation
+  namespace: default
+spec:
+  schedule: "0 0 * * *"  # Chạy hàng ngày lúc 00:00
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: key-rotation
+            image: bitnami/kubectl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              NEW_PASSWORD=$(openssl rand -base64 12)
+              kubectl patch secret mysql-secrets -p "{\"data\":{\"MYSQL_PASSWORD\":\"$(echo $NEW_PASSWORD | base64)\"}}"
+              kubectl patch secret php-app-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo $NEW_PASSWORD | base64)\"}}"
+              kubectl patch secret php-admin-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo $NEW_PASSWORD | base64)\"}}"
+              kubectl rollout restart deployment php-app php-admin mysql
+          restartPolicy: OnFailure

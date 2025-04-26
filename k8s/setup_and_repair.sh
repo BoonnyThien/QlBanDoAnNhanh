@@ -89,6 +89,7 @@ metadata:
 type: Opaque
 data:
   root-password: $(echo -n 'rootpass' | base64)
+  username: $(echo -n 'app_user' | base64)
   user-password: $(echo -n 'userpass' | base64)
 EOF
 
@@ -117,29 +118,42 @@ docker pull buithienboo/qlbandoannhanh-php-app:1.1 || {
     echo "🔍 Vui lòng kiểm tra kết nối mạng hoặc xác nhận image tồn tại trên Docker Hub."
     exit 1
 }
-echo "✅ Đã kéo thành công image buithienboo/qlbandoannhanh-php-app:1.1"
-
 # 5. Kiểm tra nội dung image
 echo "🔍 5. Kiểm tra nội dung image buithienboo/qlbandoannhanh-php-app:1.1..."
-docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/index.php" > /dev/null 2>&1
+
+# Kiểm tra file index.php trong /var/www/html/user/ (cho php-app)
+docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/user/index.php" > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    echo "✅ File index.php tồn tại trong image tại /var/www/html/"
+    echo "✅ File index.php tồn tại trong image tại /var/www/html/user/"
 else
-    echo "❌ File index.php không tồn tại trong image tại /var/www/html/"
-    echo "🔍 Nội dung thư mục /var/www/html trong image:"
-    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/"
+    echo "❌ File index.php không tồn tại trong image tại /var/www/html/user/"
+    echo "🔍 Nội dung thư mục /var/www/html/user trong image:"
+    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/user/"
     exit 1
 fi
 
-docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/database/qlbandoannhanh.sql" > /dev/null 2>&1
+# Kiểm tra file index.php trong /var/www/html/admin/ (cho php-admin)
+docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/admin/index.php" > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    echo "✅ File qlbandoannhanh.sql tồn tại trong image tại /var/www/html/database/"
+    echo "✅ File index.php tồn tại trong image tại /var/www/html/admin/"
 else
-    echo "❌ File qlbandoannhanh.sql không tồn tại trong image tại /var/www/html/database/"
-    echo "🔍 Nội dung thư mục /var/www/html/database trong image:"
-    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/database/"
+    echo "❌ File index.php không tồn tại trong image tại /var/www/html/admin/"
+    echo "🔍 Nội dung thư mục /var/www/html/admin trong image:"
+    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/admin/"
     exit 1
 fi
+
+# Kiểm tra file qlbandoannhanh.sql trong /var/www/html/user/database/
+docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -l /var/www/html/user/database/qlbandoannhanh.sql" > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "✅ File qlbandoannhanh.sql tồn tại trong image tại /var/www/html/user/database/"
+else
+    echo "❌ File qlbandoannhanh.sql không tồn tại trong image tại /var/www/html/user/database/"
+    echo "🔍 Nội dung thư mục /var/www/html/user/database trong image:"
+    docker run --rm -it buithienboo/qlbandoannhanh-php-app:1.1 bash -c "ls -la /var/www/html/user/database/"
+    exit 1
+fi
+
 echo "✅ Đã kiểm tra thành công nội dung image buithienboo/qlbandoannhanh-php-app:1.1"
 
 # Bước 6: Tạo ConfigMap cho khởi tạo MySQL từ file trong image Docker Hub
@@ -150,8 +164,8 @@ echo "🔍 Trích xuất file qlbandoannhanh.sql từ image buithienboo/qlbandoa
 temp_dir=$(mktemp -d)
 sql_file_path="$temp_dir/qlbandoannhanh.sql"
 
-# Trích xuất file .sql từ image
-docker run --rm buithienboo/qlbandoannhanh-php-app:1.1 cat /var/www/html/database/qlbandoannhanh.sql > "$sql_file_path" || {
+# Trích xuất file .sql từ image (sửa đường dẫn thành /var/www/html/user/database/)
+docker run --rm buithienboo/qlbandoannhanh-php-app:1.1 cat /var/www/html/user/database/qlbandoannhanh.sql > "$sql_file_path" || {
     echo "❌ Không thể trích xuất file qlbandoannhanh.sql từ image."
     rm -rf "$temp_dir"
     exit 1
@@ -450,20 +464,32 @@ echo "✅ ConfigMap php-config đã được tạo thành công."
 
 #!/bin/bash
 find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
-# 12. Tạo deployment PHP
-chmod +x ./k8s/deploy_php_step_12_1.sh
-chmod +x ./k8s/deploy_php_step_12_2.sh
-chmod +x ./k8s/deploy_php_step_12_5.sh
-chmod +x ./k8s/deploy_php_step_12_6.sh
-./k8s/deploy_php_step_12_1.sh
-./k8s/deploy_php_step_12_2.sh
-# ./k8s/deploy_php_step_12_3.sh
-# ./k8s/deploy_php_step_12_4.sh
-./k8s/deploy_php_step_12_5.sh
-./k8s/deploy_php_step_12_6.sh
+#!/bin/bash
 
-chmod +x ./k8s/setup_and_repair1.sh
-./k8s/setup_and_repair1.sh
+# Kiểm tra nếu thư mục k8s tồn tại thì dùng đường dẫn ./k8s/
+if [ -d "./k8s" ]; then
+  prefix="./k8s/"
+else
+  prefix="./"
+fi
+
+# Cấp quyền cho các file cần thiết
+chmod +x ${prefix}deploy_php_step_12_1.sh
+chmod +x ${prefix}deploy_php_step_12_2.sh
+chmod +x ${prefix}deploy_php_step_12_5.sh
+chmod +x ${prefix}deploy_php_step_12_6.sh
+chmod +x ${prefix}setup_and_repair1.sh
+
+# Chạy các file theo thứ tự
+${prefix}deploy_php_step_12_1.sh
+${prefix}deploy_php_step_12_2.sh
+# ${prefix}deploy_php_step_12_3.sh
+# ${prefix}deploy_php_step_12_4.sh
+${prefix}deploy_php_step_12_5.sh
+${prefix}deploy_php_step_12_6.sh
+
+${prefix}setup_and_repair1.sh
+
 
 
 

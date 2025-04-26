@@ -1,0 +1,189 @@
+{"level":"info","time":"2025-04-26T05:37:19Z","message":"Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps"}
+{"level":"info","time":"2025-04-26T05:37:19Z","message":"Requesting new quick Tunnel on trycloudflare.com..."}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"+--------------------------------------------------------------------------------------------+"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"|  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"|  https://ports-mhz-porcelain-barry.trycloudflare.com                                       |"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"+--------------------------------------------------------------------------------------------+"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Version 2025.4.0 (Checksum df13e7e0a027f648c410b5cc701fbcff028724d0e93209796cdbb79ec38695d4)"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"GOOS: linux, GOVersion: go1.22.10, GoArch: amd64"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Settings: map[ha-connections:1 logfile:cloudflared-admin.log protocol:quic url:http://localhost:8081]"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Generated Connector ID: 51056774-ffe1-4fab-a6aa-ec326ffe6829"}
+{"level":"info","autoupdateFreq":86400000,"time":"2025-04-26T05:37:23Z","message":"Autoupdate frequency is set"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Initial protocol quic"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"ICMP proxy will use 172.25.254.0 as source for IPv4"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"ICMP proxy will use fe80::215:5dff:fe05:50d4 in zone eth0 as source for IPv6"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"ICMP proxy will use 172.25.254.0 as source for IPv4"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"ICMP proxy will use fe80::215:5dff:fe05:50d4 in zone eth0 as source for IPv6"}
+{"level":"info","time":"2025-04-26T05:37:23Z","message":"Starting metrics server on 127.0.0.1:20242/metrics"}
+{"level":"info","event":0,"ip":"198.41.200.113","connIndex":0,"time":"2025-04-26T05:37:23Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"c31ce82b-0a80-4682-be2e-b683e74e2138","connIndex":0,"location":"hkg12","ip":"198.41.200.113","protocol":"quic","time":"2025-04-26T05:37:24Z","message":"Registered tunnel connection"}
+{"level":"warn","event":0,"ip":"198.41.200.113","connIndex":0,"error":"failed to accept QUIC stream: timeout: no recent network activity","time":"2025-04-26T05:49:50Z","message":"Failed to serve tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.113","connIndex":0,"error":"failed to accept QUIC stream: timeout: no recent network activity","time":"2025-04-26T05:49:50Z","message":"Serve tunnel error"}
+{"level":"info","event":0,"ip":"198.41.200.113","connIndex":0,"time":"2025-04-26T05:49:50Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"failed to accept QUIC stream: timeout: no recent network activity","connIndex":0,"time":"2025-04-26T05:49:51Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.113","connIndex":0,"time":"2025-04-26T05:50:02Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"1a543677-654a-412e-8816-5eb37fb0baea","connIndex":0,"location":"hkg12","ip":"198.41.200.113","protocol":"quic","time":"2025-04-26T05:50:02Z","message":"Registered tunnel connection"}
+{"level":"warn","event":0,"ip":"198.41.200.113","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:04:32Z","message":"Failed to serve tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.113","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:04:32Z","message":"Serve tunnel error"}
+{"level":"info","event":0,"ip":"198.41.200.113","connIndex":0,"time":"2025-04-26T06:04:32Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"timeout: no recent network activity","connIndex":0,"time":"2025-04-26T06:04:32Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T06:04:51Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"15a7224f-d488-4f36-a9dc-1e2ca16188bb","connIndex":0,"location":"hkg08","ip":"198.41.200.63","protocol":"quic","time":"2025-04-26T06:04:51Z","message":"Registered tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.63","connIndex":0,"error":"context canceled","time":"2025-04-26T06:13:11Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T06:13:11Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T06:13:11Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T06:13:31Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"def435f2-640e-4f72-8f4c-1f594c88beff","connIndex":0,"location":"hkg08","ip":"198.41.200.63","protocol":"quic","time":"2025-04-26T06:13:31Z","message":"Registered tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.63","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:45:39Z","message":"Failed to serve tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.63","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:45:39Z","message":"Serve tunnel error"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T06:45:39Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"timeout: no recent network activity","connIndex":0,"time":"2025-04-26T06:45:41Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.192.167","connIndex":0,"time":"2025-04-26T06:45:51Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"124a5919-f94a-4317-b862-db3478cc153c","connIndex":0,"location":"hkg09","ip":"198.41.192.167","protocol":"quic","time":"2025-04-26T06:45:51Z","message":"Registered tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.192.167","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:53:03Z","message":"Failed to serve tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.192.167","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T06:53:03Z","message":"Serve tunnel error"}
+{"level":"info","event":0,"ip":"198.41.192.167","connIndex":0,"time":"2025-04-26T06:53:03Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"timeout: no recent network activity","connIndex":0,"time":"2025-04-26T06:53:05Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T06:53:05Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"info","event":0,"connection":"fe889cea-0cf0-455b-9462-dff43e9ee3ff","connIndex":0,"location":"hkg08","ip":"198.41.200.63","protocol":"quic","time":"2025-04-26T06:53:06Z","message":"Registered tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.63","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T08:43:47Z","message":"Failed to serve tunnel connection"}
+{"level":"error","event":0,"ip":"198.41.200.63","connIndex":0,"error":"timeout: no recent network activity","time":"2025-04-26T08:43:47Z","message":"Serve tunnel error"}
+{"level":"info","event":0,"ip":"198.41.200.63","connIndex":0,"time":"2025-04-26T08:43:47Z","message":"Retrying connection in up to 1s"}
+{"level":"error","error":"timeout: no recent network activity","connIndex":0,"time":"2025-04-26T08:43:48Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:44:03Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:44:03Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:44:03Z","message":"Retrying connection in up to 4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:44:04Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:44:20Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:44:20Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:44:20Z","message":"Retrying connection in up to 8s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:44:27Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:45:29Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:45:29Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:45:29Z","message":"Retrying connection in up to 16s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:45:31Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:45:46Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:45:47Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:45:47Z","message":"Retrying connection in up to 32s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:46:16Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:51:16Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:51:16Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:51:16Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:51:39Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:56:52Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:56:52Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:56:52Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:57:18Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:59:11Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T08:59:11Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T08:59:11Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T08:59:23Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:03:27Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:03:27Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:03:27Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:03:37Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:07:35Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:07:36Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:07:36Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:07:49Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:07:53Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:07:53Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:07:53Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:07:54Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:11:29Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:11:29Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:11:29Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:11:58Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:12:14Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:12:14Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:12:14Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:12:39Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:16:16Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:16:16Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:16:16Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:16:45Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:21:24Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:21:24Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:21:24Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:21:32Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:22:59Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:23:00Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:23:00Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:23:25Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:25:18Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:25:18Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:25:18Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:25:25Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:26:41Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:26:41Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:26:41Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:27:08Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:29:15Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:29:15Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:29:15Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:29:38Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:30:40Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:30:40Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:30:40Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:31:03Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:34:48Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:34:48Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:34:48Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:34:57Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:40:08Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:40:08Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:40:08Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:40:13Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:42:22Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:42:22Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:42:22Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:42:54Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:45:13Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:45:13Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:45:13Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:45:44Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:46:50Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:46:51Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:46:51Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:46:54Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:49:52Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T09:49:52Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T09:49:52Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T09:50:05Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:09:29Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:09:29Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:09:29Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:09:33Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:13:04Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:13:04Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:13:04Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:13:24Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:18:35Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:18:35Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:18:35Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:18:52Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:21:46Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:21:46Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:21:46Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:21:58Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:24:19Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:24:19Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:24:19Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:24:48Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:25:17Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:25:17Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:25:17Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:25:41Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:26:08Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:26:08Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:26:08Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:26:24Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:28:25Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:28:25Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:28:25Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:28:33Z","message":"Connection terminated"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:32:42Z","message":"Using [CurveID(4588) CurveID(25497) CurveP256] as curve preferences"}
+{"level":"error","event":0,"ip":"198.41.200.53","connIndex":0,"error":"context canceled","time":"2025-04-26T10:32:42Z","message":"Failed to serve tunnel connection"}
+{"level":"info","event":0,"ip":"198.41.200.53","connIndex":0,"time":"2025-04-26T10:32:42Z","message":"Retrying connection in up to 1m4s"}
+{"level":"error","error":"context canceled","connIndex":0,"time":"2025-04-26T10:32:55Z","message":"Connection terminated"}

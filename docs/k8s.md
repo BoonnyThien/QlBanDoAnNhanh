@@ -1,127 +1,159 @@
-# Triển khai Ứng dụng PHP và MySQL trên Kubernetes
+# Hệ thống Quản lý bán đồ ăn nhanh trên Kubernetes
 
-Thư mục này chứa các tệp cấu hình Kubernetes và script để triển khai và quản lý ứng dụng PHP và MySQL trên cluster Kubernetes (Minikube).
+Tài liệu này mô tả tổng quan về hệ thống Quản lý bán đồ ăn nhanh được triển khai trên Kubernetes sử dụng Minikube.
 
-## 🚀 Bắt đầu nhanh
+## Giới thiệu
 
-Để triển khai ứng dụng với tất cả các vấn đề đã được sửa chữa, chạy:
+Dự án này triển khai một ứng dụng web quản lý cửa hàng đồ ăn nhanh trên môi trường Kubernetes, bao gồm:
+- Giao diện quản lý sản phẩm, danh mục, đơn hàng
+- Giao diện khách hàng để đặt hàng
+- Hệ thống thanh toán và phản hồi
+- Quản lý người dùng và phân quyền
 
+## Bố cục dự án
+
+```
+.
+├── k8s/
+│   └── setup_and_repair.sh    # Script tự động triển khai ứng dụng
+└── [mã nguồn PHP ứng dụng]    # Được đóng gói trong Docker image
+```
+
+## Kiến trúc hệ thống
+
+![Kiến trúc hệ thống](/docs/imgs/architecture.png)
+
+Hệ thống bao gồm các thành phần chính:
+
+1. **MySQL Pod**: 
+   - Lưu trữ dữ liệu ứng dụng
+   - Sử dụng PersistentVolume để duy trì dữ liệu
+   - Khởi tạo cơ sở dữ liệu từ script SQL
+
+2. **PHP/Apache Pod**: 
+   - Chạy ứng dụng web PHP
+   - Kết nối đến MySQL
+   - Image Docker: `buithienboo/qlbandoannhanh-php-app:1.1`
+
+3. **Ingress**: 
+   - Điều hướng truy cập từ bên ngoài vào ứng dụng
+   - Cấu hình domain `doannhanh.local`
+
+4. **ConfigMaps và Secrets**:
+   - Lưu trữ cấu hình và thông tin nhạy cảm
+
+## Cơ sở dữ liệu
+
+Cơ sở dữ liệu `qlbandoannhanh` gồm các bảng:
+- Quản lý sản phẩm (`tbl_sanpham`, `tbl_danhmuc`)
+- Quản lý giỏ hàng (`tbl_cart_details`, `tbl_cart_registered`, `tbl_cart_unregistered`)
+- Quản lý người dùng (`tbl_admin`, `tbl_dangky`)
+- Quản lý nội dung (`tbl_baiviet`, `tbl_comments`, `tbl_phanhoi`)
+- Thống kê (`tbl_thongke`)
+
+## Yêu cầu hệ thống
+
+- Docker
+- Minikube v1.35.0 trở lên
+- kubectl
+- Hệ điều hành Linux (Ubuntu 22.04 được khuyến nghị)
+- Ít nhất 4GB RAM và 4 CPU cores dành cho Minikube
+
+## Hướng dẫn triển khai
+
+### Cách 1: Sử dụng script tự động
+
+1. Đảm bảo Docker đã được cài đặt và đang chạy
+2. Chạy script triển khai:
 ```bash
-sudo apt-get install dos2unix  # Nếu chưa có
-find . -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
+cd ~/doannhanh
+.ColorEmoji.sh
+cd ~/doannhanh/k8s
+./setup_and_repair.sh
+```
+3. Script sẽ tự động thực hiện 17 bước triển khai:
+   - Khởi động Minikube
+   - Dọn dẹp tài nguyên cũ (nếu có)
+   - Tạo Secret cho MySQL
+   - Kiểm tra và kéo Docker image
+   - Tạo các ConfigMap cần thiết
+   - Tạo PersistentVolumeClaim
+   - Triển khai MySQL
+   - Triển khai PHP Application
+   - Tạo Ingress
+   - Cập nhật file hosts
+   - Thiết lập Cloudflare Tunnel (nếu cần)
+   - Kiểm tra kết nối và hoạt động của ứng dụng
 
-chmod +x k8s/setup_and_repair.sh
+### Cách 2: Thiết lập thủ công
+
+Xem phần "Quy trình triển khai" trong [tài liệu đầy đủ](/docs/k8s-full.md) để biết các bước chi tiết.
+
+## Truy cập ứng dụng
+
+Sau khi triển khai thành công:
+
+1. Thêm dòng sau vào file `/etc/hosts`:
+   ```
+   192.168.49.2 doannhanh.local
+   ```
+   (Thay `192.168.49.2` bằng IP của Minikube từ lệnh `minikube ip`)
+
+2. Truy cập ứng dụng qua trình duyệt:
+   - URL: http://doannhanh.local
+
+3. Thông tin đăng nhập admin:
+   - URL: http://doannhanh.local/admincp
+   - Tài khoản: admin
+   - Mật khẩu: 123456
+
+## Sửa lỗi thường gặp
+
+### Kiểm tra trạng thái pods
+```bash
+kubectl get pods
+```
+
+### Kiểm tra logs
+```bash
+# Xem logs của pod PHP
+kubectl logs $(kubectl get pods -l app=php -o jsonpath="{.items[0].metadata.name}")
+
+# Xem logs của pod MySQL
+kubectl logs $(kubectl get pods -l app=mysql -o jsonpath="{.items[0].metadata.name}")
+```
+
+### Khởi động lại ứng dụng
+```bash
+# Chạy lại script
 ./k8s/setup_and_repair.sh
 ```
 
-Script này sẽ:
-1. Kiểm tra và khởi động Minikube với giới hạn tài nguyên phù hợp (2 CPUs, 2GB RAM)
-2. Dọn dẹp các tài nguyên cũ
-3. Tạo tất cả các tài nguyên Kubernetes cần thiết
-4. Triển khai ứng dụng
-5. Cung cấp thông tin truy cập khi hoàn tất
-
-## 📁 Danh sách Script
-
-- `setup_and_repair.sh`: Script toàn diện để thiết lập và sửa tất cả các vấn đề
-- `install-monitoring.sh`: Script để cài đặt hệ thống giám sát Prometheus
-
-## 🛠️ Thành phần triển khai
-
-- **Ứng dụng PHP**: Ứng dụng PHP đơn giản kết nối tới MySQL
-- **Cơ sở dữ liệu MySQL**: MySQL 8.0 với dữ liệu mẫu
-- **Dịch vụ**: ClusterIP cho MySQL và NodePort cho PHP
-- **Lưu trữ**: EmptyDir cho lưu trữ dữ liệu (đơn giản hóa so với PV/PVC)
-- **ConfigMaps**: Cho mã PHP và khởi tạo MySQL
-- **Secrets**: Cho thông tin đăng nhập MySQL
-
-## ⚠️ Các vấn đề đã sửa
-
-Script thiết lập đã sửa một số vấn đề trong triển khai ban đầu:
-
-1. **Cài đặt PDO MySQL**: Cài đặt trực tiếp extension PDO MySQL trong container PHP
-2. **Lưu trữ đơn giản hóa**: Sử dụng emptyDir thay vì PVC để tránh các vấn đề về PV/PVC
-3. **Deployment thay vì StatefulSet**: Đơn giản hóa triển khai MySQL
-4. **Kiểm tra trạng thái Minikube**: Đảm bảo Minikube hoạt động trước khi triển khai
-5. **Logs chi tiết**: Hiển thị logs khi có lỗi để dễ dàng khắc phục
-
-## 📊 Giám sát
-
-Để triển khai các thành phần giám sát:
-
+### Ingress không hoạt động
 ```bash
-chmod +x k8s/install-monitoring.sh
-./k8s/install-monitoring.sh
+# Kiểm tra Ingress
+kubectl get ingress
+
+# Kích hoạt lại Ingress addon
+minikube addons enable ingress
 ```
 
-Việc này sẽ cài đặt:
-- Prometheus Operator CRDs
-- Máy chủ Prometheus với giới hạn tài nguyên phù hợp
-- Giao diện Prometheus
-
-## 📋 Các bước kiểm tra thủ công
-
-Sau khi triển khai, kiểm tra cài đặt:
-
+### Xóa và triển khai lại từ đầu
 ```bash
-# Kiểm tra tất cả tài nguyên
-kubectl get all
+# Xóa toàn bộ resource
+kubectl delete deployment --all
+kubectl delete service --all
+kubectl delete ingress --all
+kubectl delete configmap --all
+kubectl delete secret --all
+kubectl delete pvc --all
 
-# Kiểm tra trạng thái pod
-kubectl get pods
-
-# Truy cập ứng dụng PHP
-minikube service php-service
-
-# Kết nối tới MySQL
-kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -p
-```
-Nhập mật khẩu root (mặc định: rootpass, từ Secret mysql-secret).
-VD
-```
-USE qlbandoannhanh;
-SHOW TABLES;
+# Chạy lại script
+./k8s/setup_and_repair.sh
 ```
 
-## 🔄 Xử lý sự cố
+## Thông tin thêm
 
-Nếu gặp vấn đề:
-
-1. Kiểm tra trạng thái pod: `kubectl get pods`
-2. Xem chi tiết pod: `kubectl describe pod <tên-pod>`
-3. Xem logs: `kubectl logs <tên-pod>`
-4. Khởi động lại triển khai: `./k8s/fix-all-issues.sh`
-5. Thiếu dữ liệu database : 
- `kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -prootpass qlbandoannhanh < qlbandoannhanh.sql`
-6 Check đủ bảng :
- `kubectl exec -it $(kubectl get pod -l app=mysql -n default -o jsonpath='{.items[0].metadata.name}') -n default -- mysql -uroot -prootpass -e "USE qlbandoannhanh; SHOW TABLES;"`
-```bash
-mysql: [Warning] Using a password on the command line interface can be insecure.
-+--------------------------+
-| Tables_in_qlbandoannhanh |
-+--------------------------+
-| tbl_admin                |
-| tbl_baiviet              |
-| tbl_cart_details         |
-| tbl_cart_registered      |
-| tbl_cart_unregistered    |
-| tbl_comments             |
-| tbl_dangky               |
-| tbl_danhmuc              |
-| tbl_phanhoi              |
-| tbl_sanpham              |
-| tbl_thongke              |
-+--------------------------+
-```
-
-## 🧪 Kiểm tra ứng dụng
-
-Ứng dụng PHP sẽ hiển thị:
-- Thông điệp chào mừng
-- Trạng thái kết nối MySQL
-- Danh mục sản phẩm từ cơ sở dữ liệu
-- Thông tin cấu hình PHP
-
-Cơ sở dữ liệu MySQL bao gồm:
-- Bảng mẫu (categories, products)
-- Dữ liệu mẫu cho kiểm thử 
+- Docker Image: `buithienboo/qlbandoannhanh-php-app:1.1`
+- Mã nguồn: [GitHub Repository](https://github.com/thinboonny/doannhanh)
+- Liên hệ: [buithien14112003@email.com](mailto:buithien14112003@email.com)
