@@ -10,20 +10,34 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, xml, curl, mysql, pdo, pdo_mysql
     
-    - name: Build and test
+    - name: Install dependencies
       run: |
-        docker build -t app:test .
-        docker run --rm app:test php vendor/bin/phpunit
+        composer install --no-interaction --prefer-dist
+    
+    - name: Run PHPUnit tests
+      run: |
+        vendor/bin/phpunit
+        
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Build and test Docker image
+      run: |
+        docker build -t buithienboo/qlbandoannhanh-php-app:test .
+        docker run --rm buithienboo/qlbandoannhanh-php-app:test php vendor/bin/phpunit
         
     - name: Run security scan
       run: |
         docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-          aquasec/trivy image app:test
+          aquasec/trivy image buithienboo/qlbandoannhanh-php-app:test
         
     - name: Run kube-bench
       run: |
@@ -35,62 +49,80 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: Set up kubectl
-      uses: azure/setup-kubectl@v1
+      uses: azure/setup-kubectl@v3
       with:
         version: 'latest'
     
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - name: Configure kubectl
+      run: |
+        echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
+        export KUBECONFIG=kubeconfig.yaml
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
-    
-    - name: Build, tag, and push image to Amazon ECR
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: app
-        IMAGE_TAG: ${{ github.sha }}
+    - name: Build and push Docker images
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t buithienboo/qlbandoannhanh-php-app:latest .
+        docker build -t buithienboo/auth-service:latest ./auth-service
+        docker push buithienboo/qlbandoannhanh-php-app:latest
+        docker push buithienboo/auth-service:latest
     
-    - name: Update k8s deployment
+    - name: Deploy to Kubernetes
       run: |
-        kubectl set image deployment/app app=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        kubectl apply -f k8s/
         
     - name: Verify deployment
       run: |
-        kubectl rollout status deployment/app
+        kubectl rollout status deployment/php-app
+        kubectl rollout status deployment/auth-service
         kubectl get pods
         
     - name: Run post-deployment tests
       run: |
-        curl -s http://app.example.com/health
-        curl -s http://app.example.com/metrics
+        # Wait for services to be ready
+        sleep 30
+        # Test PHP application
+        curl -s http://localhost:8080/health
+        # Test Auth service
+        curl -s http://localhost:8081/health
         
   monitor:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+    
+    - name: Configure kubectl
+      run: |
+        echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
+        export KUBECONFIG=kubeconfig.yaml
+        
     - name: Check application health
       run: |
-        curl -s http://app.example.com/health | grep "ok"
+        kubectl port-forward svc/php-app 8080:80 &
+        sleep 5
+        curl -s http://localhost:8080/health | grep "ok"
         
     - name: Check metrics
       run: |
-        curl -s http://app.example.com/metrics | grep "app_"
+        kubectl port-forward svc/prometheus-server 9090:9090 &
+        sleep 5
+        curl -s http://localhost:9090/metrics | grep "php_"
         
     - name: Check logs
       run: |
-        kubectl logs -l app=app --tail=100
+        kubectl logs -l app=php-app --tail=100
+        kubectl logs -l app=auth-service --tail=100
         
     - name: Check resources
       run: |

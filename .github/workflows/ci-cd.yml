@@ -27,6 +27,11 @@ jobs:
       run: |
         vendor/bin/phpunit
         
+    - name: Run security scan
+      run: |
+        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+          aquasec/trivy fs .
+          
   build-and-push-docker:
     needs: build-and-test
     runs-on: ubuntu-latest
@@ -44,12 +49,19 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
-    - name: Build and push Docker image
+    - name: Build and push PHP app image
       uses: docker/build-push-action@v4
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/doannhanh:latest
+        tags: buithienboo/qlbandoannhanh-php-app:latest
+        
+    - name: Build and push Auth service image
+      uses: docker/build-push-action@v4
+      with:
+        context: ./auth-service
+        push: true
+        tags: buithienboo/auth-service:latest
         
   deploy-to-k8s:
     needs: build-and-push-docker
@@ -69,4 +81,10 @@ jobs:
         
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f k8s/ 
+        kubectl apply -f k8s/
+        
+    - name: Verify deployment
+      run: |
+        kubectl rollout status deployment/php-app
+        kubectl rollout status deployment/auth-service
+        kubectl get pods 
