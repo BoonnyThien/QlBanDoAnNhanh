@@ -1,4 +1,4 @@
-echo "15 Kiểm tra trạng thái tổng thể..."
+echo "🚀 15 Kiểm tra trạng thái tổng thể..."
 echo "🔹 Pods (default namespace):"
 kubectl get pods -n default
 echo "🔹 Pods (velero namespace):"

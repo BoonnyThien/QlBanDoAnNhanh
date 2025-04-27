@@ -1,4 +1,4 @@
-echo "6️ Kiểm tra TLS Certificates..."
+echo "🚀 6 Kiểm tra TLS Certificates..."
 echo "🔹 Secret chứa chứng chỉ TLS:"
 kubectl get secrets -n default | grep tls
 echo "🔹 Thời hạn chứng chỉ tls-secret:"

@@ -241,8 +241,8 @@ chmod +x ${prefix}deploy_php_step_17.sh
 
 # Chạy các file theo thứ tự
 ${prefix}deploy_php_step_16_1.sh
-${prefix}deploy_php_step_16_2.sh
-${prefix}deploy_php_step_16_3.sh
+# ${prefix}deploy_php_step_16_2.sh
+# ${prefix}deploy_php_step_16_3.sh
 ${prefix}deploy_php_step_16_4.sh
 ${prefix}deploy_php_step_16_5.sh
 ${prefix}deploy_php_step_17.sh

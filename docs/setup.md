@@ -1,84 +1,138 @@
-# Hướng dẫn Thiết lập Môi trường Phát triển
+# Hướng dẫn Thiết lập Môi trường Docker cho Dự án Quản lý Bán Đồ Ăn Nhanh
 
 ## Yêu cầu hệ thống
+
 - Docker Engine 20.10+
 - Docker Compose 2.0+
-- Kubernetes (Minikube hoặc EKS/GKE)
-- kubectl
 - PHP 8.1+
-- Composer
+- MySQL 8.0+
+- Git
 
 ## Các bước thiết lập
 
-### 1. Cài đặt Docker
+### 1. Clone repository
 ```bash
-# Ubuntu/Debian
-sudo apt-get update
-sudo apt-get install docker.io docker-compose
-
-# Windows
-# Tải và cài đặt Docker Desktop từ https://www.docker.com/products/docker-desktop
-```
-
-### 2. Cài đặt Kubernetes
-```bash
-# Cài đặt Minikube
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-
-# Cài đặt kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-```
-
-### 3. Khởi động môi trường phát triển
-```bash
-# Clone repository
 git clone [repository-url]
-cd doannhanh
-
-# Khởi động Docker containers
-cd ~/doannhanh/docker && docker compose up -d
-
-http://localhost:8080/
-http://localhost:8080/admin/
-
-# Thay đổi dự liệu file 
-cd ~/doannhanh/docker && docker compose down
-docker compose up -d
-docker compose logs -f
-
-# Khởi động Minikube
-minikube delete
-minikube start --driver=docker
-
-# Áp dụng Kubernetes configurations
-cd ~/doannhanh && kubectl apply -f k8s/
+cd QlBanDoAnNhanh
 ```
 
-### 4. Kiểm tra cài đặt
+### 2. Chuẩn bị source code
+
+- Đảm bảo thư mục `phpCode/` chứa mã nguồn ứng dụng
+- Đảm bảo thư mục `phpCode/admin/` chứa mã nguồn giao diện admin
+- Đảm bảo thư mục `phpCode/database/` chứa file `qlbandoannhanh.sql`
+
+### 3. Khởi động Docker containers
 ```bash
-# Kiểm tra Docker
+cd ~/QlBanDoAnNhanh/docker
+docker compose up -d
+```
+
+### 4. Truy cập ứng dụng
+
+- Giao diện người dùng: 'http://localhost:8080/'
+- Giao diện admin: 'http://localhost:8081/'
+
+### 5. Cập nhật hoặc rebuild containers
+```bash
+cd ~/QlBanDoAnNhanh/docker
+docker compose down
+docker compose up --build -d
+```
+
+### 6. Kiểm tra trạng thái
+```bash
+# Kiểm tra containers đang chạy
 docker ps
 
-# Kiểm tra Kubernetes
-kubectl get pods
-kubectl get services
+# Kiểm tra logs của containers
+docker compose logs -f
 
-# Kiểm tra ứng dụng
-minikube service php-service --url
+# Kiểm tra kết nối MySQL
+docker exec -it mysql-service mysql -u root -prootpass
 ```
 
 ## Xử lý sự cố thường gặp
 
-### Docker không khởi động
-- Kiểm tra trạng thái Docker: `sudo systemctl status docker`
-- Khởi động lại Docker: `sudo systemctl restart docker`
+### Lỗi Docker không khởi động
 
-### Kubernetes không hoạt động
-- Kiểm tra trạng thái Minikube: `minikube status`
-- Khởi động lại Minikube: `minikube stop && minikube start`
+Kiểm tra trạng thái Docker:
+```bash
+sudo systemctl status docker
+```
+
+Khởi động lại Docker:
+```bash
+sudo systemctl restart docker
+```
+
+### Lỗi container không chạy
+
+Xem logs chi tiết:
+```bash
+docker logs php_app
+docker logs php_admin
+docker logs mysql-service
+```
+
+Xóa và rebuild containers:
+```bash
+cd ~/QlBanDoAnNhanh/docker
+docker compose down
+docker compose up --build -d
+```
 
 ### Lỗi kết nối database
-- Kiểm tra logs của MySQL container: `docker logs mysql-container`
-- Kiểm tra kết nối: `mysql -h localhost -u root -p` 
+
+Kiểm tra thông tin kết nối MySQL:
+```bash
+docker exec -it mysql-service mysql -u app_user -puserpass -e "SELECT 1;"
+```
+
+Kiểm tra file SQL được import:
+```bash
+docker exec -it mysql-service bash -c "ls /docker-entrypoint-initdb.d/"
+```
+
+### Lỗi quyền truy cập file
+
+Đặt lại quyền cho thư mục:
+```bash
+sudo chown -R www-data:www-data ~/QlBanDoAnNhanh/phpCode
+sudo chmod -R 755 ~/QlBanDoAnNhanh/phpCode
+```
+
+## Lệnh bổ sung
+
+### Dừng containers
+```bash
+cd ~/QlBanDoAnNhanh/docker
+docker compose down
+```
+
+### Xem logs chi tiết
+```bash
+cd ~/QlBanDoAnNhanh/docker
+docker compose logs -f
+```
+
+### Truy cập container
+```bash
+# Truy cập container PHP người dùng
+docker exec -it php_app bash
+
+# Truy cập container PHP admin
+docker exec -it php_admin bash
+
+# Truy cập container MySQL
+docker exec -it mysql-service bash
+```
+
+### Xóa volumes và rebuild
+```bash
+cd ~/QlBanDoAnNhanh/docker
+docker compose down -v
+docker volume rm QlBanDoAnNhanh_mysql_data
+docker compose up --build -d
+```
+

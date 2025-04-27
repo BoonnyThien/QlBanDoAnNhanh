@@ -11,17 +11,14 @@ metadata:
 data:
   falco.yaml: |
     json_output: true
-    http_output:
-      enabled: false  # Đổi thành true và thêm URL webhook nếu cần
-      url: https://your-webhook-url
+    log_stderr: true
+    log_level: info
 ---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: falco
   namespace: falco
-  labels:
-    app: falco
 spec:
   selector:
     matchLabels:
@@ -31,23 +28,15 @@ spec:
       labels:
         app: falco
     spec:
-      hostPID: true
-      hostIPC: true
       containers:
       - name: falco
-        image: falcosecurity/falco:latest
-        securityContext:
-          privileged: true
+        image: falcosecurity/falco:0.38.1
+        args:
+        - "--config=/etc/falco/falco.yaml"
         volumeMounts:
-        - mountPath: /host
-          readOnly: true
-          name: host-root
-        - mountPath: /etc/falco
-          name: falco-config
+        - name: config
+          mountPath: /etc/falco
       volumes:
-      - name: host-root
-        hostPath:
-          path: /
-      - name: falco-config
+      - name: config
         configMap:
           name: falco-config

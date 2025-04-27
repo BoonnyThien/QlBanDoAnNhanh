@@ -1,4 +1,4 @@
-echo "9️ Kiểm tra Monitoring..."
+echo "🚀 9 Kiểm tra Monitoring..."
 echo "🔹 ServiceMonitors:"
 kubectl get servicemonitors -n default
 echo "🔹 Prometheus Pods:"

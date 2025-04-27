@@ -1,4 +1,4 @@
-echo "2 Kiểm tra RBAC..."
+echo "🚀 2 Kiểm tra RBAC..."
 echo "🔹 ServiceAccounts:"
 kubectl get serviceaccounts -n default
 echo "🔹 Roles:"

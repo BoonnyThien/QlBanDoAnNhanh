@@ -1,4 +1,4 @@
-echo "4️ Kiểm tra Secrets..."
+echo "🚀 4 Kiểm tra Secrets..."
 echo "🔹 Danh sách Secrets:"
 kubectl get secrets -n default
 echo "🔹 Giá trị DB_HOST của php-app-secrets:"

@@ -4,6 +4,17 @@ echo "🔒 Thiết lập bảo mật cho hệ thống..."
 
 # 1. Thiết lập RBAC
 echo "🚀 1 Áp dụng RBAC..."
+
+# Xóa các tài nguyên RBAC cũ nếu tồn tại
+kubectl delete -f k8s/security/rbac.yaml --ignore-not-found
+if [ $? -eq 0 ]; then
+  echo "✅ Đã xóa các tài nguyên RBAC cũ (nếu có)!"
+else
+  echo "❌ Lỗi khi xóa các tài nguyên RBAC cũ!"
+  exit 1
+fi
+
+# Áp dụng lại rbac.yaml
 kubectl apply -f k8s/security/rbac.yaml
 if [ $? -eq 0 ]; then
   echo "✅ RBAC áp dụng thành công!"
@@ -50,71 +61,36 @@ else
   exit 1
 fi
 
-# 8. Thiết lập monitoring
-echo "🚀 8 Thiết lập monitoring..."
-if kubectl apply -f https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.75.2/bundle.yaml; then
-  echo "✅ Cài Prometheus Operator thành công!"
-else
-  echo "❌ Lỗi khi cài Prometheus Operator!"
-  exit 1
-fi
-sleep 10  # Đợi CRD sẵn sàng
-if kubectl apply -f k8s/security/monitoring.yaml; then
-  echo "✅ Monitoring áp dụng thành công!"
-else
-  echo "❌ Lỗi khi áp dụng monitoring!"
-  exit 1
-fi
+chmod +x k8s/security/scripts/monitoring.sh
+./k8s/security/scripts/monitoring.sh
 
 # 9. Cài đặt và thiết lập backup với Velero
-echo "🚀 9.1 Thiết lập backup với Velero..."
-if velero backup create doannhanh-backup --include-namespaces default; then
-  echo "✅ Tạo backup doannhanh-backup thành công!"
-else
-  echo "❌ Lỗi khi tạo backup!"
-  exit 1
-fi
+chmod +x k8s/security/scripts/setup-velero.sh
+./k8s/security/scripts/setup-velero.sh
 
 # 10. Thiết lập Falco (phát hiện xâm nhập runtime)
-echo "🚀 10 Thiết lập Falco..."
-kubectl create namespace falco --dry-run=client -o yaml | kubectl apply -f -
-if kubectl apply -f k8s/security/falco.yaml; then
-  echo "✅ Falco triển khai thành công!"
-else
-  echo "❌ Lỗi khi triển khai Falco!"
-  exit 1
-fi
-sleep 5
+chmod +x k8s/security/scripts/setup-falco.sh
+./k8s/security/scripts/setup-falco.sh
 
 # 11. Thiết lập audit logging
-echo "🚀 11 Thiết lập audit logging..."
-# Lưu audit-policy.yaml vào /mnt/audit-policy.yaml trong Minikube
-minikube ssh "sudo mkdir -p /mnt && sudo tee /mnt/audit-policy.yaml > /dev/null <<EOF
-$(cat k8s/security/audit-policy.yaml)
-EOF"
-# Restart Minikube với audit logging
-minikube stop
-if minikube start --extra-config=apiserver.audit-policy-file=/mnt/audit-policy.yaml --extra-config=apiserver.audit-log-path=/var/log/kubernetes/audit.log; then
-  echo "✅ Audit logging thiết lập thành công!"
-else
-  echo "❌ Lỗi khi thiết lập audit logging!"
-  exit 1
-fi
+# echo "🚀 11 Thiết lập audit logging..."
+# chmod +x k8s/security/scripts/setup-audit-logging.sh
+# ./k8s/security/scripts/setup-audit-logging.sh
 
-echo "🚀 12 Rotation keys cho secrets..."
-NEW_PASSWORD=$(openssl rand -base64 12)
-if kubectl patch secret mysql-secrets -p "{\"data\":{\"MYSQL_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"; then
-  echo "🔑 Đã cập nhật MYSQL_PASSWORD trong mysql-secrets"
-  # Cập nhật php-app-secrets và php-admin-secrets
-  kubectl patch secret php-app-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"
-  kubectl patch secret php-admin-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"
-  # Restart Deployments
-  kubectl rollout restart deployment php-app php-admin mysql
-  echo "✅ Đã restart Deployments để áp dụng password mới!"
-else
-  echo "❌ Lỗi khi cập nhật MYSQL_PASSWORD!"
-  exit 1
-fi
+# echo "🚀 12 Rotation keys cho secrets..."
+# NEW_PASSWORD=$(openssl rand -base64 12)
+# if kubectl patch secret mysql-secrets -p "{\"data\":{\"MYSQL_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"; then
+#   echo "🔑 Đã cập nhật MYSQL_PASSWORD trong mysql-secrets"
+#   # Cập nhật php-app-secrets và php-admin-secrets
+#   kubectl patch secret php-app-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"
+#   kubectl patch secret php-admin-secrets -p "{\"data\":{\"DB_PASSWORD\":\"$(echo -n $NEW_PASSWORD | base64)\"}}"
+#   # Restart Deployments
+#   kubectl rollout restart deployment php-app php-admin mysql
+#   echo "✅ Đã restart Deployments để áp dụng password mới!"
+# else
+#   echo "❌ Lỗi khi cập nhật MYSQL_PASSWORD!"
+#   exit 1
+# fi
 
 # 13. Kiểm tra trạng thái sau khi triển khai
 echo "🚀 13 Kiểm tra trạng thái..."

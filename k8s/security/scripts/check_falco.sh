@@ -1,4 +1,4 @@
-echo "11 Kiểm tra Falco..."
+echo "🚀 11 Kiểm tra Falco..."
 echo "🔹 Falco Pods:"
 kubectl get pods -n falco -l app=falco
 echo "🔹 Falco Logs (các sự kiện bất thường):"

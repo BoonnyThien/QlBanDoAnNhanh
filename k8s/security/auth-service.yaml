@@ -5,7 +5,7 @@ metadata:
   namespace: default
 type: Opaque
 data:
-  JWT_SECRET: $(echo -n 'authsecretkey' | base64)  # Thay bằng khóa mạnh hơn
+  JWT_SECRET: YXV0aHNlY3JldGtleQ==  # authsecretkey
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -43,7 +43,7 @@ spec:
   selector:
     app: auth-service
   ports:
-  - port: 8080  # Đổi port để phù hợp với Cloudflare Tunnel
+  - port: 8080
     targetPort: 8080
 ---
 apiVersion: networking.k8s.io/v1

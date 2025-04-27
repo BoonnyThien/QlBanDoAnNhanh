@@ -94,85 +94,93 @@ if ! ss -tuln | grep 8081 >/dev/null; then
   exit 1
 fi
 
-# Tạo Cloudflare Tunnel cho User (8080)
-echo "🔍 Tạo Cloudflare Tunnel cho User (8080)..."
-nohup cloudflared tunnel --url http://localhost:8080 --logfile cloudflared-User.log > /dev/null 2>&1 &
-TUNNEL_PID=$!
-disown $TUNNEL_PID
-sleep 10
+# Hàm tạo và kiểm tra Cloudflare Tunnel
+create_and_check_tunnel() {
+  local name=$1
+  local port=$2
+  local logfile=$3
+  local pid_file=$4
 
-# Lấy URL từ Cloudflare cho User
-tunnel_url=$(grep -o "https://.*\.trycloudflare\.com" cloudflared-User.log || echo "")
-if [ -z "$tunnel_url" ]; then
-  echo "❌ Không thể tạo Cloudflare Tunnel cho User."
-  cat cloudflared-User.log
-  exit 1
-fi
+  # Tạo Cloudflare Tunnel
+  echo "🔍 Tạo Cloudflare Tunnel cho $name ($port)..."
+  nohup cloudflared tunnel --url http://localhost:$port --logfile $logfile > /dev/null 2>&1 &
+  TUNNEL_PID=$!
+  disown $TUNNEL_PID
+  echo $TUNNEL_PID > $pid_file
 
-# Kiểm tra kết nối cho User
-echo "🔍 Kiểm tra kết nối đến $tunnel_url (User)..."
-retry_count=0
-max_retries=3
-while [ $retry_count -lt $max_retries ]; do
-  if curl --connect-timeout 5 "$tunnel_url" >/dev/null 2>&1; then
-    echo "✅ Kết nối đến $tunnel_url (User) thành công."
-    break
+  # Đợi 15 giây để tunnel khởi tạo
+  sleep 15
+
+  # Lấy URL cuối cùng từ logfile
+  tunnel_url=$(grep -o "https://.*\.trycloudflare\.com" $logfile | tail -n 1 || echo "")
+  if [ -z "$tunnel_url" ]; then
+    echo "❌ Không thể tạo Cloudflare Tunnel cho $name."
+    cat $logfile
+    return 1
   fi
-  echo "⚠️ Không thể truy cập $tunnel_url (User). Thử lại lần $((retry_count + 1))/$max_retries..."
-  sleep 5
-  retry_count=$((retry_count + 1))
-done
 
-if [ $retry_count -eq $max_retries ]; then
-  echo "❌ Không thể truy cập $tunnel_url (User) sau $max_retries lần thử."
-  kubectl logs "$php_pod" -n default 2>/dev/null || echo "⚠️ Không thể lấy log."
-  exit 1
-fi
+  # Kiểm tra kết nối với thời gian chờ tăng lên
+  echo "🔍 Kiểm tra kết nối đến $tunnel_url ($name)..."
+  retry_count=0
+  max_retries=5
+  while [ $retry_count -lt $max_retries ]; do
+    if curl --connect-timeout 10 --retry 2 --retry-delay 5 "$tunnel_url" >/dev/null 2>&1; then
+      echo "✅ Kết nối đến $tunnel_url ($name) thành công."
+      echo $tunnel_url > /tmp/${name}_tunnel_url.txt
+      return 0
+    fi
+    echo "⚠️ Không thể truy cập $tunnel_url ($name). Thử lại lần $((retry_count + 1))/$max_retries..."
+    sleep 5
+    retry_count=$((retry_count + 1))
+  done
 
-# Lưu URL của User
-User_tunnel_url=$tunnel_url
-
-# Tạo Cloudflare Tunnel cho Admin (8081)
-echo "🔍 Tạo Cloudflare Tunnel cho Admin (8081)..."
-nohup cloudflared tunnel --url http://localhost:8081 --logfile cloudflared-admin.log > /dev/null 2>&1 &
-TUNNEL_ADMIN_PID=$!
-disown $TUNNEL_ADMIN_PID
-sleep 10
-
-# Lấy URL từ Cloudflare cho Admin
-tunnel_admin_url=$(grep -o "https://.*\.trycloudflare\.com" cloudflared-admin.log || echo "")
-if [ -z "$tunnel_admin_url" ]; then
-  echo "❌ Không thể tạo Cloudflare Tunnel cho Admin."
-  cat cloudflared-admin.log
-  exit 1
-fi
-
-# Kiểm tra kết nối cho Admin
-echo "🔍 Kiểm tra kết nối đến $tunnel_admin_url (Admin)..."
-retry_count=0
-max_retries=3
-while [ $retry_count -lt $max_retries ]; do
-  if curl --connect-timeout 5 "$tunnel_admin_url" >/dev/null 2>&1; then
-    echo "✅ Kết nối đến $tunnel_admin_url (Admin) thành công."
-    break
+  # Nếu kiểm tra thất bại, yêu cầu kiểm tra thủ công
+  echo "❌ Không thể truy cập $tunnel_url ($name) sau $max_retries lần thử."
+  echo "🔍 Vui lòng kiểm tra thủ công URL: $tunnel_url"
+  read -p "URL có hoạt động không? (y/n): " manual_check
+  if [ "$manual_check" = "y" ]; then
+    echo "✅ Người dùng xác nhận URL hoạt động."
+    echo $tunnel_url > /tmp/${name}_tunnel_url.txt
+    return 0
+  else
+    echo "❌ URL không hoạt động."
+    kubectl logs "$php_pod" -n default 2>/dev/null || echo "⚠️ Không thể lấy log."
+    return 1
   fi
-  echo "⚠️ Không thể truy cập $tunnel_admin_url (Admin). Thử lại lần $((retry_count + 1))/$max_retries..."
-  sleep 5
-  retry_count=$((retry_count + 1))
-done
+}
 
-if [ $retry_count -eq $max_retries ]; then
-  echo "❌ Không thể truy cập $tunnel_admin_url (Admin) sau $max_retries lần thử."
-  kubectl logs "$php_admin_pod" -n default 2>/dev/null || echo "⚠️ Không thể lấy log."
+# Tạo và kiểm tra tunnel cho User và Admin đồng thời
+create_and_check_tunnel "User" 8080 "cloudflared-User.log" "/tmp/cloudflared_pid.txt" &
+USER_PID=$!
+
+create_and_check_tunnel "Admin" 8081 "cloudflared-admin.log" "/tmp/cloudflared_admin_pid.txt" &
+ADMIN_PID=$!
+
+# Đợi cả hai tunnel hoàn thành
+wait $USER_PID
+USER_STATUS=$?
+wait $ADMIN_PID
+ADMIN_STATUS=$?
+
+# Kiểm tra kết quả
+if [ $USER_STATUS -ne 0 ]; then
+  echo "❌ Tạo tunnel cho User thất bại."
   exit 1
 fi
+
+if [ $ADMIN_STATUS -ne 0 ]; then
+  echo "❌ Tạo tunnel cho Admin thất bại."
+  exit 1
+fi
+
+# Lấy URL từ file tạm
+User_tunnel_url=$(cat /tmp/User_tunnel_url.txt)
+tunnel_admin_url=$(cat /tmp/Admin_tunnel_url.txt)
 
 echo "✅ [17] Đã tạo tunnel thành công."
 echo "🔗 Truy cập User tại: $User_tunnel_url"
 echo "🔗 Truy cập Admin tại: $tunnel_admin_url"
 
-# Lưu PID để quản lý sau này
+# Lưu PID port-forward
 echo $PORT_FORWARD_PID > /tmp/port_forward_pid.txt
 echo $PORT_FORWARD_ADMIN_PID > /tmp/port_forward_admin_pid.txt
-echo $TUNNEL_PID > /tmp/cloudflared_pid.txt
-echo $TUNNEL_ADMIN_PID > /tmp/cloudflared_admin_pid.txt

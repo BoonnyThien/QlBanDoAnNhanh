@@ -1,4 +1,4 @@
-echo "13 Kiểm tra Key Rotation..."
+echo "🚀 13 Kiểm tra Key Rotation..."
 echo "🔹 Giá trị MYSQL_PASSWORD trong mysql-secrets:"
 kubectl get secret mysql-secrets -n default -o jsonpath="{.data.MYSQL_PASSWORD}" | base64 -d
 echo "🔹 Giá trị DB_PASSWORD trong php-app-secrets:"

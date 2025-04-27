@@ -1,4 +1,4 @@
-echo "5️ Kiểm tra Container Security..."
+echo "🚀 5 Kiểm tra Container Security..."
 echo "🔹 Pods:"
 kubectl get pods -o wide -n default
 echo "🔹 Images đã sử dụng:"

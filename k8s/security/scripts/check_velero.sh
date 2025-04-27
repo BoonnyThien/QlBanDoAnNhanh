@@ -1,4 +1,4 @@
-echo "10 Kiểm tra Backup..."
+echo "🚀 10 Kiểm tra Backup..."
 echo "🔹 Velero Pods:"
 kubectl get pods -n velero
 echo "🔹 Backups:"

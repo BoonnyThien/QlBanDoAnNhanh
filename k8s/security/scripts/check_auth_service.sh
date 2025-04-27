@@ -1,4 +1,4 @@
-echo "8️ Kiểm tra Auth Service..."
+echo "🚀 8 Kiểm tra Auth Service..."
 echo "🔹 Pods:"
 kubectl get pods -n default -l app=auth-service
 echo "🔹 Service:"

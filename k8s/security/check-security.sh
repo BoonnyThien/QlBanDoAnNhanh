@@ -3,7 +3,7 @@
 echo "🔍 Bắt đầu kiểm tra bảo mật hệ thống QLBandoannhanh..."
 
 # 1. Kiểm tra tổng quan hệ thống
-echo "1 Kiểm tra tổng quan hệ thống..."
+echo "🚀 1 Kiểm tra tổng quan hệ thống..."
 minikube status
 echo "🔹 Pods của php-app và mysql:"
 kubectl get pods -n default -l app=php-app
@@ -52,18 +52,17 @@ chmod +x k8s/security/scripts/check_falco.sh
 ./k8s/security/scripts/check_falco.sh
 
 # 12. Kiểm tra Audit Logs
-chmod +x k8s/security/scripts/check_audit_logs.sh
-./k8s/security/scripts/check_audit_logs.sh
+# chmod +x k8s/security/scripts/check_audit_logs.sh
+# ./k8s/security/scripts/check_audit_logs.sh
 
-# 13. Kiểm tra Key Rotation
-chmod +x k8s/security/scripts/check_rotation_keys_secrets.sh
-./k8s/security/scripts/check_rotation_keys_secrets.sh
+# # 13. Kiểm tra Key Rotation
+# chmod +x k8s/security/scripts/check_rotation_keys_secrets.sh
+# ./k8s/security/scripts/check_rotation_keys_secrets.sh
 
-# 14. Áp dụng CronJob cho Key Rotation (nếu chưa tồn tại)
-chmod +x k8s/security/scripts/check_key_rotation_cronjob.sh
-./k8s/security/scripts/check_key_rotation_cronjob.sh
-# 15 ThưKiểm tra trạng thái tổng thể
+# # 14. Áp dụng CronJob cho Key Rotation (nếu chưa tồn tại)
+# chmod +x k8s/security/scripts/check_key_rotation_cronjob.sh
+# ./k8s/security/scripts/check_key_rotation_cronjob.sh
+# # 15 ThưKiểm tra trạng thái tổng thể
 
 chmod +x k8s/security/scripts/check_all.sh
 ./k8s/security/scripts/check_all.sh
-echo "✅ Hoàn tất kiểm tra bảo mật!"

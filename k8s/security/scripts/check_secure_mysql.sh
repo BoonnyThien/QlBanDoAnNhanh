@@ -1,4 +1,4 @@
-echo "7️ Kiểm tra MySQL Hardening..."
+echo "🚀 7 Kiểm tra MySQL Hardening..."
 MYSQL_POD=$(kubectl get pods -n default -l app=mysql -o name | head -n 1)
 if [ -n "$MYSQL_POD" ]; then
   echo "🔹 Biến SSL của MySQL:"
