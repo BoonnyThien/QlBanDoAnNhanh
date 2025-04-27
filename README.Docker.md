@@ -22,7 +22,6 @@ docker compose up -d mysql
 
 3. **View logs**:
 ```bash
-# View all logs
 docker compose logs -f
 
 # View specific service logs
