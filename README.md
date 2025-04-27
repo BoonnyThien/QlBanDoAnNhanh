@@ -46,24 +46,25 @@ Repository: ['https://github.com/BoonnyThien/QlBanDoAnNhanh']('https://github.co
 
 ```mermaid
 flowchart LR
-    UserAdmin[User/Admin] -->|HTTPS| CloudflareTunnel[Cloudflare Tunnel]
-    CloudflareTunnel -->|HTTPS| KubernetesIngress[Kubernetes Ingress]
-    KubernetesIngress --> PHPFrontend[PHP Frontend (User Interface)]
-    KubernetesIngress --> AuthService[Auth Service (Authentication)]
-    KubernetesIngress --> PHPAdmin[PHP Admin (Admin Interface)]
+    UserAdmin["User/Admin"] -->|HTTPS| CloudflareTunnel["Cloudflare Tunnel"]
+    CloudflareTunnel -->|HTTPS| KubernetesIngress["Kubernetes Ingress"]
+    KubernetesIngress --> PHPFrontend["PHP Frontend (User Interface)"]
+    KubernetesIngress --> AuthService["Auth Service (Authentication)"]
+    KubernetesIngress --> PHPAdmin["PHP Admin (Admin Interface)"]
     PHPFrontend -->|JWT| AuthService
     PHPFrontend -->|Port 3306| MySQLPod
     PHPAdmin -->|Port 3306| MySQLPod
-    NetworkPolicy1[Network Policy (Restrict Access)] --> MySQLPod
-    NetworkPolicy2[Network Policy (Restrict Access)] --> MySQLPod
-    RBAC1[RBAC (Access Control)] --> Kubernetes
-    RBAC2[RBAC (Access Control)] --> Kubernetes
+    NetworkPolicy1["Network Policy (Restrict Access)"] --> MySQLPod
+    NetworkPolicy2["Network Policy (Restrict Access)"] --> MySQLPod
+    RBAC1["RBAC (Access Control)"] --> Kubernetes
+    RBAC2["RBAC (Access Control)"] --> Kubernetes
     Kubernetes --> Prometheus
     Kubernetes --> Grafana
     Kubernetes --> Falco
     Grafana -->|Metrics| Prometheus
     Grafana -->|Logs| Falco
-    Velero -->|Backup| BackupStorage[Backup Storage]
+    Velero -->|Backup| BackupStorage["Backup Storage"]
+```
 
 ### Giải thích sơ đồ
 - **User/Admin**: Người dùng truy cập qua HTTPS thông qua Cloudflare Tunnel và Kubernetes Ingress.
