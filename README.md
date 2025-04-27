@@ -70,9 +70,12 @@ flowchart LR
     Kubernetes --> Grafana["Grafana"]
     Kubernetes --> Falco["Falco (Intrusion Detection)"]
     Grafana -->|Metrics| Prometheus
-    Grafana -->|Logs| Falco
-    Velero["Velero"] -->|Backup| BackupStorage["Backup Storage"]
+    Grafana -->|Security Logs| Falco
+    Velero["Velero"] -->|Backup/Restore| BackupStorage["Backup Storage"]
     Trivy["Trivy (Image Scanning)"] -->|Scan| DockerImages["Docker Images (PHP, Auth Service)"]
+    kube-bench["kube-bench (CIS Benchmarks)"] -->|Scan| Kubernetes
+    GitHubActions["GitHub Actions (CI/CD)"] -->|Build & Push| DockerImages
+    GitHubActions -->|Deploy| Kubernetes
 ```
 
 ### Giải thích sơ đồ
