@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 Dự án **Quản lý Bán Đồ Ăn Nhanh** là một hệ thống web giúp quản lý việc bán đồ ăn nhanh, được triển khai trên Kubernetes và Docker. Hệ thống có hai giao diện chính:
-- **Frontend**: Cho người dùng xem sản phẩm, đặt hàng, gửi phản hồi.
+- **User**: Cho người dùng xem sản phẩm, đặt hàng, gửi phản hồi.
 - **Admin**: Cho quản trị viên quản lý sản phẩm, đơn hàng, và thống kê.
 
 Dự án tích hợp các biện pháp bảo mật, CI/CD tự động, và giám sát hệ thống, phù hợp cho người mới học DevOps hoặc nhà tuyển dụng muốn đánh giá kỹ năng triển khai ứng dụng web.
@@ -17,7 +17,7 @@ Repository: ['https://github.com/BoonnyThien/QlBanDoAnNhanh']('https://github.co
 - **Giám sát và sao lưu**: Theo dõi hiệu suất với Prometheus/Grafana, sao lưu dữ liệu với Velero.
 
 ## Công nghệ sử dụng
-- **PHP**: Xây dựng logic cho Frontend và Admin.
+- **PHP**: Xây dựng logic cho User và Admin.
 - **MySQL**: Lưu trữ dữ liệu (sản phẩm, đơn hàng, tài khoản).
 - **Docker**: Container hóa ứng dụng với các image:
   - `buithienboo/qlbandoannhanh-php-app:1.1`: Image chính cho ứng dụng PHP
@@ -47,45 +47,40 @@ Repository: ['https://github.com/BoonnyThien/QlBanDoAnNhanh']('https://github.co
 ```mermaid
 flowchart LR
     UserAdmin["User/Admin"] -->|HTTPS| CloudflareTunnel["Cloudflare Tunnel"]
-    CloudflareTunnel -->|HTTPS| KubernetesIngress["Kubernetes Ingress"]
-    KubernetesIngress -->|frontend.doannhanh.local| PHPUser["PHP Frontend (User Interface)"]
-    KubernetesIngress -->|admin.doannhanh.local| PHPAdmin["PHP Admin (Admin Interface)"]
-    KubernetesIngress -->|auth.doannhanh.local| AuthService["Auth Service (buithienboo/auth-service:1.0)"]
+    CloudflareTunnel -->|HTTPS| Ingress["Kubernetes Ingress"]
+    Ingress --> PHPUser["PHP User"]
+    Ingress --> PHPAdmin["PHP Admin"]
+    Ingress --> AuthService["Auth Service"]
     PHPUser -->|JWT| AuthService
     PHPAdmin -->|JWT| AuthService
-    PHPUser -->|Port 3306| MySQLPod["MySQL Pod (qlbandoannhanh DB)"]
-    PHPAdmin -->|Port 3306| MySQLPod
-    MySQLPod -->|Persistent Storage| PVC["PersistentVolumeClaim (mysql-pvc)"]
-    NetworkPolicy["Network Policy (Restrict to Port 3306, Cloudflare IPs)"] --> MySQLPod
-    NetworkPolicy --> PHPUser
-    NetworkPolicy --> PHPAdmin
-    RBAC["RBAC (ServiceAccounts, Roles)"] --> Kubernetes
-    Kubernetes -->|Manage| PHPUser
-    Kubernetes -->|Manage| PHPAdmin
-    Kubernetes -->|Manage| MySQLPod
-    Kubernetes -->|Manage| AuthService
-    Kubernetes -->|Manage| ConfigMap["ConfigMap (mysql-init, mysql-config, mysql-security-config, apache-config, php-config)"]
-    Kubernetes -->|Manage| Secret["Secret (mysql-secret, tls-secret, app-tls)"]
-    Kubernetes --> Prometheus["Prometheus (ServiceMonitors)"]
-    Kubernetes --> Grafana["Grafana"]
-    Kubernetes --> Falco["Falco (Intrusion Detection)"]
-    Grafana -->|Metrics| Prometheus
-    Grafana -->|Security Logs| Falco
-    Velero["Velero"] -->|Backup/Restore| BackupStorage["Backup Storage"]
-    Trivy["Trivy (Image Scanning)"] -->|Scan| DockerImages["Docker Images (PHP, Auth Service)"]
-    kube-bench["kube-bench (CIS Benchmarks)"] -->|Scan| Kubernetes
-    GitHubActions["GitHub Actions (CI/CD)"] -->|Build & Push| DockerImages
-    GitHubActions -->|Deploy| Kubernetes
+    PHPUser -->|Port 3306| MySQL["MySQL Pod"]
+    PHPAdmin -->|Port 3306| MySQL
+    MySQL --> PVC["PVC"]
+    NetworkPolicy["Network Policy"] --> MySQL
+    RBAC["RBAC"] --> Kubernetes
+    Kubernetes --> Prometheus["Prometheus/Grafana"]
+    Kubernetes --> Falco["Falco"]
+    Kubernetes --> Velero["Velero"] --> Backup["Backup Storage"]
+    Trivy["Trivy"] --> DockerImages["Docker Images"]
+    kube-bench["kube-bench"] --> Kubernetes
+    GitHubActions["GitHub Actions"] --> DockerImages
+    GitHubActions --> Kubernetes
 ```
 
 ### Giải thích sơ đồ
-- **User/Admin**: Người dùng truy cập qua HTTPS thông qua Cloudflare Tunnel và Kubernetes Ingress.
-- **Auth Service**: Xác thực yêu cầu từ Frontend và Admin bằng JWT.
-- **Network Policy**: Giới hạn truy cập giữa PHP pods và MySQL (chỉ cho phép qua cổng 3306).
-- **RBAC**: Kiểm soát quyền truy cập của các pod (PHP, MySQL, Auth Service).
-- **Prometheus/Grafana**: Thu thập và hiển thị số liệu hiệu suất.
-- **Falco**: Phát hiện hành vi bất thường trong cụm Kubernetes.
-- **Velero**: Sao lưu dữ liệu MySQL và cấu hình Kubernetes.
+**User/Admin:** Người dùng truy cập qua HTTPS thông qua Cloudflare Tunnel và Kubernetes Ingress định tuyến đến User.
+**PHP User/Admin:** Chạy trên Deployment, kết nối MySQL qua cổng 3306, xác thực với Auth Service bằng JWT.
+**Auth Service:** Chạy image buithienboo/auth-service:1.0, xử lý xác thực cho User và Admin.
+**MySQL Pod:** Lưu trữ dữ liệu qlbandoannhanh (bảng tbl_sanpham, tbl_dangky), dùng PersistentVolumeClaim (mysql-pvc) và bảo vệ bằng ConfigMap mysql-security-config (SSL).
+**Network Policy:** Giới hạn truy cập MySQL chỉ từ PHP pods qua cổng 3306, giới hạn HTTP đến PHP pods từ Cloudflare IPs.
+**RBAC:** ServiceAccounts và Roles kiểm soát quyền của PHP, MySQL, Auth Service pods.
+**ConfigMap/Secret:** ConfigMap (mysql-init, mysql-config, mysql-security-config, apache-config, php-config) và Secret (mysql-secret, tls-secret, app-tls) quản lý cấu hình và bảo mật.
+**Prometheus/Grafana:** Thu thập số liệu từ PHP, MySQL, Auth Service pods, hiển thị biểu đồ hiệu suất.
+**Falco:** Phát hiện hành vi bất thường trong Kubernetes, gửi log bảo mật đến Grafana.
+**Velero:** Sao lưu namespace default (MySQL, PHP, Auth Service) vào Backup Storage, hỗ trợ khôi phục.
+**Trivy:** Quét lỗ hổng Docker images (buithienboo/qlbandoannhanh-php-app:1.1, buithienboo/auth-service:1.0) trong CI/CD.
+**kube-bench:** Kiểm tra bảo mật cấu hình Kubernetes theo CIS Benchmarks.
+**GitHub Actions:** Tự động kiểm thử PHP (PHPUnit), xây dựng/push Docker images, triển khai lên Kubernetes.
 
 ## Quy trình hoạt động
 
@@ -96,7 +91,7 @@ flowchart LR
    - Xây dựng Docker image và đẩy lên Docker Hub.
    - Triển khai image mới lên Kubernetes bằng `kubectl apply`.
 3. **Kubernetes**:
-   - Pods PHP (Frontend, Admin) và MySQL được triển khai.
+   - Pods PHP (User, Admin) và MySQL được triển khai.
    - Ingress định tuyến lưu lượng đến các service.
 4. **Cloudflare Tunnel**: Tạo URL công khai để truy cập ứng dụng.
 
@@ -146,7 +141,7 @@ docker compose up -d
 ```
 
 Truy cập:
-- Frontend: 'http://localhost:8080'
+- User: 'http://localhost:8080'
 - Admin: 'http://localhost:8081'
 
 ### 3. Chạy ứng dụng với Kubernetes
@@ -238,8 +233,8 @@ Dự án bao gồm nhiều script triển khai trong thư mục `k8s/`:
   - `apache-config.yaml`: Cấu hình Apache
 
 - **Logs**:
-  - `cloudflared-frontend.log`, `cloudflared-User.log`, `cloudflared-admin.log`: Logs của Cloudflare Tunnel
-  - `port-forward-frontend.log`, `port-forward-User.log`, `port-forward-admin.log`: Logs của port forwarding
+  - `cloudflared-User.log`, `cloudflared-User.log`, `cloudflared-admin.log`: Logs của Cloudflare Tunnel
+  - `port-forward-User.log`, `port-forward-User.log`, `port-forward-admin.log`: Logs của port forwarding
 
 ## Lưu ý
 - Đảm bảo cài đặt đầy đủ các công cụ (Docker, Minikube, kubectl, v.v.).
