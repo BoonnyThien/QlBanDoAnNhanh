@@ -17,6 +17,7 @@ docker compose build mysql
 2. **Start the application**:
 ```bash
 # Start all services
+
 docker compose up -d
 
 # Start specific service

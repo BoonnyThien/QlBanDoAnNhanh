@@ -6,8 +6,10 @@ if (!isset($_SESSION['dangnhap'])) {
     exit();
 }
 
-$base_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-$admin_base = $base_url . '/admin/';
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+$uri = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+$admin_base = $protocol . '://' . $_SERVER['HTTP_HOST'] . $uri . '/';
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -25,7 +27,7 @@ $admin_base = $base_url . '/admin/';
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     
     <!-- Favicon (đường dẫn tuyệt đối từ root) -->
-    <link rel="shortcut icon" href="/admin/assets/img/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon" />
     
     <!-- AdminLTE và plugins (đường dẫn tuyệt đối từ base) -->
     <link rel="stylesheet" href="Public/Admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -40,7 +42,7 @@ $admin_base = $base_url . '/admin/';
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     
     <!-- Custom CSS (đường dẫn tuyệt đối từ base) -->
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="<?php echo $admin_base; ?>assets/style/index.css">
     <link rel="stylesheet" href="style/formdangky.css">
 </head>
 
