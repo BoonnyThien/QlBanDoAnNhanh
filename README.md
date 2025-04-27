@@ -48,22 +48,31 @@ Repository: ['https://github.com/BoonnyThien/QlBanDoAnNhanh']('https://github.co
 flowchart LR
     UserAdmin["User/Admin"] -->|HTTPS| CloudflareTunnel["Cloudflare Tunnel"]
     CloudflareTunnel -->|HTTPS| KubernetesIngress["Kubernetes Ingress"]
-    KubernetesIngress --> PHPFrontend["PHP Frontend (User Interface)"]
-    KubernetesIngress --> AuthService["Auth Service (Authentication)"]
-    KubernetesIngress --> PHPAdmin["PHP Admin (Admin Interface)"]
-    PHPFrontend -->|JWT| AuthService
-    PHPFrontend -->|Port 3306| MySQLPod
+    KubernetesIngress -->|frontend.doannhanh.local| PHPUser["PHP Frontend (User Interface)"]
+    KubernetesIngress -->|admin.doannhanh.local| PHPAdmin["PHP Admin (Admin Interface)"]
+    KubernetesIngress -->|auth.doannhanh.local| AuthService["Auth Service (buithienboo/auth-service:1.0)"]
+    PHPUser -->|JWT| AuthService
+    PHPAdmin -->|JWT| AuthService
+    PHPUser -->|Port 3306| MySQLPod["MySQL Pod (qlbandoannhanh DB)"]
     PHPAdmin -->|Port 3306| MySQLPod
-    NetworkPolicy1["Network Policy (Restrict Access)"] --> MySQLPod
-    NetworkPolicy2["Network Policy (Restrict Access)"] --> MySQLPod
-    RBAC1["RBAC (Access Control)"] --> Kubernetes
-    RBAC2["RBAC (Access Control)"] --> Kubernetes
-    Kubernetes --> Prometheus
-    Kubernetes --> Grafana
-    Kubernetes --> Falco
+    MySQLPod -->|Persistent Storage| PVC["PersistentVolumeClaim (mysql-pvc)"]
+    NetworkPolicy["Network Policy (Restrict to Port 3306, Cloudflare IPs)"] --> MySQLPod
+    NetworkPolicy --> PHPUser
+    NetworkPolicy --> PHPAdmin
+    RBAC["RBAC (ServiceAccounts, Roles)"] --> Kubernetes
+    Kubernetes -->|Manage| PHPUser
+    Kubernetes -->|Manage| PHPAdmin
+    Kubernetes -->|Manage| MySQLPod
+    Kubernetes -->|Manage| AuthService
+    Kubernetes -->|Manage| ConfigMap["ConfigMap (mysql-init, mysql-config, mysql-security-config, apache-config, php-config)"]
+    Kubernetes -->|Manage| Secret["Secret (mysql-secret, tls-secret, app-tls)"]
+    Kubernetes --> Prometheus["Prometheus (ServiceMonitors)"]
+    Kubernetes --> Grafana["Grafana"]
+    Kubernetes --> Falco["Falco (Intrusion Detection)"]
     Grafana -->|Metrics| Prometheus
     Grafana -->|Logs| Falco
-    Velero -->|Backup| BackupStorage["Backup Storage"]
+    Velero["Velero"] -->|Backup| BackupStorage["Backup Storage"]
+    Trivy["Trivy (Image Scanning)"] -->|Scan| DockerImages["Docker Images (PHP, Auth Service)"]
 ```
 
 ### Giải thích sơ đồ
