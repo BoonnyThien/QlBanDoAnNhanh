@@ -44,41 +44,33 @@ Repository: ['https://github.com/BoonnyThien/QlBanDoAnNhanh']('https://github.co
 
 ## Sơ đồ kiến trúc dự án
 
-```
-+------------------+          +------------------+          +------------------+
-|    User/Admin    |--------->| Cloudflare Tunnel|--------->| Kubernetes Ingress|
-+------------------+   HTTPS   +------------------+   HTTPS  +------------------+
-|                                                          |
-|                                                          |
-+------------------+          +------------------+          +------------------+
-|   PHP Frontend   |<---------|   Auth Service  |          |    PHP Admin     |
-| (User Interface) |  JWT      | (Authentication)|          | (Admin Interface)|
-+------------------+          +------------------+          +------------------+
-|                            |                            |
-|                            |                            |
-v                            v                            v
-+------------------+          +------------------+          +------------------+
-|  Network Policy  |--------->|     MySQL Pod    |<---------|  Network Policy  |
-| (Restrict Access)|  Port 3306 +------------------+ Port 3306 | (Restrict Access)|
-+------------------+                                        +------------------+
-|                                                 |
-v                                                 v
-+------------------+          +------------------+          +------------------+
-|      RBAC        |--------->|    Kubernetes   |<---------|      RBAC        |
-| (Access Control) |          | (Pod Management) |          | (Access Control) |
-+------------------+          +------------------+          +------------------+
-|                                                          |
-v                                                          v
-+------------------+          +------------------+          +------------------+
-|    Prometheus    |<---------|      Grafana     |--------->|      Falco       |
-| (Monitoring)     | Metrics   | (Visualization) | Logs      | (Security Alerts)|
-+------------------+          +------------------+          +------------------+
-|                                                          |
-v                                                          v
-+------------------+          +------------------+
-|      Velero      |--------->|    Backup Storage|
-| (Backup/Restore) |          | (Persistent Data)|
-+------------------+          +------------------+
+```mermaid
+flowchart LR
+    UserAdmin[User/Admin] -->|HTTPS| CloudflareTunnel[Cloudflare Tunnel]
+    CloudflareTunnel -->|HTTPS| KubernetesIngress[Kubernetes Ingress]
+
+    KubernetesIngress --> PHPFrontend[PHP Frontend (User Interface)]
+    KubernetesIngress --> AuthService[Auth Service (Authentication)]
+    KubernetesIngress --> PHPAdmin[PHP Admin (Admin Interface)]
+
+    PHPFrontend -->|JWT| AuthService
+
+    PHPFrontend -->|Port 3306| MySQLPod
+    PHPAdmin -->|Port 3306| MySQLPod
+    NetworkPolicy1[Network Policy (Restrict Access)] --> MySQLPod
+    NetworkPolicy2[Network Policy (Restrict Access)] --> MySQLPod
+
+    RBAC1[RBAC (Access Control)] --> Kubernetes
+    RBAC2[RBAC (Access Control)] --> Kubernetes
+
+    Kubernetes --> Prometheus
+    Kubernetes --> Grafana
+    Kubernetes --> Falco
+
+    Grafana -->|Metrics| Prometheus
+    Grafana -->|Logs| Falco
+
+    Velero -->|Backup| BackupStorage[Backup Storage]
 ```
 
 ### Giải thích sơ đồ
