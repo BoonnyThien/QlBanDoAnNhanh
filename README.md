@@ -65,8 +65,6 @@ flowchart LR
     Grafana -->|Logs| Falco
     Velero -->|Backup| BackupStorage[Backup Storage]
 
-```
-
 ### Giải thích sơ đồ
 - **User/Admin**: Người dùng truy cập qua HTTPS thông qua Cloudflare Tunnel và Kubernetes Ingress.
 - **Auth Service**: Xác thực yêu cầu từ Frontend và Admin bằng JWT.
